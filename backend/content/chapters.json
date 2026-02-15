@@ -12,17 +12,13 @@
               "option_id": "c01-s01-o1",
               "option_text": "Acercarte a Carmen",
               "next_chapter_id": "c02",
-              "mappings": [
-                { "scale": "GDS", "item": 2, "weight": 1.0, "confidence": 0.9 }
-              ]
+              "mappings": [ { "scale": "GDS", "item": 2, "weight": 1.0, "confidence": 0.9 } ]
             },
             {
               "option_id": "c01-s01-o2",
               "option_text": "Unirte al grupo",
               "next_chapter_id": "c03",
-              "mappings": [
-                { "scale": "PHQ", "item": 4, "weight": 0.5, "confidence": 0.8 }
-              ]
+              "mappings": [ { "scale": "PHQ", "item": 4, "weight": 0.5, "confidence": 0.8 } ]
             },
             {
               "option_id": "c01-s01-o3",
@@ -41,9 +37,7 @@
         {
           "scene_id": "c02-s01",
           "text": "Carmen sonríe y te pregunta cómo estás. ¿Qué respondes?",
-          "options": [
-            { "option_id": "c02-s01-o1", "option_text": "Bien, gracias", "next_chapter_id": null, "mappings": [] }
-          ]
+          "options": [ { "option_id": "c02-s01-o1", "option_text": "Bien, gracias", "next_chapter_id": null, "mappings": [] } ]
         }
       ]
     },
@@ -54,61 +48,10 @@
         {
           "scene_id": "c03-s01",
           "text": "El grupo te invita a unirte a una actividad. ¿Aceptas?",
-          "options": [
-            { "option_id": "c03-s01-o1", "option_text": "Sí, me uno", "next_chapter_id": null, "mappings": [] }
-          ]
+          "options": [ { "option_id": "c03-s01-o1", "option_text": "Sí, me uno", "next_chapter_id": null, "mappings": [] } ]
         }
       ]
-    }
-    {
-      "chapter_id": "c04",
-      "title": "Capítulo 4 - Duda y recurso",
-      "scenes": [
-        {
-          "scene_id": "c04-s01",
-          "text": "Estás en el parque y ves a cartel que ofrece apoyo.",
-          "options": [
-            {
-              "option_id": "c04-s01-o1",
-              "option_text": "Tomar el folleto y llamar",
-              "next_chapter_id": "c04",
-              "mappings": [
-                { "scale": "PHQ", "item": 9, "weight": 1.0, "confidence": 0.9 }
-              ]
-            },
-            {
-              "option_id": "c04-s01-o2",
-              "option_text": "Ignorar el cartel",
-              "next_chapter_id": "c04",
-              "mappings": []
-            },
-            {
-              "option_id": "c04-s01-o3",
-              "option_text": "Preguntar a un voluntario",
-              "next_chapter_id": "c04",
-              "mappings": []
-            }
-          ]
-        },
-        {
-          "scene_id": "c04-s02",
-          "text": "Al ignorar el cartel, sigues tu camino y te sientes igual. ¿Quieres volver atrás?",
-          "options": [
-            { "option_id": "c04-s02-o1", "option_text": "Volver al cartel", "next_chapter_id": "c04", "mappings": [] },
-            { "option_id": "c04-s02-o2", "option_text": "Seguir adelante", "next_chapter_id": null, "mappings": [] }
-          ]
-        },
-        {
-          "scene_id": "c04-s03",
-          "text": "El voluntario te escucha y te ofrece una línea de ayuda. ¿Aceptas que te contacten?",
-          "options": [
-            { "option_id": "c04-s03-o1", "option_text": "Sí, acepto", "next_chapter_id": null, "mappings": [ { "scale": "PHQ", "item": 9, "weight": 1.0, "confidence": 0.95 } ] },
-            { "option_id": "c04-s03-o2", "option_text": "No, gracias", "next_chapter_id": null, "mappings": [] }
-          ]
-        }
-      ]
-    }
-    ,
+    },
     {
       "chapter_id": "c04",
       "title": "Capítulo 4 - Duda y recurso",
@@ -121,17 +64,13 @@
               "option_id": "c04-s01-o1",
               "option_text": "Tomar el folleto y llamar",
               "next_chapter_id": "c04",
-              "mappings": [
-                { "scale": "PHQ", "item": 9, "weight": 1.0, "confidence": 0.9 }
-              ]
+              "mappings": [ { "scale": "PHQ", "item": 9, "weight": 1.0, "confidence": 0.9 } ]
             },
             {
               "option_id": "c04-s01-o2",
               "option_text": "Ignorar el cartel",
               "next_chapter_id": "c04-s02",
-              "mappings": [
-                { "scale": "GDS", "item": 3, "weight": 0.5, "confidence": 0.7 }
-              ]
+              "mappings": [ { "scale": "GDS", "item": 3, "weight": 0.5, "confidence": 0.7 } ]
             },
             {
               "option_id": "c04-s01-o3",
