@@ -1,0 +1,135 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Escoje tu Historia - Session Payload",
+  "type": "object",
+  "required": ["session_id","pseudonym","started_at","decisions"],
+  "properties": {
+    "schema_version": {"type":"string","description":"Schema version"},
+    "generated_at": {"type":"string","format":"date-time"},
+    "session_id": {"type":"string","format":"uuid"},
+    "pseudonym": {"type":"string","maxLength":64},
+    "consent_given": {"type":"boolean"},
+    "privacy_mode": {"type":"string","enum":["anonymous","tracking"]},
+    "started_at": {"type":"string","format":"date-time"},
+    "ended_at": {"type":["string","null"],"format":"date-time"},
+    "session_length_seconds": {"type":["integer","null"]},
+    "abandonment_flag": {"type":"boolean"},
+    "device_type": {"type":"string"},
+    "ingest_batch_id": {"type":["string","null"],"format":"uuid"},
+
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["decision_id","timestamp","chapter_id","scene_id","option_selected","mapping_results"],
+        "properties": {
+          "designer_mapping": {
+            "type": "array",
+            "items": {"type":"object"}
+          },
+          "decision_id": {"type":"string","format":"uuid"},
+          "timestamp": {"type":"string","format":"date-time"},
+          "chapter_id": {"type":"string"},
+          "chapter_title": {"type":"string"},
+          "scene_id": {"type":"string"},
+          "scene_narration": {"type":"string"},
+
+          "option_selected": {
+            "type":"object",
+            "required":["option_id","option_text","time_to_decision_ms"],
+            "properties":{
+              "option_id": {"type":"string"},
+              "option_text": {"type":"string"},
+              "time_to_decision_ms": {"type":"integer"}
+            }
+          },
+
+          "mapping_results": {
+            "type":"object",
+            "required":["mapping_confidence","clinical_mappings"],
+            "properties":{
+              "mapping_confidence": {"type":"number","minimum":0,"maximum":1},
+              "clinical_mappings": {
+                "type":"array",
+                "items":{
+                  "type":"object",
+                  "required":["scale","item","weight","confidence"],
+                  "properties":{
+                    "mapping_id": {"type":"string","format":"uuid"},
+                    "scale": {"type":"string","enum":["GDS","PHQ"]},
+                    "item": {"type":"integer"},
+                    "item_description": {"type":"string"},
+                    "weight": {"type":"number"},
+                    "confidence": {"type":"number","minimum":0,"maximum":1},
+                    "primary_construct": {"type":"string"},
+                    "rationale": {"type":"string"},
+                    "mapping_source": {"type":"string","enum":["designer","llm","heuristic"]},
+                    "source_confidence": {"type":["number","null"],"minimum":0,"maximum":1}
+                  }
+                }
+              }
+            }
+          },
+
+          "validation": {
+            "type":"object",
+            "properties":{
+              "schema_valid": {"type":"boolean"},
+              "confidence_above_threshold": {"type":"boolean"},
+              "heuristic_checks": {"type":"array","items":{"type":"string"}}
+            }
+          },
+
+          "risk_flags": {"type":"array","items":{"type":"string"}},
+
+          "next_scene": {
+            "type":"object",
+            "properties":{
+              "narration": {"type":"string"},
+              "emotional_tone": {"type":"string"}
+            }
+          },
+
+          "decision_audit_id": {"type":["string","null"],"format":"uuid"}
+        }
+      }
+    },
+
+    "session_summary": {
+      "type":"object",
+      "properties":{
+        "total_decisions": {"type":"integer"},
+        "avg_decision_time_ms": {"type":"number"},
+        "emotional_score_gds": {"type":"number"},
+        "emotional_score_phq": {"type":"number"},
+        "risk_flags_detected": {"type":"integer"},
+        "abandonment_reason": {"type":["string","null"]}
+      }
+    },
+
+    "audio_metrics": {
+      "type":"array",
+      "items":{
+        "type":"object",
+        "properties":{
+          "audio_id": {"type":"string","format":"uuid"},
+          "timestamp": {"type":"string","format":"date-time"},
+          "valence": {"type":"number"},
+          "arousal": {"type":"number"},
+          "sadness_score": {"type":"number"},
+          "speech_rate": {"type":"string"}
+        }
+      }
+    },
+
+    "technical_metadata": {
+      "type":"object",
+      "properties":{
+        "skill_version": {"type":"string"},
+        "llm_model": {"type":"string"},
+        "alexa_device_id": {"type":"string"},
+        "network_latency_ms": {"type":"integer"}
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": false,
+    "sessionId": "amzn1.echo-api.session.test",
+    "application": { "applicationId": "amzn1.ask.skill.08e23263-632c-468b-8769-973c1ffcda2e" },
+    "user": { "userId": "amzn1.ask.account.test" },
+    "attributes": {
+      "stage": "scene",
+      "pseudonym": "Juan",
+      "chapter_id": "c01",
+      "current_scene_id": "c01-s01",
+      "current_options": [
+        { "option_id": "c01-s01-o1", "option_text": "Acercarte a Carmen", "index": 1 },
+        { "option_id": "c01-s01-o2", "option_text": "Unirte al grupo", "index": 2 },
+        { "option_id": "c01-s01-o3", "option_text": "Sentarte solo", "index": 3 }
+      ]
+    }
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "req.test.choose",
+    "timestamp": "2026-02-11T12:00:20Z",
+    "intent": {
+      "name": "ChooseOptionIntent",
+      "slots": { "option": { "name": "option", "value": "1" } }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "chapters": [
+    {
+      "chapter_id": "c01",
+      "title": "Paseo por el parque",
+      "scenes": [
+        {
+          "scene_id": "c01-s01",
+          "text": "Hoy, después de desayunar, decides salir a dar un paseo. Al llegar al parque, ves a tu vecina, Carmen, sentada en un banco. Parece que quiere hablar, pero también notas que hay un grupo de personas jugando a las cartas en otra mesa. ¿Qué quieres hacer?",
+          "options": [
+            {
+              "option_id": "c01-s01-o1",
+              "option_text": "Acercarte a Carmen",
+              "next_chapter_id": "c02",
+              "mappings": [
+                { "scale": "GDS", "item": 2, "weight": 1.0, "confidence": 0.9 }
+              ]
+            },
+            {
+              "option_id": "c01-s01-o2",
+              "option_text": "Unirte al grupo",
+              "next_chapter_id": "c03",
+              "mappings": [
+                { "scale": "PHQ", "item": 4, "weight": 0.5, "confidence": 0.8 }
+              ]
+            },
+            {
+              "option_id": "c01-s01-o3",
+              "option_text": "Sentarte solo",
+              "next_chapter_id": "c04",
+              "mappings": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

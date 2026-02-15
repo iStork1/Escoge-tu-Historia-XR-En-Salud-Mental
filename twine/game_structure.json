@@ -1,0 +1,151 @@
+{
+  "title": "Escoje tu Historia - Phase 1 (28 chapters)",
+  "chapters": [
+    {
+      "chapter_id": "chapter-01",
+      "title": "Capítulo 1",
+      "scenes": [
+        {"scene_id":"c01-s01","text":"Inicio escena 1","metadata":{"context":{"time_of_day_hint":null,"fatigue_hint":null}},"options":[{"option_id":"o1","text":"Opción A","designer_mapping":[{"mapping_id":"map-c01","scale":"GDS","item":1,"weight":1.0,"confidence":1.0,"primary_construct":"mood","rationale":"placeholder"}]},{"option_id":"o2","text":"Opción B"}]} 
+      ]
+    },
+    {
+      "chapter_id": "chapter-02",
+      "title": "Capítulo 2",
+      "scenes": [
+        {"scene_id":"c02-s01","text":"Escena ejemplo","metadata":{"context":{"time_of_day_hint":null,"fatigue_hint":null}},"options":[{"option_id":"o1","text":"Opción A","designer_mapping":[{"mapping_id":"map-c02","scale":"PHQ","item":1,"weight":1.0,"confidence":1.0,"primary_construct":"anhedonia","rationale":"placeholder"}]}]} 
+      ]
+    }
+    
+    ,
+    {
+      "chapter_id": "chapter-03",
+      "title": "Capítulo 3",
+      "scenes": [{"scene_id":"c03-s01","text":"Escena 3","metadata":{"context":{"time_of_day_hint":null,"fatigue_hint":null}},"options":[{"option_id":"o1","text":"Opción A","designer_mapping":[{"mapping_id":"map-c03","scale":"GDS","item":2,"weight":1.0,"confidence":1.0,"primary_construct":"sleep","rationale":"placeholder"}]}]}]
+    },
+    {
+      "chapter_id": "chapter-04",
+      "title": "Capítulo 4",
+      "scenes": [{"scene_id":"c04-s01","text":"Escena 4","metadata":{"context":{"time_of_day_hint":null,"fatigue_hint":null}},"options":[{"option_id":"o1","text":"Opción A","designer_mapping":[{"mapping_id":"map-c04","scale":"PHQ","item":2,"weight":1.0,"confidence":1.0,"primary_construct":"sleep","rationale":"placeholder"}]}]}]
+    },
+    {
+      "chapter_id": "chapter-05",
+      "title": "Capítulo 5",
+      "scenes": [{"scene_id":"c05-s01","text":"Escena 5","metadata":{"context":{"time_of_day_hint":null,"fatigue_hint":null}},"options":[{"option_id":"o1","text":"Opción A","designer_mapping":[{"mapping_id":"map-c05","scale":"GDS","item":3,"weight":1.0,"confidence":1.0,"primary_construct":"appetite","rationale":"placeholder"}]}]}]
+    },
+    {
+      "chapter_id": "chapter-06",
+      "title": "Capítulo 6",
+      "scenes": [{"scene_id":"c06-s01","text":"Escena 6","metadata":{"context":{"time_of_day_hint":null,"fatigue_hint":null}},"options":[{"option_id":"o1","text":"Opción A","designer_mapping":[{"mapping_id":"map-c06","scale":"PHQ","item":3,"weight":1.0,"confidence":1.0,"primary_construct":"energy","rationale":"placeholder"}]}]}]
+    },
+    {
+      "chapter_id": "chapter-07",
+      "title": "Capítulo 7",
+      "scenes": [{"scene_id":"c07-s01","text":"Escena 7","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-08",
+      "title": "Capítulo 8",
+      "scenes": [{"scene_id":"c08-s01","text":"Escena 8","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-09",
+      "title": "Capítulo 9",
+      "scenes": [{"scene_id":"c09-s01","text":"Escena 9","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-10",
+      "title": "Capítulo 10",
+      "scenes": [{"scene_id":"c10-s01","text":"Escena 10","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-11",
+      "title": "Capítulo 11",
+      "scenes": [{"scene_id":"c11-s01","text":"Escena 11","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-12",
+      "title": "Capítulo 12",
+      "scenes": [{"scene_id":"c12-s01","text":"Escena 12","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-13",
+      "title": "Capítulo 13",
+      "scenes": [{"scene_id":"c13-s01","text":"Escena 13","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-14",
+      "title": "Capítulo 14",
+      "scenes": [{"scene_id":"c14-s01","text":"Escena 14","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-15",
+      "title": "Capítulo 15",
+      "scenes": [{"scene_id":"c15-s01","text":"Escena 15","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-16",
+      "title": "Capítulo 16",
+      "scenes": [{"scene_id":"c16-s01","text":"Escena 16","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-17",
+      "title": "Capítulo 17",
+      "scenes": [{"scene_id":"c17-s01","text":"Escena 17","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-18",
+      "title": "Capítulo 18",
+      "scenes": [{"scene_id":"c18-s01","text":"Escena 18","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-19",
+      "title": "Capítulo 19",
+      "scenes": [{"scene_id":"c19-s01","text":"Escena 19","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-20",
+      "title": "Capítulo 20",
+      "scenes": [{"scene_id":"c20-s01","text":"Escena 20","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-21",
+      "title": "Capítulo 21",
+      "scenes": [{"scene_id":"c21-s01","text":"Escena 21","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-22",
+      "title": "Capítulo 22",
+      "scenes": [{"scene_id":"c22-s01","text":"Escena 22","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-23",
+      "title": "Capítulo 23",
+      "scenes": [{"scene_id":"c23-s01","text":"Escena 23","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-24",
+      "title": "Capítulo 24",
+      "scenes": [{"scene_id":"c24-s01","text":"Escena 24","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-25",
+      "title": "Capítulo 25",
+      "scenes": [{"scene_id":"c25-s01","text":"Escena 25","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-26",
+      "title": "Capítulo 26",
+      "scenes": [{"scene_id":"c26-s01","text":"Escena 26","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-27",
+      "title": "Capítulo 27",
+      "scenes": [{"scene_id":"c27-s01","text":"Escena 27","options":[{"option_id":"o1","text":"Opción A"}]}]
+    },
+    {
+      "chapter_id": "chapter-28",
+      "title": "Capítulo 28",
+      "scenes": [{"scene_id":"c28-s01","text":"Escena final","options":[{"option_id":"o1","text":"Final"}]}]
+    }
+  ]
+}

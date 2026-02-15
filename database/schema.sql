@@ -8,17 +8,26 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 -- SETTINGS / CONSTANTS (adjust in migration or app config)
 -- phq9_item9 risk threshold used by triggers/logic: 0.2
 
+-- Users (separate identity table)
+CREATE TABLE IF NOT EXISTS users (
+  user_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  pseudonym VARCHAR(64) UNIQUE NOT NULL,
+  created_at TIMESTAMPTZ DEFAULT now(),
+  metadata JSONB
+);
+
 -- Sessions: one row per play session
 CREATE TABLE IF NOT EXISTS sessions (
   session_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES users(user_id) ON DELETE SET NULL,
   pseudonym VARCHAR(64) NOT NULL,
+  chapter_id TEXT REFERENCES chapters(chapter_id) ON DELETE SET NULL,
   started_at TIMESTAMPTZ DEFAULT now(),
   ended_at TIMESTAMPTZ,
   session_length_seconds INT,
   consent_given BOOLEAN DEFAULT FALSE,
   privacy_mode VARCHAR(20) CHECK (privacy_mode IN ('anonymous','tracking')) DEFAULT 'anonymous',
   abandonment_flag BOOLEAN DEFAULT FALSE,
-  chapter_id VARCHAR(50),
   source VARCHAR(50) DEFAULT 'alexa',
   ingest_batch_id UUID,
   normalized_emotional_score_gds FLOAT,
@@ -39,14 +48,38 @@ CREATE TABLE IF NOT EXISTS decision_audit (
   pseudonym VARCHAR(64)
 );
 
+-- Chapters / Scenes / Options: canonical story structure
+CREATE TABLE IF NOT EXISTS chapters (
+  chapter_id TEXT PRIMARY KEY,
+  title TEXT NOT NULL,
+  "order" INT,
+  metadata JSONB
+);
+
+CREATE TABLE IF NOT EXISTS scenes (
+  scene_id TEXT PRIMARY KEY,
+  chapter_id TEXT REFERENCES chapters(chapter_id) ON DELETE CASCADE,
+  title TEXT,
+  "order" INT,
+  metadata JSONB
+);
+
+CREATE TABLE IF NOT EXISTS options (
+  option_id TEXT PRIMARY KEY,
+  scene_id TEXT REFERENCES scenes(scene_id) ON DELETE CASCADE,
+  option_text TEXT NOT NULL,
+  designer_mapping JSONB,
+  metadata JSONB
+);
+
 -- Decisions: one per user choice per scene
 CREATE TABLE IF NOT EXISTS decisions (
   decision_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   session_id UUID REFERENCES sessions(session_id) ON DELETE CASCADE,
+  chapter_id TEXT,
   timestamp TIMESTAMPTZ DEFAULT now(),
-  chapter_id VARCHAR(50),
-  scene_id VARCHAR(100),
-  option_id VARCHAR(100),
+  scene_id TEXT REFERENCES scenes(scene_id),
+  option_id TEXT REFERENCES options(option_id),
   option_text TEXT,
   time_to_decision_ms INT,
   mapping_confidence FLOAT CHECK (mapping_confidence >= 0 AND mapping_confidence <= 1),
@@ -55,9 +88,29 @@ CREATE TABLE IF NOT EXISTS decisions (
   raw_mapping JSONB
 );
 
+-- Decision ratings: concrete rating values derived from decisions (GDS/PHQ items)
+CREATE TABLE IF NOT EXISTS decision_ratings (
+  rating_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  decision_id UUID REFERENCES decisions(decision_id) ON DELETE CASCADE,
+  scale VARCHAR(10) CHECK (scale IN ('GDS','PHQ')) NOT NULL,
+  item SMALLINT NOT NULL,
+  value NUMERIC,
+  derived BOOLEAN DEFAULT TRUE,
+  created_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- Session scores: aggregated totals per session for fast reads
+CREATE TABLE IF NOT EXISTS session_scores (
+  session_id UUID PRIMARY KEY REFERENCES sessions(session_id) ON DELETE CASCADE,
+  gds_total NUMERIC,
+  phq_total NUMERIC,
+  computed_at TIMESTAMPTZ DEFAULT now()
+);
+
 -- Clinical mappings: denormalized entries for analysis
 CREATE TABLE IF NOT EXISTS clinical_mappings (
   mapping_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  option_id TEXT REFERENCES options(option_id) ON DELETE CASCADE,
   decision_id UUID REFERENCES decisions(decision_id) ON DELETE CASCADE,
   scale VARCHAR(10) CHECK (scale IN ('GDS','PHQ')),
   item INT,
@@ -65,6 +118,8 @@ CREATE TABLE IF NOT EXISTS clinical_mappings (
   confidence FLOAT CHECK (confidence >= 0 AND confidence <= 1),
   primary_construct VARCHAR(100),
   rationale TEXT,
+  mapping_source VARCHAR(20) CHECK (mapping_source IN ('designer','llm','heuristic')) DEFAULT 'llm',
+  source_confidence FLOAT,
   validated BOOLEAN DEFAULT FALSE
 );
 

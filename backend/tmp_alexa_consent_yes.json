@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": false,
+    "sessionId": "amzn1.echo-api.session.test",
+    "application": { "applicationId": "amzn1.ask.skill.08e23263-632c-468b-8769-973c1ffcda2e" },
+    "user": { "userId": "amzn1.ask.account.test" },
+    "attributes": { "stage": "consent", "pseudonym": "Juan" }
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "req.test.yes",
+    "timestamp": "2026-02-11T12:00:10Z",
+    "intent": { "name": "AMAZON.YesIntent" }
+  }
+}

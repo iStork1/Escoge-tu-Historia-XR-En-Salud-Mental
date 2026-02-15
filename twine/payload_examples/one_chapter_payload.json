@@ -1,0 +1,31 @@
+{
+  "session_id": "test-session-1",
+  "pseudonym": "test_user_1",
+  "started_at": "2026-02-10T10:00:00.000Z",
+  "ended_at": "2026-02-10T10:02:00.000Z",
+  "consent_given": true,
+  "chapter_id": "chapter-01",
+  "source": "alexa",
+  "decisions": [
+    {
+      "decision_id": "dec-1",
+      "timestamp": "2026-02-10T10:01:00.000Z",
+      "chapter_id": "chapter-01",
+      "scene_id": "c01-s01",
+      "option_id": "o1",
+      "option_text": "Opción A",
+      "time_to_decision_ms": 3200,
+      "designer_mapping": [
+        {
+          "mapping_id": "map-c01",
+          "scale": "GDS",
+          "item": 1,
+          "weight": 1.0,
+          "confidence": 1.0,
+          "primary_construct": "mood",
+          "rationale": "placeholder"
+        }
+      ]
+    }
+  ]
+}

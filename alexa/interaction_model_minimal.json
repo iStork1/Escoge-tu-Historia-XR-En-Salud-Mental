@@ -1,0 +1,25 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "elige historia",
+      "intents": [
+        {
+          "name": "StartChapterIntent",
+          "slots": [],
+          "samples": ["comenzar historia", "iniciar capítulo", "abrir capítulo uno"]
+        },
+        {
+          "name": "ChooseOptionIntent",
+          "slots": [
+            {"name": "option", "type": "AMAZON.FOUR_DIGIT_NUMBER"}
+          ],
+          "samples": ["elige la opción {option}", "opción {option}", "yo elijo {option}"]
+        },
+        {"name": "AMAZON.CancelIntent"},
+        {"name": "AMAZON.HelpIntent"},
+        {"name": "AMAZON.StopIntent"}
+      ],
+      "types": []
+    }
+  }
+}
