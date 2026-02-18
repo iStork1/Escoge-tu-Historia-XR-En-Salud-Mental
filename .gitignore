@@ -51,3 +51,5 @@ node_modules/
 jspm_packages/
 bower_components/
 .tmp/
+backend/.env
+backend/tmp_query_supabase.ps1
