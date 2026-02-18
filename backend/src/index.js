@@ -66,6 +66,16 @@ function findScene(chapter_id, scene_id) {
 async function ensureOptionsUpsert() {
   try {
     for (const ch of (CHAPTERS.chapters || [])) {
+      // Ensure chapter exists first to satisfy scenes -> chapters FK
+      try {
+        const chapterRow = { chapter_id: ch.chapter_id, title: ch.title || null };
+        const { data: cdata, error: cerr } = await supabase.from('chapters').upsert([chapterRow], { onConflict: 'chapter_id' }).select();
+        if (cerr) console.warn('chapters upsert error', cerr);
+        else console.log('ensured chapter', ch.chapter_id);
+      } catch (e) {
+        console.warn('chapters ensure exception', e && e.message);
+      }
+
       for (const sc of (ch.scenes || [])) {
         // Ensure scene exists before inserting options to satisfy FK constraints
         try {
@@ -221,13 +231,36 @@ async function handleAlexa(req, res) {
         return res.end(JSON.stringify(alexaResponse('No entendí tu pseudónimo. Por favor dilo de nuevo.', sessionAttrs, false)));
       }
 
-      // Consent handling
+      // Consent handling (be tolerant to different intent names and slot values)
       if (sessionAttrs.stage === 'consent') {
-        if (intentName === 'AMAZON.YesIntent') {
+        const consentSlots = (body.request.intent && body.request.intent.slots) || {};
+        const slotValues = Object.keys(consentSlots).map(k => (consentSlots[k] && consentSlots[k].value) || '').filter(Boolean).map(s => String(s).toLowerCase());
+        const intentNorm = String(intentName || '').toLowerCase();
+        const isYes = intentName === 'AMAZON.YesIntent' || intentNorm.endsWith('yesintent') || slotValues.some(v => ['si', 'sí', 'si.', 'sí.','yes','y'].includes(v));
+        const isNo = intentName === 'AMAZON.NoIntent' || intentNorm.endsWith('nointent') || slotValues.some(v => ['no','nop','no.'].includes(v));
+        console.log('consent check', { intentName, slotValues, isYes, isNo });
+
+        if (isYes) {
           // Create a session row now and present first scene
           const pseudonym = sessionAttrs.pseudonym || ((body.session && body.session.user && body.session.user.userId) ? String(body.session.user.userId).slice(0,64) : `anon_${Date.now()}`);
-          const sessionPayload = { source: 'alexa', pseudonym, consent_given: true, chapter_id: 'c01' };
+          // Enforce one chapter per day per pseudonym
           try {
+            const today = new Date().toISOString().slice(0,10);
+            let recent = null;
+            try {
+              const { data: rdata, error: rerr } = await supabase.from('sessions').select('session_id, started_at').eq('pseudonym', pseudonym).order('started_at', { ascending: false }).limit(1).maybeSingle();
+              if (rerr) console.warn('recent session lookup error', rerr);
+              recent = rdata;
+            } catch (e) { console.warn('recent session exception', e && e.message); }
+            if (recent && recent.started_at) {
+              const recentDate = new Date(recent.started_at).toISOString().slice(0,10);
+              if (recentDate === today) {
+                res.writeHead(200, {'Content-Type':'application/json'});
+                return res.end(JSON.stringify(alexaResponse('Hoy ya has jugado un capítulo. Vuelve mañana para continuar con otro capítulo.', sessionAttrs, true)));
+              }
+            }
+
+            const sessionPayload = { source: 'alexa', pseudonym, consent_given: true, chapter_id: 'c01' };
             const persist = await processTelemetryPayload(sessionPayload, req.headers);
             const session_id = persist.session_id;
             const sa = Object.assign({}, sessionAttrs, { stage: 'scene', session_id, pseudonym, consent_given: true, chapter_id: 'c01' });
@@ -239,10 +272,18 @@ async function handleAlexa(req, res) {
               res.writeHead(500, {'Content-Type':'application/json'});
               return res.end(JSON.stringify(alexaResponse('No se encontró la escena inicial.', sessionAttrs, true)));
             }
-            const opts = (firstScene.options || []).map((o, idx) => ({ option_id: o.option_id, option_text: o.option_text, index: idx+1, next_chapter_id: o.next_chapter_id }));
-            // Build speech: scene text + numbered options
+            // Present up to three numbered options (uno/dos/tres) for this single-decision chapter
+            const rawOpts = firstScene.options || [];
+            const opts = rawOpts.slice(0, 3).map((o, idx) => ({ option_id: o.option_id, option_text: o.option_text, index: idx + 1, next_chapter_id: o.next_chapter_id }));
+            // Build speech: long scene text + enumerated options
             let sceneSpeech = `${firstScene.text} `;
-            for (const o of opts) { sceneSpeech += `Opción ${o.index}: ${o.option_text}. `; }
+            if (opts.length > 0) {
+              const labels = ['uno', 'dos', 'tres'];
+              sceneSpeech += opts.map((o, i) => `${labels[i]}. ${o.option_text}`).join('. ');
+              if (opts.length === 1) sceneSpeech += ' Di "uno" o "continuar" para elegir.';
+              else if (opts.length === 2) sceneSpeech += ' Di "uno" o "dos" para elegir.';
+              else sceneSpeech += ' Di "uno", "dos" o "tres" para elegir.';
+            }
             const sa2 = Object.assign({}, sa, { current_scene_id: firstScene.scene_id, current_options: opts });
             res.writeHead(200, {'Content-Type':'application/json'});
             return res.end(JSON.stringify(alexaResponse(sceneSpeech, sa2, false)));
@@ -252,7 +293,7 @@ async function handleAlexa(req, res) {
             return res.end(JSON.stringify(alexaResponse('Hubo un error al crear la sesión.', sessionAttrs, true)));
           }
         }
-        if (intentName === 'AMAZON.NoIntent') {
+        if (isNo) {
           res.writeHead(200, {'Content-Type':'application/json'});
           return res.end(JSON.stringify(alexaResponse('Entiendo. Si cambias de opinión, vuelve cuando quieras.', {}, true)));
         }
@@ -266,25 +307,47 @@ async function handleAlexa(req, res) {
         const slots = (body.request.intent && body.request.intent.slots) || {};
         let chosenVal = null;
         if (slots.option && slots.option.value) chosenVal = String(slots.option.value).toLowerCase();
-        // support numeric replies like '1' or 'uno'
+        // If user utterance mapped to a different slot (e.g. PseudonymIntent), scan all slots for possible values
+        if (!chosenVal) {
+          for (const k of Object.keys(slots || {})) {
+            const s = slots[k];
+            if (s && s.value) {
+              chosenVal = String(s.value).toLowerCase();
+              break;
+            }
+          }
+        }
+        // Normalizer for comparing option text
+        function normalizeText(t) {
+          return String(t || '').toLowerCase().replace(/[\W_]+/g, ' ').replace(/\s+/g, ' ').trim();
+        }
+        // support numeric replies like '1' or Spanish words 'uno','dos','tres'
         let chosenOpt = null;
         const opts = sessionAttrs.current_options || [];
         if (chosenVal) {
-          const asNum = parseInt(chosenVal.replace(/[^0-9]/g, ''), 10);
+          const wordNums = { 'uno': 1, 'dos': 2, 'tres': 3 };
+          const raw = String(chosenVal || '').trim().toLowerCase();
+          let asNum = NaN;
+          if (wordNums[raw]) asNum = wordNums[raw];
+          else {
+            const parsed = parseInt(raw.replace(/[^0-9]/g, ''), 10);
+            if (!isNaN(parsed)) asNum = parsed;
+          }
           if (!isNaN(asNum)) chosenOpt = opts.find(o => o.index === asNum);
-          if (!chosenOpt) chosenOpt = opts.find(o => o.option_text && o.option_text.toLowerCase() === chosenVal);
+          if (!chosenOpt) {
+            const nVal = normalizeText(chosenVal);
+            chosenOpt = opts.find(o => normalizeText(o.option_text) === nVal);
+          }
         }
         // fallback: try match by intentName to option id or text
         if (!chosenOpt) {
           const normIntent = (intentName || '').toLowerCase();
           chosenOpt = opts.find(o => (o.option_id && o.option_id.toLowerCase() === normIntent) || (o.option_text && o.option_text.toLowerCase() === normIntent));
         }
-        // final fallback: take first option if nothing matched
-        if (!chosenOpt && opts.length === 1) chosenOpt = opts[0];
-
+        // If still not matched, reprompt instead of auto-selecting
         if (!chosenOpt) {
           res.writeHead(200, {'Content-Type':'application/json'});
-          return res.end(JSON.stringify(alexaResponse('No entendí tu elección. Por favor di el número o el texto de la opción.', sessionAttrs, false)));
+          return res.end(JSON.stringify(alexaResponse('No entendí tu elección. Di "uno", "dos" o "tres" o el texto de la opción.', sessionAttrs, false)));
         }
 
         // Persist decision with option_id and option_text
@@ -301,7 +364,22 @@ async function handleAlexa(req, res) {
           // determine next chapter and present next scene or end
           const nextChapterId = chosenOpt.next_chapter_id || null;
           if (!nextChapterId) {
-            const speech = `Has seleccionado ${chosenOpt.option_text}. Fin del capítulo.`;
+            // Try to render a richer consequence narration if provided in content
+            let consequence = null;
+            try {
+              const curChapterId = sessionAttrs.chapter_id || null;
+              const curSceneId = sessionAttrs.current_scene_id || null;
+              const ch = curChapterId ? findChapter(curChapterId) : null;
+              const sc = (ch && ch.scenes) ? ch.scenes.find(s => s.scene_id === curSceneId) : null;
+              if (sc && sc.options) {
+                const optDef = sc.options.find(o => o.option_id === chosenOpt.option_id);
+                if (optDef) consequence = optDef.consequence || optDef.consequence_text || optDef.narrative || null;
+              }
+            } catch (e) { console.warn('consequence lookup error', e && e.message); }
+
+            let speech = '';
+            if (consequence) speech = String(consequence);
+            else speech = `Has seleccionado ${chosenOpt.option_text}. Fin del capítulo.`;
             const sa = Object.assign({}, sessionAttrs, { last_decision: chosenOpt.option_id });
             res.writeHead(200, {'Content-Type':'application/json'});
             return res.end(JSON.stringify(alexaResponse(speech, sa, true)));
@@ -314,9 +392,17 @@ async function handleAlexa(req, res) {
             return res.end(JSON.stringify(alexaResponse(speech, sa, true)));
           }
           const nextScene = nextCh.scenes[0];
-          const nextOpts = (nextScene.options || []).map((o, idx) => ({ option_id: o.option_id, option_text: o.option_text, index: idx+1, next_chapter_id: o.next_chapter_id }));
+          // Present up to three numbered options for the next scene
+          const rawNextOpts = nextScene.options || [];
+          const nextOpts = rawNextOpts.slice(0, 3).map((o, idx) => ({ option_id: o.option_id, option_text: o.option_text, index: idx + 1, next_chapter_id: o.next_chapter_id }));
           let nextSpeech = `${nextScene.text} `;
-          for (const o of nextOpts) { nextSpeech += `Opción ${o.index}: ${o.option_text}. `; }
+          if (nextOpts.length > 0) {
+            const labels = ['uno', 'dos', 'tres'];
+            nextSpeech += nextOpts.map((o, i) => `${labels[i]}. ${o.option_text}`).join('. ');
+            if (nextOpts.length === 1) nextSpeech += ' Di "uno" o "continuar" para elegir.';
+            else if (nextOpts.length === 2) nextSpeech += ' Di "uno" o "dos" para elegir.';
+            else nextSpeech += ' Di "uno", "dos" o "tres" para elegir.';
+          }
           const saNew = Object.assign({}, sessionAttrs, { current_scene_id: nextScene.scene_id, current_options: nextOpts, chapter_id: nextCh.chapter_id });
           res.writeHead(200, {'Content-Type':'application/json'});
           return res.end(JSON.stringify(alexaResponse(nextSpeech, saNew, false)));
@@ -497,7 +583,7 @@ async function processTelemetryPayload(payload, headers) {
                 } else if (optMaps && Array.isArray(optMaps)) {
                   for (const m of optMaps) {
                     clinicalRows.push({
-                      mapping_id: (m.mapping_id && uuidValidate(m.mapping_id)) ? m.mapping_id : uuidv4(),
+                      mapping_id: uuidv4(),
                       decision_id: dr.decision_id || uuidv4(),
                       scale: m.scale || null,
                       item: m.item || null,

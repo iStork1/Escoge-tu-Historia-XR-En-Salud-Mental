@@ -6,94 +6,29 @@
       "scenes": [
         {
           "scene_id": "c01-s01",
-          "text": "Estás en el parque y ves a Carmen sentada en un banco. ¿Qué haces?",
+          "text": "Hoy, después de desayunar, decides salir a dar un paseo. Al llegar al parque, ves a tu vecina, Carmen, sentada en un banco. Parece que quiere hablar, pero también notas que hay un grupo de personas jugando a las cartas en otra mesa. ¿Qué quieres hacer?",
           "options": [
             {
               "option_id": "c01-s01-o1",
-              "option_text": "Acercarte a Carmen",
-              "next_chapter_id": "c02",
-              "mappings": [ { "scale": "GDS", "item": 2, "weight": 1.0, "confidence": 0.9 } ]
+              "option_text": "Acercarte a Carmen para preguntarle cómo está",
+              "next_chapter_id": null,
+              "consequence": "Te acercas a Carmen con una sonrisa. Ella te confiesa que hoy se siente algo sola y agradece mucho que hayas venido a hablar con ella. Pasáis juntos un rato agradable conversando sobre recuerdos de la infancia. Al despedirse, Carmen te dice que le has alegrado el día.",
+              "mappings": [ { "scale": "GDS", "item": 7, "score": 1, "weight": 0.8, "confidence": 0.9 } ]
             },
             {
               "option_id": "c01-s01-o2",
-              "option_text": "Unirte al grupo",
-              "next_chapter_id": "c03",
-              "mappings": [ { "scale": "PHQ", "item": 4, "weight": 0.5, "confidence": 0.8 } ]
+              "option_text": "Unirte al grupo que juega a las cartas para pasar un rato divertido",
+              "next_chapter_id": null,
+              "consequence": "Te acercas al grupo y te integras en la partida. Ríes, compartes anécdotas y por un rato olvidas las preocupaciones. La experiencia social te carga de energía positiva y te sientes más animado al volver a casa.",
+              "mappings": [ { "scale": "GDS", "item": 1, "score": 1, "weight": 0.7, "confidence": 0.85 } ]
             },
             {
               "option_id": "c01-s01-o3",
-              "option_text": "Sentarte solo",
+              "option_text": "Sentarte solo en un banco para contemplar el entorno y pensar",
               "next_chapter_id": null,
-              "mappings": []
+              "consequence": "Te sientas en un banco apartado y observas el movimiento del parque. Reflexionas sobre tus pensamientos y, aunque te sientes un poco melancólico, el tiempo a solas te ayuda a ordenar ideas y a recuperar calma interior.",
+              "mappings": [ { "scale": "GDS", "item": 3, "score": 1, "weight": 0.5, "confidence": 0.7 } ]
             }
-          ]
-        }
-      ]
-    },
-    {
-      "chapter_id": "c02",
-      "title": "Capítulo 2 - Conversación",
-      "scenes": [
-        {
-          "scene_id": "c02-s01",
-          "text": "Carmen sonríe y te pregunta cómo estás. ¿Qué respondes?",
-          "options": [ { "option_id": "c02-s01-o1", "option_text": "Bien, gracias", "next_chapter_id": null, "mappings": [] } ]
-        }
-      ]
-    },
-    {
-      "chapter_id": "c03",
-      "title": "Capítulo 3 - Grupo",
-      "scenes": [
-        {
-          "scene_id": "c03-s01",
-          "text": "El grupo te invita a unirte a una actividad. ¿Aceptas?",
-          "options": [ { "option_id": "c03-s01-o1", "option_text": "Sí, me uno", "next_chapter_id": null, "mappings": [] } ]
-        }
-      ]
-    },
-    {
-      "chapter_id": "c04",
-      "title": "Capítulo 4 - Duda y recurso",
-      "scenes": [
-        {
-          "scene_id": "c04-s01",
-          "text": "Mientras caminas ves un cartel que ofrece apoyo. ¿Qué haces?",
-          "options": [
-            {
-              "option_id": "c04-s01-o1",
-              "option_text": "Tomar el folleto y llamar",
-              "next_chapter_id": "c04",
-              "mappings": [ { "scale": "PHQ", "item": 9, "weight": 1.0, "confidence": 0.9 } ]
-            },
-            {
-              "option_id": "c04-s01-o2",
-              "option_text": "Ignorar el cartel",
-              "next_chapter_id": "c04-s02",
-              "mappings": [ { "scale": "GDS", "item": 3, "weight": 0.5, "confidence": 0.7 } ]
-            },
-            {
-              "option_id": "c04-s01-o3",
-              "option_text": "Preguntar a un voluntario",
-              "next_chapter_id": "c04-s03",
-              "mappings": []
-            }
-          ]
-        },
-        {
-          "scene_id": "c04-s02",
-          "text": "Al ignorar el cartel, sigues tu camino y te sientes igual. ¿Quieres volver atrás?",
-          "options": [
-            { "option_id": "c04-s02-o1", "option_text": "Volver al cartel", "next_chapter_id": "c04", "mappings": [] },
-            { "option_id": "c04-s02-o2", "option_text": "Seguir adelante", "next_chapter_id": null, "mappings": [] }
-          ]
-        },
-        {
-          "scene_id": "c04-s03",
-          "text": "El voluntario te escucha y te ofrece una línea de ayuda. ¿Aceptas que te contacten?",
-          "options": [
-            { "option_id": "c04-s03-o1", "option_text": "Sí, acepto", "next_chapter_id": null, "mappings": [ { "scale": "PHQ", "item": 9, "weight": 1.0, "confidence": 0.95 } ] },
-            { "option_id": "c04-s03-o2", "option_text": "No, gracias", "next_chapter_id": null, "mappings": [] }
           ]
         }
       ]
