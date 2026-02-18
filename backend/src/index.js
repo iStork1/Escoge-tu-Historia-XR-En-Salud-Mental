@@ -152,6 +152,78 @@ function parseJsonBody(req) {
   });
 }
 
+// Schedule reminder by appending to a local JSON file (demo persistence)
+function scheduleReminderLocal(pseudonym, session_id, remindAtISO) {
+  try {
+    const dd = path.join(__dirname, '..', 'data');
+    if (!fs.existsSync(dd)) fs.mkdirSync(dd, { recursive: true });
+    const fp = path.join(dd, 'reminders.json');
+    let list = [];
+    if (fs.existsSync(fp)) {
+      try { list = JSON.parse(fs.readFileSync(fp, 'utf8')) || []; } catch (e) { list = []; }
+    }
+    const entry = { reminder_id: uuidv4(), pseudonym: pseudonym || null, session_id: session_id || null, remind_at: remindAtISO, created_at: new Date().toISOString() };
+    list.push(entry);
+    fs.writeFileSync(fp, JSON.stringify(list, null, 2), 'utf8');
+    console.log('scheduled reminder locally', entry);
+    return entry;
+  } catch (e) {
+    console.warn('failed to schedule reminder locally', e && e.message);
+    return null;
+  }
+}
+
+// Helpers to call Alexa Reminders API using native https
+const https = require('https');
+// Toggle reminders during demos (false = disabled)
+const REMINDERS_ENABLED = false;
+function alexaGetTimeZone(apiEndpoint, apiAccessToken, deviceId) {
+  return new Promise((resolve, reject) => {
+    try {
+      const url = new URL(`${apiEndpoint}/v2/devices/${deviceId}/settings/System.timeZone`);
+      const options = { method: 'GET', headers: { Authorization: `Bearer ${apiAccessToken}` } };
+      const req = https.request(url, options, (res) => {
+        let body = '';
+        res.on('data', (c) => body += c.toString());
+        res.on('end', () => {
+          if (res.statusCode >= 200 && res.statusCode < 300) return resolve(body.replace(/"/g, ''));
+          return reject(new Error(`timezone lookup failed ${res.statusCode} ${body}`));
+        });
+      });
+      req.on('error', reject);
+      req.end();
+    } catch (e) { reject(e); }
+  });
+}
+
+function alexaCreateReminder(apiEndpoint, apiAccessToken, payload) {
+  return new Promise((resolve, reject) => {
+    try {
+      const url = new URL(`${apiEndpoint}/v1/alerts/reminders`);
+      const body = JSON.stringify(payload);
+      const options = {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${apiAccessToken}`,
+          'Content-Type': 'application/json',
+          'Content-Length': Buffer.byteLength(body, 'utf8')
+        }
+      };
+      const req = https.request(url, options, (res) => {
+        let resp = '';
+        res.on('data', (c) => resp += c.toString());
+        res.on('end', () => {
+          if (res.statusCode >= 200 && res.statusCode < 300) return resolve({ status: res.statusCode, body: resp });
+          return reject({ status: res.statusCode, body: resp });
+        });
+      });
+      req.on('error', reject);
+      req.write(body);
+      req.end();
+    } catch (e) { reject(e); }
+  });
+}
+
 async function handleTelemetry(req, res) {
   try {
     const payload = await parseJsonBody(req);
@@ -199,7 +271,9 @@ async function handleAlexa(req, res) {
 
     // Helpers for Alexa responses
     function alexaResponse(text, sessionAttributes = {}, shouldEndSession = false) {
-      return { version: '1.0', response: { outputSpeech: { type: 'PlainText', text }, shouldEndSession }, sessionAttributes };
+      const resp = { version: '1.0', response: { outputSpeech: { type: 'PlainText', text }, shouldEndSession }, sessionAttributes };
+      try { console.log('alexa response =>', JSON.stringify(resp)); } catch (e) { console.log('alexa response (err stringify)'); }
+      return resp;
     }
 
     const sessionAttrs = (body.session && body.session.attributes) ? body.session.attributes : {};
@@ -221,14 +295,125 @@ async function handleAlexa(req, res) {
         const slots = (body.request.intent && body.request.intent.slots) || {};
         const pseudonym = (slots.pseudonym && (slots.pseudonym.value || (slots.pseudonym.resolutions && slots.pseudonym.resolutions.resolutionsPerAuthority && slots.pseudonym.resolutions.resolutionsPerAuthority[0] && slots.pseudonym.resolutions.resolutionsPerAuthority[0].values && slots.pseudonym.resolutions.resolutionsPerAuthority[0].values[0].value.name))) || null;
         if (pseudonym) {
-          const sa = Object.assign({}, sessionAttrs, { stage: 'consent', pseudonym: String(pseudonym).slice(0,64) });
-          const speech = `Hola ${pseudonym}. Antes de continuar, das tu consentimiento para registrar tu progreso? Di sí o no.`;
+          const pn = String(pseudonym).slice(0,64);
+          // Check if this pseudonym already gave consent in a previous session; if so, skip consent
+          try {
+            const { data: prev, error: prevErr } = await supabase.from('sessions').select('consent_given, session_id').eq('pseudonym', pn).order('started_at', { ascending: false }).limit(1).maybeSingle();
+            if (prevErr) console.warn('prev session lookup error', prevErr);
+            if (prev && prev.consent_given) {
+              // Create a new session and present first scene directly
+              const sessionPayload = { source: 'alexa', pseudonym: pn, consent_given: true, chapter_id: 'c01' };
+              const persist = await processTelemetryPayload(sessionPayload, req.headers);
+              const session_id = persist.session_id;
+              const sa = Object.assign({}, sessionAttrs, { stage: 'scene', session_id, pseudonym: pn, consent_given: true, chapter_id: 'c01' });
+              const chapter = findChapter('c01');
+              const firstScene = (chapter && chapter.scenes && chapter.scenes[0]) ? chapter.scenes[0] : null;
+              if (!firstScene) {
+                res.writeHead(500, {'Content-Type':'application/json'});
+                return res.end(JSON.stringify(alexaResponse('No se encontró la escena inicial.', sessionAttrs, true)));
+              }
+              const rawOpts = firstScene.options || [];
+              const opts = rawOpts.slice(0, 3).map((o, idx) => ({ option_id: o.option_id, option_text: o.option_text, index: idx + 1, next_chapter_id: o.next_chapter_id }));
+              let sceneSpeech = `${firstScene.text} `;
+              if (opts.length > 0) {
+                const labels = ['uno', 'dos', 'tres'];
+                sceneSpeech += opts.map((o, i) => `${labels[i]}. ${o.option_text}`).join('. ');
+                if (opts.length === 1) sceneSpeech += ' Di "uno" o "continuar" para elegir.';
+                else if (opts.length === 2) sceneSpeech += ' Di "uno" o "dos" para elegir.';
+                else sceneSpeech += ' Di "uno", "dos" o "tres" para elegir.';
+              }
+              const sa2 = Object.assign({}, sa, { current_scene_id: firstScene.scene_id, current_options: opts });
+              res.writeHead(200, {'Content-Type':'application/json'});
+              return res.end(JSON.stringify(alexaResponse(sceneSpeech, sa2, false)));
+            }
+          } catch (e) { console.warn('pseudonym consent check error', e && e.message); }
+
+          const sa = Object.assign({}, sessionAttrs, { stage: 'consent', pseudonym: pn });
+          const speech = `Hola ${pn}. Antes de continuar, das tu consentimiento para registrar tu progreso? Di sí o no.`;
           res.writeHead(200, {'Content-Type':'application/json'});
           return res.end(JSON.stringify(alexaResponse(speech, sa, false)));
         }
         // If no pseudonym provided, reprompt
         res.writeHead(200, {'Content-Type':'application/json'});
         return res.end(JSON.stringify(alexaResponse('No entendí tu pseudónimo. Por favor dilo de nuevo.', sessionAttrs, false)));
+      }
+
+      // Scheduling decision: handle reminder confirmation
+      if (sessionAttrs.stage === 'schedule_reminder') {
+        // If reminders are disabled for demo/testing, short-circuit here
+        if (!REMINDERS_ENABLED) {
+          // Do not mention reminders; continue the story.
+          const speech = 'Nos vemos en el próximo capítulo.';
+          res.writeHead(200, {'Content-Type':'application/json'});
+          return res.end(JSON.stringify(alexaResponse(speech, {}, true)));
+        }
+        const consentSlots = (body.request.intent && body.request.intent.slots) || {};
+        const slotValues = Object.keys(consentSlots).map(k => (consentSlots[k] && consentSlots[k].value) || '').filter(Boolean).map(s => String(s).toLowerCase());
+        const intentNorm = String(intentName || '').toLowerCase();
+        const isYes = intentName === 'AMAZON.YesIntent' || intentNorm.endsWith('yesintent') || slotValues.some(v => ['si', 'sí', 'si.', 'sí.','yes','y'].includes(v));
+        const isNo = intentName === 'AMAZON.NoIntent' || intentNorm.endsWith('nointent') || slotValues.some(v => ['no','nop','no.'].includes(v));
+        if (isYes) {
+            const pseudonym = sessionAttrs.pseudonym || null;
+            const session_id = sessionAttrs.session_id || null;
+            // If Alexa Reminders API available, use it (requires permission)
+            const sys = (body.context && body.context.System) ? body.context.System : null;
+            const apiAccessToken = sys && sys.apiAccessToken ? sys.apiAccessToken : null;
+            const apiEndpoint = sys && sys.apiEndpoint ? sys.apiEndpoint : null;
+            const deviceId = sys && sys.device && sys.device.deviceId ? sys.device.deviceId : null;
+            if (!apiAccessToken || !apiEndpoint || !deviceId) {
+              // Demo: no solicitamos permisos ni mostramos mensajes sobre recordatorios.
+              // Continuar sin mencionar recordatorios.
+              const speech = 'Perfecto, nos vemos en el proximo capitulo.';
+              const saNext = Object.assign({}, sessionAttrs, { stage: 'scene' });
+              res.writeHead(200, {'Content-Type':'application/json'});
+              return res.end(JSON.stringify(alexaResponse(speech, saNext, false)));
+            }
+
+            try {
+              // get user's timezone
+              let tz = 'UTC';
+              try { tz = await alexaGetTimeZone(apiEndpoint, apiAccessToken, deviceId); } catch (e) { console.warn('timezone lookup failed', e && e.message); }
+              const base = new Date(); base.setDate(base.getDate() + 1);
+              // build scheduledTime as YYYY-MM-DDT09:00:00 in user's timezone
+              const year = new Intl.DateTimeFormat('en-US', { timeZone: tz, year: 'numeric' }).format(base);
+              const month = new Intl.DateTimeFormat('en-US', { timeZone: tz, month: '2-digit' }).format(base);
+              const day = new Intl.DateTimeFormat('en-US', { timeZone: tz, day: '2-digit' }).format(base);
+              const scheduledTime = `${year}-${month}-${day}T09:00:00`;
+              const locale = (body.request && body.request.locale) ? body.request.locale : 'es-ES';
+              const reminderPayload = {
+                requestTime: new Date().toISOString(),
+                trigger: { type: 'SCHEDULED_ABSOLUTE', scheduledTime, timeZoneId: tz },
+                alertInfo: { spokenInfo: { content: [ { locale, text: 'Vuelve a Escoge tu Historia para continuar.' } ] } },
+                pushNotification: { status: 'ENABLED' }
+              };
+              try {
+                // Demo: no crear reminders ni guardarlos. Continuar sin mencionarlos.
+                const speech = 'Nos vemos en el próximo capítulo.';
+                res.writeHead(200, {'Content-Type':'application/json'});
+                return res.end(JSON.stringify(alexaResponse(speech, {}, true)));
+              } catch (apiErr) {
+                console.warn('reminders api error (demo suppressed)', apiErr);
+                // Demo: do not ask for permissions, do not store reminders; end session
+                const speech = 'Nos vemos en el próximo capítulo.';
+                res.writeHead(200, {'Content-Type':'application/json'});
+                return res.end(JSON.stringify(alexaResponse(speech, {}, true)));
+              }
+            } catch (e) {
+              console.warn('reminder flow failed (demo suppressed)', e && e.message);
+              const speech = 'Nos vemos en el próximo capítulo.';
+              res.writeHead(200, {'Content-Type':'application/json'});
+              return res.end(JSON.stringify(alexaResponse(speech, {}, true)));
+            }
+        }
+        if (isNo) {
+          const speech = 'Nos vemos en el próximo capítulo.';
+          res.writeHead(200, {'Content-Type':'application/json'});
+          return res.end(JSON.stringify(alexaResponse(speech, {}, true)));
+        }
+        const speech = 'Perfecto, continuemos con la historia.';
+        const saNext = Object.assign({}, sessionAttrs, { stage: 'scene' });
+        res.writeHead(200, {'Content-Type':'application/json'});
+        return res.end(JSON.stringify(alexaResponse(speech, saNext, false)));
       }
 
       // Consent handling (be tolerant to different intent names and slot values)
@@ -380,16 +565,19 @@ async function handleAlexa(req, res) {
             let speech = '';
             if (consequence) speech = String(consequence);
             else speech = `Has seleccionado ${chosenOpt.option_text}. Fin del capítulo.`;
-            const sa = Object.assign({}, sessionAttrs, { last_decision: chosenOpt.option_id });
+            // Offer scheduling a reminder for the next day
+            const sa = Object.assign({}, sessionAttrs, { last_decision: chosenOpt.option_id, stage: 'schedule_reminder' });
+            const prompt = `${speech} ¿Quieres que te recuerde mañana para continuar? Di sí o no.`;
             res.writeHead(200, {'Content-Type':'application/json'});
-            return res.end(JSON.stringify(alexaResponse(speech, sa, true)));
+            return res.end(JSON.stringify(alexaResponse(prompt, sa, false)));
           }
           const nextCh = findChapter(nextChapterId);
           if (!nextCh || !nextCh.scenes || nextCh.scenes.length === 0) {
             const speech = `Has seleccionado ${chosenOpt.option_text}. No hay más escenas.`;
-            const sa = Object.assign({}, sessionAttrs, { last_decision: chosenOpt.option_id });
+            const sa = Object.assign({}, sessionAttrs, { last_decision: chosenOpt.option_id, stage: 'schedule_reminder' });
+            const prompt2 = `${speech} ¿Quieres que te recuerde mañana para continuar? Di sí o no.`;
             res.writeHead(200, {'Content-Type':'application/json'});
-            return res.end(JSON.stringify(alexaResponse(speech, sa, true)));
+            return res.end(JSON.stringify(alexaResponse(prompt2, sa, false)));
           }
           const nextScene = nextCh.scenes[0];
           // Present up to three numbered options for the next scene
