@@ -5,21 +5,227 @@
       "intents": [
         {
           "name": "StartChapterIntent",
-          "slots": [],
-          "samples": ["comenzar historia", "iniciar capítulo", "abrir capítulo uno"]
+          "slots": [
+            { "name": "chapterNumber", "type": "AMAZON.NUMBER" },
+            { "name": "chapterName", "type": "AMAZON.SearchQuery" }
+          ],
+          "samples": [
+            "empezar",
+            "empezar la historia",
+            "abre el capítulo {chapterNumber}",
+            "quiero el capítulo {chapterName}",
+            "dame el capítulo {chapterNumber}"
+          ]
+        },
+        {
+          "name": "PseudonymIntent",
+          "slots": [
+            { "name": "pseudonym", "type": "AMAZON.FirstName" }
+          ],
+          "samples": [
+            "me llamo {pseudonym}",
+            "soy {pseudonym}",
+            "mi nombre es {pseudonym}",
+            "es {pseudonym}",
+            "nombre {pseudonym}",
+            "llámame {pseudonym}",
+            "{pseudonym}"
+          ]
         },
         {
           "name": "ChooseOptionIntent",
           "slots": [
-            {"name": "option", "type": "AMAZON.FOUR_DIGIT_NUMBER"}
+            { "name": "option", "type": "AMAZON.NUMBER" },
+            { "name": "optionText", "type": "AMAZON.SearchQuery" }
           ],
-          "samples": ["elige la opción {option}", "opción {option}", "yo elijo {option}"]
+          "samples": [
+            "escojo la opción {option}",
+            "opción {option}",
+            "opción uno",
+            "opción dos",
+            "opción tres",
+            "elijo uno",
+            "elijo dos",
+            "elijo tres",
+            "quiero la opción uno",
+            "quiero la opción dos",
+            "quiero la opción tres",
+            "quiero la opción {option}",
+            "me quedo con la primera",
+            "me quedo con la segunda",
+            "me quedo con la tercera",
+            "la primera",
+            "la segunda",
+            "la tercera",
+            "uno",
+            "dos",
+            "tres",
+            "número uno",
+            "número dos",
+            "número tres",
+            "la primera opción",
+            "la segunda opción",
+            "la tercera opción",
+            "elijo {optionText}",
+            "me quedo con la {optionText}"
+          ]
         },
-        {"name": "AMAZON.CancelIntent"},
-        {"name": "AMAZON.HelpIntent"},
-        {"name": "AMAZON.StopIntent"}
+        {
+          "name": "ReminderIntent",
+          "slots": [
+            { "name": "date", "type": "AMAZON.DATE" },
+            { "name": "time", "type": "AMAZON.TIME" }
+          ],
+          "samples": [
+            "recuérdame {date} a las {time}",
+            "pon un recordatorio para {date} a las {time}",
+            "recuérdame mañana a las {time}",
+            "pon un recordatorio en {time}",
+            "recuérdame en dos horas"
+          ]
+        },
+        {
+          "name": "CancelReminderIntent",
+          "slots": [
+            { "name": "reminderId", "type": "AMAZON.SearchQuery" }
+          ],
+          "samples": [
+            "cancela el recordatorio",
+            "borra el recordatorio de mañana",
+            "elimina el recordatorio {reminderId}"
+          ]
+        },
+        {
+          "name": "CheckRemindersIntent",
+          "samples": [
+            "qué recordatorios tengo",
+            "muéstrame mis recordatorios",
+            "tengo recordatorios",
+            "mostrar mis recordatorios"
+          ]
+        },
+        {
+          "name": "GiveFeedbackIntent",
+          "slots": [
+            { "name": "feedback", "type": "AMAZON.SearchQuery" }
+          ],
+          "samples": [
+            "me gustó",
+            "no me gustó",
+            "comentario {feedback}",
+            "tengo un comentario {feedback}"
+          ]
+        },
+        {
+          "name": "PauseIntent",
+          "samples": [
+            "pausar",
+            "detener por ahora",
+            "haz una pausa"
+          ]
+        },
+        {
+          "name": "ResumeIntent",
+          "samples": [
+            "continuar",
+            "reanudar",
+            "sigue"
+          ]
+        },
+        {
+          "name": "RepeatCustomIntent",
+          "samples": [
+            "repite",
+            "otra vez por favor",
+            "puedes repetir eso"
+          ]
+        },
+        {
+          "name": "HelpCustomIntent",
+          "samples": [
+            "ayuda",
+            "qué puedo decir",
+            "ayúdame"
+          ]
+        },
+        {
+          "name": "FallbackCustomIntent",
+          "samples": [
+            "no sé",
+            "no entiendo",
+            "eso no sirve"
+          ]
+        },
+        {
+          "name": "LaunchRequestIntent",
+          "samples": [
+            "abrir",
+            "iniciar",
+            "abre la skill"
+          ]
+        },
+        { "name": "AMAZON.YesIntent" },
+        { "name": "AMAZON.NoIntent" },
+        { "name": "AMAZON.StopIntent" },
+        { "name": "AMAZON.CancelIntent" },
+        { "name": "AMAZON.HelpIntent" },
+        { "name": "AMAZON.FallbackIntent" },
+        { "name": "AMAZON.RepeatIntent" }
       ],
       "types": []
-    }
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "PseudonymIntent",
+          "confirmationRequired": false,
+          "elicitationRequired": false,
+          "slots": [
+            {
+              "name": "pseudonym",
+              "type": "AMAZON.FirstName",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.PseudonymIntent.pseudonym"
+              }
+            }
+          ]
+        }
+        ,
+        {
+          "name": "ChooseOptionIntent",
+          "confirmationRequired": false,
+          "elicitationRequired": false,
+          "slots": [
+            {
+              "name": "option",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": { "elicitation": "Elicit.ChooseOptionIntent.option" }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.PseudonymIntent.pseudonym",
+        "variations": [
+          { "type": "PlainText", "value": "¿Cómo te llamas?" },
+          { "type": "PlainText", "value": "Dime tu nombre, por favor." }
+        ]
+      }
+      ,
+      {
+        "id": "Elicit.ChooseOptionIntent.option",
+        "variations": [
+          { "type": "PlainText", "value": "¿Qué opción prefieres? Di uno, dos o tres." },
+          { "type": "PlainText", "value": "Elige una opción: uno, dos o tres." }
+        ]
+      }
+    ]
   }
 }

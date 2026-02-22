@@ -1,7 +1,16 @@
--- Minimal deploy script for Phase 1: users + auth_tokens + example RLS
--- Run after you've created the main schema (sessions, decisions, clinical_mappings, etc.)
-
--- If you want to rebuild from scratch, you can drop dependent tables first (use with caution):
+-- Deployment script for Phase 1: users + auth_tokens + example RLS
+--
+-- EXECUTION ORDER (Critical):
+--   1. database/schema.sql (base schema creation)
+--   2. database/migrations/001_fix_schema.sql (apply Sprint 0a/0b/0c updates)
+--   3. database/indexes.sql (create all performance indexes)
+--   4. database/audit_triggers.sql (create/update all triggers and functions)
+--   5. database/seed_data.sql (populate initial content)
+--   6. THIS FILE: deploy.sql (users, auth, RLS policies)
+--
+-- See database/migrations/README.md for detailed guidance and validation queries.
+--
+-- If you want to rebuild from scratch, you can drop all tables with:
 -- DROP TABLE IF EXISTS decision_ratings, session_scores, clinical_mappings, decisions, options, scenes, chapters, audio_metrics, risk_events, decision_audit, sessions, users, auth_tokens CASCADE;
 
 -- Users table (prototype)

@@ -24,7 +24,7 @@
       "apis": {
         "custom": {
           "endpoint": {
-            "sourceDir": "lambda/custom"
+            "uri": "https://postgenial-overstraightly-briana.ngrok-free.dev/alexa"
           }
         }
       },

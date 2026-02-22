@@ -68,7 +68,10 @@ CREATE TABLE IF NOT EXISTS options (
   option_id TEXT PRIMARY KEY,
   scene_id TEXT REFERENCES scenes(scene_id) ON DELETE CASCADE,
   option_text TEXT NOT NULL,
-  designer_mapping JSONB,
+  consequence TEXT,
+  next_chapter_id TEXT REFERENCES chapters(chapter_id) ON DELETE SET NULL,
+  next_scene_id TEXT REFERENCES scenes(scene_id) ON DELETE SET NULL,
+  gds_mapping JSONB,
   metadata JSONB
 );
 
@@ -76,10 +79,10 @@ CREATE TABLE IF NOT EXISTS options (
 CREATE TABLE IF NOT EXISTS decisions (
   decision_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   session_id UUID REFERENCES sessions(session_id) ON DELETE CASCADE,
-  chapter_id TEXT,
+  chapter_id TEXT REFERENCES chapters(chapter_id) ON DELETE CASCADE,
   timestamp TIMESTAMPTZ DEFAULT now(),
-  scene_id TEXT REFERENCES scenes(scene_id),
-  option_id TEXT REFERENCES options(option_id),
+  scene_id TEXT REFERENCES scenes(scene_id) ON DELETE CASCADE,
+  option_id TEXT REFERENCES options(option_id) ON DELETE CASCADE,
   option_text TEXT,
   time_to_decision_ms INT,
   mapping_confidence FLOAT CHECK (mapping_confidence >= 0 AND mapping_confidence <= 1),

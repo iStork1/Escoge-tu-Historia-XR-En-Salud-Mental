@@ -175,8 +175,8 @@ function scheduleReminderLocal(pseudonym, session_id, remindAtISO) {
 
 // Helpers to call Alexa Reminders API using native https
 const https = require('https');
-// Toggle reminders during demos (false = disabled)
-const REMINDERS_ENABLED = false;
+// Toggle reminders (true = enabled)
+const REMINDERS_ENABLED = true;
 function alexaGetTimeZone(apiEndpoint, apiAccessToken, deviceId) {
   return new Promise((resolve, reject) => {
     try {
@@ -292,8 +292,40 @@ async function handleAlexa(req, res) {
 
       // User provided pseudonym (expect slot named 'pseudonym')
       if (sessionAttrs.stage === 'login') {
+        // Debug logs for login stage: show raw inputTranscript and provided slots
+        try { console.log('login debug - inputTranscript:', body.request.inputTranscript || '(none)'); } catch (e) {}
+        try { console.log('login debug - intent.slots:', JSON.stringify((body.request.intent && body.request.intent.slots) || {})); } catch (e) {}
+        // Robust extraction: prefer explicit `pseudonym` slot, otherwise take first non-empty slot,
+        // otherwise fall back to `inputTranscript` (useful when Alexa maps to Fallback/Resume intents).
         const slots = (body.request.intent && body.request.intent.slots) || {};
-        const pseudonym = (slots.pseudonym && (slots.pseudonym.value || (slots.pseudonym.resolutions && slots.pseudonym.resolutions.resolutionsPerAuthority && slots.pseudonym.resolutions.resolutionsPerAuthority[0] && slots.pseudonym.resolutions.resolutionsPerAuthority[0].values && slots.pseudonym.resolutions.resolutionsPerAuthority[0].values[0].value.name))) || null;
+        // If Alexa recognized the intent but didn't provide slot values, ask for the `option` slot explicitly
+        if (intentName === 'ChooseOptionIntent' && (!slots.option || !slots.option.value)) {
+          try { console.log('ChooseOptionIntent received with empty slots; eliciting slot `option`.'); } catch (e) {}
+          const resp = {
+            version: '1.0',
+            response: {
+              outputSpeech: { type: 'PlainText', text: 'No entendí tu elección. Di uno, dos o tres.' },
+              shouldEndSession: false,
+              directives: [ { type: 'Dialog.ElicitSlot', slotToElicit: 'option' } ]
+            },
+            sessionAttributes: sessionAttrs
+          };
+          res.writeHead(200, {'Content-Type':'application/json'});
+          return res.end(JSON.stringify(resp));
+        }
+        let pseudonym = null;
+        if (slots.pseudonym && (slots.pseudonym.value || (slots.pseudonym.resolutions && slots.pseudonym.resolutions.resolutionsPerAuthority && slots.pseudonym.resolutions.resolutionsPerAuthority[0] && slots.pseudonym.resolutions.resolutionsPerAuthority[0].values && slots.pseudonym.resolutions.resolutionsPerAuthority[0].values[0].value && slots.pseudonym.resolutions.resolutionsPerAuthority[0].values[0].value.name))) {
+          pseudonym = slots.pseudonym.value || (slots.pseudonym.resolutions && slots.pseudonym.resolutions.resolutionsPerAuthority && slots.pseudonym.resolutions.resolutionsPerAuthority[0] && slots.pseudonym.resolutions.resolutionsPerAuthority[0].values && slots.pseudonym.resolutions.resolutionsPerAuthority[0].values[0].value.name) || null;
+        }
+        if (!pseudonym) {
+          for (const k of Object.keys(slots || {})) {
+            const s = slots[k];
+            if (s && s.value) { pseudonym = s.value; break; }
+          }
+        }
+        if (!pseudonym && body.request && body.request.inputTranscript) {
+          pseudonym = String(body.request.inputTranscript).trim();
+        }
         if (pseudonym) {
           const pn = String(pseudonym).slice(0,64);
           // Check if this pseudonym already gave consent in a previous session; if so, skip consent
@@ -340,83 +372,134 @@ async function handleAlexa(req, res) {
 
       // Scheduling decision: handle reminder confirmation
       if (sessionAttrs.stage === 'schedule_reminder') {
-        // If reminders are disabled for demo/testing, short-circuit here
-        if (!REMINDERS_ENABLED) {
-          // Do not mention reminders; continue the story.
-          const speech = 'Nos vemos en el próximo capítulo.';
-          res.writeHead(200, {'Content-Type':'application/json'});
-          return res.end(JSON.stringify(alexaResponse(speech, {}, true)));
-        }
         const consentSlots = (body.request.intent && body.request.intent.slots) || {};
         const slotValues = Object.keys(consentSlots).map(k => (consentSlots[k] && consentSlots[k].value) || '').filter(Boolean).map(s => String(s).toLowerCase());
         const intentNorm = String(intentName || '').toLowerCase();
         const isYes = intentName === 'AMAZON.YesIntent' || intentNorm.endsWith('yesintent') || slotValues.some(v => ['si', 'sí', 'si.', 'sí.','yes','y'].includes(v));
         const isNo = intentName === 'AMAZON.NoIntent' || intentNorm.endsWith('nointent') || slotValues.some(v => ['no','nop','no.'].includes(v));
         if (isYes) {
-            const pseudonym = sessionAttrs.pseudonym || null;
-            const session_id = sessionAttrs.session_id || null;
-            // If Alexa Reminders API available, use it (requires permission)
+            // Check system tokens for Reminders API and user consent
             const sys = (body.context && body.context.System) ? body.context.System : null;
             const apiAccessToken = sys && sys.apiAccessToken ? sys.apiAccessToken : null;
             const apiEndpoint = sys && sys.apiEndpoint ? sys.apiEndpoint : null;
             const deviceId = sys && sys.device && sys.device.deviceId ? sys.device.deviceId : null;
-            if (!apiAccessToken || !apiEndpoint || !deviceId) {
-              // Demo: no solicitamos permisos ni mostramos mensajes sobre recordatorios.
-              // Continuar sin mencionar recordatorios.
-              const speech = 'Perfecto, nos vemos en el proximo capitulo.';
-              const saNext = Object.assign({}, sessionAttrs, { stage: 'scene' });
+            const consentToken = sys && sys.user && sys.user.permissions && sys.user.permissions.consentToken ? sys.user.permissions.consentToken : null;
+            if (!consentToken || !apiAccessToken || !apiEndpoint || !deviceId) {
+              // Ask for permission via card (consentToken required)
+              const speech = 'Necesito permiso para crear recordatorios. Por favor, revisa la app de Alexa.';
+              const resp = { version: '1.0', response: { outputSpeech: { type: 'PlainText', text: speech }, shouldEndSession: true, card: { type: 'AskForPermissionsConsent', permissions: ['alexa::alerts:reminders:skill:readwrite'] } } };
               res.writeHead(200, {'Content-Type':'application/json'});
-              return res.end(JSON.stringify(alexaResponse(speech, saNext, false)));
+              return res.end(JSON.stringify(resp));
             }
 
-            try {
-              // get user's timezone
-              let tz = 'UTC';
-              try { tz = await alexaGetTimeZone(apiEndpoint, apiAccessToken, deviceId); } catch (e) { console.warn('timezone lookup failed', e && e.message); }
-              const base = new Date(); base.setDate(base.getDate() + 1);
-              // build scheduledTime as YYYY-MM-DDT09:00:00 in user's timezone
-              const year = new Intl.DateTimeFormat('en-US', { timeZone: tz, year: 'numeric' }).format(base);
-              const month = new Intl.DateTimeFormat('en-US', { timeZone: tz, month: '2-digit' }).format(base);
-              const day = new Intl.DateTimeFormat('en-US', { timeZone: tz, day: '2-digit' }).format(base);
-              const scheduledTime = `${year}-${month}-${day}T09:00:00`;
-              const locale = (body.request && body.request.locale) ? body.request.locale : 'es-ES';
-              const reminderPayload = {
-                requestTime: new Date().toISOString(),
-                trigger: { type: 'SCHEDULED_ABSOLUTE', scheduledTime, timeZoneId: tz },
-                alertInfo: { spokenInfo: { content: [ { locale, text: 'Vuelve a Escoge tu Historia para continuar.' } ] } },
-                pushNotification: { status: 'ENABLED' }
-              };
-              try {
-                // Demo: no crear reminders ni guardarlos. Continuar sin mencionarlos.
-                const speech = 'Nos vemos en el próximo capítulo.';
-                res.writeHead(200, {'Content-Type':'application/json'});
-                return res.end(JSON.stringify(alexaResponse(speech, {}, true)));
-              } catch (apiErr) {
-                console.warn('reminders api error (demo suppressed)', apiErr);
-                // Demo: do not ask for permissions, do not store reminders; end session
-                const speech = 'Nos vemos en el próximo capítulo.';
-                res.writeHead(200, {'Content-Type':'application/json'});
-                return res.end(JSON.stringify(alexaResponse(speech, {}, true)));
-              }
-            } catch (e) {
-              console.warn('reminder flow failed (demo suppressed)', e && e.message);
-              const speech = 'Nos vemos en el próximo capítulo.';
-              res.writeHead(200, {'Content-Type':'application/json'});
-              return res.end(JSON.stringify(alexaResponse(speech, {}, true)));
-            }
+            // Ask user when they want the reminder
+            const sa = Object.assign({}, sessionAttrs, { stage: 'reminder_time' });
+            const speech = '¿Para cuándo quieres el recordatorio? Di por ejemplo "mañana" o una fecha en formato YYYY-guion-MM-guion-DD, o di "mañana a las 10".';
+            res.writeHead(200, {'Content-Type':'application/json'});
+            return res.end(JSON.stringify(alexaResponse(speech, sa, false)));
         }
         if (isNo) {
-          const speech = 'Nos vemos en el próximo capítulo.';
           res.writeHead(200, {'Content-Type':'application/json'});
-          return res.end(JSON.stringify(alexaResponse(speech, {}, true)));
+          return res.end(JSON.stringify(alexaResponse('De acuerdo. No programaré un recordatorio. Hasta luego.', {}, true)));
         }
-        const speech = 'Perfecto, continuemos con la historia.';
-        const saNext = Object.assign({}, sessionAttrs, { stage: 'scene' });
         res.writeHead(200, {'Content-Type':'application/json'});
-        return res.end(JSON.stringify(alexaResponse(speech, saNext, false)));
+        return res.end(JSON.stringify(alexaResponse('No entendí. ¿Quieres que te recuerde mañana para continuar? Di sí o no.', sessionAttrs, false)));
       }
 
       // Consent handling (be tolerant to different intent names and slot values)
+      // Reminder time handling: parse when the user wants the reminder and create it
+      if (sessionAttrs.stage === 'reminder_time') {
+        try {
+          const sys = (body.context && body.context.System) ? body.context.System : null;
+          const apiAccessToken = sys && sys.apiAccessToken ? sys.apiAccessToken : null;
+          const apiEndpoint = sys && sys.apiEndpoint ? sys.apiEndpoint : null;
+          const deviceId = sys && sys.device && sys.device.deviceId ? sys.device.deviceId : null;
+          if (!apiAccessToken || !apiEndpoint || !deviceId) {
+            const speech = 'Para programar recordatorios necesito permiso. Revisa la app de Alexa.';
+            const resp = { version: '1.0', response: { outputSpeech: { type: 'PlainText', text: speech }, shouldEndSession: true, card: { type: 'AskForPermissionsConsent', permissions: ['alexa::alerts:reminders:skill:readwrite'] } } };
+            res.writeHead(200, {'Content-Type':'application/json'});
+            return res.end(JSON.stringify(resp));
+          }
+
+          const slots = (body.request.intent && body.request.intent.slots) || {};
+          const utter = Object.keys(slots).map(k => (slots[k] && slots[k].value) || '').filter(Boolean).join(' ').toLowerCase();
+
+          // Basic parsing: support 'mañana', 'hoy', explicit YYYY-MM-DD, and optional hour like 'a las 10' or '10:30'
+          let target = new Date();
+          let hour = 9, minute = 0;
+          if (!utter || utter === '') {
+            target.setDate(target.getDate() + 1);
+          } else if (/mañana|manana/.test(utter)) {
+            target.setDate(target.getDate() + 1);
+            const hm = utter.match(/(\d{1,2})(?::(\d{2}))?/);
+            if (hm) { hour = parseInt(hm[1],10); if (hm[2]) minute = parseInt(hm[2],10); }
+          } else if (/hoy/.test(utter)) {
+            const hm = utter.match(/(\d{1,2})(?::(\d{2}))?/);
+            if (hm) { hour = parseInt(hm[1],10); if (hm[2]) minute = parseInt(hm[2],10); }
+          } else {
+            const dateMatch = utter.match(/(\d{4}-\d{2}-\d{2})/);
+            if (dateMatch) {
+              const parts = dateMatch[1].split('-').map(n => parseInt(n,10));
+              target = new Date(parts[0], parts[1]-1, parts[2]);
+              const hm = utter.match(/(\d{1,2})(?::(\d{2}))?/);
+              if (hm) { hour = parseInt(hm[1],10); if (hm[2]) minute = parseInt(hm[2],10); }
+            } else {
+              // fallback: if we detect hour only
+              const hm = utter.match(/(\d{1,2})(?::(\d{2}))?/);
+              if (hm) { target.setDate(target.getDate() + 1); hour = parseInt(hm[1],10); if (hm[2]) minute = parseInt(hm[2],10); }
+              else { target.setDate(target.getDate() + 1); }
+            }
+          }
+
+          target.setHours(hour, minute, 0, 0);
+
+          // convert target to components in user's timezone
+          let tz = 'UTC';
+          try { tz = await alexaGetTimeZone(apiEndpoint, apiAccessToken, deviceId); } catch (e) { console.warn('timezone lookup failed', e && e.message); }
+          const year = new Intl.DateTimeFormat('en-US', { timeZone: tz, year: 'numeric' }).format(target);
+          const month = new Intl.DateTimeFormat('en-US', { timeZone: tz, month: '2-digit' }).format(target);
+          const day = new Intl.DateTimeFormat('en-US', { timeZone: tz, day: '2-digit' }).format(target);
+          const hh = String(target.getHours()).padStart(2,'0');
+          const mm = String(target.getMinutes()).padStart(2,'0');
+          const scheduledTime = `${year}-${month}-${day}T${hh}:${mm}:00`;
+
+          // Force locale to Spanish (United States) as requested
+          const locale = 'es-US';
+          const reminderPayload = {
+            requestTime: new Date().toISOString(),
+            trigger: { type: 'SCHEDULED_ABSOLUTE', scheduledTime, timeZoneId: tz },
+            alertInfo: { spokenInfo: { content: [ { locale, text: 'Vuelve a Escoge tu Historia para continuar.' } ] } },
+            pushNotification: { status: 'ENABLED' }
+          };
+
+          try {
+            const apiResp = await alexaCreateReminder(apiEndpoint, apiAccessToken, reminderPayload);
+            console.log('reminder created', apiResp && apiResp.status);
+            // persist locally as well for demo
+            try { scheduleReminderLocal(sessionAttrs.pseudonym, sessionAttrs.session_id, `${scheduledTime}`); } catch (e) { /* ignore */ }
+            const speech = `He programado el recordatorio para ${year}-${month}-${day} a las ${hh}:${mm}.`;
+            res.writeHead(200, {'Content-Type':'application/json'});
+            return res.end(JSON.stringify(alexaResponse(speech, {}, true)));
+          } catch (apiErr) {
+            console.warn('reminders api error', apiErr);
+            if (apiErr && apiErr.status && (apiErr.status === 401 || apiErr.status === 403)) {
+              const speech = 'Para programar recordatorios necesito permiso. Revisa la app de Alexa.';
+              const resp = { version: '1.0', response: { outputSpeech: { type: 'PlainText', text: speech }, shouldEndSession: true, card: { type: 'AskForPermissionsConsent', permissions: ['alexa::alerts:reminders:skill:readwrite'] } } };
+              res.writeHead(200, {'Content-Type':'application/json'});
+              return res.end(JSON.stringify(resp));
+            }
+            // fallback to local scheduling
+            scheduleReminderLocal(sessionAttrs.pseudonym, sessionAttrs.session_id, scheduledTime);
+            const speech = 'No pude crear el recordatorio en el dispositivo, pero lo guardé localmente.';
+            res.writeHead(200, {'Content-Type':'application/json'});
+            return res.end(JSON.stringify(alexaResponse(speech, {}, true)));
+          }
+        } catch (e) {
+          console.warn('reminder_time handler failed', e && e.message);
+          res.writeHead(200, {'Content-Type':'application/json'});
+          return res.end(JSON.stringify(alexaResponse('No entendí cuándo quieres el recordatorio. Vuelve a intentarlo más tarde.', sessionAttrs, true)));
+        }
+      }
       if (sessionAttrs.stage === 'consent') {
         const consentSlots = (body.request.intent && body.request.intent.slots) || {};
         const slotValues = Object.keys(consentSlots).map(k => (consentSlots[k] && consentSlots[k].value) || '').filter(Boolean).map(s => String(s).toLowerCase());
@@ -490,21 +573,58 @@ async function handleAlexa(req, res) {
       // Scene interaction: expect an intent that selects an option (we accept any intent name as option)
       if (sessionAttrs.stage === 'scene') {
         const slots = (body.request.intent && body.request.intent.slots) || {};
+        try { console.log('scene debug - intent.slots:', JSON.stringify(slots || {})); } catch (e) {}
+        try { console.log('scene debug - inputTranscript:', body.request.inputTranscript || '(none)'); } catch (e) {}
+        
+        // **REORDERED LOGIC**: Always try to extract chosenVal FIRST from (1) slots, (2) other slots, (3) inputTranscript
+        // BEFORE deciding whether to elicit. Only elicit if ALL sources are empty.
+        
         let chosenVal = null;
-        if (slots.option && slots.option.value) chosenVal = String(slots.option.value).toLowerCase();
-        // If user utterance mapped to a different slot (e.g. PseudonymIntent), scan all slots for possible values
+        
+        // Try option slot first
+        if (slots.option && slots.option.value) {
+          chosenVal = String(slots.option.value).toLowerCase();
+          try { console.log('scene: got chosenVal from option slot:', chosenVal); } catch (e) {}
+        }
+        
+        // If no option slot value, scan all other slots
         if (!chosenVal) {
           for (const k of Object.keys(slots || {})) {
-            const s = slots[k];
-            if (s && s.value) {
-              chosenVal = String(s.value).toLowerCase();
-              break;
+            if (k !== 'option') {  // skip option since we already tried it
+              const s = slots[k];
+              if (s && s.value) {
+                chosenVal = String(s.value).toLowerCase();
+                try { console.log('scene: got chosenVal from slot', k, ':', chosenVal); } catch (e) {}
+                break;
+              }
             }
           }
         }
-        // Normalizer for comparing option text
+        
+        // If still no value from slots, try raw inputTranscript (handles "uno", "dos", "tres")
+        if (!chosenVal && body.request && body.request.inputTranscript) {
+          chosenVal = String(body.request.inputTranscript).toLowerCase().trim();
+          try { console.log('scene: got chosenVal from inputTranscript:', chosenVal); } catch (e) {}
+        }
+        
+        // **NOW** decide to elicit: only if we have NO value from any source
+        if (!chosenVal) {
+          try { console.log('scene: no chosenVal from any source (slots empty + no inputTranscript); eliciting option slot.'); } catch (e) {}
+          const resp = {
+            version: '1.0',
+            response: {
+              shouldEndSession: false,
+              directives: [ { type: 'Dialog.ElicitSlot', slotToElicit: 'option' } ]
+            },
+            sessionAttributes: sessionAttributes
+          };
+          res.writeHead(200, {'Content-Type':'application/json'});
+          return res.end(JSON.stringify(resp));
+        }
+
+        // Normalizer for comparing option text (keep letters and numbers)
         function normalizeText(t) {
-          return String(t || '').toLowerCase().replace(/[\W_]+/g, ' ').replace(/\s+/g, ' ').trim();
+          return String(t || '').toLowerCase().replace(/[^\p{L}0-9]+/gu, ' ').replace(/\s+/g, ' ').trim();
         }
         // support numeric replies like '1' or Spanish words 'uno','dos','tres'
         let chosenOpt = null;
@@ -534,6 +654,14 @@ async function handleAlexa(req, res) {
           res.writeHead(200, {'Content-Type':'application/json'});
           return res.end(JSON.stringify(alexaResponse('No entendí tu elección. Di "uno", "dos" o "tres" o el texto de la opción.', sessionAttrs, false)));
         }
+
+        // Prevent processing the same decision twice if user repeats the same option
+        try {
+          if (sessionAttrs.last_decision && chosenOpt && sessionAttrs.last_decision === chosenOpt.option_id) {
+            res.writeHead(200, {'Content-Type':'application/json'});
+            return res.end(JSON.stringify(alexaResponse('Ya registré esa opción. ¿Quieres hacer otra cosa o continuar?', sessionAttrs, false)));
+          }
+        } catch (e) { console.warn('duplicate decision check error', e && e.message); }
 
         // Persist decision with option_id and option_text
         const session_id = sessionAttrs.session_id || null;

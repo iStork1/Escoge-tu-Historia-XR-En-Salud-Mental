@@ -1,0 +1,16 @@
+[
+  {
+    "reminder_id": "70889961-3a16-46f9-b776-7fb96b89ab81",
+    "pseudonym": "felipe",
+    "session_id": "8a208b06-a4e0-4beb-a431-e56d2e5ef381",
+    "remind_at": "2026-02-21T10:00:00",
+    "created_at": "2026-02-20T17:02:07.616Z"
+  },
+  {
+    "reminder_id": "9ff40db2-fe39-45b7-b857-7058a7e5524c",
+    "pseudonym": "felipe",
+    "session_id": "1ba0e1f6-e01f-4929-ba27-8d93d36f7a89",
+    "remind_at": "2026-02-22T00:00:00",
+    "created_at": "2026-02-21T17:20:12.442Z"
+  }
+]

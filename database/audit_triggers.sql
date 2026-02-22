@@ -1,22 +1,42 @@
 -- Triggers and helper functions for auditing and simple risk detection
 
--- Function: on insert into clinical_mappings, detect PHQ9 item 9 risk and insert into risk_events
+-- ===== RISK DETECTION TRIGGERS =====
+
+-- Function: on insert into clinical_mappings, detect PHQ9 item 9 and GDS item 7 risk
 CREATE OR REPLACE FUNCTION fn_clinical_mappings_after_insert()
 RETURNS TRIGGER AS $$
 BEGIN
   -- If mapping is PHQ item 9 and weight*confidence >= 0.2 -> create risk_event
   IF (NEW.scale = 'PHQ' AND NEW.item = 9 AND (COALESCE(NEW.weight,0) * COALESCE(NEW.confidence,0)) >= 0.2) THEN
     INSERT INTO risk_events(session_id, decision_id, risk_type, score, threshold_used, action_taken, notified)
-    VALUES (
-      (SELECT session_id FROM decisions WHERE decision_id = NEW.decision_id),
+    SELECT
+      d.session_id,
       NEW.decision_id,
-      'PHQ9_ITEM9',
+      'PHQ9_ITEM9_SELFHARM',
       (COALESCE(NEW.weight,0) * COALESCE(NEW.confidence,0)),
       0.2,
       'AUTO_INSERT',
       FALSE
-    );
+    FROM decisions d
+    WHERE d.decision_id = NEW.decision_id;
   END IF;
+  
+  -- If mapping is GDS item 7 (social engagement) and weight*confidence >= 0.3 -> create risk_event
+  IF (NEW.scale = 'GDS' AND NEW.item = 7 AND (COALESCE(NEW.weight,0) * COALESCE(NEW.confidence,0)) >= 0.3) THEN
+    INSERT INTO risk_events(session_id, decision_id, risk_type, score, threshold_used, action_taken, notified)
+    SELECT
+      d.session_id,
+      NEW.decision_id,
+      'GDS7_SOCIAL_ISOLATION',
+      (COALESCE(NEW.weight,0) * COALESCE(NEW.confidence,0)),
+      0.3,
+      'AUTO_INSERT',
+      FALSE
+    FROM decisions d
+    WHERE d.decision_id = NEW.decision_id
+    ON CONFLICT DO NOTHING;
+  END IF;
+  
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
@@ -26,6 +46,62 @@ DROP TRIGGER IF EXISTS trg_clinical_mappings_after_insert ON clinical_mappings;
 CREATE TRIGGER trg_clinical_mappings_after_insert
 AFTER INSERT ON clinical_mappings
 FOR EACH ROW EXECUTE FUNCTION fn_clinical_mappings_after_insert();
+
+-- ===== SESSION SCORE POPULATION TRIGGER =====
+
+-- Function: compute and update session_scores when decisions inserted or clinical_mappings updated
+CREATE OR REPLACE FUNCTION fn_compute_session_scores()
+RETURNS TRIGGER AS $$
+DECLARE
+  v_session_id UUID;
+  v_gds_total NUMERIC;
+  v_phq_total NUMERIC;
+BEGIN
+  -- Determine which session to update based on which table fired the trigger
+  IF TG_TABLE_NAME = 'decisions' THEN
+    v_session_id := NEW.session_id;
+  ELSIF TG_TABLE_NAME = 'clinical_mappings' THEN
+    v_session_id := (SELECT session_id FROM decisions WHERE decision_id = NEW.decision_id);
+  END IF;
+
+  -- Calculate GDS total: sum of (item score) for all GDS mappings in this session
+  SELECT COALESCE(SUM(cm.weight * cm.confidence), 0)
+  INTO v_gds_total
+  FROM clinical_mappings cm
+  JOIN decisions d ON (cm.decision_id = d.decision_id OR cm.option_id = (SELECT option_id FROM decisions WHERE decision_id = cm.decision_id))
+  WHERE d.session_id = v_session_id AND cm.scale = 'GDS';
+
+  -- Calculate PHQ total: sum of (item score) for all PHQ mappings in this session
+  SELECT COALESCE(SUM(cm.weight * cm.confidence), 0)
+  INTO v_phq_total
+  FROM clinical_mappings cm
+  JOIN decisions d ON (cm.decision_id = d.decision_id OR cm.option_id = (SELECT option_id FROM decisions WHERE decision_id = cm.decision_id))
+  WHERE d.session_id = v_session_id AND cm.scale = 'PHQ';
+
+  -- Upsert into session_scores
+  INSERT INTO session_scores(session_id, gds_total, phq_total, computed_at)
+  VALUES (v_session_id, v_gds_total, v_phq_total, now())
+  ON CONFLICT (session_id) DO UPDATE
+  SET gds_total = EXCLUDED.gds_total,
+      phq_total = EXCLUDED.phq_total,
+      computed_at = now();
+
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Attach triggers
+DROP TRIGGER IF EXISTS trg_compute_session_scores_on_decision ON decisions;
+CREATE TRIGGER trg_compute_session_scores_on_decision
+AFTER INSERT ON decisions
+FOR EACH ROW EXECUTE FUNCTION fn_compute_session_scores();
+
+DROP TRIGGER IF EXISTS trg_compute_session_scores_on_mapping ON clinical_mappings;
+CREATE TRIGGER trg_compute_session_scores_on_mapping
+AFTER INSERT ON clinical_mappings
+FOR EACH ROW EXECUTE FUNCTION fn_compute_session_scores();
+
+-- ===== USER METRICS AGGREGATION TRIGGER =====
 
 -- Function: maintain user_metrics_aggregated when sessions end (simple upsert)
 CREATE OR REPLACE FUNCTION fn_sessions_after_update()
@@ -64,6 +140,8 @@ DROP TRIGGER IF EXISTS trg_sessions_after_update ON sessions;
 CREATE TRIGGER trg_sessions_after_update
 AFTER UPDATE ON sessions
 FOR EACH ROW EXECUTE FUNCTION fn_sessions_after_update();
+
+-- ===== AUDIT LOG TRIGGER =====
 
 -- Optional: trigger to copy decision audit link when decision inserted
 CREATE OR REPLACE FUNCTION fn_decisions_after_insert()
