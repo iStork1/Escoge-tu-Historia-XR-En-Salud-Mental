@@ -16,6 +16,34 @@ CREATE TABLE IF NOT EXISTS users (
   metadata JSONB
 );
 
+-- Chapters / Scenes / Options: canonical story structure
+-- (must be created before sessions, decisions, etc. that reference them)
+CREATE TABLE IF NOT EXISTS chapters (
+  chapter_id TEXT PRIMARY KEY,
+  title TEXT NOT NULL,
+  "order" INT,
+  metadata JSONB
+);
+
+CREATE TABLE IF NOT EXISTS scenes (
+  scene_id TEXT PRIMARY KEY,
+  chapter_id TEXT REFERENCES chapters(chapter_id) ON DELETE CASCADE,
+  title TEXT,
+  "order" INT,
+  metadata JSONB
+);
+
+CREATE TABLE IF NOT EXISTS options (
+  option_id TEXT PRIMARY KEY,
+  scene_id TEXT REFERENCES scenes(scene_id) ON DELETE CASCADE,
+  option_text TEXT NOT NULL,
+  consequence TEXT,
+  next_chapter_id TEXT REFERENCES chapters(chapter_id) ON DELETE SET NULL,
+  next_scene_id TEXT REFERENCES scenes(scene_id) ON DELETE SET NULL,
+  gds_mapping JSONB,
+  metadata JSONB
+);
+
 -- Sessions: one row per play session
 CREATE TABLE IF NOT EXISTS sessions (
   session_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -46,33 +74,6 @@ CREATE TABLE IF NOT EXISTS decision_audit (
   validation_result JSONB,
   risk_flags TEXT[],
   pseudonym VARCHAR(64)
-);
-
--- Chapters / Scenes / Options: canonical story structure
-CREATE TABLE IF NOT EXISTS chapters (
-  chapter_id TEXT PRIMARY KEY,
-  title TEXT NOT NULL,
-  "order" INT,
-  metadata JSONB
-);
-
-CREATE TABLE IF NOT EXISTS scenes (
-  scene_id TEXT PRIMARY KEY,
-  chapter_id TEXT REFERENCES chapters(chapter_id) ON DELETE CASCADE,
-  title TEXT,
-  "order" INT,
-  metadata JSONB
-);
-
-CREATE TABLE IF NOT EXISTS options (
-  option_id TEXT PRIMARY KEY,
-  scene_id TEXT REFERENCES scenes(scene_id) ON DELETE CASCADE,
-  option_text TEXT NOT NULL,
-  consequence TEXT,
-  next_chapter_id TEXT REFERENCES chapters(chapter_id) ON DELETE SET NULL,
-  next_scene_id TEXT REFERENCES scenes(scene_id) ON DELETE SET NULL,
-  gds_mapping JSONB,
-  metadata JSONB
 );
 
 -- Decisions: one per user choice per scene

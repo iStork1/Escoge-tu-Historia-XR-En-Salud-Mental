@@ -88,6 +88,11 @@ BEGIN
     v_session_id := (SELECT session_id FROM decisions WHERE decision_id = NEW.decision_id);
   END IF;
 
+  -- If no valid session, skip (e.g., when inserting designer mappings at startup)
+  IF v_session_id IS NULL THEN
+    RETURN NEW;
+  END IF;
+
   -- Calculate GDS total: sum of (weight * confidence) for all GDS mappings in this session
   SELECT COALESCE(SUM(cm.weight * cm.confidence), 0)
   INTO v_gds_total

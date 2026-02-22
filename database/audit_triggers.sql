@@ -64,18 +64,23 @@ BEGIN
     v_session_id := (SELECT session_id FROM decisions WHERE decision_id = NEW.decision_id);
   END IF;
 
-  -- Calculate GDS total: sum of (item score) for all GDS mappings in this session
+  -- If no valid session, skip (e.g., when inserting designer mappings at startup)
+  IF v_session_id IS NULL THEN
+    RETURN NEW;
+  END IF;
+
+  -- Calculate GDS total: sum of (weight * confidence) for all GDS mappings in this session
   SELECT COALESCE(SUM(cm.weight * cm.confidence), 0)
   INTO v_gds_total
   FROM clinical_mappings cm
-  JOIN decisions d ON (cm.decision_id = d.decision_id OR cm.option_id = (SELECT option_id FROM decisions WHERE decision_id = cm.decision_id))
+  JOIN decisions d ON cm.decision_id = d.decision_id
   WHERE d.session_id = v_session_id AND cm.scale = 'GDS';
 
-  -- Calculate PHQ total: sum of (item score) for all PHQ mappings in this session
+  -- Calculate PHQ total: sum of (weight * confidence) for all PHQ mappings in this session
   SELECT COALESCE(SUM(cm.weight * cm.confidence), 0)
   INTO v_phq_total
   FROM clinical_mappings cm
-  JOIN decisions d ON (cm.decision_id = d.decision_id OR cm.option_id = (SELECT option_id FROM decisions WHERE decision_id = cm.decision_id))
+  JOIN decisions d ON cm.decision_id = d.decision_id
   WHERE d.session_id = v_session_id AND cm.scale = 'PHQ';
 
   -- Upsert into session_scores

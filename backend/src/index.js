@@ -90,41 +90,60 @@ async function ensureOptionsUpsert() {
         for (const opt of (sc.options || [])) {
           const optRow = {
             option_id: opt.option_id,
-            chapter_id: ch.chapter_id,
             scene_id: sc.scene_id,
             option_text: opt.option_text,
-            next_chapter_id: opt.next_chapter_id,
+            consequence: opt.consequence || null,
+            next_chapter_id: opt.next_chapter_id || null,
+            next_scene_id: opt.next_scene_id || null,
+            gds_mapping: opt.gds_mapping || null,
             metadata: opt.metadata || null
           };
           try {
-            const { data: odata, error: oerr } = await supabase.from('options').upsert(optRow, { onConflict: 'option_id' }).select();
+            const { data: odata, error: oerr } = await supabase.from('options').upsert([optRow], { onConflict: 'option_id' }).select();
             if (oerr) console.warn('options upsert error', oerr);
             else console.log('upserted option', opt.option_id);
           } catch (e) { console.warn('options upsert exception', e && e.message); }
 
-          // Upsert mappings for the option
-          const mappings = opt.mappings || [];
-          for (const m of mappings) {
-            // Only include mapping_id if provided so DB can apply default gen_random_uuid()
-            const mapRow = {
+          // Insert clinical mappings from both gds_mapping and phq_mapping
+          const gdsMappings = opt.gds_mapping || [];
+          const phqMappings = opt.phq_mapping || [];
+          
+          for (const gdsMap of gdsMappings) {
+            const cmRow = {
               option_id: opt.option_id,
-              scale: m.scale || null,
-              item: m.item || null,
-              weight: m.weight || null,
-              confidence: m.confidence || null,
-              metadata: m.metadata || null
+              scale: 'GDS',
+              item: gdsMap.item || null,
+              weight: gdsMap.weight || null,
+              confidence: gdsMap.confidence || null,
+              primary_construct: gdsMap.rationale || null,
+              rationale: gdsMap.rationale || null,
+              mapping_source: 'designer',
+              source_confidence: gdsMap.confidence || null,
+              validated: true
             };
-            if (m.mapping_id) mapRow.mapping_id = m.mapping_id;
             try {
-              // Use insert; if mapping_id provided use upsert behavior via upsert
-              if (mapRow.mapping_id) {
-                const { data: md, error: merr } = await supabase.from('option_mappings').upsert(mapRow, { onConflict: 'mapping_id' }).select();
-                if (merr) console.warn('option_mappings upsert error', merr);
-              } else {
-                const { data: md, error: merr } = await supabase.from('option_mappings').insert(mapRow);
-                if (merr) console.warn('option_mappings insert error', merr);
-              }
-            } catch (e) { console.warn('option_mappings error', e && e.message); }
+              const { data: md, error: merr } = await supabase.from('clinical_mappings').insert([cmRow]);
+              if (merr) console.warn('clinical_mappings (GDS) insert error', merr);
+            } catch (e) { console.warn('clinical_mappings error', e && e.message); }
+          }
+
+          for (const phqMap of phqMappings) {
+            const cmRow = {
+              option_id: opt.option_id,
+              scale: 'PHQ',
+              item: phqMap.item || null,
+              weight: phqMap.weight || null,
+              confidence: phqMap.confidence || null,
+              primary_construct: phqMap.rationale || null,
+              rationale: phqMap.rationale || null,
+              mapping_source: 'designer',
+              source_confidence: phqMap.confidence || null,
+              validated: true
+            };
+            try {
+              const { data: md, error: merr } = await supabase.from('clinical_mappings').insert([cmRow]);
+              if (merr) console.warn('clinical_mappings (PHQ) insert error', merr);
+            } catch (e) { console.warn('clinical_mappings error', e && e.message); }
           }
         }
       }
@@ -945,6 +964,326 @@ async function processTelemetryPayload(payload, headers) {
         return { ok: true, session_id, decisions_inserted: decisionRows.length, clinical_mappings_inserted: clinicalRows.length };
       }
 
+// Handle POST /admin/sync-chapters: sync chapters.json → database
+async function handleSyncChapters(req, res) {
+  try {
+    // Load chapters from file
+    const p = path.join(__dirname, '..', 'content', 'chapters.json');
+    if (!fs.existsSync(p)) {
+      res.writeHead(404, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: 'chapters.json not found' }));
+    }
+    const chaptersData = JSON.parse(fs.readFileSync(p, 'utf8'));
+    if (!chaptersData.chapters || !Array.isArray(chaptersData.chapters)) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: 'invalid chapters.json format: chapters array required' }));
+    }
+
+    let chaptersUpserted = 0;
+    let scenesUpserted = 0;
+    let optionsUpserted = 0;
+    let clinicalMappingsInserted = 0;
+
+    // Upsert chapters, scenes, options, and clinical_mappings
+    for (const chapter of chaptersData.chapters) {
+      if (!chapter.chapter_id) {
+        console.warn('skipping chapter without chapter_id');
+        continue;
+      }
+
+      // Upsert chapter
+      const chapterRow = {
+        chapter_id: chapter.chapter_id,
+        title: chapter.title || null,
+        order: chapter.order || null,
+        metadata: chapter.metadata || null
+      };
+      const { error: chErr } = await supabase.from('chapters').upsert([chapterRow], { onConflict: 'chapter_id' });
+      if (chErr) {
+        console.warn('chapter upsert error', chErr);
+      } else {
+        chaptersUpserted++;
+      }
+
+      // Upsert scenes
+      const scenes = chapter.scenes || [];
+      for (const scene of scenes) {
+        if (!scene.scene_id) {
+          console.warn('skipping scene without scene_id');
+          continue;
+        }
+
+        const sceneRow = {
+          scene_id: scene.scene_id,
+          chapter_id: chapter.chapter_id,
+          title: scene.title || null,
+          order: scene.order || null,
+          metadata: scene.metadata || null
+        };
+        const { error: sErr } = await supabase.from('scenes').upsert([sceneRow], { onConflict: 'scene_id' });
+        if (sErr) {
+          console.warn('scene upsert error', sErr);
+        } else {
+          scenesUpserted++;
+        }
+
+        // Upsert options and their clinical mappings
+        const options = scene.options || [];
+        console.log(`Processing ${options.length} options for scene ${scene.scene_id}`);
+        for (const option of options) {
+          if (!option.option_id) {
+            console.warn('skipping option without option_id');
+            continue;
+          }
+
+          const optionRow = {
+            option_id: option.option_id,
+            scene_id: scene.scene_id,
+            option_text: option.option_text || null,
+            consequence: option.consequence || null,
+            next_chapter_id: option.next_chapter_id || null,
+            next_scene_id: option.next_scene_id || null,
+            gds_mapping: option.gds_mapping || null,
+            metadata: option.metadata || null
+          };
+          console.log(`Upserting option: ${option.option_id}`);
+          const { error: oErr } = await supabase.from('options').upsert([optionRow], { onConflict: 'option_id' });
+          if (oErr) {
+            console.error('option upsert error for', option.option_id, ':', oErr);
+          } else {
+            optionsUpserted++;
+            console.log(`✅ Upserted option: ${option.option_id}`);
+          }
+
+          // Create clinical_mappings for GDS items
+          const gdsMappings = option.gds_mapping || [];
+          console.log(`Processing ${gdsMappings.length} GDS mappings for option ${option.option_id}`);
+          for (const gdsMap of gdsMappings) {
+            const cmRow = {
+              option_id: option.option_id,
+              scale: 'GDS',
+              item: gdsMap.item || null,
+              weight: gdsMap.weight || null,
+              confidence: gdsMap.confidence || null,
+              primary_construct: gdsMap.rationale || null,
+              rationale: gdsMap.rationale || null,
+              mapping_source: 'designer',
+              source_confidence: gdsMap.confidence || null,
+              validated: true
+            };
+            const { error: cmErr } = await supabase.from('clinical_mappings').insert([cmRow]);
+            if (cmErr) {
+              console.error('clinical_mappings (GDS) insert error:', cmErr);
+            } else {
+              clinicalMappingsInserted++;
+              console.log(`✅ Inserted GDS mapping: item ${gdsMap.item} for option ${option.option_id}`);
+            }
+          }
+
+          // Create clinical_mappings for PHQ items
+          const phqMappings = option.phq_mapping || [];
+          console.log(`Processing ${phqMappings.length} PHQ mappings for option ${option.option_id}`);
+          for (const phqMap of phqMappings) {
+            const cmRow = {
+              option_id: option.option_id,
+              scale: 'PHQ',
+              item: phqMap.item || null,
+              weight: phqMap.weight || null,
+              confidence: phqMap.confidence || null,
+              primary_construct: phqMap.rationale || null,
+              rationale: phqMap.rationale || null,
+              mapping_source: 'designer',
+              source_confidence: phqMap.confidence || null,
+              validated: true
+            };
+            const { error: cmErr } = await supabase.from('clinical_mappings').insert([cmRow]);
+            if (cmErr) {
+              console.error('clinical_mappings (PHQ) insert error:', cmErr);
+            } else {
+              clinicalMappingsInserted++;
+              console.log(`✅ Inserted PHQ mapping: item ${phqMap.item} for option ${option.option_id}`);
+            }
+          }
+        }
+      }
+    }
+
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+      ok: true,
+      chapters_upserted: chaptersUpserted,
+      scenes_upserted: scenesUpserted,
+      options_upserted: optionsUpserted,
+      clinical_mappings_inserted: clinicalMappingsInserted
+    }));
+  } catch (err) {
+    console.error('sync-chapters error', err);
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({ error: err && err.message ? err.message : String(err) }));
+  }
+}
+
+// ============= SPRINT 2a: Session Closure & Summary Endpoints =============
+
+/**
+ * PUT /sessions/{session_id}/close
+ * Closes a session and computes normalized emotion scores (GDS 0-15→0-1, PHQ 0-27→0-1)
+ * Body: { ended_at, session_length_seconds, abandonment_flag }
+ */
+async function handleSessionClose(req, res) {
+  try {
+    const sessionId = req.url.match(/^\/sessions\/([^/]+)\/close/)?.[1];
+    if (!sessionId) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: 'session_id required' }));
+    }
+
+    const body = await parseJsonBody(req);
+    const { ended_at, session_length_seconds, abandonment_flag } = body || {};
+
+    // Fetch all clinical mappings for this session to compute scores
+    const { data: clinicalMappings, error: cmErr } = await supabase
+      .from('clinical_mappings')
+      .select('scale, item, weight, confidence')
+      .match({ session_id: sessionId });
+    
+    if (cmErr) throw cmErr;
+
+    // Calculate GDS and PHQ totals from clinical mappings
+    let gdsTotal = 0;
+    let phqTotal = 0;
+    
+    if (clinicalMappings && clinicalMappings.length > 0) {
+      for (const mapping of clinicalMappings) {
+        const score = (mapping.weight || 0) * (mapping.confidence || 1);
+        if (mapping.scale === 'GDS') {
+          gdsTotal += score;
+        } else if (mapping.scale === 'PHQ') {
+          phqTotal += score;
+        }
+      }
+    }
+
+    // Normalize scores to 0-1 range
+    // GDS: 0-15 scale → 0-1 (divide by 15)
+    // PHQ: 0-27 scale → 0-1 (divide by 27)
+    const normalizedGds = Math.min(1, Math.max(0, gdsTotal / 15));
+    const normalizedPhq = Math.min(1, Math.max(0, phqTotal / 27));
+
+    console.log(`[Session Close] ${sessionId}: GDS total=${gdsTotal} (normalized=${normalizedGds}), PHQ total=${phqTotal} (normalized=${normalizedPhq})`);
+
+    // Update session with closure data
+    const updateData = {
+      ended_at: ended_at || new Date().toISOString(),
+      is_closed: true,
+      session_length_seconds: session_length_seconds || null,
+      abandonment_flag: abandonment_flag || false,
+      normalized_emotional_score_gds: normalizedGds,
+      normalized_emotional_score_phq: normalizedPhq
+    };
+
+    const { error: updateErr } = await supabase
+      .from('sessions')
+      .update(updateData)
+      .eq('session_id', sessionId);
+    
+    if (updateErr) throw updateErr;
+
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+      ok: true,
+      session_id: sessionId,
+      normalized_emotional_score_gds: normalizedGds,
+      normalized_emotional_score_phq: normalizedPhq,
+      gds_total: gdsTotal,
+      phq_total: phqTotal
+    }));
+  } catch (err) {
+    console.error('session close error', err);
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({ error: err.message || String(err) }));
+  }
+}
+
+/**
+ * GET /sessions/{session_id}/summary
+ * Returns session summary with scores, risk flags, and decision count
+ */
+async function handleSessionSummary(req, res) {
+  try {
+    const sessionId = req.url.match(/^\/sessions\/([^/]+)\/summary/)?.[1];
+    if (!sessionId) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: 'session_id required' }));
+    }
+
+    // Fetch session record
+    const { data: sessionRecord, error: sessErr } = await supabase
+      .from('sessions')
+      .select('*')
+      .eq('session_id', sessionId)
+      .single();
+    
+    if (sessErr) throw sessErr;
+    if (!sessionRecord) {
+      res.writeHead(404, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: 'session not found' }));
+    }
+
+    // Count decisions for this session
+    const { data: decisions, error: decErr } = await supabase
+      .from('decisions')
+      .select('decision_id', { count: 'exact' })
+      .eq('session_id', sessionId);
+    
+    if (decErr) throw decErr;
+
+    // Fetch risk events for this session
+    const { data: riskEvents, error: riskErr } = await supabase
+      .from('risk_events')
+      .select('risk_type')
+      .eq('session_id', sessionId);
+    
+    if (riskErr) throw riskErr;
+
+    const riskFlags = riskEvents ? riskEvents.map(e => e.risk_type) : [];
+
+    // Fetch session scores for detailed breakdown
+    const { data: sessionScores, error: scoresErr } = await supabase
+      .from('session_scores')
+      .select('*')
+      .eq('session_id', sessionId)
+      .maybeSingle();
+    
+    if (scoresErr) throw scoresErr;
+
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+      ok: true,
+      session_id: sessionId,
+      pseudonym: sessionRecord.pseudonym || null,
+      decisions_count: decisions ? decisions.length : 0,
+      gds_score: sessionRecord.normalized_emotional_score_gds || null,
+      phq_score: sessionRecord.normalized_emotional_score_phq || null,
+      risk_flags: riskFlags,
+      is_closed: sessionRecord.is_closed || false,
+      created_at: sessionRecord.created_at,
+      ended_at: sessionRecord.ended_at || null,
+      session_length_seconds: sessionRecord.session_length_seconds || null,
+      abandonment_flag: sessionRecord.abandonment_flag || false,
+      detailed_scores: sessionScores ? {
+        gds_total: sessionScores.gds_total,
+        phq_total: sessionScores.phq_total,
+        computed_at: sessionScores.computed_at
+      } : null
+    }));
+  } catch (err) {
+    console.error('session summary error', err);
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({ error: err.message || String(err) }));
+  }
+}
+
 // Start HTTP server and route requests
 const PORT = process.env.PORT || 7070;
 const HOST = process.env.HOST || '127.0.0.1';
@@ -955,6 +1294,9 @@ const server = http.createServer(async (req, res) => {
     if (req.method === 'POST' && url === '/telemetry') return await handleTelemetry(req, res);
     if (req.method === 'POST' && url === '/identify') return await handleIdentify(req, res);
     if (req.method === 'POST' && url === '/alexa') return await handleAlexa(req, res);
+    if (req.method === 'POST' && url === '/admin/sync-chapters') return await handleSyncChapters(req, res);
+    if (req.method === 'PUT' && url.startsWith('/sessions/') && url.endsWith('/close')) return await handleSessionClose(req, res);
+    if (req.method === 'GET' && url.startsWith('/sessions/') && url.endsWith('/summary')) return await handleSessionSummary(req, res);
     if (req.method === 'GET' && (url === '/' || url === '/health')) {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       return res.end(JSON.stringify({ ok: true, uptime_seconds: Math.floor(process.uptime()) }));

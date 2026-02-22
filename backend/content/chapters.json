@@ -3,31 +3,50 @@
     {
       "chapter_id": "c01",
       "title": "Paseo por el parque",
+      "order": 1,
       "scenes": [
         {
           "scene_id": "c01-s01",
+          "title": "Encuentro en el parque",
+          "order": 1,
           "text": "Hoy, después de desayunar, decides salir a dar un paseo. Al llegar al parque, ves a tu vecina, Carmen, sentada en un banco. Parece que quiere hablar, pero también notas que hay un grupo de personas jugando a las cartas en otra mesa. ¿Qué quieres hacer?",
           "options": [
             {
               "option_id": "c01-s01-o1",
-              "option_text": "Acercarte a Carmen para preguntarle cómo está",
+              "option_text": "Acercarte a Carmen",
+              "consequence": "Te acercas a Carmen y empiezan a conversar. Ella se alegra mucho de verte y pasan un rato agradable juntos.",
               "next_chapter_id": null,
-              "consequence": "Te acercas a Carmen con una sonrisa. Ella te confiesa que hoy se siente algo sola y agradece mucho que hayas venido a hablar con ella. Pasáis juntos un rato agradable conversando sobre recuerdos de la infancia. Al despedirse, Carmen te dice que le has alegrado el día.",
-              "mappings": [ { "scale": "GDS", "item": 7, "score": 1, "weight": 0.8, "confidence": 0.9 } ]
+              "next_scene_id": null,
+              "gds_mapping": [
+                { "item": 2, "weight": 1.0, "confidence": 0.9, "rationale": "social_engagement" }
+              ],
+              "phq_mapping": []
             },
             {
               "option_id": "c01-s01-o2",
-              "option_text": "Unirte al grupo que juega a las cartas para pasar un rato divertido",
+              "option_text": "Unirte al grupo",
+              "consequence": "Te unes al grupo de juego. Parecen personas interesantes y te hace pasar un rato entretenido.",
               "next_chapter_id": null,
-              "consequence": "Te acercas al grupo y te integras en la partida. Ríes, compartes anécdotas y por un rato olvidas las preocupaciones. La experiencia social te carga de energía positiva y te sientes más animado al volver a casa.",
-              "mappings": [ { "scale": "GDS", "item": 1, "score": 1, "weight": 0.7, "confidence": 0.85 } ]
+              "next_scene_id": null,
+              "gds_mapping": [
+                { "item": 7, "weight": 0.7, "confidence": 0.8, "rationale": "social_engagement" }
+              ],
+              "phq_mapping": [
+                { "item": 4, "weight": 0.5, "confidence": 0.8, "rationale": "sleep_or_fatigue" }
+              ]
             },
             {
               "option_id": "c01-s01-o3",
-              "option_text": "Sentarte solo en un banco para contemplar el entorno y pensar",
+              "option_text": "Sentarte solo",
+              "consequence": "Te sientas en un banco tranquilo. Pasas un rato en soledad, observando a la gente del parque.",
               "next_chapter_id": null,
-              "consequence": "Te sientas en un banco apartado y observas el movimiento del parque. Reflexionas sobre tus pensamientos y, aunque te sientes un poco melancólico, el tiempo a solas te ayuda a ordenar ideas y a recuperar calma interior.",
-              "mappings": [ { "scale": "GDS", "item": 3, "score": 1, "weight": 0.5, "confidence": 0.7 } ]
+              "next_scene_id": null,
+              "gds_mapping": [
+                { "item": 7, "weight": 0.9, "confidence": 0.85, "rationale": "social_isolation" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": 0.6, "confidence": 0.8, "rationale": "depressed_mood" }
+              ]
             }
           ]
         }
