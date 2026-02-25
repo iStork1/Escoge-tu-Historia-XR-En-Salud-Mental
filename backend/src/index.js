@@ -12,6 +12,60 @@ const { v4: uuidv4, validate: uuidValidate } = require('uuid');
 const fs = require('fs');
 const path = require('path');
 
+// ============= SPRINT 2c: LLM Client for Ollama Integration =============
+let llmClient, prompts;
+try {
+  llmClient = require('./llm-client');
+  prompts = require('./prompts');
+  console.log('✅ LLM client and prompts loaded (Ollama integration ready)');
+} catch (e) {
+  console.warn('⚠️ LLM modules not available:', e && e.message);
+  // Continue without LLM if modules not loaded
+}
+
+// ============= SPRINT 2b: Payload Validation with AJV =============
+let Ajv, addFormats;
+let validatePayloadSchema = null;
+
+try {
+  Ajv = require('ajv');
+  addFormats = require('ajv-formats');
+  const ajv = new Ajv({ strict: true, useDefaults: false });
+  addFormats.default(ajv);
+  
+  // Load and compile decision payload schema
+  const schemaPath = path.join(__dirname, '..', 'decision_payload_schema.json');
+  const schemaData = fs.readFileSync(schemaPath, 'utf8');
+  const schema = JSON.parse(schemaData);
+  
+  validatePayloadSchema = ajv.compile(schema);
+  console.log('✅ Payload validation schema loaded and compiled');
+} catch (e) {
+  console.warn('⚠️ AJV validation not available:', e && e.message);
+  // Continue without validation if ajv not installed
+}
+
+// Middleware: Validate payload against schema
+function validatePayload(payload) {
+  if (!validatePayloadSchema) {
+    return { valid: true, errors: null }; // Skip if schema not loaded
+  }
+  
+  const valid = validatePayloadSchema(payload);
+  if (!valid) {
+    return {
+      valid: false,
+      errors: validatePayloadSchema.errors.map(err => ({
+        path: err.instancePath || '/',
+        message: err.message,
+        keyword: err.keyword
+      }))
+    };
+  }
+  
+  return { valid: true, errors: null };
+}
+
 if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
   console.warn('Warning: SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY not set — running in local/mock mode');
 }
@@ -246,13 +300,32 @@ function alexaCreateReminder(apiEndpoint, apiAccessToken, payload) {
 async function handleTelemetry(req, res) {
   try {
     const payload = await parseJsonBody(req);
-    if (!ensureSessionPayload(payload)) { res.writeHead(400, {'Content-Type':'application/json'}); return res.end(JSON.stringify({ error: 'invalid payload' })); }
+    
+    // ============= SPRINT 2b: Payload Validation =============
+    // Validate against JSON schema
+    const validation = validatePayload(payload);
+    if (!validation.valid) {
+      console.warn('❌ Telemetry payload validation failed:', validation.errors);
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({
+        error: 'payload validation failed',
+        details: validation.errors,
+        hint: 'Ensure payload has required fields: session_id, decision_id, timestamp, payload with chapter_id, scene_id, option_id'
+      }));
+    }
+    
+    // Additional semantic validation (after schema validation passes)
+    if (!ensureSessionPayload(payload)) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: 'invalid payload structure' }));
+    }
+    
     const result = await processTelemetryPayload(payload, req.headers);
-    res.writeHead(200, {'Content-Type':'application/json'});
+    res.writeHead(200, { 'Content-Type': 'application/json' });
     return res.end(JSON.stringify(result));
   } catch (err) {
     console.error('telemetry error', err && err.message, err);
-    res.writeHead(500, {'Content-Type':'application/json'});
+    res.writeHead(500, { 'Content-Type': 'application/json' });
     return res.end(JSON.stringify({ error: err.message || String(err) }));
   }
 }
@@ -1141,32 +1214,22 @@ async function handleSessionClose(req, res) {
     const body = await parseJsonBody(req);
     const { ended_at, session_length_seconds, abandonment_flag } = body || {};
 
-    // Fetch all clinical mappings for this session to compute scores
-    const { data: clinicalMappings, error: cmErr } = await supabase
-      .from('clinical_mappings')
-      .select('scale, item, weight, confidence')
-      .match({ session_id: sessionId });
+    // Fetch session scores (pre-computed by trigger)
+    const { data: sessionScores, error: scoreErr } = await supabase
+      .from('session_scores')
+      .select('gds_total, phq_total')
+      .eq('session_id', sessionId)
+      .maybeSingle();
     
-    if (cmErr) throw cmErr;
+    if (scoreErr) throw scoreErr;
 
-    // Calculate GDS and PHQ totals from clinical mappings
-    let gdsTotal = 0;
-    let phqTotal = 0;
-    
-    if (clinicalMappings && clinicalMappings.length > 0) {
-      for (const mapping of clinicalMappings) {
-        const score = (mapping.weight || 0) * (mapping.confidence || 1);
-        if (mapping.scale === 'GDS') {
-          gdsTotal += score;
-        } else if (mapping.scale === 'PHQ') {
-          phqTotal += score;
-        }
-      }
-    }
+    // Get totals from session_scores or default to 0
+    const gdsTotal = sessionScores?.gds_total || 0;
+    const phqTotal = sessionScores?.phq_total || 0;
 
     // Normalize scores to 0-1 range
-    // GDS: 0-15 scale → 0-1 (divide by 15)
-    // PHQ: 0-27 scale → 0-1 (divide by 27)
+    // GDS-15: 0-15 max → 0-1 normalized (divide by 15)
+    // PHQ-9: 0-27 max range (9 items × 3 points each) → 0-1 normalized (divide by 27)
     const normalizedGds = Math.min(1, Math.max(0, gdsTotal / 15));
     const normalizedPhq = Math.min(1, Math.max(0, phqTotal / 27));
 
@@ -1217,26 +1280,40 @@ async function handleSessionSummary(req, res) {
       return res.end(JSON.stringify({ error: 'session_id required' }));
     }
 
+    // Validate that sessionId looks like a UUID (basic check)
+    const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+    if (!uuidRegex.test(sessionId)) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: 'invalid session_id format (must be UUID)' }));
+    }
+
     // Fetch session record
     const { data: sessionRecord, error: sessErr } = await supabase
       .from('sessions')
       .select('*')
       .eq('session_id', sessionId)
-      .single();
+      .maybeSingle();
     
-    if (sessErr) throw sessErr;
+    if (sessErr) {
+      console.error('session fetch error', sessErr);
+      throw sessErr;
+    }
+    
     if (!sessionRecord) {
       res.writeHead(404, { 'Content-Type': 'application/json' });
       return res.end(JSON.stringify({ error: 'session not found' }));
     }
 
     // Count decisions for this session
-    const { data: decisions, error: decErr } = await supabase
+    const { data: decisions, error: decErr, count: decCount } = await supabase
       .from('decisions')
-      .select('decision_id', { count: 'exact' })
+      .select('decision_id', { count: 'exact', head: true })
       .eq('session_id', sessionId);
     
-    if (decErr) throw decErr;
+    if (decErr) {
+      console.error('decision count error', decErr);
+      throw decErr;
+    }
 
     // Fetch risk events for this session
     const { data: riskEvents, error: riskErr } = await supabase
@@ -1244,9 +1321,12 @@ async function handleSessionSummary(req, res) {
       .select('risk_type')
       .eq('session_id', sessionId);
     
-    if (riskErr) throw riskErr;
+    if (riskErr) {
+      console.error('risk events fetch error', riskErr);
+      throw riskErr;
+    }
 
-    const riskFlags = riskEvents ? riskEvents.map(e => e.risk_type) : [];
+    const riskFlags = riskEvents ? [...new Set(riskEvents.map(e => e.risk_type))] : [];
 
     // Fetch session scores for detailed breakdown
     const { data: sessionScores, error: scoresErr } = await supabase
@@ -1255,14 +1335,17 @@ async function handleSessionSummary(req, res) {
       .eq('session_id', sessionId)
       .maybeSingle();
     
-    if (scoresErr) throw scoresErr;
+    if (scoresErr) {
+      console.error('session scores error', scoresErr);
+      throw scoresErr;
+    }
 
     res.writeHead(200, { 'Content-Type': 'application/json' });
     return res.end(JSON.stringify({
       ok: true,
       session_id: sessionId,
       pseudonym: sessionRecord.pseudonym || null,
-      decisions_count: decisions ? decisions.length : 0,
+      decisions_count: decCount || 0,
       gds_score: sessionRecord.normalized_emotional_score_gds || null,
       phq_score: sessionRecord.normalized_emotional_score_phq || null,
       risk_flags: riskFlags,
@@ -1284,6 +1367,188 @@ async function handleSessionSummary(req, res) {
   }
 }
 
+// ============= SPRINT 2c: LLM Mapping Computation =============
+
+// Handle POST /decisions/{id}/compute-mapping: Generate mappings using all 3 LLM models
+async function handleComputeMapping(req, res) {
+  try {
+    if (!llmClient || !prompts) {
+      res.writeHead(503, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: 'LLM service not available' }));
+    }
+
+    let body = '';
+    req.on('data', chunk => { body += chunk; });
+    req.on('end', async () => {
+      try {
+        const payload = JSON.parse(body);
+        const { decision_id } = payload;
+
+        if (!decision_id) {
+          res.writeHead(400, { 'Content-Type': 'application/json' });
+          return res.end(JSON.stringify({ error: 'decision_id required' }));
+        }
+
+        // Fetch decision
+        const { data: decision, error: decErr } = await supabase
+          .from('decisions')
+          .select('*')
+          .eq('decision_id', decision_id)
+          .single();
+
+        if (decErr || !decision) {
+          res.writeHead(404, { 'Content-Type': 'application/json' });
+          return res.end(JSON.stringify({ error: 'decision not found' }));
+        }
+
+        // Build prompt
+        const prompt = prompts.buildClinicianMappingPrompt(decision);
+
+        // Call all 3 models
+        const llmResults = await llmClient.callAllModels(prompt);
+
+        // Parse responses for each model
+        const parsedResults = {};
+        for (const [model, result] of Object.entries(llmResults.results)) {
+          if (result.error) {
+            parsedResults[model] = { error: result.error, time_ms: result.time_ms };
+          } else {
+            parsedResults[model] = {
+              ...llmClient.parseClinicianResponse(result.response),
+              time_ms: result.time_ms,
+              model_display: result.model_display
+            };
+          }
+        }
+
+        // Return comparison
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        return res.end(JSON.stringify({
+          ok: true,
+          decision_id,
+          results: parsedResults,
+          total_time_ms: llmResults.total_time_ms,
+          timestamp: new Date().toISOString()
+        }));
+
+      } catch (err) {
+        console.error('compute mapping error', err);
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        return res.end(JSON.stringify({ error: err.message || String(err) }));
+      }
+    });
+
+  } catch (err) {
+    console.error('compute mapping handler error', err);
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({ error: err.message || String(err) }));
+  }
+}
+
+// Handle POST /decisions/{id}/compute-mapping/compare: Compare with designer mappings
+async function handleComputeMappingCompare(req, res) {
+  try {
+    if (!llmClient || !prompts) {
+      res.writeHead(503, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: 'LLM service not available' }));
+    }
+
+    let body = '';
+    req.on('data', chunk => { body += chunk; });
+    req.on('end', async () => {
+      try {
+        const payload = JSON.parse(body);
+        const { decision_id } = payload;
+
+        if (!decision_id) {
+          res.writeHead(400, { 'Content-Type': 'application/json' });
+          return res.end(JSON.stringify({ error: 'decision_id required' }));
+        }
+
+        // Fetch decision with clinical mappings
+        const { data: decision, error: decErr } = await supabase
+          .from('decisions')
+          .select('*')
+          .eq('decision_id', decision_id)
+          .single();
+
+        if (decErr || !decision) {
+          res.writeHead(404, { 'Content-Type': 'application/json' });
+          return res.end(JSON.stringify({ error: 'decision not found' }));
+        }
+
+        // Fetch designer and LLM mappings
+        const { data: allMappings, error: mapErr } = await supabase
+          .from('clinical_mappings')
+          .select('*')
+          .eq('decision_id', decision_id);
+
+        if (mapErr) throw mapErr;
+
+        const designerMappings = (allMappings || []).filter(m => m.mapping_source === 'designer');
+        const llmMappings = (allMappings || []).filter(m => m.mapping_source === 'llm');
+
+        // If no LLM mappings exist, generate them
+        let finalLLMmappings = llmMappings;
+        if (!llmMappings.length) {
+          const prompt = prompts.buildClinicianMappingPrompt(decision);
+          const llmResults = await llmClient.callAllModels(prompt);
+          
+          // Use the best (mistral as default)
+          const mistralResult = llmResults.results.mistral;
+          if (!mistralResult.error) {
+            const parsed = llmClient.parseClinicianResponse(mistralResult.response);
+            finalLLMmappings = parsed.mappings;
+          }
+        }
+
+        // Compare
+        const comparison = llmClient.compareMappings(designerMappings, finalLLMmappings);
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        return res.end(JSON.stringify({
+          ok: true,
+          decision_id,
+          comparison,
+          designer_mappings: designerMappings,
+          llm_mappings: finalLLMmappings,
+          timestamp: new Date().toISOString()
+        }));
+
+      } catch (err) {
+        console.error('mapping compare error', err);
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        return res.end(JSON.stringify({ error: err.message || String(err) }));
+      }
+    });
+
+  } catch (err) {
+    console.error('mapping compare handler error', err);
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({ error: err.message || String(err) }));
+  }
+}
+
+// Handle GET /admin/ollama-health: Check Ollama connectivity
+async function handleOllamaHealth(req, res) {
+  try {
+    if (!llmClient) {
+      res.writeHead(503, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: 'LLM client not loaded' }));
+    }
+
+    const health = await llmClient.checkOllamaHealth();
+    const statusCode = health.ok ? 200 : 503;
+    res.writeHead(statusCode, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify(health));
+
+  } catch (err) {
+    console.error('ollama health check error', err);
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({ error: err.message || String(err) }));
+  }
+}
+
 // Start HTTP server and route requests
 const PORT = process.env.PORT || 7070;
 const HOST = process.env.HOST || '127.0.0.1';
@@ -1297,6 +1562,10 @@ const server = http.createServer(async (req, res) => {
     if (req.method === 'POST' && url === '/admin/sync-chapters') return await handleSyncChapters(req, res);
     if (req.method === 'PUT' && url.startsWith('/sessions/') && url.endsWith('/close')) return await handleSessionClose(req, res);
     if (req.method === 'GET' && url.startsWith('/sessions/') && url.endsWith('/summary')) return await handleSessionSummary(req, res);
+    // SPRINT 2c: LLM Mapping endpoints
+    if (req.method === 'POST' && url.startsWith('/decisions/') && url.includes('/compute-mapping') && url.endsWith('/compare')) return await handleComputeMappingCompare(req, res);
+    if (req.method === 'POST' && url.startsWith('/decisions/') && url.endsWith('/compute-mapping')) return await handleComputeMapping(req, res);
+    if (req.method === 'GET' && url === '/admin/ollama-health') return await handleOllamaHealth(req, res);
     if (req.method === 'GET' && (url === '/' || url === '/health')) {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       return res.end(JSON.stringify({ ok: true, uptime_seconds: Math.floor(process.uptime()) }));

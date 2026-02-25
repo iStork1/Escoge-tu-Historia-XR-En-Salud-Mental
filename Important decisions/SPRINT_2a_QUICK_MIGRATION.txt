@@ -1,0 +1,71 @@
+# 🚀 SPRINT 2a: Quick Migration Cheat Sheet
+
+## Issue
+Test shows: `"Could not find the 'is_closed' column of 'sessions'"`
+
+## Solution (30 seconds)
+
+### **Step 1**: Open Supabase SQL Editor
+- Go to https://app.supabase.com → Your Project
+- Left sidebar → **SQL Editor**
+- Click **"New Query"**
+
+### **Step 2**: Copy & Run This SQL
+```sql
+ALTER TABLE sessions 
+ADD COLUMN IF NOT EXISTS is_closed BOOLEAN DEFAULT FALSE,
+ADD COLUMN IF NOT EXISTS created_at TIMESTAMPTZ DEFAULT now();
+```
+
+### **Step 3**: Verify
+```sql
+SELECT column_name FROM information_schema.columns 
+WHERE table_name = 'sessions' 
+ORDER BY column_name;
+```
+Look for: ✅ `is_closed` ✅ `created_at`
+
+### **Step 4**: Test
+```bash
+cd backend
+node scripts/test_session_endpoints.js staging
+```
+
+Expected result:
+```
+Status: 404  (or 200 if data exists)
+✅ Session close endpoint working
+✅ Session summary endpoint working
+```
+
+---
+
+## What Gets Added
+| Column | Type | Default | Purpose |
+|--------|------|---------|---------|
+| `is_closed` | BOOLEAN | false | Track if session ended |
+| `created_at` | TIMESTAMP | now() | When session was created |
+
+---
+
+## Clinical Scales Used
+- **GDS-15**: Geriatric Depression Scale (15 items, 0-15 max)
+  - Normalized to 0-1 by dividing by 15
+  
+- **PHQ-9**: Patient Health Questionnaire (9 items, 0-27 max = 9 items × 3 points each)
+  - Normalized to 0-1 by dividing by 27
+
+---
+
+### Error: "Permission denied"
+→ Use an admin/owner Supabase account
+
+### Error: "column already exists"
+→ That's fine! The SQL has `IF NOT EXISTS` so it's safe to run again
+
+### Error: "invalid syntax"
+→ Copy the SQL exactly as shown above (no edits)
+
+---
+
+**Done?** ✅ Proceed to Sprint 2b: Validation Middleware

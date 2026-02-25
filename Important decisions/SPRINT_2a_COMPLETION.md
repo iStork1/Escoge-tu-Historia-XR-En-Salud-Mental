@@ -14,8 +14,8 @@ Implemented two critical REST endpoints for production session management with a
 ### 1. **PUT `/sessions/{session_id}/close`**
 - Closes a session and computes normalized emotion scores
 - Scores normalized automatically:
-  - **GDS**: 0-15 scale → 0-1 range (divide by 15)
-  - **PHQ**: 0-27 scale → 0-1 range (divide by 27)
+  - **GDS-15**: 0-15 range → 0-1 normalized (divide by 15)
+  - **PHQ-9**: 0-27 range → 0-1 normalized (divide by 27, since 9 items × 3 points max)
 - Updates 6 session fields: `is_closed`, `ended_at`, `session_length_seconds`, `abandonment_flag`, `normalized_emotional_score_gds`, `normalized_emotional_score_phq`
 - **Calculation method**: Sums `weight × confidence` for each scale type from all clinical_mappings
 
@@ -63,6 +63,8 @@ Implemented two critical REST endpoints for production session management with a
 
 ## Files Created
 
+## Files Created
+
 ### Documentation
 - [backend/SPRINT_2a_ENDPOINTS.md](backend/SPRINT_2a_ENDPOINTS.md)
   - Full API specification with request/response examples
@@ -71,10 +73,17 @@ Implemented two critical REST endpoints for production session management with a
   - Manual cURL testing instructions
   - Real-world integration flow diagram
 
+- **[backend/SPRINT_2a_MIGRATION.md](backend/SPRINT_2a_MIGRATION.md)** ⭐ **REQUIRED**
+  - Migration SQL to add `is_closed` and `created_at` columns
+  - Step-by-step guide to apply in Supabase
+  - Verification instructions
+
 ### Scripts
 - [backend/scripts/test_session_endpoints.js](scripts/test_session_endpoints.js)
   - Automated test runner for both endpoints
   - Tests endpoint availability and routing
+  - Generates proper UUIDs for testing
+  - Handles HTTPS/ngrok redirects
   - Usage: `node scripts/test_session_endpoints.js staging`
 
 ---
@@ -90,10 +99,26 @@ Implemented two critical REST endpoints for production session management with a
 - [x] Response JSON includes all required fields
 - [x] HTTP routing updated with both new endpoints
 
-### ⚠️ Database-Level Validation Needed
-Before production deployment, verify in Supabase:
+### ⚠️ Database-Level Validation Needed ⭐ BLOCKING ISSUE
 
-1. **sessions table has all required columns**:
+**BEFORE running any tests**, apply migration: [SPRINT_2a_MIGRATION.md](SPRINT_2a_MIGRATION.md)
+
+Missing columns in Supabase:
+- ❌ `sessions.is_closed` — Will cause "column not found" error
+- ❌ `sessions.created_at` — Added to schema but needs migration
+
+**Quick Fix** (Supabase Dashboard):
+1. Go to **SQL Editor**
+2. Run this query:
+```sql
+ALTER TABLE sessions 
+ADD COLUMN IF NOT EXISTS is_closed BOOLEAN DEFAULT FALSE,
+ADD COLUMN IF NOT EXISTS created_at TIMESTAMPTZ DEFAULT now();
+```
+3. Verify in **DB Browser** → sessions table (scroll right)
+4. Re-run test: `node scripts/test_session_endpoints.js staging`
+
+After migration, verify in Supabase:
    ```sql
    SELECT column_name FROM information_schema.columns 
    WHERE table_name = 'sessions'

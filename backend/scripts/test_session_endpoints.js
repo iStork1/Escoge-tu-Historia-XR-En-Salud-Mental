@@ -9,9 +9,11 @@
 
 try { require('dotenv').config(); } catch (e) { /* continue */ }
 const http = require('http');
+const https = require('https');
+const { v4: uuidv4 } = require('uuid');
 
 const BACKEND_BASE_URL = process.env.BACKEND_BASE_URL || 'http://localhost:7070';
-const TEST_SESSION_ID = 'test-session-' + Date.now();
+const TEST_SESSION_ID = uuidv4();  // Generate proper UUID
 
 console.log(`🧪 Testing Sprint 2a Session Endpoints`);
 console.log(`Backend URL: ${BACKEND_BASE_URL}`);
@@ -21,17 +23,32 @@ function makeHttpRequest(method, path, body = null) {
   return new Promise((resolve, reject) => {
     try {
       const url = new URL(BACKEND_BASE_URL);
+      const protocol = url.protocol === 'https:' ? https : http;
+      const defaultPort = url.protocol === 'https:' ? 443 : 80;
+      
       const options = {
         hostname: url.hostname,
-        port: url.port || 80,
+        port: url.port || defaultPort,
         path: path,
         method: method,
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'User-Agent': 'Sprint2aTestClient/1.0'
         }
       };
 
-      const req = http.request(options, (res) => {
+      const req = protocol.request(options, (res) => {
+        // Handle redirects
+        if (res.statusCode === 307 || res.statusCode === 301 || res.statusCode === 302) {
+          const redirectUrl = res.headers.location;
+          if (redirectUrl) {
+            console.log(`Following redirect from ${res.statusCode}: ${redirectUrl}`);
+            // Recursively follow redirect
+            resolve(makeHttpRequest(method, new URL(redirectUrl).pathname + (new URL(redirectUrl).search || ''), body));
+            return;
+          }
+        }
+        
         let data = '';
         res.on('data', chunk => data += chunk);
         res.on('end', () => {

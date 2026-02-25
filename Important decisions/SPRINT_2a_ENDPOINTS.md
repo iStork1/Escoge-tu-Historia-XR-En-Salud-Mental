@@ -46,8 +46,8 @@ Content-Type: application/json
 **Score Normalization Logic**:
 1. Sum all `clinical_mappings` for session where scale='GDS': `gds_total = SUM(weight × confidence)`
 2. Sum all `clinical_mappings` for session where scale='PHQ': `phq_total = SUM(weight × confidence)`
-3. Normalize GDS: `normalized_gds = MIN(1, MAX(0, gds_total / 15))` (GDS-15 scale: 0-15)
-4. Normalize PHQ: `normalized_phq = MIN(1, MAX(0, phq_total / 27))` (PHQ-9 scale: 0-27)
+3. Normalize GDS-15: `normalized_gds = MIN(1, MAX(0, gds_total / 15))` (GDS-15 max: 15 points)
+4. Normalize PHQ-9: `normalized_phq = MIN(1, MAX(0, phq_total / 27))` (PHQ-9 max: 27 points = 9 items × 3 points)
 5. Clamp both to [0, 1] range
 
 **Database Changes**:
