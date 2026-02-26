@@ -159,10 +159,119 @@ Respond in JSON:
   return prompt;
 }
 
+/**
+ * Build a prompt for chapter generation
+ * Creates the next chapter with 3-5 clinically-mapped options
+ * Sprint 3: Narrative Generation
+ * 
+ * @param {string} currentChapterId - Current chapter the user is in
+ * @param {Array} sessionDecisions - All decisions made in this session
+ * @param {Object} clinicalScores - Current GDS/PHQ scores { gds15, phq9 }
+ * @param {Object} sessionContext - User age, condition severity, etc
+ * @returns {string} Formatted prompt for LLM chapter generation
+ */
+function buildChapterGenerationPrompt(currentChapterId, sessionDecisions = [], clinicalScores = {}, sessionContext = {}) {
+  const gdsItems = getGDSItems();
+  const phqItems = getPHQItems();
+  
+  // Estilo de decisiones previas
+  const decisionSummary = sessionDecisions.length 
+    ? `\n## Resumen de decisiones previas en esta sesión:\n${sessionDecisions.slice(-5).map(d => `- ${d.option_text} → Consecuencia: ${d.consequence}`).join('\n')}`
+    : '\nPrimera escena de la sesión.';
+  
+  // Contexto clínico actual
+  const scoreContext = clinicalScores.gds15 || clinicalScores.phq9
+    ? `\n## Estado clínico actual del usuario:\n- GDS-15 normalizados: ${(clinicalScores.gds15 || 0).toFixed(2)} (0=nada deprimido, 1=muy deprimido)\n- PHQ-9 normalizados: ${(clinicalScores.phq9 || 0).toFixed(2)} (0=sin síntomas, 1=depresión severa)`
+    : '';
+
+  const prompt = `Eres un escritor narrativo especializado en salud mental. Tu tarea es continuar una historia interactiva generando el próximo capítulo con opciones que exploren aspectos clínicos relevantes para depresión geriátrica y depresión en adultos.
+
+## Contexto Narrativo
+- Capítulo actual: "${currentChapterId}"
+- Necesitas generar el PRÓXIMO capítulo (ej: "c02", "c03", etc.)${decisionSummary}${scoreContext}
+
+## Escalas Clínicas que DEBES mapear
+
+### GDS-15 (Geriatric Depression Scale - 15 items)
+${gdsItems.map(item => `- Item ${item.number}: ${item.description}`).join('\n')}
+
+### PHQ-9 (Patient Health Questionnaire - 9 items)
+${phqItems.map(item => `- Item ${item.number}: ${item.description}`).join('\n')}
+
+## Instrucciones para Generación de Capítulo
+
+1. **Mantén continuidad narrativa**: La historia debe fluir naturalmente desde el capítulo anterior
+2. **Crea 3-5 opciones**: Cada opción debe ser una decisión clara que el usuario puede tomar
+3. **Mapea clínicamente**: Cada opción debe mapear a síntomas específicos de GDS-15 o PHQ-9
+4. **Diversidad clínica**: Las opciones deben cubrir diferentes dominios clínicos (ánimo, energia, aislamiento social, etc)
+5. **Profundidad narrativa**: Las consecuencias deben ser realistas y significativas
+
+## Formato de Respuesta
+
+Responde ÚNICAMENTE con JSON válido en este formato. NO añadas texto adicional ni explicaciones fuera del JSON:
+
+{
+  "chapter": {
+    "chapter_id": "c02",
+    "title": "Título del nuevo capítulo",
+    "narrative": "Texto descriptivo de la nueva escena (100-200 palabras). Continúa naturalmente desde donde quedó la historia."
+  },
+  "scene": {
+    "scene_id": "c02-s01",
+    "title": "Título de la escena",
+    "text": "Descripción detallada de la situación donde el usuario debe tomar una decisión (100-150 palabras)"
+  },
+  "options": [
+    {
+      "option_id": "c02-s01-o1",
+      "option_text": "Primera opción clara para el usuario",
+      "consequence": "Lo que ocurre si el usuario elige esta opción (50-100 palabras)",
+      "gds_mapping": [
+        {"item": 7, "weight": 0.85, "confidence": 0.90, "primary_construct": "social_engagement", "rationale": "La decisión refleja..."}
+      ],
+      "phq_mapping": [
+        {"item": 1, "weight": 0.7, "confidence": 0.85, "primary_construct": "depressed_mood", "rationale": "..."}
+      ]
+    },
+    {
+      "option_id": "c02-s01-o2",
+      "option_text": "Segunda opción",
+      "consequence": "...",
+      "gds_mapping": [
+        {"item": 2, "weight": 0.6, "confidence": 0.80, "primary_construct": "activity_interest", "rationale": "..."}
+      ],
+      "phq_mapping": []
+    }
+  ]
+}
+
+## Restricciones Técnicas
+- chapter_id: Formato "c02", "c03", etc. (incrementa automáticamente desde el capítulo actual)
+- option_id: Formato "c02-s01-o1", "c02-s01-o2", etc.
+- gds_mapping/phq_mapping: Array de items, SOLO items válidos (GDS 1-15, PHQ 1-9)
+- weight: 0.0-1.0 (intensidad de la alineación con el síntoma)
+- confidence: 0.0-1.0 (certeza clínica del mapeo)
+- primary_construct: Término clínico corto (social_engagement, depressed_mood, etc)
+- Género: Español latino, accesible, respetuoso
+
+## Diversidad de Opciones Requerida
+Crea opciones que exploren diferentes aspectos clínicos:
+- ✓ Opción social (aislamiento vs conexión)
+- ✓ Opción de actividad (apatía vs engagement)
+- ✓ Opción emocional (rumiación vs aceptación)
+- ✓ Opción de autocuidado (abandono vs atención personal)
+- Opcional: Opción de búsqueda de ayuda (si la severidad lo amerita)
+
+Responde SOLO con el JSON. Valida que sea JSON válido antes de responder.`;
+
+  return prompt;
+}
+
 module.exports = {
   buildClinicianMappingPrompt,
   buildComparisonPrompt,
   buildRiskAssessmentPrompt,
+  buildChapterGenerationPrompt,
   getGDSItems,
   getPHQItems
 };

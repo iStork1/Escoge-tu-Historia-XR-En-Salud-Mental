@@ -1,117 +1,77 @@
 /**
- * LLM Client for Ollama Integration
- * Supports: Mistral, Llama2, Neural-Chat
+ * LLM Client - Unified Interface
+ * Abstracts multiple LLM providers (Ollama, OpenAI, Claude)
  * Sprint 2c: LLM Mapping Computation
+ * 
+ * Provider selection via environment:
+ *   LLM_PROVIDER=ollama  (free, local)
+ *   LLM_PROVIDER=openai  ($, cloud)
+ *   LLM_PROVIDER=claude  ($, cloud)
  */
 
-const axios = require('axios');
+const { createLLMProvider } = require('./llm-providers');
 
-const OLLAMA_BASE = process.env.OLLAMA_BASE || 'http://localhost:11434/api';
-const MODELS = {
-  mistral: { name: 'mistral', displayName: 'Mistral 7B', timeout: 30000 },
-  llama2: { name: 'llama2', displayName: 'Llama 2 7B', timeout: 35000 },
-  neural_chat: { name: 'neural-chat', displayName: 'Neural Chat 7B', timeout: 30000 }
-};
+let provider = null;
+let isInitialized = false;
 
 /**
- * Call Ollama API with a single model
- * @param {string} model - Model key (mistral, llama2, neural_chat)
- * @param {string} prompt - Prompt to send
- * @param {number} temperature - Creativity (0-1)
- * @returns {Promise<{response: string, model: string, time_ms: number}>}
+ * Initialize LLM client with configured provider
  */
-async function callOllama(model, prompt, temperature = 0.7) {
-  if (!MODELS[model]) {
-    throw new Error(`Unknown model: ${model}. Available: ${Object.keys(MODELS).join(', ')}`);
-  }
-
-  const modelName = MODELS[model].name;
-  const startTime = Date.now();
-
+async function initializeLLMClient() {
   try {
-    const response = await axios.post(
-      `${OLLAMA_BASE}/generate`,
-      {
-        model: modelName,
-        prompt,
-        stream: false,
-        temperature,
-        num_ctx: 2048, // context window
-        num_predict: 1024 // max tokens in response
-      },
-      {
-        timeout: MODELS[model].timeout,
-        headers: { 'Content-Type': 'application/json' }
-      }
-    );
-
-    const time_ms = Date.now() - startTime;
-    return {
-      response: response.data.response?.trim() || '',
-      model,
-      time_ms,
-      model_display: MODELS[model].displayName
-    };
+    provider = createLLMProvider();
+    await provider.initialize();
+    isInitialized = true;
+    console.log(`✅ LLM Client initialized with provider: ${provider.name}`);
+    return true;
   } catch (err) {
-    const time_ms = Date.now() - startTime;
-    console.error(`[LLM Error] ${modelName}:`, err.message);
-    
-    return {
-      response: null,
-      model,
-      error: err.message,
-      time_ms,
-      model_display: MODELS[model].displayName
-    };
+    console.error('[LLM] Initialization error:', err.message);
+    return false;
   }
 }
 
 /**
- * Call all 3 models in parallel for comparison
- * @param {string} prompt - Clinical prompt
- * @returns {Promise<Object>} Results from all models
+ * Call LLM with a single model
+ * @param {string} model - Model identifier
+ * @param {string} prompt - Input prompt
+ * @param {Object} options - { temperature, max_tokens }
+ * @returns {Promise<Object>}
  */
-async function callAllModels(prompt) {
-  console.log('[LLM] Calling 3 models in parallel...');
+async function callLLM(model, prompt, options = {}) {
+  if (!provider) {
+    throw new Error('LLM provider not initialized. Call initializeLLMClient() first.');
+  }
   
-  const startTime = Date.now();
-  const results = await Promise.all([
-    callOllama('mistral', prompt),
-    callOllama('llama2', prompt),
-    callOllama('neural_chat', prompt)
-  ]);
-
-  const totalTime = Date.now() - startTime;
-
-  return {
-    results: results.reduce((acc, r) => {
-      acc[r.model] = r;
-      return acc;
-    }, {}),
-    total_time_ms: totalTime,
-    parallel: true
-  };
+  return await provider.generate(model, prompt, options);
 }
 
 /**
- * Health check: verify Ollama is running
- * @returns {Promise<boolean>}
+ * Call all available models in parallel (for comparison)
+ * @param {string} prompt - Input prompt
+ * @param {Object} options - { temperature, max_tokens }
+ * @returns {Promise<{results: Object, total_time_ms: number}>}
  */
-async function checkOllamaHealth() {
-  try {
-    const response = await axios.get(`${OLLAMA_BASE}/tags`, {
-      timeout: 5000
-    });
-    return {
-      ok: true,
-      models: response.data.models?.map(m => m.name) || []
-    };
-  } catch (err) {
-    return {
-      ok: false,
-      error: err.message
-    };
+async function callAllModels(prompt, options = {}) {
+  if (!provider) {
+    throw new Error('LLM provider not initialized. Call initializeLLMClient() first.');
   }
+  
+  const availableModels = await provider.getAvailableModels();
+  console.log(`[LLM] Calling ${availableModels.length} model(s) in parallel: ${availableModels.join(', ')}`);
+  
+  return await provider.generateParallel(availableModels, prompt, options);
+}
+
+/**
+ * Health check: verify provider is running
+ * @returns {Promise<Object>}
+ */
+async function checkHealth() {
+  if (!provider) {
+    return { ok: false, error: 'LLM provider not initialized' };
+  }
+  
+  return await provider.healthCheck();
 }
 
 /**
@@ -156,8 +116,8 @@ function parseClinicianResponse(responseText) {
 }
 
 /**
- * Compare mappings from 2 models
- * @param {Array} designerMappings - Pre-authored mappings from content
+ * Compare mappings from 2 sources
+ * @param {Array} designerMappings - Pre-authored mappings
  * @param {Array} llmMappings - LLM-generated mappings
  * @returns {Object} Divergence analysis
  */
@@ -195,11 +155,28 @@ function compareMappings(designerMappings = [], llmMappings = []) {
   };
 }
 
+/**
+ * Get provider information
+ * @returns {Object}
+ */
+function getProviderInfo() {
+  if (!provider) {
+    return { provider: null, initialized: false };
+  }
+  
+  return {
+    provider: provider.name,
+    initialized: isInitialized,
+    model: provider.model || 'unknown'
+  };
+}
+
 module.exports = {
-  callOllama,
+  initializeLLMClient,
+  callLLM,
   callAllModels,
-  checkOllamaHealth,
+  checkHealth,
   parseClinicianResponse,
   compareMappings,
-  MODELS
+  getProviderInfo
 };
