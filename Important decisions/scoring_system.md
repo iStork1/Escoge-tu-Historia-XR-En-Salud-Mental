@@ -4,7 +4,6 @@
 **Fecha**: Febrero 2026  
 **Estado**: Decisión activa
 
----
 
 ## 1. Estructura narrativa: Viaje del Héroe semanal (12 etapas)
 
@@ -31,7 +30,6 @@ No todas las etapas son escenas jugables — algunas se narran automáticamente.
 
 > **Nota**: si 8 escenas jugables es excesivo para un capítulo de 10-20 min, el diseñador puede reducir a 5-6 escenas jugables fusionando etapas adyacentes (ej. fusionar 6+7, o 9+10). Lo importante es respetar el arco emocional.
 
----
 
 ## 2. Mapeo de decisiones a escalas clínicas
 
@@ -122,7 +120,6 @@ El `weight` lo define el diseñador de la historia (con supervisión del psicól
 | 7 | `difficulty_concentrating` | Evadir conversaciones |
 | 9 | `self_harm_ideation` | ⚠️ **RISK_FLAG** — si w×c ≥ 0.2, escalar inmediatamente |
 
----
 
 ## 3. Fórmula de puntuación por sesión
 
@@ -157,7 +154,6 @@ Donde `GDS_max_posible` es la suma de los pesos máximos si el usuario eligiera 
 | 0.6 – 0.8 | Indicadores moderados/altos | Alerta al clínico supervisor |
 | 0.8 – 1.0 | Indicadores altos | Revisión clínica prioritaria |
 
----
 
 ## 4. Detección de riesgo (automática)
 
@@ -170,7 +166,6 @@ Dos triggers automáticos en la base de datos:
 
 Estos operan en la tabla `clinical_mappings` vía el trigger `fn_clinical_mappings_after_insert()`.
 
----
 
 ## 5. Análisis longitudinal (semana a semana)
 
@@ -203,7 +198,6 @@ Semana 4  ████████░░  GDS_norm: 0.72  ← alerta: cambio abr
 
 El clínico revisa la serie temporal completa + las decisiones específicas de la semana 4 para contextualizar.
 
----
 
 ## 6. Viaje del Héroe (12 etapas) × Escalas: Guía de autoría
 
@@ -232,7 +226,6 @@ Tabla de referencia rápida para el diseñador narrativo al crear nuevos capítu
 - Las **etapas narradas** (4, 7, 9, 11) no tienen opciones y por tanto no tienen mappings — sirven como ritmo emocional.
 - El **weight** sube progresivamente: etapas tempranas (1-3) usan 0.4–0.7; la ordalía (8) llega hasta 1.0; el regreso (10-12) vuelve a 0.5–0.8 excepto opciones extremas.
 
----
 
 ## 7. Conclusiones
 
