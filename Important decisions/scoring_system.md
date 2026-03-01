@@ -8,9 +8,9 @@
 
 ## 1. Estructura narrativa: Viaje del Héroe semanal (12 etapas)
 
-Cada semana se publica **un capítulo** sobre el mismo tema (ej. soledad, rutina, pérdida). El capítulo sigue las **12 etapas del Viaje del Héroe** (Campbell/Vogler) adaptadas a la vida cotidiana de adultos mayores.
+Cada semana se publica un capítulo sobre el mismo tema (ej. soledad, rutina, pérdida). El capítulo sigue las 12 etapas del Viaje del Héroe (Campbell/Vogler) adaptadas a la vida cotidiana de adultos mayores.
 
-No todas las etapas son escenas jugables — algunas se narran automáticamente. Las **escenas con decisión** (marcadas con 🎮) presentan **3 opciones** cada una.
+No todas las etapas son escenas jugables — algunas se narran automáticamente. Las escenas con decisión (marcadas con 🎮) presentan **3 opciones** cada una.
 
 | # | Etapa del Viaje del Héroe | Rol en el capítulo | Emoción/constructo que se mide |
 |---|---|---|---|
@@ -68,7 +68,7 @@ Cada opción en `chapters.json` tiene un array `gds_mapping` y `phq_mapping`:
 
 ### 2.2.1 ¿Quién asigna el `weight`? — Guía para el diseñador narrativo
 
-El `weight` lo define el **diseñador de la historia** (con supervisión del psicólogo). Representa qué tanto esa opción conductual refleja el constructo clínico del ítem. No es un puntaje del usuario — es una propiedad fija de la opción.
+El `weight` lo define el diseñador de la historia (con supervisión del psicólogo). Representa qué tanto esa opción conductual refleja el constructo clínico del ítem. No es un puntaje del usuario — es una propiedad fija de la opción.
 
 **Escala de weight (guía de asignación)**:
 
@@ -234,7 +234,7 @@ Tabla de referencia rápida para el diseñador narrativo al crear nuevos capítu
 
 ---
 
-## 7. Resumen ejecutivo
+## 7. Conclusiones
 
 1. **Historias semanales** sobre un mismo tema, estructuradas con el **Viaje del Héroe de 12 etapas** (~8 escenas jugables × 3 opciones + ~4 narradas).
 2. **Cada opción** mapea indirectamente a ítems de **GDS-15** (primaria) y **PHQ-9** (complementaria).
