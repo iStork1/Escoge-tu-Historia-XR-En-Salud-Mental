@@ -11,15 +11,24 @@
         {
           "name": "ChooseOptionIntent",
           "slots": [
-            {"name": "option", "type": "AMAZON.FOUR_DIGIT_NUMBER"}
+            {"name": "option", "type": "OptionNumber"}
           ],
-          "samples": ["elige la opción {option}", "opción {option}", "yo elijo {option}"]
+          "samples": ["{option}", "elige la opción {option}", "opción {option}", "yo elijo {option}", "selecciona {option}"]
         },
         {"name": "AMAZON.CancelIntent"},
         {"name": "AMAZON.HelpIntent"},
         {"name": "AMAZON.StopIntent"}
       ],
-      "types": []
+      "types": [
+        {
+          "name": "OptionNumber",
+          "values": [
+            {"name": {"value": "uno", "synonyms": ["1", "primera", "primero"]}},
+            {"name": {"value": "dos", "synonyms": ["2", "segunda", "segundo"]}},
+            {"name": {"value": "tres", "synonyms": ["3", "tercera", "tercero"]}}
+          ]
+        }
+      ]
     }
   }
 }

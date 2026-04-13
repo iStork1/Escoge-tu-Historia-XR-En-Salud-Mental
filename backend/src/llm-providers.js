@@ -15,8 +15,8 @@ const BaseProvider = require('./providers/base');
  * Uses lazy requires to avoid circular dependencies
  * @returns {Object} Provider instance with unified interface
  */
-function createLLMProvider() {
-  const providerType = (process.env.LLM_PROVIDER || 'ollama').toLowerCase();
+function createLLMProvider(providerOverride = null) {
+  const providerType = (providerOverride || process.env.LLM_PROVIDER || 'ollama').toLowerCase();
   
   console.log(`[LLM] Initializing provider: ${providerType}`);
   
@@ -37,6 +37,14 @@ function createLLMProvider() {
     case 'groq': {
       const GroqProvider = require('./providers/groq');
       return new GroqProvider();
+    }
+    case 'openrouter': {
+      const OpenRouterProvider = require('./providers/openrouter');
+      return new OpenRouterProvider();
+    }
+    case 'cohere': {
+      const CohereProvider = require('./providers/cohere');
+      return new CohereProvider();
     }
     case 'mock':
     case 'test': {

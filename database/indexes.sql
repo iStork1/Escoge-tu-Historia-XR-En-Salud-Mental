@@ -25,7 +25,17 @@ CREATE INDEX IF NOT EXISTS idx_risk_events_risk_type ON risk_events(risk_type);
 CREATE INDEX IF NOT EXISTS idx_user_metrics_updated ON user_metrics_aggregated(updated_at);
 
 -- Audio metrics
-CREATE INDEX IF NOT EXISTS idx_audio_metrics_session ON audio_metrics(session_id);
+DO $$
+BEGIN
+	IF EXISTS (
+		SELECT 1
+		FROM information_schema.tables
+		WHERE table_schema = 'public'
+			AND table_name = 'audio_metrics'
+	) THEN
+		CREATE INDEX IF NOT EXISTS idx_audio_metrics_session ON audio_metrics(session_id);
+	END IF;
+END $$;
 
 -- Story structure (chapters, scenes, options)
 CREATE INDEX IF NOT EXISTS idx_chapters_order ON chapters("order");

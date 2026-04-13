@@ -12,7 +12,49 @@
 const { createLLMProvider } = require('./llm-providers');
 
 let provider = null;
+let coreProvider = null;
+let narrativeProvider = null;
 let isInitialized = false;
+const providerCache = new Map();
+
+function parseModelList(raw = '') {
+  if (!raw || typeof raw !== 'string') return [];
+  return raw.split(',').map(m => m.trim()).filter(Boolean);
+}
+
+function resolveProvider(role = null) {
+  if (role === 'core') return coreProvider || provider;
+  if (role === 'narrative') return narrativeProvider || provider;
+  return provider;
+}
+
+function registerProvider(name, instance) {
+  if (!name || !instance) return;
+  providerCache.set(String(name).toLowerCase(), instance);
+}
+
+async function ensureProviderByName(name) {
+  if (!name) return null;
+  const key = String(name).toLowerCase();
+  if (providerCache.has(key)) return providerCache.get(key);
+  const created = createLLMProvider(name);
+  if (!created) return null;
+  await created.initialize();
+  providerCache.set(key, created);
+  return created;
+}
+
+function resolveRoleModels(role = null) {
+  if (role === 'core') return parseModelList(process.env.LLM_CORE_MODELS || '');
+  if (role === 'narrative') return parseModelList(process.env.LLM_NARRATIVE_MODELS || '');
+  return parseModelList(process.env.LLM_AVAILABLE_MODELS || '');
+}
+
+function resolveRoleModel(role = null, fallbackModel = null) {
+  if (role === 'core') return process.env.LLM_CORE_MODEL || fallbackModel || null;
+  if (role === 'narrative') return process.env.LLM_NARRATIVE_MODEL || fallbackModel || null;
+  return process.env.LLM_MODEL || fallbackModel || null;
+}
 
 /**
  * Initialize LLM client with configured provider
@@ -20,9 +62,22 @@ let isInitialized = false;
 async function initializeLLMClient() {
   try {
     provider = createLLMProvider();
-    await provider.initialize();
-    isInitialized = true;
-    console.log(`✅ LLM Client initialized with provider: ${provider.name}`);
+    coreProvider = createLLMProvider(process.env.LLM_PROVIDER_CORE || process.env.LLM_PROVIDER || null);
+    narrativeProvider = createLLMProvider(process.env.LLM_PROVIDER_NARRATIVE || process.env.LLM_PROVIDER || null);
+    const secondaryCoreProvider = createLLMProvider(process.env.LLM_PROVIDER_CORE_SECONDARY || null);
+
+    registerProvider(process.env.LLM_PROVIDER || provider?.name, provider);
+    registerProvider(process.env.LLM_PROVIDER_CORE || coreProvider?.name, coreProvider);
+    registerProvider(process.env.LLM_PROVIDER_NARRATIVE || narrativeProvider?.name, narrativeProvider);
+    registerProvider(process.env.LLM_PROVIDER_CORE_SECONDARY || secondaryCoreProvider?.name, secondaryCoreProvider);
+
+    const providersToInit = [provider, coreProvider, narrativeProvider, secondaryCoreProvider].filter(Boolean);
+    for (const p of providersToInit) {
+      await p.initialize();
+    }
+
+    isInitialized = providersToInit.some(p => p.initialized);
+    console.log(`✅ LLM Client initialized. Default: ${provider?.name || 'none'}, core: ${coreProvider?.name || 'none'}, narrative: ${narrativeProvider?.name || 'none'}`);
     return true;
   } catch (err) {
     console.error('[LLM] Initialization error:', err.message);
@@ -38,11 +93,18 @@ async function initializeLLMClient() {
  * @returns {Promise<Object>}
  */
 async function callLLM(model, prompt, options = {}) {
-  if (!provider) {
+  const { role, providerRole, ...providerOptions } = options || {};
+  const resolvedRole = role || providerRole || null;
+  const activeProvider = resolveProvider(resolvedRole);
+
+  if (!activeProvider) {
     throw new Error('LLM provider not initialized. Call initializeLLMClient() first.');
   }
-  
-  return await provider.generate(model, prompt, options);
+
+  const fallbackModel = activeProvider.model || null;
+  const modelToUse = model || resolveRoleModel(resolvedRole, fallbackModel) || fallbackModel;
+
+  return await activeProvider.generate(modelToUse, prompt, providerOptions);
 }
 
 /**
@@ -52,26 +114,80 @@ async function callLLM(model, prompt, options = {}) {
  * @returns {Promise<{results: Object, total_time_ms: number}>}
  */
 async function callAllModels(prompt, options = {}) {
-  if (!provider) {
+  const { role, providerRole, models, ...providerOptions } = options || {};
+  const resolvedRole = role || providerRole || null;
+  const activeProvider = resolveProvider(resolvedRole);
+
+  if (!activeProvider) {
     throw new Error('LLM provider not initialized. Call initializeLLMClient() first.');
   }
-  
-  const availableModels = await provider.getAvailableModels();
+
+  const modelList = (Array.isArray(models) && models.length)
+    ? models
+    : resolveRoleModels(resolvedRole);
+
+  const availableModels = modelList.length ? modelList : await activeProvider.getAvailableModels();
   console.log(`[LLM] Calling ${availableModels.length} model(s) in parallel: ${availableModels.join(', ')}`);
-  
-  return await provider.generateParallel(availableModels, prompt, options);
+
+  return await activeProvider.generateParallel(availableModels, prompt, providerOptions);
+}
+
+/**
+ * Call models across multiple providers for the same prompt
+ * @param {string} prompt - Input prompt
+ * @param {Object} options - { providers: [{ name, models }], ...providerOptions }
+ * @returns {Promise<{results: Object, total_time_ms: number}>}
+ */
+async function callModelsAcrossProviders(prompt, options = {}) {
+  const { providers, ...providerOptions } = options || {};
+  const plan = Array.isArray(providers) ? providers : [];
+  const results = {};
+  const startTime = Date.now();
+
+  for (const entry of plan) {
+    const config = typeof entry === 'string' ? { name: entry } : entry;
+    const providerName = config && config.name ? config.name : null;
+    const providerInstance = await ensureProviderByName(providerName);
+    if (!providerInstance) {
+      results[providerName || 'unknown'] = { error: 'Provider not available' };
+      continue;
+    }
+
+    const modelList = Array.isArray(config.models) && config.models.length
+      ? config.models
+      : await providerInstance.getAvailableModels();
+
+    try {
+      const response = await providerInstance.generateParallel(modelList, prompt, providerOptions);
+      for (const [model, result] of Object.entries(response.results || {})) {
+        results[`${providerName}:${model}`] = {
+          ...result,
+          provider: providerName,
+          model
+        };
+      }
+    } catch (err) {
+      results[providerName || 'unknown'] = { error: err.message || String(err) };
+    }
+  }
+
+  return {
+    results,
+    total_time_ms: Date.now() - startTime
+  };
 }
 
 /**
  * Health check: verify provider is running
  * @returns {Promise<Object>}
  */
-async function checkHealth() {
-  if (!provider) {
+async function checkHealth(role = null) {
+  const activeProvider = resolveProvider(role);
+  if (!activeProvider) {
     return { ok: false, error: 'LLM provider not initialized' };
   }
-  
-  return await provider.healthCheck();
+
+  return await activeProvider.healthCheck();
 }
 
 /**
@@ -160,14 +276,18 @@ function compareMappings(designerMappings = [], llmMappings = []) {
  * @returns {Object}
  */
 function getProviderInfo() {
-  if (!provider) {
+  if (!provider && !coreProvider && !narrativeProvider) {
     return { provider: null, initialized: false };
   }
-  
+
   return {
-    provider: provider.name,
+    provider: provider ? provider.name : null,
+    core_provider: coreProvider ? coreProvider.name : null,
+    narrative_provider: narrativeProvider ? narrativeProvider.name : null,
     initialized: isInitialized,
-    model: provider.model || 'unknown'
+    model: provider && provider.model ? provider.model : 'unknown',
+    core_model: coreProvider && coreProvider.model ? coreProvider.model : null,
+    narrative_model: narrativeProvider && narrativeProvider.model ? narrativeProvider.model : null
   };
 }
 
@@ -175,6 +295,7 @@ module.exports = {
   initializeLLMClient,
   callLLM,
   callAllModels,
+  callModelsAcrossProviders,
   checkHealth,
   parseClinicianResponse,
   compareMappings,

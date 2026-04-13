@@ -2,1034 +2,729 @@
   "chapters": [
     {
       "chapter_id": "c01",
-      "title": "Paseo por el parque",
+      "title": "El jardín de Rosa",
       "order": 1,
       "scenes": [
         {
           "scene_id": "c01-s01",
-          "title": "Llegada al parque",
+          "title": "Mundo ordinario",
+          "hero_stage": "1_ordinary_world",
+          "type": "playable",
           "order": 1,
-          "text": "Hoy, después de desayunar, decides salir a dar un paseo. Al llegar al parque, ves a tu vecina, Carmen, sentada en un banco. Parece que quiere hablar, pero también notas que hay un grupo de personas jugando a las cartas en otra mesa. Un banco vacío bajo un árbol grande también te llama la atención. ¿Qué quieres hacer?",
+          "text": "Rosa se despierta en su cuarto. El apartamento está en silencio y ese silencio tiene peso desde que Alberto murió hace dos años. Son las siete de la mañana. Sobre la mesita de noche hay una tarjeta que llegó ayer debajo de la puerta: una invitación del centro comunitario para unirse al proyecto del jardín vecinal. Rosa la mira mientras toma el café. ¿Cómo comienza este día?",
           "options": [
             {
               "option_id": "c01-s01-o1",
-              "option_text": "Acercarte a Carmen",
-              "consequence": "Te acercas a Carmen y ella te recibe con una sonrisa cálida. Se alegra de verte.",
+              "option_text": "Leer la tarjeta con atención y curiosidad",
+              "consequence": "Rosa lee la tarjeta despacio, dos veces. 'Jardín vecinal', dice. No promete nada, pero algo en ella se despierta un poco.",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s02",
+              "next_scene_id": "c01-s02a",
               "gds_mapping": [
-                { "item": 2, "weight": 1.0, "confidence": 0.9, "rationale": "social_engagement" }
+                { "item": 2, "weight": 0.20, "confidence": 0.85, "rationale": "interés_en_actividades_nuevas_inverso" },
+                { "item": 13, "weight": 0.15, "confidence": 0.80, "rationale": "pequeña_energía_de_curiosidad_inverso" }
               ],
               "phq_mapping": []
             },
             {
               "option_id": "c01-s01-o2",
-              "option_text": "Unirte al grupo de cartas",
-              "consequence": "Te acercas al grupo y uno de ellos, un señor con bigote llamado Don Pedro, te invita a sentarte.",
+              "option_text": "Dejar la tarjeta para después y asomarse a la ventana",
+              "consequence": "Rosa deja la tarjeta en la mesa y mira el barrio por la ventana. Los vecinos salen al trabajo. Todo transcurre como siempre.",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s03",
+              "next_scene_id": "c01-s02a",
               "gds_mapping": [
-                { "item": 7, "weight": 0.7, "confidence": 0.8, "rationale": "social_engagement" }
+                { "item": 4, "weight": 0.30, "confidence": 0.75, "rationale": "procrastinación_leve_señal_de_aburrimiento" },
+                { "item": 5, "weight": 0.20, "confidence": 0.75, "rationale": "neutralidad_emocional_no_buen_humor" }
               ],
-              "phq_mapping": [
-                { "item": 4, "weight": 0.5, "confidence": 0.8, "rationale": "energy_for_social" }
-              ]
+              "phq_mapping": []
             },
             {
               "option_id": "c01-s01-o3",
-              "option_text": "Sentarte solo en el banco",
-              "consequence": "Caminas hacia el banco bajo el árbol. Te sientas y miras al parque en silencio.",
+              "option_text": "Guardar la tarjeta en el cajón sin leerla",
+              "consequence": "Rosa guarda la tarjeta sin abrirla. El cajón se cierra. El apartamento sigue igual que ayer.",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s04",
+              "next_scene_id": "c01-s02b",
               "gds_mapping": [
-                { "item": 7, "weight": 0.9, "confidence": 0.85, "rationale": "social_isolation" }
+                { "item": 3, "weight": 0.75, "confidence": 0.90, "rationale": "vida_vacía_evitación_activa_de_posibilidades" },
+                { "item": 9, "weight": 0.80, "confidence": 0.90, "rationale": "preferencia_por_quedarse_en_casa_sin_explorar" }
               ],
               "phq_mapping": [
-                { "item": 1, "weight": 0.6, "confidence": 0.8, "rationale": "depressed_mood" }
+                { "item": 1, "weight": 0.50, "confidence": 0.80, "rationale": "poco_interés_en_actividades_nuevas" }
               ]
             }
           ]
         },
         {
-          "scene_id": "c01-s02",
-          "title": "Conversación con Carmen",
+          "scene_id": "c01-s02a",
+          "title": "La llamada de Sofía",
+          "hero_stage": "2a_branch_social",
+          "type": "playable",
           "order": 2,
-          "text": "Carmen te empieza a contar que el centro comunitario está organizando actividades nuevas. De pronto se pone seria y te pregunta: ¿Cómo te has sentido últimamente? Su tono es genuino. ¿Qué le respondes?",
+          "text": "Justo cuando Rosa termina el café, suena el teléfono. Es Sofía, su vecina del tercer piso, una mujer animada de 68 años. '¡Rosa! ¿Recibiste la tarjeta del jardín? Yo voy el miércoles. ¿Vienes conmigo?' Rosa siente el calor de esa voz familiar que hace tiempo no escuchaba con atención.",
           "options": [
             {
-              "option_id": "c01-s02-o1",
-              "option_text": "Contarle que te has sentido bien",
-              "consequence": "Le dices que todo va bien. Carmen sonríe y cambia el tema a las actividades del centro.",
+              "option_id": "c01-s02a-o1",
+              "option_text": "Decirle que sí con entusiasmo",
+              "consequence": "Rosa escucha su propia voz diciendo que sí y le sorprende un poco. Sofía da un pequeño grito de alegría al otro lado.",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s05",
+              "next_scene_id": "c01-s03",
               "gds_mapping": [
-                { "item": 1, "weight": 0.8, "confidence": 0.85, "rationale": "life_satisfaction" }
+                { "item": 7, "weight": 0.15, "confidence": 0.85, "rationale": "momento_de_felicidad_espontánea_inverso" },
+                { "item": 2, "weight": 0.20, "confidence": 0.85, "rationale": "disposición_a_retomar_actividades_inverso" }
               ],
               "phq_mapping": []
             },
             {
-              "option_id": "c01-s02-o2",
-              "option_text": "Confesarle que a veces te sientes solo",
-              "consequence": "Le confiesas que hay días en que la soledad pesa. Carmen te escucha con atención y te pone la mano en el hombro.",
+              "option_id": "c01-s02a-o2",
+              "option_text": "Decir 'a ver, déjame pensarlo'",
+              "consequence": "Rosa no se compromete. Sofía lo acepta, aunque se escucha un poco de decepción en su 'bueno, como quieras'.",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s05",
+              "next_scene_id": "c01-s03",
               "gds_mapping": [
-                { "item": 3, "weight": 0.7, "confidence": 0.85, "rationale": "life_feels_empty" },
-                { "item": 6, "weight": 0.6, "confidence": 0.8, "rationale": "bothered_by_thoughts" }
+                { "item": 6, "weight": 0.45, "confidence": 0.80, "rationale": "miedo_a_que_algo_salga_mal_en_lo_social" }
               ],
               "phq_mapping": [
-                { "item": 2, "weight": 0.65, "confidence": 0.8, "rationale": "depressed_mood" }
+                { "item": 4, "weight": 0.35, "confidence": 0.75, "rationale": "cansancio_como_barrera_para_decidir" }
               ]
             },
             {
-              "option_id": "c01-s02-o3",
-              "option_text": "Cambiar de tema y preguntarle por su familia",
-              "consequence": "Prefieres no hablar de ti. Le preguntas por sus nietos. Carmen habla emocionada pero nota tu evasión.",
+              "option_id": "c01-s02a-o3",
+              "option_text": "Inventar una excusa para no comprometerse",
+              "consequence": "Rosa inventa una cita médica. Cuando cuelga, el apartamento está en silencio de nuevo. La tarjeta sigue en la mesa.",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s05",
+              "next_scene_id": "c01-s03",
               "gds_mapping": [
-                { "item": 10, "weight": 0.5, "confidence": 0.75, "rationale": "memory_difficulties" }
+                { "item": 7, "weight": 0.65, "confidence": 0.85, "rationale": "no_feliz_mayoría_del_tiempo_evita_conexión" },
+                { "item": 2, "weight": 0.70, "confidence": 0.80, "rationale": "abandono_activo_de_posible_actividad_social" }
+              ],
+              "phq_mapping": []
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s02b",
+          "title": "Silencio matutino",
+          "hero_stage": "2b_branch_isolated",
+          "type": "playable",
+          "order": 3,
+          "text": "Rosa se sienta en el sillón de la sala. En la pared está la foto de su boda: cuarenta y cinco años juntos con Alberto. El apartamento está callado y ese silencio tiene peso. La tarjeta está en el cajón. El día se extiende largo y sin forma frente a ella.",
+          "options": [
+            {
+              "option_id": "c01-s02b-o1",
+              "option_text": "Hablarle a la foto de Alberto, contarle de la tarjeta",
+              "consequence": "Rosa le habla a la foto en voz baja. 'Llegó una invitación, Alberto. No sé qué hacer.' El silencio que responde no duele tanto como antes.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s03",
+              "gds_mapping": [
+                { "item": 11, "weight": 0.20, "confidence": 0.75, "rationale": "conexión_con_el_valor_de_estar_viva_a_través_de_la_memoria" }
               ],
               "phq_mapping": [
-                { "item": 7, "weight": 0.4, "confidence": 0.7, "rationale": "difficulty_concentrating" }
+                { "item": 2, "weight": 0.30, "confidence": 0.80, "rationale": "tristeza_activa_por_duelo_presente" }
               ]
+            },
+            {
+              "option_id": "c01-s02b-o2",
+              "option_text": "Sentarse a pensar que ya no sirve para esas cosas",
+              "consequence": "Rosa se queda quieta pensando que el jardín es para personas más jóvenes, más ágiles. Que ella ya tuvo su tiempo.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s03",
+              "gds_mapping": [
+                { "item": 12, "weight": 0.80, "confidence": 0.90, "rationale": "sentirse_inútil_en_el_presente" },
+                { "item": 3, "weight": 0.75, "confidence": 0.90, "rationale": "vida_sin_propósito_vacía" },
+                { "item": 14, "weight": 0.40, "confidence": 0.80, "rationale": "situación_percibida_como_sin_esperanza" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": 0.60, "confidence": 0.85, "rationale": "poco_interés_en_posibles_actividades" }
+              ]
+            },
+            {
+              "option_id": "c01-s02b-o3",
+              "option_text": "Levantarse a regar las plantas y poner la radio",
+              "consequence": "Rosa se mueve. Riega una por una las maticas del balcón. La radio toca algo de los años ochenta que ella recuerda.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s03",
+              "gds_mapping": [
+                { "item": 13, "weight": 0.25, "confidence": 0.80, "rationale": "energía_cotidiana_mínima_disponible_inverso" },
+                { "item": 4, "weight": 0.25, "confidence": 0.75, "rationale": "combate_el_aburrimiento_activamente_inverso" }
+              ],
+              "phq_mapping": []
             }
           ]
         },
         {
           "scene_id": "c01-s03",
-          "title": "El grupo de cartas",
-          "order": 3,
-          "text": "Don Pedro te enseña las reglas de un juego que no conocías. El grupo es animado: hay risas, bromas y algo de competencia sana. Después de un rato, una señora llamada Marta te pregunta si vienes seguido al parque. ¿Qué haces?",
+          "title": "La llamada a la aventura",
+          "hero_stage": "2_call_to_adventure",
+          "type": "narrated",
+          "order": 4,
+          "text": "Esa misma tarde, Rosa decide pasar frente al centro comunitario, solo para ver. Desde la acera observa a un grupo de adultos mayores trabajando en bancales de tierra, riendo y conversando. Una joven con delantal verde la ve y le hace una señal. 'Señora, pase, siempre hay espacio para uno más.' Rosa se detiene en la esquina del andén, dudando.",
           "options": [
             {
               "option_id": "c01-s03-o1",
-              "option_text": "Decirle que vendrás más seguido",
-              "consequence": "Le dices que sí, que te gustaría venir más. Marta te apunta su número de teléfono en un papelito.",
+              "option_text": "Continuar",
+              "consequence": "",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s05",
-              "gds_mapping": [
-                { "item": 2, "weight": 0.85, "confidence": 0.85, "rationale": "new_activity_engagement" },
-                { "item": 5, "weight": 0.7, "confidence": 0.8, "rationale": "positive_mood" }
-              ],
-              "phq_mapping": [
-                { "item": 1, "weight": 0.75, "confidence": 0.8, "rationale": "interest_in_activities" }
-              ]
-            },
-            {
-              "option_id": "c01-s03-o2",
-              "option_text": "Jugar tranquilamente sin comprometerte",
-              "consequence": "Juegas un rato más sin decir mucho. Disfrutas del momento pero no haces planes futuros.",
-              "next_chapter_id": null,
-              "next_scene_id": "c01-s05",
-              "gds_mapping": [
-                { "item": 9, "weight": 0.5, "confidence": 0.75, "rationale": "cautious_engagement" }
-              ],
-              "phq_mapping": [
-                { "item": 4, "weight": 0.4, "confidence": 0.7, "rationale": "moderate_energy" }
-              ]
-            },
-            {
-              "option_id": "c01-s03-o3",
-              "option_text": "Despedirte del grupo y marcharte",
-              "consequence": "Agradeces el juego pero decides irte. Don Pedro te dice que juegan todos los martes y jueves.",
-              "next_chapter_id": null,
-              "next_scene_id": "c01-s05",
-              "gds_mapping": [
-                { "item": 2, "weight": 0.6, "confidence": 0.8, "rationale": "limited_engagement" },
-                { "item": 9, "weight": 0.65, "confidence": 0.75, "rationale": "preference_staying_home" }
-              ],
-              "phq_mapping": [
-                { "item": 4, "weight": 0.55, "confidence": 0.75, "rationale": "fatigue" }
-              ]
+              "next_scene_id": "c01-s04",
+              "gds_mapping": [],
+              "phq_mapping": []
             }
           ]
         },
         {
           "scene_id": "c01-s04",
-          "title": "El banco solitario",
-          "order": 4,
-          "text": "Desde el banco observas a la gente del parque. Un gato callejero se acerca y se echa a tus pies. El sol de la mañana te calienta la cara. Pasan los minutos en silencio. Notas que Carmen te mira desde lejos con curiosidad. ¿Qué decides hacer?",
+          "title": "La duda ante el umbral",
+          "hero_stage": "3_refusal_of_call",
+          "type": "playable",
+          "order": 5,
+          "text": "Rosa está parada ante la entrada del jardín. Su corazón late un poco más rápido de lo normal. Un pensamiento aparece: 'Yo ya no soy de esas personas que empiezan cosas nuevas.' La joven del delantal espera con una sonrisa paciente. El grupo del jardín trabaja sin haberla notado todavía.",
           "options": [
             {
               "option_id": "c01-s04-o1",
-              "option_text": "Acariciar al gato y disfrutar del momento",
-              "consequence": "El gato ronronea suavemente. Sientes una pequeña paz en ese momento de conexión simple.",
+              "option_text": "Respirar hondo y entrar a presentarse",
+              "consequence": "Rosa da un paso adelante. La joven la recibe de inmediato. '¡Bienvenida, señora! ¿Cuál es su nombre?' Rosa lo dice en voz alta.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s05",
               "gds_mapping": [
-                { "item": 5, "weight": 0.6, "confidence": 0.75, "rationale": "positive_moment" }
+                { "item": 1, "weight": 0.15, "confidence": 0.85, "rationale": "satisfacción_con_decisión_propia_inverso" },
+                { "item": 2, "weight": 0.25, "confidence": 0.85, "rationale": "disposición_activa_para_retomar_actividades_inverso" }
               ],
               "phq_mapping": []
             },
             {
               "option_id": "c01-s04-o2",
-              "option_text": "Sacar el teléfono y mirar fotos antiguas",
-              "consequence": "Miras fotos de tu familia en el teléfono. Algunas te hacen sonreír, otras te traen nostalgia.",
+              "option_text": "Quedarse parada observando desde afuera un rato largo",
+              "consequence": "Rosa observa sin entrar. Ve que don Manuel se equivoca con los nombres de las hierbas y el grupo ríe. Siente algo entre curiosidad y miedo.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s05",
               "gds_mapping": [
-                { "item": 14, "weight": 0.6, "confidence": 0.8, "rationale": "living_in_past" },
-                { "item": 8, "weight": 0.5, "confidence": 0.7, "rationale": "feeling_helpless" }
+                { "item": 6, "weight": 0.50, "confidence": 0.80, "rationale": "miedo_a_que_algo_salga_mal_en_situación_nueva" },
+                { "item": 8, "weight": 0.55, "confidence": 0.80, "rationale": "sentirse_desvalida_ante_lo_desconocido" }
               ],
-              "phq_mapping": [
-                { "item": 2, "weight": 0.55, "confidence": 0.75, "rationale": "feeling_sad" }
-              ]
+              "phq_mapping": []
             },
             {
               "option_id": "c01-s04-o3",
-              "option_text": "Quedarte mirando a la gente pasar sin hacer nada",
-              "consequence": "Te quedas inmóvil durante un largo rato. El tiempo pasa lentamente y sientes que no tienes nada que hacer.",
+              "option_text": "Dar media vuelta y caminar de regreso a casa",
+              "consequence": "Rosa se gira y camina rápido, como si alguien la fuera a ver. En casa cierra la puerta y se sienta. El silencio regresa.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s05",
               "gds_mapping": [
-                { "item": 3, "weight": 0.8, "confidence": 0.85, "rationale": "life_feels_empty" },
-                { "item": 4, "weight": 0.7, "confidence": 0.8, "rationale": "boredom" }
+                { "item": 9, "weight": 0.85, "confidence": 0.90, "rationale": "preferencia_activa_fuerte_por_quedarse_en_casa" },
+                { "item": 1, "weight": 0.80, "confidence": 0.85, "rationale": "insatisfacción_con_la_propia_vida_presente" },
+                { "item": 14, "weight": 0.55, "confidence": 0.85, "rationale": "sensación_de_que_no_vale_intentar_nada_nuevo" }
               ],
-              "phq_mapping": [
-                { "item": 1, "weight": 0.7, "confidence": 0.8, "rationale": "loss_of_interest" },
-                { "item": 4, "weight": 0.6, "confidence": 0.75, "rationale": "fatigue" }
-              ]
+              "phq_mapping": []
             }
           ]
         },
         {
           "scene_id": "c01-s05",
-          "title": "Regreso a casa",
-          "order": 5,
-          "text": "El sol comienza a bajar. Es hora de volver a casa. Has pasado la mañana en el parque y el camino de regreso se abre ante ti. ¿Cómo decides volver?",
+          "title": "El mentor llega",
+          "hero_stage": "4_meeting_mentor",
+          "type": "narrated",
+          "order": 6,
+          "text": "Esa noche suena el timbre. Es Don Hernando, presidente de la junta de acción comunal, un señor de 78 años con voz pausada y paso lento. 'Doña Rosa, vengo de parte del jardín. Nos dijeron que estuvo por allá hoy.' Rosa lo invita a sentarse. Don Hernando habla sobre las plantas, el barrio, las personas que llegan al jardín buscando algo que no saben nombrar. Antes de irse, deja una bolsita de semillas sobre la mesa.",
           "options": [
             {
               "option_id": "c01-s05-o1",
-              "option_text": "Caminar con paso ligero disfrutando del aire",
-              "consequence": "Vuelves a casa con energía, sintiendo que la mañana ha sido productiva. Te sientes más animado de lo habitual.",
-              "next_chapter_id": "c02",
-              "next_scene_id": null,
-              "gds_mapping": [
-                { "item": 13, "weight": 0.8, "confidence": 0.85, "rationale": "energy_and_vitality" },
-                { "item": 5, "weight": 0.75, "confidence": 0.8, "rationale": "positive_mood" }
-              ],
-              "phq_mapping": [
-                { "item": 4, "weight": 0.7, "confidence": 0.8, "rationale": "good_energy" }
-              ]
-            },
-            {
-              "option_id": "c01-s05-o2",
-              "option_text": "Caminar despacio, pensando en el día",
-              "consequence": "Vuelves pensativo, reflexionando sobre las personas que has visto. No estás triste, pero tampoco alegre.",
-              "next_chapter_id": "c02",
-              "next_scene_id": null,
-              "gds_mapping": [
-                { "item": 6, "weight": 0.5, "confidence": 0.75, "rationale": "bothered_by_thoughts" }
-              ],
-              "phq_mapping": [
-                { "item": 7, "weight": 0.4, "confidence": 0.7, "rationale": "mild_rumination" }
-              ]
-            },
-            {
-              "option_id": "c01-s05-o3",
-              "option_text": "Tomar un camino largo para evitar volver a casa rápido",
-              "consequence": "Das un rodeo largo. No tienes prisa por volver porque en casa no te espera nadie. El paseo se alarga más de lo necesario.",
-              "next_chapter_id": "c02",
-              "next_scene_id": null,
-              "gds_mapping": [
-                { "item": 3, "weight": 0.65, "confidence": 0.8, "rationale": "avoiding_emptiness" },
-                { "item": 9, "weight": 0.7, "confidence": 0.75, "rationale": "reluctance_to_go_home" }
-              ],
-              "phq_mapping": [
-                { "item": 1, "weight": 0.5, "confidence": 0.75, "rationale": "mild_anhedonia" }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "chapter_id": "c02",
-      "title": "La invitación inesperada",
-      "order": 2,
-      "scenes": [
-        {
-          "scene_id": "c02-s01",
-          "title": "De vuelta en casa",
-          "order": 1,
-          "text": "Al regresar del parque, encuentras una nota debajo de tu puerta. Es una invitación del centro comunitario para un taller de pintura esta tarde. También notas que tienes un mensaje de voz de tu hija preguntando cómo estás. El día todavía es joven. ¿Qué decides hacer?",
-          "options": [
-            {
-              "option_id": "c02-s01-o1",
-              "option_text": "Ir al taller de pintura",
-              "consequence": "Te preparas con algo de nervios y sales hacia el centro comunitario. Al llegar, Carmen ya está allí y te recibe con una sonrisa.",
+              "option_text": "Continuar",
+              "consequence": "",
               "next_chapter_id": null,
-              "next_scene_id": "c02-s02",
-              "gds_mapping": [
-                { "item": 2, "weight": 0.9, "confidence": 0.9, "rationale": "activity_engagement" },
-                { "item": 5, "weight": 0.8, "confidence": 0.85, "rationale": "positive_mood" }
-              ],
-              "phq_mapping": [
-                { "item": 1, "weight": 0.8, "confidence": 0.85, "rationale": "interest_in_activities" }
-              ]
-            },
-            {
-              "option_id": "c02-s01-o2",
-              "option_text": "Llamar a tu hija",
-              "consequence": "Marcas el número de tu hija. Ella contesta alegre y empiezan a charlar.",
-              "next_chapter_id": null,
-              "next_scene_id": "c02-s03",
-              "gds_mapping": [
-                { "item": 1, "weight": 0.7, "confidence": 0.85, "rationale": "life_satisfaction" },
-                { "item": 11, "weight": 0.75, "confidence": 0.8, "rationale": "appreciation_of_life" }
-              ],
-              "phq_mapping": [
-                { "item": 2, "weight": 0.5, "confidence": 0.75, "rationale": "emotional_connection" }
-              ]
-            },
-            {
-              "option_id": "c02-s01-o3",
-              "option_text": "Quedarte en casa descansando",
-              "consequence": "Dejas la nota a un lado y te sientas en el sillón. El silencio de la casa te envuelve.",
-              "next_chapter_id": null,
-              "next_scene_id": "c02-s04",
-              "gds_mapping": [
-                { "item": 9, "weight": 0.85, "confidence": 0.9, "rationale": "preference_staying_home" },
-                { "item": 4, "weight": 0.7, "confidence": 0.8, "rationale": "boredom" }
-              ],
-              "phq_mapping": [
-                { "item": 4, "weight": 0.65, "confidence": 0.8, "rationale": "fatigue_low_energy" },
-                { "item": 1, "weight": 0.6, "confidence": 0.75, "rationale": "loss_of_interest" }
-              ]
+              "next_scene_id": "c01-s06",
+              "gds_mapping": [],
+              "phq_mapping": []
             }
           ]
         },
         {
-          "scene_id": "c02-s02",
-          "title": "El taller de pintura",
-          "order": 2,
-          "text": "El instructor es amable y te explica que no necesitas experiencia. Te dan un lienzo, pinceles y pinturas de colores. Carmen pinta a tu lado. El instructor les pide que pinten algo que les haga sentir tranquilos. ¿Qué decides pintar?",
+          "scene_id": "c01-s06",
+          "title": "Cruce del umbral",
+          "hero_stage": "5_crossing_threshold",
+          "type": "playable",
+          "order": 7,
+          "text": "Rosa está sola en la cocina, sosteniendo la bolsita de semillas. Don Hernando dijo: 'Es más que un jardín. Es un motivo para salir de la casa cada mañana.' Las semillas pesan casi nada en su mano. ¿Qué decide Rosa?",
           "options": [
             {
-              "option_id": "c02-s02-o1",
-              "option_text": "Pintar un paisaje con un río y montañas",
-              "consequence": "Pintas un paisaje con colores vivos. Al terminar, el instructor dice que tu cuadro transmite serenidad. Carmen te felicita.",
+              "option_id": "c01-s06-o1",
+              "option_text": "Decidir que va el miércoles, sin más dudas",
+              "consequence": "Rosa deja las semillas sobre la mesa, en un lugar visible. Mañana busca los guantes.",
               "next_chapter_id": null,
-              "next_scene_id": "c02-s05",
+              "next_scene_id": "c01-s07a",
               "gds_mapping": [
-                { "item": 5, "weight": 0.85, "confidence": 0.85, "rationale": "positive_mood_expression" },
-                { "item": 11, "weight": 0.7, "confidence": 0.8, "rationale": "wonderful_to_be_alive" }
-              ],
-              "phq_mapping": [
-                { "item": 1, "weight": 0.8, "confidence": 0.85, "rationale": "renewed_interest" }
-              ]
-            },
-            {
-              "option_id": "c02-s02-o2",
-              "option_text": "Intentar pintar pero sin mucha motivación",
-              "consequence": "Haces trazos sin mucho entusiasmo. El resultado no te convence, pero Carmen dice que lo importante es intentarlo.",
-              "next_chapter_id": null,
-              "next_scene_id": "c02-s05",
-              "gds_mapping": [
-                { "item": 2, "weight": 0.5, "confidence": 0.75, "rationale": "reduced_interest" },
-                { "item": 4, "weight": 0.6, "confidence": 0.8, "rationale": "boredom" }
-              ],
-              "phq_mapping": [
-                { "item": 1, "weight": 0.5, "confidence": 0.75, "rationale": "limited_interest" }
-              ]
-            },
-            {
-              "option_id": "c02-s02-o3",
-              "option_text": "Dejar el pincel y solo observar a los demás",
-              "consequence": "Miras cómo los demás pintan. Te sientes fuera de lugar. Carmen nota que no pintas y te pregunta si estás bien.",
-              "next_chapter_id": null,
-              "next_scene_id": "c02-s05",
-              "gds_mapping": [
-                { "item": 12, "weight": 0.7, "confidence": 0.8, "rationale": "feeling_worthless" },
-                { "item": 15, "weight": 0.6, "confidence": 0.75, "rationale": "comparison_with_others" }
-              ],
-              "phq_mapping": [
-                { "item": 6, "weight": 0.6, "confidence": 0.8, "rationale": "feeling_bad_about_self" }
-              ]
-            }
-          ]
-        },
-        {
-          "scene_id": "c02-s03",
-          "title": "Llamada con tu hija",
-          "order": 3,
-          "text": "Tu hija te cuenta sobre los nietos y te invita a visitarlos el fin de semana. Hablan durante media hora. Antes de colgar, ella te pregunta si te estás cuidando y comiendo bien. ¿Cómo decides responder?",
-          "options": [
-            {
-              "option_id": "c02-s03-o1",
-              "option_text": "Decirle la verdad sobre tu rutina",
-              "consequence": "Le cuentas que hay días en que no cocinas bien o no sales. Ella se preocupa un poco pero aprecia tu honestidad. Se compromete a llamarte más seguido.",
-              "next_chapter_id": null,
-              "next_scene_id": "c02-s05",
-              "gds_mapping": [
-                { "item": 1, "weight": 0.65, "confidence": 0.8, "rationale": "acknowledging_struggles" },
-                { "item": 6, "weight": 0.6, "confidence": 0.75, "rationale": "troubled_thoughts" }
-              ],
-              "phq_mapping": [
-                { "item": 5, "weight": 0.5, "confidence": 0.75, "rationale": "appetite_concerns" },
-                { "item": 2, "weight": 0.5, "confidence": 0.7, "rationale": "sadness" }
-              ]
-            },
-            {
-              "option_id": "c02-s03-o2",
-              "option_text": "Decirle que todo está bien para no preocuparla",
-              "consequence": "Le aseguras que todo va perfecto. Ella se alegra pero sientes un hueco por no haber sido sincero.",
-              "next_chapter_id": null,
-              "next_scene_id": "c02-s05",
-              "gds_mapping": [
-                { "item": 10, "weight": 0.55, "confidence": 0.7, "rationale": "hiding_feelings" }
-              ],
-              "phq_mapping": [
-                { "item": 6, "weight": 0.5, "confidence": 0.75, "rationale": "feeling_bad_about_self" }
-              ]
-            },
-            {
-              "option_id": "c02-s03-o3",
-              "option_text": "Aceptar su invitación para visitarla",
-              "consequence": "Le dices que irás a visitarla este fin de semana. Ella se pone muy contenta y empieza a planear lo que cocinarán juntos.",
-              "next_chapter_id": null,
-              "next_scene_id": "c02-s05",
-              "gds_mapping": [
-                { "item": 1, "weight": 0.85, "confidence": 0.9, "rationale": "life_satisfaction" },
-                { "item": 7, "weight": 0.8, "confidence": 0.85, "rationale": "feeling_happy" }
-              ],
-              "phq_mapping": [
-                { "item": 1, "weight": 0.8, "confidence": 0.85, "rationale": "interest_in_plans" }
-              ]
-            }
-          ]
-        },
-        {
-          "scene_id": "c02-s04",
-          "title": "Una tarde en casa",
-          "order": 4,
-          "text": "Enciendes la televisión pero no encuentras nada interesante. Miras la invitación del taller de pintura que dejaste sobre la mesa. El mensaje de tu hija sigue sin responder. Las horas pasan lentamente. Ya es media tarde. ¿Qué decides hacer?",
-          "options": [
-            {
-              "option_id": "c02-s04-o1",
-              "option_text": "Llamar a tu hija aunque sea tarde",
-              "consequence": "Finalmente marcas el número. Tu hija contesta sorprendida pero contenta de oírte. Hablan brevemente y te sientes un poco mejor por haber dado ese paso.",
-              "next_chapter_id": null,
-              "next_scene_id": "c02-s05",
-              "gds_mapping": [
-                { "item": 1, "weight": 0.6, "confidence": 0.8, "rationale": "making_an_effort" }
-              ],
-              "phq_mapping": [
-                { "item": 2, "weight": 0.5, "confidence": 0.75, "rationale": "overcoming_inertia" }
-              ]
-            },
-            {
-              "option_id": "c02-s04-o2",
-              "option_text": "Preparar algo de cenar e irte a dormir",
-              "consequence": "Te haces algo sencillo de cenar y te acuestas temprano. Miras el techo un rato antes de quedarte dormido, pensando que mañana será otro día igual.",
-              "next_chapter_id": null,
-              "next_scene_id": "c02-s05",
-              "gds_mapping": [
-                { "item": 3, "weight": 0.75, "confidence": 0.85, "rationale": "life_feels_empty" },
-                { "item": 8, "weight": 0.6, "confidence": 0.8, "rationale": "feeling_helpless" }
-              ],
-              "phq_mapping": [
-                { "item": 3, "weight": 0.6, "confidence": 0.8, "rationale": "sleep_issues" },
-                { "item": 1, "weight": 0.65, "confidence": 0.8, "rationale": "loss_of_interest" }
-              ]
-            },
-            {
-              "option_id": "c02-s04-o3",
-              "option_text": "Salir a caminar por el barrio para despejarte",
-              "consequence": "Sales a dar una vuelta. El aire fresco te despeja un poco. Ves luces encendidas en otras casas y te preguntas qué hacen las demás personas por las tardes.",
-              "next_chapter_id": null,
-              "next_scene_id": "c02-s05",
-              "gds_mapping": [
-                { "item": 13, "weight": 0.6, "confidence": 0.75, "rationale": "some_energy" },
-                { "item": 7, "weight": 0.5, "confidence": 0.7, "rationale": "mixed_mood" }
-              ],
-              "phq_mapping": [
-                { "item": 4, "weight": 0.5, "confidence": 0.75, "rationale": "fatigue_but_trying" }
-              ]
-            }
-          ]
-        },
-        {
-          "scene_id": "c02-s05",
-          "title": "Reflexión de la noche",
-          "order": 5,
-          "text": "Ya es de noche. Antes de acostarte, piensas en el día que has tenido. Mañana es un nuevo día y puedes decidir cómo empezarlo. ¿Con qué pensamiento te duermes?",
-          "options": [
-            {
-              "option_id": "c02-s05-o1",
-              "option_text": "Pensar en lo bueno que pasó hoy",
-              "consequence": "Te duermes recordando los momentos agradables del día. Una sonrisa leve cruza tu cara antes de cerrar los ojos.",
-              "next_chapter_id": "c03",
-              "next_scene_id": null,
-              "gds_mapping": [
-                { "item": 5, "weight": 0.8, "confidence": 0.85, "rationale": "positive_reflection" },
-                { "item": 7, "weight": 0.75, "confidence": 0.8, "rationale": "feeling_happy" }
+                { "item": 2, "weight": 0.20, "confidence": 0.85, "rationale": "decisión_firme_de_retomar_actividades_inverso" },
+                { "item": 13, "weight": 0.15, "confidence": 0.80, "rationale": "energía_disponible_para_actuar_inverso" }
               ],
               "phq_mapping": []
             },
             {
-              "option_id": "c02-s05-o2",
-              "option_text": "Preocuparte por las cosas que no hiciste",
-              "consequence": "Te cuesta dormir pensando en la invitación que no atendiste o la llamada que no hiciste. La culpa te mantiene despierto un rato.",
-              "next_chapter_id": "c03",
-              "next_scene_id": null,
+              "option_id": "c01-s06-o2",
+              "option_text": "Guardar las semillas y decidir mañana con calma",
+              "consequence": "Rosa guarda las semillas con cuidado. No sabe si irá, pero tampoco las bota. Las deja ahí, como una posibilidad.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s07a",
               "gds_mapping": [
-                { "item": 6, "weight": 0.8, "confidence": 0.85, "rationale": "troubled_thoughts" },
-                { "item": 8, "weight": 0.6, "confidence": 0.75, "rationale": "feeling_helpless" }
+                { "item": 6, "weight": 0.40, "confidence": 0.80, "rationale": "cautela_por_miedo_a_que_algo_salga_mal" }
               ],
               "phq_mapping": [
-                { "item": 3, "weight": 0.7, "confidence": 0.8, "rationale": "sleep_problems" },
-                { "item": 7, "weight": 0.6, "confidence": 0.75, "rationale": "difficulty_concentrating" }
+                { "item": 4, "weight": 0.35, "confidence": 0.75, "rationale": "fatiga_como_barrera_para_decidir" }
               ]
             },
             {
-              "option_id": "c02-s05-o3",
-              "option_text": "No pensar en nada, simplemente apagar la luz",
-              "consequence": "Apagas la luz sin pensar mucho. El día se acaba como otro más, sin pena ni gloria. Mañana será lo que sea.",
-              "next_chapter_id": "c03",
-              "next_scene_id": null,
+              "option_id": "c01-s06-o3",
+              "option_text": "Dejar las semillas y decirse que esto no es para ella",
+              "consequence": "Rosa pone las semillas en el cajón con la tarjeta. Se dice que fue amable recibir a Don Hernando pero que el jardín es para otros.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s07b",
               "gds_mapping": [
-                { "item": 4, "weight": 0.65, "confidence": 0.8, "rationale": "emotional_numbness" },
-                { "item": 3, "weight": 0.6, "confidence": 0.75, "rationale": "emptiness" }
+                { "item": 8, "weight": 0.65, "confidence": 0.85, "rationale": "desvalimiento_ante_posibilidad_de_cambio" },
+                { "item": 12, "weight": 0.70, "confidence": 0.85, "rationale": "sentirse_inútil_para_cosas_nuevas" }
               ],
-              "phq_mapping": [
-                { "item": 1, "weight": 0.5, "confidence": 0.75, "rationale": "apathy" }
-              ]
+              "phq_mapping": []
             }
           ]
-        }
-      ]
-    },
-    {
-      "chapter_id": "c03",
-      "title": "Una mañana difícil",
-      "order": 3,
-      "scenes": [
+        },
         {
-          "scene_id": "c03-s01",
-          "title": "El espejo de la mañana",
-          "order": 1,
-          "text": "Te despiertas más temprano de lo habitual. No dormiste muy bien anoche. Al mirarte al espejo del baño, notas que te ves cansado. En la cocina, la nevera está casi vacía. Hoy es día de mercado en la plaza, pero también podrías pedirle a tu vecino Luis que te traiga algo. ¿Qué haces?",
+          "scene_id": "c01-s07a",
+          "title": "La primera mañana en el jardín",
+          "hero_stage": "6a_branch_active",
+          "type": "playable",
+          "order": 8,
+          "text": "Es miércoles. Rosa llega al jardín con los guantes que encontró en un cajón. Sofía ya está allí, con tierra en la frente y sonrisa enorme. 'Rosa, por fin.' Le presentan a Camilo, un joven de treinta años que habla de compostaje con entusiasmo contagioso. Le asignan un bancal pequeño con la tierra ya removida.",
           "options": [
             {
-              "option_id": "c03-s01-o1",
-              "option_text": "Ir al mercado personalmente",
-              "consequence": "Te esfuerzas por arreglarte y sales hacia la plaza. El mercado está lleno de colores y olores. Un vendedor que te conoce te saluda.",
+              "option_id": "c01-s07a-o1",
+              "option_text": "Ponerse a trabajar con ganas genuinas",
+              "consequence": "Rosa mete las manos en la tierra. Algo en ese gesto le resulta sorprendentemente sencillo y bueno.",
               "next_chapter_id": null,
-              "next_scene_id": "c03-s02",
+              "next_scene_id": "c01-s08",
               "gds_mapping": [
-                { "item": 13, "weight": 0.8, "confidence": 0.85, "rationale": "energy_and_vitality" },
-                { "item": 5, "weight": 0.7, "confidence": 0.8, "rationale": "positive_mood" }
+                { "item": 13, "weight": 0.15, "confidence": 0.85, "rationale": "energía_disponible_y_usada_en_actividad_inverso" },
+                { "item": 7, "weight": 0.15, "confidence": 0.80, "rationale": "momento_de_felicidad_presente_inverso" }
               ],
-              "phq_mapping": [
-                { "item": 4, "weight": 0.7, "confidence": 0.85, "rationale": "overcoming_fatigue" }
-              ]
+              "phq_mapping": []
             },
             {
-              "option_id": "c03-s01-o2",
-              "option_text": "Pedirle ayuda a tu vecino Luis",
-              "consequence": "Tocas la puerta de Luis. Él acepta ir al mercado por ti sin problema y te pregunta si necesitas algo más.",
+              "option_id": "c01-s07a-o2",
+              "option_text": "Trabajar tranquila, observando al grupo sin hablar mucho",
+              "consequence": "Rosa trabaja en silencio pero atenta a todo. Escucha sin participar. Por ahora, con eso le alcanza.",
               "next_chapter_id": null,
-              "next_scene_id": "c03-s03",
+              "next_scene_id": "c01-s08",
               "gds_mapping": [
-                { "item": 12, "weight": 0.6, "confidence": 0.8, "rationale": "feelings_of_worthlessness" },
-                { "item": 2, "weight": 0.65, "confidence": 0.75, "rationale": "reduced_activities" }
+                { "item": 4, "weight": 0.20, "confidence": 0.75, "rationale": "presente_sin_aburrimiento_aunque_con_distancia" },
+                { "item": 5, "weight": 0.20, "confidence": 0.75, "rationale": "humor_neutro_no_claramente_positivo_aún" }
               ],
-              "phq_mapping": [
-                { "item": 6, "weight": 0.55, "confidence": 0.75, "rationale": "feeling_bad_about_self" },
-                { "item": 4, "weight": 0.7, "confidence": 0.8, "rationale": "fatigue" }
-              ]
+              "phq_mapping": []
             },
             {
-              "option_id": "c03-s01-o3",
-              "option_text": "No hacer nada, comer lo que haya",
-              "consequence": "Abres la nevera y encuentras unas galletas y un yogur. Desayunas eso y vuelves al sillón.",
+              "option_id": "c01-s07a-o3",
+              "option_text": "Participar pero sintiéndose fuera de lugar",
+              "consequence": "Rosa trabaja pero siente que no encaja. Todo el mundo parece saber qué hacer menos ella. Piensa que quizás se equivocó al venir.",
               "next_chapter_id": null,
-              "next_scene_id": "c03-s04",
+              "next_scene_id": "c01-s08",
               "gds_mapping": [
-                { "item": 3, "weight": 0.85, "confidence": 0.9, "rationale": "life_feels_empty" },
-                { "item": 13, "weight": 0.9, "confidence": 0.85, "rationale": "lack_of_energy" }
+                { "item": 15, "weight": 0.45, "confidence": 0.75, "rationale": "compararse_desfavorablemente_con_los_demás" },
+                { "item": 10, "weight": 0.50, "confidence": 0.80, "rationale": "dificultad_para_seguir_instrucciones_memoria" }
               ],
               "phq_mapping": [
-                { "item": 1, "weight": 0.8, "confidence": 0.85, "rationale": "loss_of_interest" },
-                { "item": 5, "weight": 0.65, "confidence": 0.8, "rationale": "appetite_changes" }
+                { "item": 7, "weight": 0.40, "confidence": 0.75, "rationale": "dificultad_para_concentrarse_en_tarea_nueva" }
               ]
             }
           ]
         },
         {
-          "scene_id": "c03-s02",
-          "title": "En el mercado",
-          "order": 2,
-          "text": "El vendedor de frutas te regala una mandarina y te pregunta por qué no has venido últimamente. Compras frutas frescas y verduras. Al pasar por un puesto de flores, ves unos girasoles bonitos. Una mujer que no conoces te pide ayuda para cargar una bolsa pesada. ¿Qué haces?",
+          "scene_id": "c01-s07b",
+          "title": "El camino de la resistencia",
+          "hero_stage": "6b_branch_resistant",
+          "type": "playable",
+          "order": 9,
+          "text": "Rosa no fue el miércoles. Tampoco el jueves. Pero el domingo, asomada al balcón, vio a Don Hernando trabajando solo en el jardín bajo el sol de las once. Sin pensarlo mucho, bajó. 'Don Hernando, ya vine.' El anciano levantó la vista y dijo simplemente: 'Qué bien. Aquí tiene su pala.'",
           "options": [
             {
-              "option_id": "c03-s02-o1",
-              "option_text": "Ayudar a la mujer y charlar con ella",
-              "consequence": "La ayudas con la bolsa. Se llama Elena y resulta que vive cerca. Te agradece mucho y te dice que le encantaría devolverte el favor algún día.",
+              "option_id": "c01-s07b-o1",
+              "option_text": "Trabajar intentando iniciar conversación",
+              "consequence": "Rosa busca las palabras. Don Hernando responde despacio, sin apuro. Al rato están hablando de las temporadas de lluvia.",
               "next_chapter_id": null,
-              "next_scene_id": "c03-s05",
+              "next_scene_id": "c01-s08",
               "gds_mapping": [
-                { "item": 2, "weight": 0.85, "confidence": 0.85, "rationale": "social_engagement" },
-                { "item": 12, "weight": 0.8, "confidence": 0.8, "rationale": "feeling_useful" }
+                { "item": 7, "weight": 0.20, "confidence": 0.80, "rationale": "momento_de_conexión_leve_inverso" },
+                { "item": 11, "weight": 0.15, "confidence": 0.75, "rationale": "pequeña_apreciación_de_estar_viva_inverso" }
               ],
-              "phq_mapping": [
-                { "item": 6, "weight": 0.7, "confidence": 0.8, "rationale": "self_worth" }
-              ]
+              "phq_mapping": []
             },
             {
-              "option_id": "c03-s02-o2",
-              "option_text": "Comprar los girasoles para alegrarte el día",
-              "consequence": "Compras un ramo de girasoles. Su color amarillo te levanta el ánimo. Al volver a casa, los pones en un jarrón junto a la ventana.",
+              "option_id": "c01-s07b-o2",
+              "option_text": "Trabajar en silencio, agradecida de que no preguntaron nada",
+              "consequence": "Rosa trabaja sin hablar. Le agradece internamente a Don Hernando que no haya hecho preguntas. El silencio entre los dos es cómodo.",
               "next_chapter_id": null,
-              "next_scene_id": "c03-s05",
+              "next_scene_id": "c01-s08",
               "gds_mapping": [
-                { "item": 5, "weight": 0.75, "confidence": 0.8, "rationale": "positive_mood" },
-                { "item": 1, "weight": 0.65, "confidence": 0.75, "rationale": "small_joys" }
+                { "item": 9, "weight": 0.30, "confidence": 0.75, "rationale": "preferencia_por_aislamiento_incluso_estando_en_presencia" },
+                { "item": 5, "weight": 0.20, "confidence": 0.75, "rationale": "alivio_leve_no_claramente_positivo" }
               ],
-              "phq_mapping": [
-                { "item": 1, "weight": 0.7, "confidence": 0.8, "rationale": "interest_in_beauty" }
-              ]
+              "phq_mapping": []
             },
             {
-              "option_id": "c03-s02-o3",
-              "option_text": "Hacer las compras rápido y volver a casa",
-              "consequence": "Compras lo necesario sin detenerte mucho. El esfuerzo de ir al mercado ya fue bastante. Al volver a casa te sientes cansado pero al menos la nevera está llena.",
+              "option_id": "c01-s07b-o3",
+              "option_text": "Trabajar pero convencida de que cometió un error viniendo",
+              "consequence": "Rosa mueve la tierra pero su cabeza no para. '¿Para qué vine? Esto no me va a cambiar nada.' La pala pesa más de lo que debería.",
               "next_chapter_id": null,
-              "next_scene_id": "c03-s05",
+              "next_scene_id": "c01-s08",
               "gds_mapping": [
-                { "item": 13, "weight": 0.6, "confidence": 0.75, "rationale": "limited_energy" },
-                { "item": 9, "weight": 0.55, "confidence": 0.7, "rationale": "eager_to_go_home" }
+                { "item": 14, "weight": 0.55, "confidence": 0.80, "rationale": "sensación_de_sin_esperanza_ante_la_posibilidad_de_cambio" }
               ],
               "phq_mapping": [
-                { "item": 4, "weight": 0.6, "confidence": 0.8, "rationale": "fatigue" }
+                { "item": 2, "weight": 0.50, "confidence": 0.80, "rationale": "estado_de_ánimo_deprimido_leve_persistente" }
               ]
             }
           ]
         },
         {
-          "scene_id": "c03-s03",
-          "title": "Esperando a Luis",
-          "order": 3,
-          "text": "Mientras esperas a que Luis vuelva del mercado, te preparas un té y te sientas junto a la ventana. Ves pasar a los vecinos con sus bolsas del mercado. Luis tarda más de lo esperado. Cuando finalmente llega, trae las compras y se queda en la puerta. Te pregunta si quieres que pase un rato a conversar. ¿Qué le dices?",
+          "scene_id": "c01-s08",
+          "title": "Pruebas y aliados",
+          "hero_stage": "6_tests_allies_enemies",
+          "type": "narrated",
+          "order": 10,
+          "text": "Las semanas que siguieron tomaron su propio ritmo. Algunos días Rosa llegaba temprano, otros llegaba tarde, algún día no llegó. Conoció a Doña Amparo, que siempre traía arepas de choclo; a Camilo, que sabía cómo hacer compostaje sin olor; a Manuel, que confundía los nombres de las plantas y se reía de sí mismo. El jardín fue llenando la semana de pequeñas razones.",
           "options": [
             {
-              "option_id": "c03-s03-o1",
-              "option_text": "Invitarlo a pasar y ofrecerle un café",
-              "consequence": "Luis entra y se sienta en la cocina. Mientras toman café, hablan sobre el barrio, los viejos tiempos y la salud. Descubres que él también se siente solo a veces.",
+              "option_id": "c01-s08-o1",
+              "option_text": "Continuar",
+              "consequence": "",
               "next_chapter_id": null,
-              "next_scene_id": "c03-s05",
+              "next_scene_id": "c01-s09",
+              "gds_mapping": [],
+              "phq_mapping": []
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s09",
+          "title": "La cueva se acerca",
+          "hero_stage": "7_approach_inmost_cave",
+          "type": "playable",
+          "order": 11,
+          "text": "Un jueves, mientras removía la tierra, Rosa encontró una foto plastificada enterrada entre las raíces. Era de hace veinte años: adultos mayores posando frente al mismo jardín en otra época. En la esquina de la imagen reconoció la sonrisa de Alberto, su esposo. Sintió que la tierra se movía bajo sus pies.",
+          "options": [
+            {
+              "option_id": "c01-s09-o1",
+              "option_text": "Guardar la foto en silencio y seguir trabajando",
+              "consequence": "Rosa dobla la foto con cuidado y la guarda en el bolsillo. Sigue trabajando pero no puede dejar de pensar en ella.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s10",
               "gds_mapping": [
-                { "item": 2, "weight": 0.8, "confidence": 0.85, "rationale": "social_engagement" },
-                { "item": 7, "weight": 0.7, "confidence": 0.8, "rationale": "feeling_happy" }
+                { "item": 4, "weight": 0.30, "confidence": 0.75, "rationale": "bloqueo_emocional_que_genera_distancia_interna" }
               ],
               "phq_mapping": [
-                { "item": 2, "weight": 0.6, "confidence": 0.75, "rationale": "reduced_sadness" }
+                { "item": 3, "weight": 0.35, "confidence": 0.70, "rationale": "probable_dificultad_para_dormir_esa_noche" },
+                { "item": 1, "weight": 0.45, "confidence": 0.75, "rationale": "pérdida_de_conexión_con_el_presente_por_rumiación" }
               ]
             },
             {
-              "option_id": "c03-s03-o2",
-              "option_text": "Agradecerle pero decirle que estás cansado",
-              "consequence": "Le agradeces las compras pero le dices que necesitas descansar. Luis entiende y se marcha. Te sientes aliviado pero también un poco culpable por rechazarlo.",
+              "option_id": "c01-s09-o2",
+              "option_text": "Preguntarle a Don Hernando sobre la foto",
+              "consequence": "Rosa se acerca con la foto en la mano. 'Don Hernando, ¿usted reconoce a alguien aquí?' El anciano la mira con atención.",
               "next_chapter_id": null,
-              "next_scene_id": "c03-s05",
+              "next_scene_id": "c01-s10",
               "gds_mapping": [
-                { "item": 9, "weight": 0.7, "confidence": 0.8, "rationale": "preference_staying_alone" },
-                { "item": 12, "weight": 0.55, "confidence": 0.75, "rationale": "guilt" }
+                { "item": 10, "weight": 0.35, "confidence": 0.80, "rationale": "busca_apoyo_para_reconstruir_memoria_inverso" },
+                { "item": 11, "weight": 0.25, "confidence": 0.75, "rationale": "quiere_seguir_conectando_con_la_vida_inverso" }
               ],
-              "phq_mapping": [
-                { "item": 4, "weight": 0.65, "confidence": 0.8, "rationale": "fatigue" },
-                { "item": 6, "weight": 0.5, "confidence": 0.7, "rationale": "feeling_bad" }
-              ]
+              "phq_mapping": []
             },
             {
-              "option_id": "c03-s03-o3",
-              "option_text": "Pedirle que te acompañe a guardar las compras",
-              "consequence": "Guardan las compras juntos. Luis te enseña una receta fácil de sopa que su esposa solía hacer. Es un momento sencillo pero agradable.",
+              "option_id": "c01-s09-o3",
+              "option_text": "Excusarse diciendo que se siente mal y marcharse",
+              "consequence": "Rosa guarda la foto, recoge sus cosas y dice que no se siente bien. Camina sola a casa. No llora hasta que llega al ascensor.",
               "next_chapter_id": null,
-              "next_scene_id": "c03-s05",
+              "next_scene_id": "c01-s10",
               "gds_mapping": [
-                { "item": 2, "weight": 0.7, "confidence": 0.8, "rationale": "accepting_help" },
-                { "item": 1, "weight": 0.6, "confidence": 0.75, "rationale": "gratitude" }
+                { "item": 9, "weight": 0.65, "confidence": 0.80, "rationale": "huye_de_la_situación_prefiere_la_seguridad_del_hogar" }
               ],
               "phq_mapping": [
-                { "item": 5, "weight": 0.5, "confidence": 0.7, "rationale": "improved_appetite_interest" }
+                { "item": 2, "weight": 0.55, "confidence": 0.80, "rationale": "desbordamiento_emocional_tristeza_no_manejada" }
               ]
             }
           ]
         },
         {
-          "scene_id": "c03-s04",
-          "title": "Una mañana sin rumbo",
-          "order": 4,
-          "text": "Sin nada que hacer, el tiempo se arrastra. Miras por la ventana y ves a los vecinos ir y venir con energía. Te preguntas por qué no puedes ser como ellos. El teléfono está en la mesa, podrías llamar a alguien. El sofá te envuelve con su comodidad. ¿Qué decides?",
+          "scene_id": "c01-s10",
+          "title": "La ordalía",
+          "hero_stage": "8_ordeal",
+          "type": "playable",
+          "order": 12,
+          "text": "Don Hernando le contó lo que sabía: Alberto había ayudado a fundar ese jardín veinte años atrás, antes de que cerrara por falta de apoyo. 'Él siempre decía que los jardines son la memoria viva de los barrios.' Rosa sintió que le faltaba el aire. Y luego, despacio, sintió otra cosa: que estaba parada exactamente donde Alberto hubiera querido que estuviera.",
           "options": [
             {
-              "option_id": "c03-s04-o1",
-              "option_text": "Obligarte a salir aunque sea a la puerta",
-              "consequence": "Sales al portal de tu casa. El sol te da en la cara y respiras hondo. Una vecina te saluda al pasar. Es poco, pero es algo.",
+              "option_id": "c01-s10-o1",
+              "option_text": "Llorar sin disculparse y agradecer a Don Hernando",
+              "consequence": "Las lágrimas vienen solas. Don Hernando no dice nada. Le pone una mano en el hombro y espera. Rosa llora y luego respira.",
               "next_chapter_id": null,
-              "next_scene_id": "c03-s05",
+              "next_scene_id": "c01-s11a",
               "gds_mapping": [
-                { "item": 13, "weight": 0.6, "confidence": 0.75, "rationale": "small_effort" },
-                { "item": 8, "weight": 0.5, "confidence": 0.7, "rationale": "fighting_helplessness" }
+                { "item": 11, "weight": 0.10, "confidence": 0.80, "rationale": "procesa_el_dolor_y_sigue_eligiendo_estar_presente_inverso" }
               ],
               "phq_mapping": [
-                { "item": 8, "weight": 0.5, "confidence": 0.75, "rationale": "psychomotor_activation" }
+                { "item": 2, "weight": 0.50, "confidence": 0.85, "rationale": "tristeza_profunda_de_duelo_en_proceso_sano" }
               ]
             },
             {
-              "option_id": "c03-s04-o2",
-              "option_text": "Llamar a alguien por teléfono",
-              "consequence": "Marcas el número de Carmen. Ella contesta de inmediato y hablan un rato. Te cuenta del taller de pintura y de que están organizando más actividades.",
+              "option_id": "c01-s10-o2",
+              "option_text": "Sonreír y quedarse en silencio, sintiendo el momento",
+              "consequence": "Rosa sonríe aunque tiene los ojos húmedos. No dice nada. Mira el bancal y siente que algo encaja en su lugar.",
               "next_chapter_id": null,
-              "next_scene_id": "c03-s05",
+              "next_scene_id": "c01-s11a",
               "gds_mapping": [
-                { "item": 2, "weight": 0.65, "confidence": 0.8, "rationale": "seeking_connection" }
+                { "item": 1, "weight": 0.20, "confidence": 0.85, "rationale": "satisfacción_pequeña_con_la_propia_vida_presente_inverso" },
+                { "item": 5, "weight": 0.15, "confidence": 0.80, "rationale": "humor_suavemente_positivo_inverso" }
               ],
-              "phq_mapping": [
-                { "item": 2, "weight": 0.5, "confidence": 0.75, "rationale": "reaching_out" }
-              ]
+              "phq_mapping": []
             },
             {
-              "option_id": "c03-s04-o3",
-              "option_text": "Quedarte en el sofá toda la mañana",
-              "consequence": "Pasas las horas mirando el techo o cambiando canales. Cuando te das cuenta, ya es pasado el mediodía y no has hecho nada. Te sientes pesado por dentro.",
+              "option_id": "c01-s10-o3",
+              "option_text": "Sentir culpa profunda por no haber venido antes",
+              "consequence": "Rosa siente un peso en el pecho. 'Dos años perdidos. Dos años sin venir.' La revelación que debería traer paz trae en cambio reproche.",
               "next_chapter_id": null,
-              "next_scene_id": "c03-s05",
+              "next_scene_id": "c01-s11b",
               "gds_mapping": [
-                { "item": 3, "weight": 0.9, "confidence": 0.9, "rationale": "emptiness" },
-                { "item": 4, "weight": 0.85, "confidence": 0.85, "rationale": "profound_boredom" },
-                { "item": 8, "weight": 0.75, "confidence": 0.8, "rationale": "helplessness" }
+                { "item": 12, "weight": 0.80, "confidence": 0.90, "rationale": "sentirse_inútil_por_años_de_aislamiento_autoculpa" },
+                { "item": 8, "weight": 0.75, "confidence": 0.85, "rationale": "desvalimiento_ante_el_propio_pasado" },
+                { "item": 14, "weight": 0.60, "confidence": 0.85, "rationale": "situación_emocional_percibida_sin_esperanza" }
               ],
               "phq_mapping": [
-                { "item": 1, "weight": 0.85, "confidence": 0.85, "rationale": "severe_loss_of_interest" },
-                { "item": 4, "weight": 0.8, "confidence": 0.85, "rationale": "severe_fatigue" },
-                { "item": 8, "weight": 0.6, "confidence": 0.75, "rationale": "psychomotor_retardation" }
+                { "item": 6, "weight": 0.65, "confidence": 0.85, "rationale": "sentirse_mal_consigo_misma_por_decisiones_pasadas" }
               ]
             }
           ]
         },
         {
-          "scene_id": "c03-s05",
-          "title": "La hora de comer",
-          "order": 5,
-          "text": "Ya es mediodía. Tu estómago ruge. Sea como sea que hayas pasado la mañana, ahora tienes que decidir cómo enfrentar el resto del día. ¿Qué plan tienes para la tarde?",
+          "scene_id": "c01-s11a",
+          "title": "La revelación positiva",
+          "hero_stage": "9a_branch_positive_integration",
+          "type": "playable",
+          "order": 13,
+          "text": "A la semana siguiente, Rosa trajo la foto al jardín para mostrársela al grupo. 'Este jardín era también de Alberto, de algún modo.' El grupo la escuchó en silencio. Doña Amparo le apretó la mano. Sofía dijo: 'Y ahora también es tuyo.' Rosa miró sus propias manos con tierra y no se reconoció, pero le gustó lo que vio.",
           "options": [
             {
-              "option_id": "c03-s05-o1",
-              "option_text": "Cocinar algo nutritivo y planear la tarde",
-              "consequence": "Preparas una comida sencilla pero completa. Mientras comes, decides que por la tarde harás algo productivo. Te sientes un poco más fuerte.",
-              "next_chapter_id": "c04",
-              "next_scene_id": null,
+              "option_id": "c01-s11a-o1",
+              "option_text": "Sentir orgullo y una sensación de continuidad con Alberto",
+              "consequence": "Rosa siente que hay un hilo invisible entre ella, Alberto y ese suelo. No es tristeza. Es algo diferente.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s12",
               "gds_mapping": [
-                { "item": 13, "weight": 0.75, "confidence": 0.85, "rationale": "self_care" },
-                { "item": 1, "weight": 0.65, "confidence": 0.8, "rationale": "hope" }
+                { "item": 11, "weight": 0.10, "confidence": 0.85, "rationale": "apreciar_que_vale_la_pena_estar_viva_y_presente_inverso" },
+                { "item": 1, "weight": 0.20, "confidence": 0.85, "rationale": "satisfacción_creciente_con_la_propia_vida_inverso" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s11a-o2",
+              "option_text": "Desear que Alberto pudiera verla ahora",
+              "consequence": "Rosa piensa en Alberto. Le hubiera gustado esto. Esa idea duele y consuela al mismo tiempo.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s12",
+              "gds_mapping": [
+                { "item": 5, "weight": 0.20, "confidence": 0.75, "rationale": "humor_mixto_con_tristeza_elaborada" }
               ],
               "phq_mapping": [
-                { "item": 5, "weight": 0.7, "confidence": 0.8, "rationale": "healthy_appetite" }
+                { "item": 2, "weight": 0.30, "confidence": 0.80, "rationale": "tristeza_sana_ante_pérdida_en_elaboración" }
               ]
             },
             {
-              "option_id": "c03-s05-o2",
-              "option_text": "Comer algo rápido y ver la televisión",
-              "consequence": "Calientas unas sobras y te acomodas frente a la televisión. La tarde pasa sin que te des cuenta. Al anochecer te preguntas a dónde se fue el día.",
-              "next_chapter_id": "c04",
-              "next_scene_id": null,
+              "option_id": "c01-s11a-o3",
+              "option_text": "Sentir que empieza a tener un propósito aquí",
+              "consequence": "Rosa piensa: 'Esto tiene sentido.' No sabe bien cómo explicarlo. Pero lo siente con claridad.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s12",
               "gds_mapping": [
-                { "item": 4, "weight": 0.7, "confidence": 0.8, "rationale": "boredom" },
-                { "item": 9, "weight": 0.65, "confidence": 0.75, "rationale": "staying_home" }
+                { "item": 2, "weight": 0.15, "confidence": 0.85, "rationale": "reenganche_con_actividades_con_sentido_inverso" },
+                { "item": 13, "weight": 0.10, "confidence": 0.80, "rationale": "energía_ligada_a_propósito_encontrado_inverso" }
               ],
-              "phq_mapping": [
-                { "item": 4, "weight": 0.6, "confidence": 0.75, "rationale": "fatigue" },
-                { "item": 1, "weight": 0.55, "confidence": 0.7, "rationale": "limited_motivation" }
-              ]
-            },
-            {
-              "option_id": "c03-s05-o3",
-              "option_text": "No tener hambre y saltarte la comida",
-              "consequence": "Decides no comer. No tienes hambre. Te acuestas un rato en la cama con las cortinas cerradas. El cuerpo te pide descansar pero la mente no para.",
-              "next_chapter_id": "c04",
-              "next_scene_id": null,
-              "gds_mapping": [
-                { "item": 13, "weight": 0.9, "confidence": 0.9, "rationale": "no_energy" },
-                { "item": 3, "weight": 0.8, "confidence": 0.85, "rationale": "emptiness" },
-                { "item": 8, "weight": 0.7, "confidence": 0.8, "rationale": "helplessness" }
-              ],
-              "phq_mapping": [
-                { "item": 5, "weight": 0.85, "confidence": 0.85, "rationale": "poor_appetite" },
-                { "item": 3, "weight": 0.7, "confidence": 0.8, "rationale": "sleep_disturbance" },
-                { "item": 2, "weight": 0.75, "confidence": 0.8, "rationale": "depressed_mood" }
-              ]
+              "phq_mapping": []
             }
           ]
-        }
-      ]
-    },
-    {
-      "chapter_id": "c04",
-      "title": "La llamada de Carmen",
-      "order": 4,
-      "scenes": [
+        },
         {
-          "scene_id": "c04-s01",
-          "title": "Una propuesta inesperada",
-          "order": 1,
-          "text": "Por la tarde suena el teléfono. Es Carmen. Te cuenta que el centro comunitario está organizando un grupo de caminata para adultos mayores que se reúne tres veces por semana. Ella ya se inscribió y quiere saber si te animas. También menciona que su nieta está de visita y le encantaría conocerte. ¿Qué le respondes?",
+          "scene_id": "c01-s11b",
+          "title": "El peso del pasado",
+          "hero_stage": "9b_branch_difficult_integration",
+          "type": "playable",
+          "order": 14,
+          "text": "Esa noche Rosa no durmió. A las tres de la madrugada miraba el techo: '¿Para qué sirvo yo ahora? Años perdidos.' Pero al amanecer, con la luz entrando por la ventana, tuvo una revelación pequeña: tenía ganas de ir al jardín de todas formas. No sabía bien por qué. Solo sabía que quería ir.",
           "options": [
             {
-              "option_id": "c04-s01-o1",
-              "option_text": "Aceptar unirte al grupo de caminata",
-              "consequence": "Le dices que sí con entusiasmo. Carmen se pone muy contenta y te dice que la primera caminata es mañana temprano.",
+              "option_id": "c01-s11b-o1",
+              "option_text": "Ir al jardín aunque no tenga ánimo, sin esperar sentirse lista",
+              "consequence": "Rosa se levanta antes de que el cuerpo esté listo. Sale. Al llegar y ver a Don Hernando, algo en ella afloja un poco.",
               "next_chapter_id": null,
-              "next_scene_id": "c04-s02",
+              "next_scene_id": "c01-s12",
               "gds_mapping": [
-                { "item": 1, "weight": 0.85, "confidence": 0.9, "rationale": "life_satisfaction" },
-                { "item": 2, "weight": 0.9, "confidence": 0.9, "rationale": "new_activity_engagement" }
+                { "item": 9, "weight": 0.25, "confidence": 0.80, "rationale": "supera_la_preferencia_por_quedarse_en_casa_inverso" }
               ],
               "phq_mapping": [
-                { "item": 1, "weight": 0.85, "confidence": 0.9, "rationale": "renewed_interest" }
+                { "item": 3, "weight": 0.40, "confidence": 0.75, "rationale": "sueño_interrumpido_pero_sale_igual" }
               ]
             },
             {
-              "option_id": "c04-s01-o2",
-              "option_text": "Decirle que lo vas a pensar",
-              "consequence": "Le respondes que suena interesante pero que necesitas pensarlo. Carmen comprende y te dice que no hay presión.",
+              "option_id": "c01-s11b-o2",
+              "option_text": "Llamar a Sofía para pedirle que la acompañe",
+              "consequence": "Sofía llega en diez minutos. No pregunta nada. Caminan juntas al jardín en silencio. Eso ayuda mucho.",
               "next_chapter_id": null,
-              "next_scene_id": "c04-s03",
+              "next_scene_id": "c01-s12",
               "gds_mapping": [
-                { "item": 6, "weight": 0.65, "confidence": 0.8, "rationale": "fear_of_negative_outcome" },
-                { "item": 15, "weight": 0.55, "confidence": 0.75, "rationale": "comparison_with_others" }
+                { "item": 7, "weight": 0.20, "confidence": 0.80, "rationale": "busca_conexión_social_para_sostenerse_inverso" },
+                { "item": 15, "weight": 0.15, "confidence": 0.75, "rationale": "confía_en_que_alguien_la_quiere_ayudar_inverso" }
               ],
-              "phq_mapping": [
-                { "item": 7, "weight": 0.6, "confidence": 0.8, "rationale": "indecision" }
-              ]
+              "phq_mapping": []
             },
             {
-              "option_id": "c04-s01-o3",
-              "option_text": "Rechazar la invitación amablemente",
-              "consequence": "Le dices que agradeces la invitación pero que no te sientes con ánimos. Carmen se queda en silencio un momento.",
+              "option_id": "c01-s11b-o3",
+              "option_text": "Quedarse en casa diciéndose que mañana será mejor",
+              "consequence": "Rosa no sale. El día pasa largo y vacío. Mañana quizás. Quizás mañana.",
               "next_chapter_id": null,
-              "next_scene_id": "c04-s04",
+              "next_scene_id": "c01-s12",
               "gds_mapping": [
-                { "item": 9, "weight": 0.9, "confidence": 0.9, "rationale": "preference_staying_home" },
-                { "item": 2, "weight": 0.85, "confidence": 0.85, "rationale": "dropping_activities" }
+                { "item": 14, "weight": 0.75, "confidence": 0.90, "rationale": "sin_esperanza_postergación_indefinida" },
+                { "item": 3, "weight": 0.65, "confidence": 0.85, "rationale": "vida_vacía_sin_capacidad_de_actuar" }
               ],
               "phq_mapping": [
-                { "item": 1, "weight": 0.8, "confidence": 0.85, "rationale": "loss_of_interest" },
-                { "item": 2, "weight": 0.7, "confidence": 0.8, "rationale": "feeling_hopeless_sad" }
+                { "item": 2, "weight": 0.65, "confidence": 0.85, "rationale": "ánimo_deprimido_persistente_sin_salida" },
+                { "item": 4, "weight": 0.50, "confidence": 0.80, "rationale": "fatiga_que_impide_la_acción" },
+                { "item": 1, "weight": 0.55, "confidence": 0.80, "rationale": "pérdida_de_interés_y_placer_en_lo_cotidiano" }
               ]
             }
           ]
         },
         {
-          "scene_id": "c04-s02",
-          "title": "Preparándote para mañana",
-          "order": 2,
-          "text": "Después de colgar, sientes una mezcla de emoción y nervios. Mañana a las ocho tienes que estar en el parque. Empiezas a prepararte: buscas ropa cómoda, zapatillas, y llenas una botella de agua. Mientras lo haces, te asalta una duda. Hace mucho que no haces ejercicio y no sabes si podrás seguir el ritmo del grupo. ¿Qué piensas?",
+          "scene_id": "c01-s12",
+          "title": "La recompensa",
+          "hero_stage": "9_reward",
+          "type": "narrated",
+          "order": 15,
+          "text": "El jardín floreció. Las maticas de albahaca que Rosa había sembrado dieron hojas brillantes, y un martes por la mañana se abrieron flores amarillas pequeñas. Rosa sacó el celular y tomó una foto. Por primera vez en dos años, quiso compartirla. Le mandó la imagen a su hija en Medellín. Su hija llamó llorando de alegría.",
           "options": [
             {
-              "option_id": "c04-s02-o1",
-              "option_text": "Confiar en que irás a tu ritmo sin presión",
-              "consequence": "Te dices que no importa el ritmo, lo importante es participar. Pones el despertador temprano y te acuestas tranquilo.",
+              "option_id": "c01-s12-o1",
+              "option_text": "Continuar",
+              "consequence": "",
               "next_chapter_id": null,
-              "next_scene_id": "c04-s05",
-              "gds_mapping": [
-                { "item": 7, "weight": 0.85, "confidence": 0.85, "rationale": "feeling_happy" },
-                { "item": 11, "weight": 0.8, "confidence": 0.8, "rationale": "wonderful_to_be_alive" }
-              ],
-              "phq_mapping": [
-                { "item": 4, "weight": 0.7, "confidence": 0.8, "rationale": "motivated" }
-              ]
-            },
-            {
-              "option_id": "c04-s02-o2",
-              "option_text": "Preocuparte por no estar a la altura",
-              "consequence": "Te imaginas quedándote atrás mientras todos caminan rápido. La preocupación te quita un poco la ilusión pero decides ir de todas formas.",
-              "next_chapter_id": null,
-              "next_scene_id": "c04-s05",
-              "gds_mapping": [
-                { "item": 6, "weight": 0.65, "confidence": 0.8, "rationale": "worried_about_future" },
-                { "item": 15, "weight": 0.6, "confidence": 0.75, "rationale": "feeling_worse_than_others" }
-              ],
-              "phq_mapping": [
-                { "item": 6, "weight": 0.55, "confidence": 0.75, "rationale": "self_doubt" }
-              ]
-            },
-            {
-              "option_id": "c04-s02-o3",
-              "option_text": "Llamar a Carmen para preguntarle cómo es el grupo",
-              "consequence": "Llamas a Carmen y ella te tranquiliza. Te dice que hay personas de todas las condiciones y que nadie juzga. Te sientes más seguro.",
-              "next_chapter_id": null,
-              "next_scene_id": "c04-s05",
-              "gds_mapping": [
-                { "item": 2, "weight": 0.75, "confidence": 0.8, "rationale": "seeking_reassurance" },
-                { "item": 10, "weight": 0.5, "confidence": 0.7, "rationale": "memory_of_abilities" }
-              ],
-              "phq_mapping": [
-                { "item": 7, "weight": 0.5, "confidence": 0.7, "rationale": "processing_anxiety" }
-              ]
+              "next_scene_id": "c01-s13",
+              "gds_mapping": [],
+              "phq_mapping": []
             }
           ]
         },
         {
-          "scene_id": "c04-s03",
-          "title": "La deliberación",
-          "order": 3,
-          "text": "Después de colgar, te quedas pensando. Por un lado, el grupo de caminata te daría una rutina y compañía. Por otro, te preocupa no poder seguir el ritmo o sentirte fuera de lugar. Miras la lista de contactos en tu teléfono. Podrías pedirle opinión a alguien. ¿Qué decides hacer?",
+          "scene_id": "c01-s13",
+          "title": "Camino de regreso",
+          "hero_stage": "10_road_back",
+          "type": "playable",
+          "order": 16,
+          "text": "Un domingo llegó al jardín una mujer mayor que Rosa no conocía, cargada con una bolsa y cara de no saber bien qué hacer. 'Esa es Doña Esther', le susurró Sofía. 'Vive sola en el edificio de la esquina desde hace años.' Rosa reconoció en esa mirada algo que conocía muy bien.",
           "options": [
             {
-              "option_id": "c04-s03-o1",
-              "option_text": "Llamar a tu hija para pedirle consejo",
-              "consequence": "Tu hija te anima a que vayas. Te dice que caminar le haría bien y que está orgullosa de que lo estés considerando. Te sientes motivado.",
+              "option_id": "c01-s13-o1",
+              "option_text": "Acercarse y presentarse, invitarla a su bancal",
+              "consequence": "Rosa se levanta y camina hacia Doña Esther. 'Bienvenida. Yo también llegué así al principio. Venga, le muestro.'",
               "next_chapter_id": null,
-              "next_scene_id": "c04-s05",
+              "next_scene_id": "c01-s14",
               "gds_mapping": [
-                { "item": 1, "weight": 0.7, "confidence": 0.85, "rationale": "family_support" },
-                { "item": 7, "weight": 0.65, "confidence": 0.8, "rationale": "encouraged" }
+                { "item": 7, "weight": 0.15, "confidence": 0.85, "rationale": "generosidad_desde_la_propia_felicidad_inverso" },
+                { "item": 2, "weight": 0.10, "confidence": 0.85, "rationale": "amplía_actividades_y_relaciones_sociales_inverso" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s13-o2",
+              "option_text": "Esperar a que alguien más del grupo la reciba",
+              "consequence": "Rosa observa cómo Sofía se acerca a saludar a Doña Esther. Se dice que no era necesario que fuera ella.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s14",
+              "gds_mapping": [
+                { "item": 6, "weight": 0.30, "confidence": 0.75, "rationale": "cautela_y_miedo_a_equivocarse_al_tomar_iniciativa" }
               ],
               "phq_mapping": [
-                { "item": 2, "weight": 0.5, "confidence": 0.75, "rationale": "emotional_support" }
+                { "item": 7, "weight": 0.35, "confidence": 0.75, "rationale": "dificultad_para_tomar_iniciativa_propia" }
               ]
             },
             {
-              "option_id": "c04-s03-o2",
-              "option_text": "Hacer una lista de pros y contras",
-              "consequence": "Escribes en un papel lo bueno y lo malo. La lista de pros es más larga que la de contras. Pero todavía no tomas la decisión final.",
+              "option_id": "c01-s13-o3",
+              "option_text": "Solo saludarla de lejos y seguir con su trabajo",
+              "consequence": "Rosa levanta la mano en señal de saludo y vuelve a su bancal. Le parece que los demás siempre saben qué hacer mejor que ella.",
               "next_chapter_id": null,
-              "next_scene_id": "c04-s05",
+              "next_scene_id": "c01-s14",
               "gds_mapping": [
-                { "item": 6, "weight": 0.6, "confidence": 0.75, "rationale": "overthinking" },
-                { "item": 14, "weight": 0.5, "confidence": 0.7, "rationale": "past_comparison" }
+                { "item": 15, "weight": 0.50, "confidence": 0.80, "rationale": "compararse_desfavorablemente_con_los_demás" },
+                { "item": 4, "weight": 0.40, "confidence": 0.75, "rationale": "distancia_emocional_y_pasividad_social" }
               ],
-              "phq_mapping": [
-                { "item": 7, "weight": 0.55, "confidence": 0.75, "rationale": "difficulty_deciding" }
-              ]
-            },
-            {
-              "option_id": "c04-s03-o3",
-              "option_text": "Dejar la decisión para mañana",
-              "consequence": "Dejas el pensamiento a un lado y decides que ya verás mañana. Te sientas a mirar la televisión sin mucho interés.",
-              "next_chapter_id": null,
-              "next_scene_id": "c04-s05",
-              "gds_mapping": [
-                { "item": 4, "weight": 0.65, "confidence": 0.8, "rationale": "avoidance" },
-                { "item": 8, "weight": 0.6, "confidence": 0.75, "rationale": "feeling_helpless" }
-              ],
-              "phq_mapping": [
-                { "item": 1, "weight": 0.6, "confidence": 0.75, "rationale": "apathy" },
-                { "item": 4, "weight": 0.55, "confidence": 0.7, "rationale": "fatigue" }
-              ]
+              "phq_mapping": []
             }
           ]
         },
         {
-          "scene_id": "c04-s04",
-          "title": "Después del rechazo",
-          "order": 4,
-          "text": "Al colgar el teléfono, miras alrededor de tu casa. Todo está en silencio. La invitación de Carmen sigue resonando en tu cabeza. Sabes que rechazaste algo que podría haberte hecho bien. El reloj marca las cinco de la tarde. ¿Qué haces con el resto del día?",
+          "scene_id": "c01-s14",
+          "title": "La resurrección",
+          "hero_stage": "11_resurrection",
+          "type": "narrated",
+          "order": 17,
+          "text": "Poco a poco, Rosa se convirtió en parte del jardín. No por saber más de plantas que nadie, sino porque siempre llegaba. Siempre tenía una palabra tranquila para el que traía un día difícil. Una tarde, mientras recogían las herramientas, Don Hernando le dijo: 'Doña Rosa, creo que este jardín la necesitaba a usted tanto como usted lo necesitaba a él.'",
           "options": [
             {
-              "option_id": "c04-s04-o1",
-              "option_text": "Llamar a Carmen y cambiar de opinión",
-              "consequence": "Marcas el número de Carmen y le dices que lo has pensado mejor y que te gustaría intentarlo. Ella se alegra mucho y te dice que no te vas a arrepentir.",
+              "option_id": "c01-s14-o1",
+              "option_text": "Continuar",
+              "consequence": "",
               "next_chapter_id": null,
-              "next_scene_id": "c04-s05",
-              "gds_mapping": [
-                { "item": 2, "weight": 0.8, "confidence": 0.85, "rationale": "changing_course" },
-                { "item": 7, "weight": 0.7, "confidence": 0.8, "rationale": "brave_decision" }
-              ],
-              "phq_mapping": [
-                { "item": 1, "weight": 0.7, "confidence": 0.8, "rationale": "renewed_interest" }
-              ]
-            },
-            {
-              "option_id": "c04-s04-o2",
-              "option_text": "Salir a caminar solo por el barrio",
-              "consequence": "Sales a dar una vuelta por las calles. Caminas sin rumbo fijo pero el movimiento te sienta bien. Pasas por el parque y ves el banco donde te sentaste el otro día.",
-              "next_chapter_id": null,
-              "next_scene_id": "c04-s05",
-              "gds_mapping": [
-                { "item": 13, "weight": 0.6, "confidence": 0.75, "rationale": "some_energy" },
-                { "item": 9, "weight": 0.6, "confidence": 0.75, "rationale": "alone_preference" }
-              ],
-              "phq_mapping": [
-                { "item": 4, "weight": 0.5, "confidence": 0.75, "rationale": "mild_energy" }
-              ]
-            },
-            {
-              "option_id": "c04-s04-o3",
-              "option_text": "Quedarte en casa y no hacer nada",
-              "consequence": "Te quedas sentado en el sillón. Las horas pasan. Cuando oscurece, sientes un peso en el pecho. Otra oportunidad que dejas pasar.",
-              "next_chapter_id": null,
-              "next_scene_id": "c04-s05",
-              "gds_mapping": [
-                { "item": 3, "weight": 0.85, "confidence": 0.9, "rationale": "life_feels_empty" },
-                { "item": 8, "weight": 0.8, "confidence": 0.85, "rationale": "helplessness" },
-                { "item": 9, "weight": 0.85, "confidence": 0.85, "rationale": "isolation" }
-              ],
-              "phq_mapping": [
-                { "item": 1, "weight": 0.85, "confidence": 0.85, "rationale": "loss_of_interest" },
-                { "item": 2, "weight": 0.8, "confidence": 0.85, "rationale": "depressed_mood" },
-                { "item": 6, "weight": 0.7, "confidence": 0.8, "rationale": "feeling_bad_about_self" }
-              ]
+              "next_scene_id": "c01-s15",
+              "gds_mapping": [],
+              "phq_mapping": []
             }
           ]
         },
         {
-          "scene_id": "c04-s05",
-          "title": "La noche antes del cambio",
-          "order": 5,
-          "text": "Es la última noche de esta semana. Piensas en todo lo que has vivido estos días: las personas que encontraste, las decisiones que tomaste, los momentos de soledad y de compañía. Mañana empieza una semana nueva. ¿Con qué actitud la enfrentas?",
+          "scene_id": "c01-s15",
+          "title": "Regreso con el elixir",
+          "hero_stage": "12_return_with_elixir",
+          "type": "playable",
+          "order": 18,
+          "text": "Hoy, seis meses después de aquella tarjeta en la mesita de noche, Rosa se despierta y lo primero que piensa es en ir al jardín. No porque tenga que ir. Sino porque quiere. Mientras prepara el café, mira por la ventana el amanecer sobre los techos del barrio y piensa en el día que viene.",
           "options": [
             {
-              "option_id": "c04-s05-o1",
-              "option_text": "Con esperanza de que las cosas pueden mejorar",
-              "consequence": "Te duermes con una sensación cálida en el pecho. Hay cosas por las que vale la pena levantarse mañana. Quizás el grupo de caminata, quizás una llamada a tu hija, quizás simplemente salir al parque. Sea lo que sea, sientes que hay posibilidades.",
+              "option_id": "c01-s15-o1",
+              "option_text": "Pensar en qué puede enseñarle al grupo la próxima semana",
+              "consequence": "Rosa tiene algo que dar. No lo sabía hace seis meses. Ahora lo sabe.",
               "next_chapter_id": null,
               "next_scene_id": null,
               "gds_mapping": [
-                { "item": 1, "weight": 0.9, "confidence": 0.9, "rationale": "life_satisfaction" },
-                { "item": 7, "weight": 0.85, "confidence": 0.85, "rationale": "feeling_happy" },
-                { "item": 11, "weight": 0.85, "confidence": 0.85, "rationale": "wonderful_to_be_alive" }
+                { "item": 1, "weight": 0.10, "confidence": 0.85, "rationale": "satisfacción_con_la_propia_vida_presente_inverso" },
+                { "item": 13, "weight": 0.10, "confidence": 0.85, "rationale": "energía_orientada_a_propósito_concreto_inverso" },
+                { "item": 11, "weight": 0.10, "confidence": 0.85, "rationale": "valora_activamente_estar_viva_y_capaz_inverso" }
               ],
-              "phq_mapping": [
-                { "item": 1, "weight": 0.85, "confidence": 0.9, "rationale": "renewed_interest" },
-                { "item": 2, "weight": 0.8, "confidence": 0.85, "rationale": "hopeful_mood" }
-              ]
+              "phq_mapping": []
             },
             {
-              "option_id": "c04-s05-o2",
-              "option_text": "Con la duda de si algo va a cambiar realmente",
-              "consequence": "Miras al techo pensando. No estás seguro de que las cosas vayan a ser diferentes, pero tampoco te has rendido del todo. Es una noche de preguntas sin respuestas claras, pero al menos sigues haciéndote preguntas.",
+              "option_id": "c01-s15-o2",
+              "option_text": "Sentir que hoy es un día ordinario, y que eso está bien",
+              "consequence": "Rosa disfruta el café despacio. No necesita que el día sea extraordinario. Con ordinario, alcanza.",
               "next_chapter_id": null,
               "next_scene_id": null,
               "gds_mapping": [
-                { "item": 6, "weight": 0.7, "confidence": 0.8, "rationale": "worried_about_future" },
-                { "item": 14, "weight": 0.6, "confidence": 0.75, "rationale": "uncertain_present" }
+                { "item": 5, "weight": 0.10, "confidence": 0.85, "rationale": "buen_humor_cotidiano_estable_inverso" },
+                { "item": 7, "weight": 0.10, "confidence": 0.85, "rationale": "felicidad_tranquila_mayoría_del_tiempo_inverso" }
               ],
               "phq_mapping": [
-                { "item": 3, "weight": 0.6, "confidence": 0.75, "rationale": "restless_sleep" },
-                { "item": 7, "weight": 0.6, "confidence": 0.8, "rationale": "difficulty_focusing" }
+                { "item": 1, "weight": 0.10, "confidence": 0.80, "rationale": "interés_en_la_vida_cotidiana_recuperado_inverso" }
               ]
             },
             {
-              "option_id": "c04-s05-o3",
-              "option_text": "Con la sensación de que todo seguirá igual",
-              "consequence": "Apagas la luz con un suspiro pesado. Sientes que los días se repiten y que no importa lo que hagas, nada cambia realmente. Te duermes con una sensación de vacío, pero mañana el sol volverá a salir, y con él, otra oportunidad.",
+              "option_id": "c01-s15-o3",
+              "option_text": "Desear que más personas como Doña Esther lleguen al jardín",
+              "consequence": "Rosa piensa en Doña Esther. Y en cómo ella misma llegó. Y en que hay más personas así en el barrio, esperando algo.",
               "next_chapter_id": null,
               "next_scene_id": null,
               "gds_mapping": [
-                { "item": 3, "weight": 0.9, "confidence": 0.9, "rationale": "life_feels_empty" },
-                { "item": 8, "weight": 0.85, "confidence": 0.85, "rationale": "feeling_helpless" },
-                { "item": 7, "weight": 0.9, "confidence": 0.85, "rationale": "feeling_unhappy" }
+                { "item": 11, "weight": 0.10, "confidence": 0.85, "rationale": "celebra_el_valor_de_estar_viva_y_conectada_inverso" },
+                { "item": 15, "weight": 0.10, "confidence": 0.80, "rationale": "ya_no_se_compara_desfavorablemente_inverso" },
+                { "item": 2, "weight": 0.10, "confidence": 0.80, "rationale": "voluntad_de_ampliar_actividades_y_relaciones_inverso" }
               ],
-              "phq_mapping": [
-                { "item": 1, "weight": 0.85, "confidence": 0.85, "rationale": "loss_of_interest" },
-                { "item": 2, "weight": 0.85, "confidence": 0.85, "rationale": "depressed_mood" },
-                { "item": 3, "weight": 0.7, "confidence": 0.8, "rationale": "sleep_problems" }
-              ]
+              "phq_mapping": []
             }
           ]
         }

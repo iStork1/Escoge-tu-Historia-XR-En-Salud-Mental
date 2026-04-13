@@ -5,6 +5,54 @@
 -- Date: 2026-02-22
 -- Status: APPLIED (all changes in schema.sql, audit_triggers.sql, 001_fix_schema.sql)
 
+## SPRINT 4b: Clinician Review Dashboard ✅
+
+### Changes Applied:
+
+1. **Reviewers Table** (migrations/007_clinical_review_dashboard.sql)
+   - Added: `reviewers` table to store clinician identities (display_name, role, email)
+   - **Impact**: Enables attribution and audit of clinical feedback
+
+2. **Clinical Mapping Reviews** (migrations/007_clinical_review_dashboard.sql)
+   - Added: `clinical_mapping_reviews` table with verdict, confidence, suggested mapping, tags
+   - **Impact**: Supports approve/reject/adjust feedback loop for LLM training
+
+3. **Dashboard Views** (migrations/007_clinical_review_dashboard.sql)
+   - Added views: `v_mapping_review_queue`, `v_mapping_review_stats`, `v_mapping_training_ready`
+   - **Impact**: Fast queries for clinician dashboard and training export
+
+---
+
+## SPRINT 4c: LLM Orchestration & Prompt Optimization ✅
+
+### Changes Applied:
+
+1. **Multi-provider core mapping** (backend/src/llm-client.js, backend/src/index.js)
+   - Added cross-provider execution for core mappings (OpenRouter + Cohere)
+   - New env support: `LLM_PROVIDER_CORE_SECONDARY`, `LLM_CORE_MODELS_SECONDARY`
+   - **Impact**: Core mappings can be validated across vendors without losing latency control
+
+2. **Provider roles (core vs narrative)** (backend/src/llm-client.js, backend/src/index.js)
+   - Role-based routing (`core`, `narrative`) for model selection
+   - **Impact**: Clinical mapping and narrative generation use different providers/models
+
+3. **Clinical scoring + option rules** (backend/src/index.js)
+   - Weighted score normalization by total weight + thresholds
+   - Enforces exact 3 options and ensures a negative option is present
+   - **Impact**: Stable clinical scoring while keeping scene-by-scene output lean
+
+4. **Prompt optimization (token reduction)** (backend/src/prompts.js)
+   - Compact clinician mapping prompt
+   - Narrative prompts enforce 3 options exactas and shorter lengths
+   - **Impact**: Lower token cost without losing clinical or narrative constraints
+
+5. **Narrative architecture continuity** (backend/src/prompts.js)
+   - Added characters catalog, event anchors, and continuity bridge in weekly architect
+   - Daily generator uses key_event/new_character when present
+   - **Impact**: Easier to evolve stories and connect contiguous weeks with consistent characters
+
+---
+
 ## SPRINT 0a: Core Constraints & Missing Columns ✅
 
 ### Changes Applied:

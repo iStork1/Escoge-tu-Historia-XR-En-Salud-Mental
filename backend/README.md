@@ -17,7 +17,94 @@ Run locally
 npm run start
 ```
 
+Run with ngrok (for Alexa integration development)
+
+For testing with Alexa Developer Console, expose the backend via ngrok with security:
+
+```bash
+# Start backend
+npm run start
+
+# In another terminal, create secure ngrok tunnel (1-hour session example)
+# Replace YOUR_TOKEN with your ngrok authtoken
+ngrok http 3000 --authtoken YOUR_TOKEN --bind-tls=true --auth="devuser:StrongPassword123" --inspect=false
+
+# Update Alexa endpoint in Developer Console with the HTTPS URL (e.g., https://abcd1234.ngrok.io/alexa)
+```
+
+**Security notes for ngrok:**
+- Always use `--bind-tls=true` for HTTPS (Alexa required)
+- Use `--auth` for HTTP Basic auth layer on top of verification
+- Set `--inspect=false` to disable public inspection panel unless debugging
+- Implement Alexa signature verification in the skill (see [Alexa Request Verification](#alexa-request-verification))
+- Session expiry: ngrok free tier sessions close after inactivity; for stable testing use reserved domains or paid ngrok plan
+
 API
+- POST `/telemetry` — accepts a JSON payload with `session` fields and `decisions` array. Example minimal payload:
+
+LLM Arc Workflow (Prompt 1 + Prompt 2)
+
+- POST `/llm/arcs/plan`
+  - Purpose: Run Prompt 1 (Arquitecto) once per week.
+  - Fixed generation settings: `temperature=0.25`, `max_tokens=3000`.
+  - Input example:
+
+```json
+{
+  "arc_id": "arc_001",
+  "week_number": 1,
+  "arc_theme": "soledad_y_reconexion",
+  "title": "Soledad y Reconexión",
+  "chapter_id_range": ["c01", "c07"],
+  "constructos": ["social_isolation", "anhedonia"],
+  "allow_phq9_item9_policy": "no en ningun dia"
+}
+```
+
+- POST `/llm/arcs/generate-day`
+  - Purpose: Run Prompt 2 (Generador) for one day/chapter (run 7 times per arc).
+  - Fixed generation settings: `temperature=0.40`, `max_tokens=8000`.
+  - Input example:
+
+```json
+{
+  "arc_id": "arc_001",
+  "arc_day": 1
+}
+```
+
+- GET `/llm/arcs/state`
+  - Purpose: Inspect continuity and generated artifacts for all arcs.
+
+Continuity between weeks
+- `next_arc_hook` from day 7 is persisted in `backend/content/arc_workflow_state.json`.
+- If you omit `entry_hook` in `/llm/arcs/plan`, the backend auto-uses the last persisted `next_arc_hook`.
+- Architecture and generated day files are stored in `backend/content/arcs/`.
+
+Alexa Request Verification
+
+All Alexa requests to the skill must be verified for authenticity. The backend validates:
+1. Request signature (X-Alexa-Signature header)
+2. Certificate chain validity (X-Alexa-Signature-Certificate-Chain-Url)
+3. Timestamp freshness (within ±150 seconds)
+
+Currently, the `/alexa` endpoint uses the `alexaResponse()` helper which wraps responses in SSML tags to support audio effects (breaks, prosody, whispered). **Note:** The verification middleware should be enforced before processing intent logic in production.
+
+Example Alexa-enabled response format (now automatically wrapped in SSML):
+```json
+{
+  "version": "1.0",
+  "response": {
+    "outputSpeech": {
+      "type": "SSML",
+      "ssml": "<speak>Rosa se despierta <break time=\"400ms\"/> en silencio.</speak>"
+    },
+    "shouldEndSession": false,
+    "sessionAttributes": { "stage": "scene", "pseudonym": "user1" }
+  }
+}
+```
+
 - POST `/telemetry` — accepts a JSON payload with `session` fields and `decisions` array. Example minimal payload:
 
 ```json

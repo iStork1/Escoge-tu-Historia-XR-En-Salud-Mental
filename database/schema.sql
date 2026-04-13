@@ -59,10 +59,8 @@ CREATE TABLE IF NOT EXISTS sessions (
   privacy_mode VARCHAR(20) CHECK (privacy_mode IN ('anonymous','tracking')) DEFAULT 'anonymous',
   abandonment_flag BOOLEAN DEFAULT FALSE,
   source VARCHAR(50) DEFAULT 'alexa',
-  ingest_batch_id UUID,
-  normalized_emotional_score_gds FLOAT,
-  normalized_emotional_score_phq FLOAT,
-  metadata JSONB
+  metadata JSONB,
+  CONSTRAINT check_session_dates CHECK (ended_at IS NULL OR ended_at >= started_at)
 );
 
 -- Decision audit: raw LLM requests/responses, validation, risk flags

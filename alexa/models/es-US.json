@@ -35,39 +35,18 @@
         {
           "name": "ChooseOptionIntent",
           "slots": [
-            { "name": "option", "type": "AMAZON.NUMBER" },
-            { "name": "optionText", "type": "AMAZON.SearchQuery" }
+            { "name": "option", "type": "OptionNumber" }
           ],
           "samples": [
-            "escojo la opción {option}",
+            "{option}",
             "opción {option}",
-            "opción uno",
-            "opción dos",
-            "opción tres",
-            "elijo uno",
-            "elijo dos",
-            "elijo tres",
-            "quiero la opción uno",
-            "quiero la opción dos",
-            "quiero la opción tres",
+            "elijo {option}",
+            "escojo la opción {option}",
             "quiero la opción {option}",
-            "me quedo con la primera",
-            "me quedo con la segunda",
-            "me quedo con la tercera",
-            "la primera",
-            "la segunda",
-            "la tercera",
-            "uno",
-            "dos",
-            "tres",
-            "número uno",
-            "número dos",
-            "número tres",
-            "la primera opción",
-            "la segunda opción",
-            "la tercera opción",
-            "elijo {optionText}",
-            "me quedo con la {optionText}"
+            "me quedo con la opción {option}",
+            "selecciono {option}",
+            "número {option}",
+            "elige {option}"
           ]
         },
         {
@@ -172,7 +151,16 @@
         { "name": "AMAZON.FallbackIntent" },
         { "name": "AMAZON.RepeatIntent" }
       ],
-      "types": []
+      "types": [
+        {
+          "name": "OptionNumber",
+          "values": [
+            {"name": {"value": "uno", "synonyms": ["1", "primera", "primero", "opción 1"]}},
+            {"name": {"value": "dos", "synonyms": ["2", "segunda", "segundo", "opción 2"]}},
+            {"name": {"value": "tres", "synonyms": ["3", "tercera", "tercero", "opción 3"]}}
+          ]
+        }
+      ]
     },
     "dialog": {
       "intents": [
@@ -200,15 +188,17 @@
           "slots": [
             {
               "name": "option",
-              "type": "AMAZON.NUMBER",
+              "type": "OptionNumber",
               "elicitationRequired": true,
               "confirmationRequired": false,
-              "prompts": { "elicitation": "Elicit.ChooseOptionIntent.option" }
+              "prompts": {
+                "elicitation": "Elicit.ChooseOptionIntent.option"
+              }
             }
           ]
         }
       ],
-      "delegationStrategy": "ALWAYS"
+      "delegationStrategy": "SKILL_RESPONSE"
     },
     "prompts": [
       {
@@ -222,8 +212,8 @@
       {
         "id": "Elicit.ChooseOptionIntent.option",
         "variations": [
-          { "type": "PlainText", "value": "¿Qué opción prefieres? Di uno, dos o tres." },
-          { "type": "PlainText", "value": "Elige una opción: uno, dos o tres." }
+          { "type": "PlainText", "value": "Elige una opción: uno, dos o tres." },
+          { "type": "PlainText", "value": "¿Qué opción prefieres?" }
         ]
       }
     ]

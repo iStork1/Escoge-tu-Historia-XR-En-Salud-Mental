@@ -68,10 +68,132 @@ ORDER BY trigger_name;
 
 ---
 
+### Phase 2c: Session Lifecycle & Data Integrity (Sprint 2b - NEW)
+**File:** `migrations/003_fix_data_capture.sql`
+- **Purpose**: Remove redundant normalized score columns, implement proper session lifecycle tracking (started_at, ended_at, session_length_seconds auto-calculation), enforce consent_given re-prompting, add session metadata structure
+- **Dependencies**: schema.sql + migrations/001_fix_schema.sql + migrations/002_sprint2a_session_columns.sql
+- **Execution Time**: ~10–15 seconds
+- **Idempotent**: ✅ Yes (uses `IF EXISTS` and `DROP TRIGGER IF EXISTS`)
+- **Critical Changes**:
+  - ❌ Removes: `ingest_batch_id`, `normalized_emotional_score_gds`, `normalized_emotional_score_phq` (use `session_scores` table for calculations instead)
+  - ✅ Adds constraints: `ended_at >= started_at`
+  - ✅ Adds triggers for: auto-calculating `session_length_seconds`, ensuring `started_at` capture, **resetting `consent_given` to FALSE per session** (never cache), auto-populating decision timestamps
+  - ✅ Improves `scenes.metadata` structure (emotional_intensity, accessibility_warnings, estimated_completion_seconds)
+
+**Supabase UI:**
+```
+1. Go to SQL Editor
+2. Create new query
+3. Copy entire migrations/003_fix_data_capture.sql content
+4. Run
+5. Verify: 
+   - Check sessions table: SELECT column_name FROM information_schema.columns WHERE table_name='sessions' ORDER BY column_name;
+   - Confirm NO columns named normalized_*_score or ingest_batch_id
+   - Check Triggers: SELECT trigger_name FROM information_schema.triggers WHERE trigger_name LIKE 'trg_ensure_%' OR trigger_name LIKE 'trg_calculate_%';
+```
+
+---
+
+### Phase 2d: Arc Workflow Persistence (Prompt 1 + Prompt 2)
+**File:** `migrations/004_arc_workflow_tables.sql`
+- **Purpose**: Persist weekly architect output, daily generator outputs, and explicit week-to-week transitions
+- **Dependencies**: schema.sql + migrations/001_fix_schema.sql + migrations/002_sprint2a_session_columns.sql + migrations/003_fix_data_capture.sql
+- **Execution Time**: ~10–20 seconds
+- **Idempotent**: ✅ Yes (`IF NOT EXISTS`, `CREATE OR REPLACE VIEW`)
+- **Critical Changes**:
+   - ✅ Creates `arc_weeks` (Prompt 1 JSON + metadata + token/cost tracking)
+   - ✅ Creates `arc_days` (Prompt 2 JSON per day 1..7 + summaries + token/cost tracking)
+   - ✅ Creates `arc_transitions` (next_arc_hook continuity bridge)
+   - ✅ Adds views: `v_arc_latest_transition`, `v_arc_progress`
+
+**Supabase UI:**
+```
+1. Go to SQL Editor
+2. Create new query
+3. Copy entire migrations/004_arc_workflow_tables.sql content
+4. Run
+5. Verify:
+    - Tables: SELECT table_name FROM information_schema.tables WHERE table_name IN ('arc_weeks','arc_days','arc_transitions');
+    - Views: SELECT table_name FROM information_schema.views WHERE table_name IN ('v_arc_latest_transition','v_arc_progress');
+```
+
+---
+
+### Phase 2e: Deterministic Narrative Path Cache (Scene-by-Scene Reuse)
+**File:** `migrations/005_narrative_path_cache.sql`
+- **Purpose**: Enable segmented path-key cache reuse, variant ranking, and cache KPI tracking
+- **Dependencies**: schema.sql + migrations/001_fix_schema.sql + migrations/002_sprint2a_session_columns.sql + migrations/003_fix_data_capture.sql + migrations/004_arc_workflow_tables.sql
+- **Execution Time**: ~5-15 seconds
+- **Idempotent**: ✅ Yes (`IF NOT EXISTS`, `CREATE OR REPLACE VIEW`)
+- **Critical Changes**:
+   - ✅ Creates `narrative_path_cache` (path-key variants, quality scores, ratings)
+   - ✅ Creates `narrative_cache_events` (hit/miss/write/rating observability)
+   - ✅ Creates views: `v_narrative_path_cache_best`, `v_narrative_cache_kpis`
+
+**Supabase UI:**
+```
+1. Go to SQL Editor
+2. Create new query
+3. Copy entire migrations/005_narrative_path_cache.sql content
+4. Run
+5. Verify:
+    - Tables: SELECT table_name FROM information_schema.tables WHERE table_name IN ('narrative_path_cache','narrative_cache_events');
+    - Views: SELECT table_name FROM information_schema.views WHERE table_name IN ('v_narrative_path_cache_best','v_narrative_cache_kpis');
+```
+
+---
+
+### Phase 2f: Data Null Hardening + Backfill (Telemetry Quality)
+**File:** `migrations/006_backfill_decision_metrics_and_null_hardening.sql`
+- **Purpose**: Eliminate null-heavy telemetry by backfilling decision mappings, recomputing session scores, and hardening JSON defaults
+- **Dependencies**: schema.sql + migrations/001_fix_schema.sql + migrations/002_sprint2a_session_columns.sql + migrations/003_fix_data_capture.sql + options data loaded (seed or sync)
+- **Execution Time**: ~10-40 seconds (depends on existing telemetry volume)
+- **Idempotent**: ✅ Mostly yes (guarded updates/inserts and trigger recreation)
+- **Critical Changes**:
+   - ✅ Backfills decision-level `clinical_mappings` from option static mappings when missing
+   - ✅ Recomputes `session_scores` (`gds_total`, `phq_total`) globally
+   - ✅ Backfills `decisions.mapping_confidence` and `decision_audit.validation_result`
+   - ✅ Sets defaults/updates for `sessions.metadata` and `scenes.metadata`
+   - ✅ Creates trigger `trg_autofill_decision_mappings_from_option` for future inserts
+
+**Supabase UI:**
+```
+1. Go to SQL Editor
+2. Create new query
+3. Copy entire migrations/006_backfill_decision_metrics_and_null_hardening.sql content
+4. Run
+5. Verify:
+   - SELECT COUNT(*) FROM clinical_mappings WHERE decision_id IS NOT NULL;
+   - SELECT COUNT(*) FROM session_scores;
+   - SELECT COUNT(*) FROM decisions WHERE mapping_confidence IS NULL;
+```
+
+---
+
+### Phase 2g: Clinician Review Dashboard (Feedback Loop)
+**File:** `migrations/007_clinical_review_dashboard.sql`
+- **Purpose**: Persist clinician feedback on clinical mappings for dashboard + training
+- **Dependencies**: schema.sql + migrations/001_fix_schema.sql + migrations/003_fix_data_capture.sql
+- **Execution Time**: ~5–10 seconds
+- **Idempotent**: ✅ Yes (`IF NOT EXISTS`, `CREATE OR REPLACE VIEW`)
+
+**Supabase UI:**
+```
+1. Go to SQL Editor
+2. Create new query
+3. Copy entire migrations/007_clinical_review_dashboard.sql content
+4. Run
+5. Verify:
+   - SELECT table_name FROM information_schema.tables WHERE table_name IN ('reviewers','clinical_mapping_reviews');
+   - SELECT table_name FROM information_schema.views WHERE table_name IN ('v_mapping_review_queue','v_mapping_review_stats','v_mapping_training_ready');
+```
+
+---
+
 ### Phase 3: Performance Indexes
 **File:** `indexes.sql`
 - **Purpose**: Create all query optimization indexes (25 total, covering FK columns, search patterns, and new denormalized columns)
-- **Dependencies**: schema.sql + migrations/001_fix_schema.sql (so all columns exist)
+- **Dependencies**: schema.sql + migrations/001_fix_schema.sql + migrations/002_sprint2a_session_columns.sql + migrations/003_fix_data_capture.sql + migrations/004_arc_workflow_tables.sql (so all columns exist)
 - **Execution Time**: ~10–20 seconds
 - **Idempotent**: ✅ Yes (uses `IF NOT EXISTS`)
 - **Rollback**: Drop individual indexes with `DROP INDEX IF EXISTS idx_name;`

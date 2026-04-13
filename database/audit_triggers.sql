@@ -164,3 +164,64 @@ DROP TRIGGER IF EXISTS trg_decisions_after_insert ON decisions;
 CREATE TRIGGER trg_decisions_after_insert
 AFTER INSERT ON decisions
 FOR EACH ROW EXECUTE FUNCTION fn_decisions_after_insert();
+
+-- ===== SESSION LIFECYCLE TRACKING (Migration 003) =====
+
+-- Function: Auto-calculate session_length_seconds when session ends
+CREATE OR REPLACE FUNCTION fn_calculate_session_length()
+RETURNS TRIGGER AS $$
+BEGIN
+  -- When ended_at is set, calculate session_length_seconds
+  IF (NEW.ended_at IS NOT NULL AND OLD.ended_at IS NULL) THEN
+    NEW.session_length_seconds := EXTRACT(EPOCH FROM (NEW.ended_at - NEW.started_at))::INT;
+    NEW.is_closed := TRUE;
+  END IF;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS trg_calculate_session_length ON sessions;
+CREATE TRIGGER trg_calculate_session_length
+BEFORE UPDATE ON sessions
+FOR EACH ROW
+EXECUTE FUNCTION fn_calculate_session_length();
+
+-- Function: Ensure started_at and consent_given are always set on session creation
+CREATE OR REPLACE FUNCTION fn_ensure_session_start()
+RETURNS TRIGGER AS $$
+BEGIN
+  -- Ensure started_at defaults to now (backup - should already be in DEFAULT)
+  IF NEW.started_at IS NULL THEN
+    NEW.started_at := now();
+  END IF;
+  -- CRITICAL: consent_given must start as FALSE - will be explicitly set by user via Alexa prompt
+  -- Do NOT cache previous session's consent (privacy requirement)
+  IF NEW.consent_given IS NULL THEN
+    NEW.consent_given := FALSE;
+  END IF;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS trg_ensure_session_start ON sessions;
+CREATE TRIGGER trg_ensure_session_start
+BEFORE INSERT ON sessions
+FOR EACH ROW
+EXECUTE FUNCTION fn_ensure_session_start();
+
+-- Function: Ensure decision timestamps are always captured
+CREATE OR REPLACE FUNCTION fn_ensure_decision_timestamp()
+RETURNS TRIGGER AS $$
+BEGIN
+  IF NEW.timestamp IS NULL THEN
+    NEW.timestamp := now();
+  END IF;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS trg_ensure_decision_timestamp ON decisions;
+CREATE TRIGGER trg_ensure_decision_timestamp
+BEFORE INSERT ON decisions
+FOR EACH ROW
+EXECUTE FUNCTION fn_ensure_decision_timestamp();

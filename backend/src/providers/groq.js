@@ -22,7 +22,7 @@ class GroqProvider extends BaseProvider {
   constructor() {
     super('groq');
     this.apiKey = process.env.GROQ_API_KEY;
-    this.model = process.env.GROQ_MODEL || 'mixtral-8x7b-32768';
+    this.model = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
     this.client = null;
     
     if (this.apiKey && Groq) {
