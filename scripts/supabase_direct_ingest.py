@@ -4,7 +4,7 @@ import requests
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PAYLOAD = ROOT / 'twine' / 'payload_examples' / 'phase1_payload_example.json'
+PAYLOAD = ROOT / 'backend' / 'content' / 'chapters.json'
 
 SUPABASE_URL = os.getenv('SUPABASE_URL')
 SERVICE_KEY = os.getenv('SUPABASE_SERVICE_ROLE_KEY')

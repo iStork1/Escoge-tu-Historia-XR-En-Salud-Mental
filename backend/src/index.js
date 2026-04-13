@@ -6436,7 +6436,9 @@ const server = http.createServer(async (req, res) => {
 // Ensure options and mappings are upserted from content, then start server
 (async () => {
   try {
-    await ensureOptionsUpsert();
+    // Disabled to prevent massive rate limits (502 Bad Gateway) on startup.
+    // Use python scripts/supabase_direct_ingest.py instead!
+    // await ensureOptionsUpsert();
   } catch (e) {
     console.warn('ensureOptionsUpsert failed at startup', e && e.message);
   }
