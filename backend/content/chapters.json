@@ -11,7 +11,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Rosa se despierta en su cuarto. El apartamento está en silencio y ese silencio tiene peso desde que Alberto murió hace dos años. Son las siete de la mañana. Sobre la mesita de noche hay una tarjeta que llegó ayer debajo de la puerta: una invitación del centro comunitario para unirse al proyecto del jardín vecinal. Rosa la mira mientras toma el café. ¿Cómo comienza este día?",
+          "text": "A sus 72 años, Rosa despierta con la luz cálida que se filtra por la ventana de su apartamento en un tradicional barrio de Medellín. Como maestra jubilada, sus mañanas han pasado de tener el bullicio emocionante de los salones de clase a una quietud muy silenciosa, tal vez demasiado. Mientras cuela el primer tinto del día en su pequeña cocina, escucha a lo lejos el murmullo de los transeúntes y el cantar de los pájaros en los árboles de la cuadra. Últimamente, los días se sienten todos iguales y en el fondo sabe que le hace falta una motivación nueva. Al acercarse a la mesa de la entrada, nota una colorida tarjeta que alguien deslizó ayer por debajo de su puerta: es una invitación afectuosa de la junta de acción comunal para unirse al proyecto de recuperación del jardín vecinal. Rosa se sienta en su mecedora favorita, sosteniendo la tarjeta mientras el aroma a café recién hecho inunda la sala. ¿Cómo decide comenzar este día?",
           "options": [
             {
               "option_id": "c01-s01-o1",
@@ -89,7 +89,7 @@
           ]
         },
         {
-          "scene_id": "c01-s02a",
+          "scene_id": "c01-s02",
           "title": "La llamada de Sofía",
           "hero_stage": "2a_branch_social",
           "type": "playable",
@@ -166,101 +166,11 @@
           ]
         },
         {
-          "scene_id": "c01-s02b",
-          "title": "Silencio matutino",
-          "hero_stage": "2b_branch_isolated",
-          "type": "playable",
-          "order": 3,
-          "text": "Rosa se sienta en el sillón de la sala. En la pared está la foto de su boda: cuarenta y cinco años juntos con Alberto. El apartamento está callado y ese silencio tiene peso. La tarjeta está en el cajón. El día se extiende largo y sin forma frente a ella.",
-          "options": [
-            {
-              "option_id": "c01-s02b-o1",
-              "option_text": "Hablarle a la foto de Alberto, contarle de la tarjeta",
-              "consequence": "Rosa le habla a la foto en voz baja. 'Llegó una invitación, Alberto. No sé qué hacer.' El silencio que responde no duele tanto como antes.",
-              "next_chapter_id": null,
-              "next_scene_id": "c01-s03",
-              "gds_mapping": [
-                {
-                  "item": 11,
-                  "weight": 0.2,
-                  "confidence": 0.75,
-                  "rationale": "conexión_con_el_valor_de_estar_viva_a_través_de_la_memoria"
-                }
-              ],
-              "phq_mapping": [
-                {
-                  "item": 2,
-                  "weight": 0.3,
-                  "confidence": 0.8,
-                  "rationale": "tristeza_activa_por_duelo_presente"
-                }
-              ]
-            },
-            {
-              "option_id": "c01-s02b-o2",
-              "option_text": "Sentarse a pensar que ya no sirve para esas cosas",
-              "consequence": "Rosa se queda quieta pensando que el jardín es para personas más jóvenes, más ágiles. Que ella ya tuvo su tiempo.",
-              "next_chapter_id": null,
-              "next_scene_id": "c01-s03",
-              "gds_mapping": [
-                {
-                  "item": 12,
-                  "weight": 0.8,
-                  "confidence": 0.9,
-                  "rationale": "sentirse_inútil_en_el_presente"
-                },
-                {
-                  "item": 3,
-                  "weight": 0.75,
-                  "confidence": 0.9,
-                  "rationale": "vida_sin_propósito_vacía"
-                },
-                {
-                  "item": 14,
-                  "weight": 0.4,
-                  "confidence": 0.8,
-                  "rationale": "situación_percibida_como_sin_esperanza"
-                }
-              ],
-              "phq_mapping": [
-                {
-                  "item": 1,
-                  "weight": 0.6,
-                  "confidence": 0.85,
-                  "rationale": "poco_interés_en_posibles_actividades"
-                }
-              ]
-            },
-            {
-              "option_id": "c01-s02b-o3",
-              "option_text": "Levantarse a regar las plantas y poner la radio",
-              "consequence": "Rosa se mueve. Riega una por una las maticas del balcón. La radio toca algo de los años ochenta que ella recuerda.",
-              "next_chapter_id": null,
-              "next_scene_id": "c01-s03",
-              "gds_mapping": [
-                {
-                  "item": 13,
-                  "weight": 0.25,
-                  "confidence": 0.8,
-                  "rationale": "energía_cotidiana_mínima_disponible_inverso"
-                },
-                {
-                  "item": 4,
-                  "weight": 0.25,
-                  "confidence": 0.75,
-                  "rationale": "combate_el_aburrimiento_activamente_inverso"
-                }
-              ],
-              "phq_mapping": []
-            }
-          ]
-        },
-        {
           "scene_id": "c01-s03",
           "title": "La llamada a la aventura",
           "hero_stage": "2_call_to_adventure",
           "type": "narrated",
-          "order": 4,
+          "order": 3,
           "text": "Esa misma tarde, Rosa decide pasar frente al centro comunitario, solo para ver. Desde la acera observa a un grupo de adultos mayores trabajando en bancales de tierra, riendo y conversando. Una joven con delantal verde la ve y le hace una señal. 'Señora, pase, siempre hay espacio para uno más.' Rosa se detiene en la esquina del andén, dudando.",
           "options": [
             {
@@ -279,7 +189,7 @@
           "title": "La duda ante el umbral",
           "hero_stage": "3_refusal_of_call",
           "type": "playable",
-          "order": 5,
+          "order": 4,
           "text": "Rosa está parada ante la entrada del jardín. Su corazón late un poco más rápido de lo normal. Un pensamiento aparece: 'Yo ya no soy de esas personas que empiezan cosas nuevas.' La joven del delantal espera con una sonrisa paciente. El grupo del jardín trabaja sin haberla notado todavía.",
           "options": [
             {
@@ -361,7 +271,7 @@
           "title": "El mentor llega",
           "hero_stage": "4_meeting_mentor",
           "type": "narrated",
-          "order": 6,
+          "order": 5,
           "text": "Esa noche suena el timbre. Es Don Hernando, presidente de la junta de acción comunal, un señor de 78 años con voz pausada y paso lento. 'Doña Rosa, vengo de parte del jardín. Nos dijeron que estuvo por allá hoy.' Rosa lo invita a sentarse. Don Hernando habla sobre las plantas, el barrio, las personas que llegan al jardín buscando algo que no saben nombrar. Antes de irse, deja una bolsita de semillas sobre la mesa.",
           "options": [
             {
@@ -380,7 +290,7 @@
           "title": "Cruce del umbral",
           "hero_stage": "5_crossing_threshold",
           "type": "playable",
-          "order": 7,
+          "order": 6,
           "text": "Rosa está sola en la cocina, sosteniendo la bolsita de semillas. Don Hernando dijo: 'Es más que un jardín. Es un motivo para salir de la casa cada mañana.' Las semillas pesan casi nada en su mano. ¿Qué decide Rosa?",
           "options": [
             {
@@ -453,11 +363,11 @@
           ]
         },
         {
-          "scene_id": "c01-s07a",
+          "scene_id": "c01-s07",
           "title": "La primera mañana en el jardín",
           "hero_stage": "6a_branch_active",
           "type": "playable",
-          "order": 8,
+          "order": 7,
           "text": "Es miércoles. Rosa llega al jardín con los guantes que encontró en un cajón. Sofía ya está allí, con tierra en la frente y sonrisa enorme. 'Rosa, por fin.' Le presentan a Camilo, un joven de treinta años que habla de compostaje con entusiasmo contagioso. Le asignan un bancal pequeño con la tierra ya removida.",
           "options": [
             {
@@ -536,107 +446,11 @@
           ]
         },
         {
-          "scene_id": "c01-s07b",
-          "title": "El camino de la resistencia",
-          "hero_stage": "6b_branch_resistant",
-          "type": "playable",
-          "order": 9,
-          "text": "Rosa no fue el miércoles. Tampoco el jueves. Pero el domingo, asomada al balcón, vio a Don Hernando trabajando solo en el jardín bajo el sol de las once. Sin pensarlo mucho, bajó. 'Don Hernando, ya vine.' El anciano levantó la vista y dijo simplemente: 'Qué bien. Aquí tiene su pala.'",
-          "options": [
-            {
-              "option_id": "c01-s07b-o1",
-              "option_text": "Trabajar intentando iniciar conversación",
-              "consequence": "Rosa busca las palabras. Don Hernando responde despacio, sin apuro. Al rato están hablando de las temporadas de lluvia.",
-              "next_chapter_id": null,
-              "next_scene_id": "c01-s08",
-              "gds_mapping": [
-                {
-                  "item": 7,
-                  "weight": 0.2,
-                  "confidence": 0.8,
-                  "rationale": "momento_de_conexión_leve_inverso"
-                },
-                {
-                  "item": 11,
-                  "weight": 0.15,
-                  "confidence": 0.75,
-                  "rationale": "pequeña_apreciación_de_estar_viva_inverso"
-                }
-              ],
-              "phq_mapping": []
-            },
-            {
-              "option_id": "c01-s07b-o2",
-              "option_text": "Trabajar en silencio, agradecida de que no preguntaron nada",
-              "consequence": "Rosa trabaja sin hablar. Le agradece internamente a Don Hernando que no haya hecho preguntas. El silencio entre los dos es cómodo.",
-              "next_chapter_id": null,
-              "next_scene_id": "c01-s08",
-              "gds_mapping": [
-                {
-                  "item": 9,
-                  "weight": 0.3,
-                  "confidence": 0.75,
-                  "rationale": "preferencia_por_aislamiento_incluso_estando_en_presencia"
-                },
-                {
-                  "item": 5,
-                  "weight": 0.2,
-                  "confidence": 0.75,
-                  "rationale": "alivio_leve_no_claramente_positivo"
-                }
-              ],
-              "phq_mapping": []
-            },
-            {
-              "option_id": "c01-s07b-o3",
-              "option_text": "Trabajar pero convencida de que cometió un error viniendo",
-              "consequence": "Rosa mueve la tierra pero su cabeza no para. '¿Para qué vine? Esto no me va a cambiar nada.' La pala pesa más de lo que debería.",
-              "next_chapter_id": null,
-              "next_scene_id": "c01-s08",
-              "gds_mapping": [
-                {
-                  "item": 14,
-                  "weight": 0.55,
-                  "confidence": 0.8,
-                  "rationale": "sensación_de_sin_esperanza_ante_la_posibilidad_de_cambio"
-                }
-              ],
-              "phq_mapping": [
-                {
-                  "item": 2,
-                  "weight": 0.5,
-                  "confidence": 0.8,
-                  "rationale": "estado_de_ánimo_deprimido_leve_persistente"
-                }
-              ]
-            }
-          ]
-        },
-        {
           "scene_id": "c01-s08",
-          "title": "Pruebas y aliados",
-          "hero_stage": "6_tests_allies_enemies",
-          "type": "narrated",
-          "order": 10,
-          "text": "Las semanas que siguieron tomaron su propio ritmo. Algunos días Rosa llegaba temprano, otros llegaba tarde, algún día no llegó. Conoció a Doña Amparo, que siempre traía arepas de choclo; a Camilo, que sabía cómo hacer compostaje sin olor; a Manuel, que confundía los nombres de las plantas y se reía de sí mismo. El jardín fue llenando la semana de pequeñas razones.",
-          "options": [
-            {
-              "option_id": "c01-s08-o1",
-              "option_text": "Continuar",
-              "consequence": "",
-              "next_chapter_id": null,
-              "next_scene_id": "c01-s09",
-              "gds_mapping": [],
-              "phq_mapping": []
-            }
-          ]
-        },
-        {
-          "scene_id": "c01-s09",
           "title": "La cueva se acerca",
           "hero_stage": "7_approach_inmost_cave",
           "type": "playable",
-          "order": 11,
+          "order": 8,
           "text": "Un jueves, mientras removía la tierra, Rosa encontró una foto plastificada enterrada entre las raíces. Era de hace veinte años: adultos mayores posando frente al mismo jardín en otra época. En la esquina de la imagen reconoció la sonrisa de Alberto, su esposo. Sintió que la tierra se movía bajo sus pies.",
           "options": [
             {
@@ -716,11 +530,11 @@
           ]
         },
         {
-          "scene_id": "c01-s10",
+          "scene_id": "c01-s09",
           "title": "La ordalía",
           "hero_stage": "8_ordeal",
           "type": "playable",
-          "order": 12,
+          "order": 9,
           "text": "Don Hernando le contó lo que sabía: Alberto había ayudado a fundar ese jardín veinte años atrás, antes de que cerrara por falta de apoyo. 'Él siempre decía que los jardines son la memoria viva de los barrios.' Rosa sintió que le faltaba el aire. Y luego, despacio, sintió otra cosa: que estaba parada exactamente donde Alberto hubiera querido que estuviera.",
           "options": [
             {
@@ -806,11 +620,11 @@
           ]
         },
         {
-          "scene_id": "c01-s11a",
+          "scene_id": "c01-s10",
           "title": "La revelación positiva",
           "hero_stage": "9a_branch_positive_integration",
           "type": "playable",
-          "order": 13,
+          "order": 10,
           "text": "A la semana siguiente, Rosa trajo la foto al jardín para mostrársela al grupo. 'Este jardín era también de Alberto, de algún modo.' El grupo la escuchó en silencio. Doña Amparo le apretó la mano. Sofía dijo: 'Y ahora también es tuyo.' Rosa miró sus propias manos con tierra y no se reconoció, pero le gustó lo que vio.",
           "options": [
             {
@@ -883,126 +697,11 @@
           ]
         },
         {
-          "scene_id": "c01-s11b",
-          "title": "El peso del pasado",
-          "hero_stage": "9b_branch_difficult_integration",
-          "type": "playable",
-          "order": 14,
-          "text": "Esa noche Rosa no durmió. A las tres de la madrugada miraba el techo: '¿Para qué sirvo yo ahora? Años perdidos.' Pero al amanecer, con la luz entrando por la ventana, tuvo una revelación pequeña: tenía ganas de ir al jardín de todas formas. No sabía bien por qué. Solo sabía que quería ir.",
-          "options": [
-            {
-              "option_id": "c01-s11b-o1",
-              "option_text": "Ir al jardín aunque no tenga ánimo, sin esperar sentirse lista",
-              "consequence": "Rosa se levanta antes de que el cuerpo esté listo. Sale. Al llegar y ver a Don Hernando, algo en ella afloja un poco.",
-              "next_chapter_id": null,
-              "next_scene_id": "c01-s12",
-              "gds_mapping": [
-                {
-                  "item": 9,
-                  "weight": 0.25,
-                  "confidence": 0.8,
-                  "rationale": "supera_la_preferencia_por_quedarse_en_casa_inverso"
-                }
-              ],
-              "phq_mapping": [
-                {
-                  "item": 3,
-                  "weight": 0.4,
-                  "confidence": 0.75,
-                  "rationale": "sueño_interrumpido_pero_sale_igual"
-                }
-              ]
-            },
-            {
-              "option_id": "c01-s11b-o2",
-              "option_text": "Llamar a Sofía para pedirle que la acompañe",
-              "consequence": "Sofía llega en diez minutos. No pregunta nada. Caminan juntas al jardín en silencio. Eso ayuda mucho.",
-              "next_chapter_id": null,
-              "next_scene_id": "c01-s12",
-              "gds_mapping": [
-                {
-                  "item": 7,
-                  "weight": 0.2,
-                  "confidence": 0.8,
-                  "rationale": "busca_conexión_social_para_sostenerse_inverso"
-                },
-                {
-                  "item": 15,
-                  "weight": 0.15,
-                  "confidence": 0.75,
-                  "rationale": "confía_en_que_alguien_la_quiere_ayudar_inverso"
-                }
-              ],
-              "phq_mapping": []
-            },
-            {
-              "option_id": "c01-s11b-o3",
-              "option_text": "Quedarse en casa diciéndose que mañana será mejor",
-              "consequence": "Rosa no sale. El día pasa largo y vacío. Mañana quizás. Quizás mañana.",
-              "next_chapter_id": null,
-              "next_scene_id": "c01-s12",
-              "gds_mapping": [
-                {
-                  "item": 14,
-                  "weight": 0.75,
-                  "confidence": 0.9,
-                  "rationale": "sin_esperanza_postergación_indefinida"
-                },
-                {
-                  "item": 3,
-                  "weight": 0.65,
-                  "confidence": 0.85,
-                  "rationale": "vida_vacía_sin_capacidad_de_actuar"
-                }
-              ],
-              "phq_mapping": [
-                {
-                  "item": 2,
-                  "weight": 0.65,
-                  "confidence": 0.85,
-                  "rationale": "ánimo_deprimido_persistente_sin_salida"
-                },
-                {
-                  "item": 4,
-                  "weight": 0.5,
-                  "confidence": 0.8,
-                  "rationale": "fatiga_que_impide_la_acción"
-                },
-                {
-                  "item": 1,
-                  "weight": 0.55,
-                  "confidence": 0.8,
-                  "rationale": "pérdida_de_interés_y_placer_en_lo_cotidiano"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "scene_id": "c01-s12",
-          "title": "La recompensa",
-          "hero_stage": "9_reward",
-          "type": "narrated",
-          "order": 15,
-          "text": "El jardín floreció. Las maticas de albahaca que Rosa había sembrado dieron hojas brillantes, y un martes por la mañana se abrieron flores amarillas pequeñas. Rosa sacó el celular y tomó una foto. Por primera vez en dos años, quiso compartirla. Le mandó la imagen a su hija en Medellín. Su hija llamó llorando de alegría.",
-          "options": [
-            {
-              "option_id": "c01-s12-o1",
-              "option_text": "Continuar",
-              "consequence": "",
-              "next_chapter_id": null,
-              "next_scene_id": "c01-s13",
-              "gds_mapping": [],
-              "phq_mapping": []
-            }
-          ]
-        },
-        {
-          "scene_id": "c01-s13",
+          "scene_id": "c01-s11",
           "title": "Camino de regreso",
           "hero_stage": "10_road_back",
           "type": "playable",
-          "order": 16,
+          "order": 11,
           "text": "Un domingo llegó al jardín una mujer mayor que Rosa no conocía, cargada con una bolsa y cara de no saber bien qué hacer. 'Esa es Doña Esther', le susurró Sofía. 'Vive sola en el edificio de la esquina desde hace años.' Rosa reconoció en esa mirada algo que conocía muy bien.",
           "options": [
             {
@@ -1075,30 +774,11 @@
           ]
         },
         {
-          "scene_id": "c01-s14",
-          "title": "La resurrección",
-          "hero_stage": "11_resurrection",
-          "type": "narrated",
-          "order": 17,
-          "text": "Poco a poco, Rosa se convirtió en parte del jardín. No por saber más de plantas que nadie, sino porque siempre llegaba. Siempre tenía una palabra tranquila para el que traía un día difícil. Una tarde, mientras recogían las herramientas, Don Hernando le dijo: 'Doña Rosa, creo que este jardín la necesitaba a usted tanto como usted lo necesitaba a él.'",
-          "options": [
-            {
-              "option_id": "c01-s14-o1",
-              "option_text": "Continuar",
-              "consequence": "",
-              "next_chapter_id": null,
-              "next_scene_id": "c01-s15",
-              "gds_mapping": [],
-              "phq_mapping": []
-            }
-          ]
-        },
-        {
-          "scene_id": "c01-s15",
+          "scene_id": "c01-s12",
           "title": "Regreso con el elixir",
           "hero_stage": "12_return_with_elixir",
           "type": "playable",
-          "order": 18,
+          "order": 12,
           "text": "Hoy, seis meses después de aquella tarjeta en la mesita de noche, Rosa se despierta y lo primero que piensa es en ir al jardín. No porque tenga que ir. Sino porque quiere. Mientras prepara el café, mira por la ventana el amanecer sobre los techos del barrio y piensa en el día que viene.",
           "options": [
             {
