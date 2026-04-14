@@ -1,1 +1,638 @@
-# Capítulo 1: El jardín de Rosa\n\nEste documento contiene el desglose narrativo de las escenas y sus respectivas opciones, junto con el mapeo hacia las escalas evaluadas (especialmente la Escala de Depresión Geriátrica - GDS 15).\n\n**🚨 INSTRUCCIÓN IMPORTANTE:** Solo se deben evaluar en su formulario correspondiente las **escenas de tipo PLAYABLE (Jugables)**. Las escenas *Narradas* no tienen variables psicológicas medidas, son solo texto de transición.\n\n---\n\n## Escena 1: Mundo ordinario (ID: c01-s01) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> A sus 72 años, Rosa despierta con la luz cálida que se filtra por la ventana de su apartamento en un tradicional barrio de Medellín. Como maestra jubilada, sus mañanas han pasado de tener el bullicio emocionante de los salones de clase a una quietud muy silenciosa, tal vez demasiado. Mientras cuela el primer tinto del día en su pequeña cocina, escucha a lo lejos el murmullo de los transeúntes y el cantar de los pájaros en los árboles de la cuadra. Últimamente, los días se sienten todos iguales y en el fondo sabe que le hace falta una motivación nueva. Al acercarse a la mesa de la entrada, nota una colorida tarjeta que alguien deslizó ayer por debajo de su puerta: es una invitación afectuosa de la junta de acción comunal para unirse al proyecto de recuperación del jardín vecinal. Rosa se sienta en su mecedora favorita, sosteniendo la tarjeta mientras el aroma a café recién hecho inunda la sala. ¿Cómo decide comenzar este día?\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Leer la tarjeta con atención y curiosidad\n- *Ítem GDS Analizado:* 2 -> **Referencia al ítem GDS/PHQ evaluado: 2**\n- *Peso asignado (Weight):* **0.2** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* interés_en_actividades_nuevas_inverso\n- *Ítem GDS Analizado:* 13 -> **Referencia al ítem GDS/PHQ evaluado: 13**\n- *Peso asignado (Weight):* **0.15** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* pequeña_energía_de_curiosidad_inverso\n\n**Opción 2:** Dejar la tarjeta para después y asomarse a la ventana\n- *Ítem GDS Analizado:* 4 -> **Referencia al ítem GDS/PHQ evaluado: 4**\n- *Peso asignado (Weight):* **0.3** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* procrastinación_leve_señal_de_aburrimiento\n- *Ítem GDS Analizado:* 5 -> **Referencia al ítem GDS/PHQ evaluado: 5**\n- *Peso asignado (Weight):* **0.2** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* neutralidad_emocional_no_buen_humor\n\n**Opción 3:** Guardar la tarjeta en el cajón sin leerla\n- *Ítem GDS Analizado:* 3 -> **Referencia al ítem GDS/PHQ evaluado: 3**\n- *Peso asignado (Weight):* **0.75** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* vida_vacía_evitación_activa_de_posibilidades\n- *Ítem GDS Analizado:* 9 -> **Referencia al ítem GDS/PHQ evaluado: 9**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* preferencia_por_quedarse_en_casa_sin_explorar\n- *Mapeo PHQ:* Variable/Ítem analizado: 1\n- *Peso asignado (Weight):* **0.5** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* poco_interés_en_actividades_nuevas\n\n---\n\n## Escena 2: La llamada de Sofía (ID: c01-s02) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Justo cuando Rosa termina el café, suena el teléfono. Es Sofía, su vecina del tercer piso, una mujer animada de 68 años. '¡Rosa! ¿Recibiste la tarjeta del jardín? Yo voy el miércoles. ¿Vienes conmigo?' Rosa siente el calor de esa voz familiar que hace tiempo no escuchaba con atención.\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Decirle que sí con entusiasmo\n- *Ítem GDS Analizado:* 7 -> **Referencia al ítem GDS/PHQ evaluado: 7**\n- *Peso asignado (Weight):* **0.15** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* momento_de_felicidad_espontánea_inverso\n- *Ítem GDS Analizado:* 2 -> **Referencia al ítem GDS/PHQ evaluado: 2**\n- *Peso asignado (Weight):* **0.2** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* disposición_a_retomar_actividades_inverso\n\n**Opción 2:** Decir 'a ver, déjame pensarlo'\n- *Ítem GDS Analizado:* 6 -> **Referencia al ítem GDS/PHQ evaluado: 6**\n- *Peso asignado (Weight):* **0.45** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* miedo_a_que_algo_salga_mal_en_lo_social\n- *Mapeo PHQ:* Variable/Ítem analizado: 4\n- *Peso asignado (Weight):* **0.35** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* cansancio_como_barrera_para_decidir\n\n**Opción 3:** Inventar una excusa para no comprometerse\n- *Ítem GDS Analizado:* 7 -> **Referencia al ítem GDS/PHQ evaluado: 7**\n- *Peso asignado (Weight):* **0.65** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* no_feliz_mayoría_del_tiempo_evita_conexión\n- *Ítem GDS Analizado:* 2 -> **Referencia al ítem GDS/PHQ evaluado: 2**\n- *Peso asignado (Weight):* **0.7** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* abandono_activo_de_posible_actividad_social\n\n---\n\n## Escena 3: La llamada a la aventura (ID: c01-s03) - TIPO: **NARRATED**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Esa misma tarde, Rosa decide pasar frente al centro comunitario, solo para ver. Desde la acera observa a un grupo de adultos mayores trabajando en bancales de tierra, riendo y conversando. Una joven con delantal verde la ve y le hace una señal. 'Señora, pase, siempre hay espacio para uno más.' Rosa se detiene en la esquina del andén, dudando.\n\n*[Es una escena puramente narrativa de contexto, el usuario no toma decisiones aquí. 🚫 NO EVALUAR EN EL FORMULARIO.]*\n\n---\n\n## Escena 4: La duda ante el umbral (ID: c01-s04) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Rosa está parada ante la entrada del jardín. Su corazón late un poco más rápido de lo normal. Un pensamiento aparece: 'Yo ya no soy de esas personas que empiezan cosas nuevas.' La joven del delantal espera con una sonrisa paciente. El grupo del jardín trabaja sin haberla notado todavía.\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Respirar hondo y entrar a presentarse\n- *Ítem GDS Analizado:* 1 -> **Referencia al ítem GDS/PHQ evaluado: 1**\n- *Peso asignado (Weight):* **0.15** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* satisfacción_con_decisión_propia_inverso\n- *Ítem GDS Analizado:* 2 -> **Referencia al ítem GDS/PHQ evaluado: 2**\n- *Peso asignado (Weight):* **0.25** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* disposición_activa_para_retomar_actividades_inverso\n\n**Opción 2:** Quedarse parada observando desde afuera un rato largo\n- *Ítem GDS Analizado:* 6 -> **Referencia al ítem GDS/PHQ evaluado: 6**\n- *Peso asignado (Weight):* **0.5** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* miedo_a_que_algo_salga_mal_en_situación_nueva\n- *Ítem GDS Analizado:* 8 -> **Referencia al ítem GDS/PHQ evaluado: 8**\n- *Peso asignado (Weight):* **0.55** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* sentirse_desvalida_ante_lo_desconocido\n\n**Opción 3:** Dar media vuelta y caminar de regreso a casa\n- *Ítem GDS Analizado:* 9 -> **Referencia al ítem GDS/PHQ evaluado: 9**\n- *Peso asignado (Weight):* **0.85** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* preferencia_activa_fuerte_por_quedarse_en_casa\n- *Ítem GDS Analizado:* 1 -> **Referencia al ítem GDS/PHQ evaluado: 1**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* insatisfacción_con_la_propia_vida_presente\n- *Ítem GDS Analizado:* 14 -> **Referencia al ítem GDS/PHQ evaluado: 14**\n- *Peso asignado (Weight):* **0.55** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* sensación_de_que_no_vale_intentar_nada_nuevo\n\n---\n\n## Escena 5: El mentor llega (ID: c01-s05) - TIPO: **NARRATED**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Esa noche suena el timbre. Es Don Hernando, presidente de la junta de acción comunal, un señor de 78 años con voz pausada y paso lento. 'Doña Rosa, vengo de parte del jardín. Nos dijeron que estuvo por allá hoy.' Rosa lo invita a sentarse. Don Hernando habla sobre las plantas, el barrio, las personas que llegan al jardín buscando algo que no saben nombrar. Antes de irse, deja una bolsita de semillas sobre la mesa.\n\n*[Es una escena puramente narrativa de contexto, el usuario no toma decisiones aquí. 🚫 NO EVALUAR EN EL FORMULARIO.]*\n\n---\n\n## Escena 6: Cruce del umbral (ID: c01-s06) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Rosa está sola en la cocina, sosteniendo la bolsita de semillas. Don Hernando dijo: 'Es más que un jardín. Es un motivo para salir de la casa cada mañana.' Las semillas pesan casi nada en su mano. ¿Qué decide Rosa?\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Decidir que va el miércoles, sin más dudas\n- *Ítem GDS Analizado:* 2 -> **Referencia al ítem GDS/PHQ evaluado: 2**\n- *Peso asignado (Weight):* **0.2** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* decisión_firme_de_retomar_actividades_inverso\n- *Ítem GDS Analizado:* 13 -> **Referencia al ítem GDS/PHQ evaluado: 13**\n- *Peso asignado (Weight):* **0.15** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* energía_disponible_para_actuar_inverso\n\n**Opción 2:** Guardar las semillas y decidir mañana con calma\n- *Ítem GDS Analizado:* 6 -> **Referencia al ítem GDS/PHQ evaluado: 6**\n- *Peso asignado (Weight):* **0.4** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* cautela_por_miedo_a_que_algo_salga_mal\n- *Mapeo PHQ:* Variable/Ítem analizado: 4\n- *Peso asignado (Weight):* **0.35** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* fatiga_como_barrera_para_decidir\n\n**Opción 3:** Dejar las semillas y decirse que esto no es para ella\n- *Ítem GDS Analizado:* 8 -> **Referencia al ítem GDS/PHQ evaluado: 8**\n- *Peso asignado (Weight):* **0.65** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* desvalimiento_ante_posibilidad_de_cambio\n- *Ítem GDS Analizado:* 12 -> **Referencia al ítem GDS/PHQ evaluado: 12**\n- *Peso asignado (Weight):* **0.7** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* sentirse_inútil_para_cosas_nuevas\n\n---\n\n## Escena 7: La primera mañana en el jardín (ID: c01-s07) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Es miércoles. Rosa llega al jardín con los guantes que encontró en un cajón. Sofía ya está allí, con tierra en la frente y sonrisa enorme. 'Rosa, por fin.' Le presentan a Camilo, un joven de treinta años que habla de compostaje con entusiasmo contagioso. Le asignan un bancal pequeño con la tierra ya removida.\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Ponerse a trabajar con ganas genuinas\n- *Ítem GDS Analizado:* 13 -> **Referencia al ítem GDS/PHQ evaluado: 13**\n- *Peso asignado (Weight):* **0.15** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* energía_disponible_y_usada_en_actividad_inverso\n- *Ítem GDS Analizado:* 7 -> **Referencia al ítem GDS/PHQ evaluado: 7**\n- *Peso asignado (Weight):* **0.15** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* momento_de_felicidad_presente_inverso\n\n**Opción 2:** Trabajar tranquila, observando al grupo sin hablar mucho\n- *Ítem GDS Analizado:* 4 -> **Referencia al ítem GDS/PHQ evaluado: 4**\n- *Peso asignado (Weight):* **0.2** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* presente_sin_aburrimiento_aunque_con_distancia\n- *Ítem GDS Analizado:* 5 -> **Referencia al ítem GDS/PHQ evaluado: 5**\n- *Peso asignado (Weight):* **0.2** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* humor_neutro_no_claramente_positivo_aún\n\n**Opción 3:** Participar pero sintiéndose fuera de lugar\n- *Ítem GDS Analizado:* 15 -> **Referencia al ítem GDS/PHQ evaluado: 15**\n- *Peso asignado (Weight):* **0.45** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* compararse_desfavorablemente_con_los_demás\n- *Ítem GDS Analizado:* 10 -> **Referencia al ítem GDS/PHQ evaluado: 10**\n- *Peso asignado (Weight):* **0.5** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* dificultad_para_seguir_instrucciones_memoria\n- *Mapeo PHQ:* Variable/Ítem analizado: 7\n- *Peso asignado (Weight):* **0.4** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* dificultad_para_concentrarse_en_tarea_nueva\n\n---\n\n## Escena 8: La cueva se acerca (ID: c01-s08) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Un jueves, mientras removía la tierra, Rosa encontró una foto plastificada enterrada entre las raíces. Era de hace veinte años: adultos mayores posando frente al mismo jardín en otra época. En la esquina de la imagen reconoció la sonrisa de Alberto, su esposo. Sintió que la tierra se movía bajo sus pies.\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Guardar la foto en silencio y seguir trabajando\n- *Ítem GDS Analizado:* 4 -> **Referencia al ítem GDS/PHQ evaluado: 4**\n- *Peso asignado (Weight):* **0.3** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* bloqueo_emocional_que_genera_distancia_interna\n- *Mapeo PHQ:* Variable/Ítem analizado: 3\n- *Peso asignado (Weight):* **0.35** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* probable_dificultad_para_dormir_esa_noche\n- *Mapeo PHQ:* Variable/Ítem analizado: 1\n- *Peso asignado (Weight):* **0.45** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* pérdida_de_conexión_con_el_presente_por_rumiación\n\n**Opción 2:** Preguntarle a Don Hernando sobre la foto\n- *Ítem GDS Analizado:* 10 -> **Referencia al ítem GDS/PHQ evaluado: 10**\n- *Peso asignado (Weight):* **0.35** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* busca_apoyo_para_reconstruir_memoria_inverso\n- *Ítem GDS Analizado:* 11 -> **Referencia al ítem GDS/PHQ evaluado: 11**\n- *Peso asignado (Weight):* **0.25** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* quiere_seguir_conectando_con_la_vida_inverso\n\n**Opción 3:** Excusarse diciendo que se siente mal y marcharse\n- *Ítem GDS Analizado:* 9 -> **Referencia al ítem GDS/PHQ evaluado: 9**\n- *Peso asignado (Weight):* **0.65** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* huye_de_la_situación_prefiere_la_seguridad_del_hogar\n- *Mapeo PHQ:* Variable/Ítem analizado: 2\n- *Peso asignado (Weight):* **0.55** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* desbordamiento_emocional_tristeza_no_manejada\n\n---\n\n## Escena 9: La ordalía (ID: c01-s09) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Don Hernando le contó lo que sabía: Alberto había ayudado a fundar ese jardín veinte años atrás, antes de que cerrara por falta de apoyo. 'Él siempre decía que los jardines son la memoria viva de los barrios.' Rosa sintió que le faltaba el aire. Y luego, despacio, sintió otra cosa: que estaba parada exactamente donde Alberto hubiera querido que estuviera.\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Llorar sin disculparse y agradecer a Don Hernando\n- *Ítem GDS Analizado:* 11 -> **Referencia al ítem GDS/PHQ evaluado: 11**\n- *Peso asignado (Weight):* **0.1** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* procesa_el_dolor_y_sigue_eligiendo_estar_presente_inverso\n- *Mapeo PHQ:* Variable/Ítem analizado: 2\n- *Peso asignado (Weight):* **0.5** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* tristeza_profunda_de_duelo_en_proceso_sano\n\n**Opción 2:** Sonreír y quedarse en silencio, sintiendo el momento\n- *Ítem GDS Analizado:* 1 -> **Referencia al ítem GDS/PHQ evaluado: 1**\n- *Peso asignado (Weight):* **0.2** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* satisfacción_pequeña_con_la_propia_vida_presente_inverso\n- *Ítem GDS Analizado:* 5 -> **Referencia al ítem GDS/PHQ evaluado: 5**\n- *Peso asignado (Weight):* **0.15** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* humor_suavemente_positivo_inverso\n\n**Opción 3:** Sentir culpa profunda por no haber venido antes\n- *Ítem GDS Analizado:* 12 -> **Referencia al ítem GDS/PHQ evaluado: 12**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* sentirse_inútil_por_años_de_aislamiento_autoculpa\n- *Ítem GDS Analizado:* 8 -> **Referencia al ítem GDS/PHQ evaluado: 8**\n- *Peso asignado (Weight):* **0.75** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* desvalimiento_ante_el_propio_pasado\n- *Ítem GDS Analizado:* 14 -> **Referencia al ítem GDS/PHQ evaluado: 14**\n- *Peso asignado (Weight):* **0.6** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* situación_emocional_percibida_sin_esperanza\n- *Mapeo PHQ:* Variable/Ítem analizado: 6\n- *Peso asignado (Weight):* **0.65** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* sentirse_mal_consigo_misma_por_decisiones_pasadas\n\n---\n\n## Escena 10: La revelación positiva (ID: c01-s10) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> A la semana siguiente, Rosa trajo la foto al jardín para mostrársela al grupo. 'Este jardín era también de Alberto, de algún modo.' El grupo la escuchó en silencio. Doña Amparo le apretó la mano. Sofía dijo: 'Y ahora también es tuyo.' Rosa miró sus propias manos con tierra y no se reconoció, pero le gustó lo que vio.\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Sentir orgullo y una sensación de continuidad con Alberto\n- *Ítem GDS Analizado:* 11 -> **Referencia al ítem GDS/PHQ evaluado: 11**\n- *Peso asignado (Weight):* **0.1** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* apreciar_que_vale_la_pena_estar_viva_y_presente_inverso\n- *Ítem GDS Analizado:* 1 -> **Referencia al ítem GDS/PHQ evaluado: 1**\n- *Peso asignado (Weight):* **0.2** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* satisfacción_creciente_con_la_propia_vida_inverso\n\n**Opción 2:** Desear que Alberto pudiera verla ahora\n- *Ítem GDS Analizado:* 5 -> **Referencia al ítem GDS/PHQ evaluado: 5**\n- *Peso asignado (Weight):* **0.2** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* humor_mixto_con_tristeza_elaborada\n- *Mapeo PHQ:* Variable/Ítem analizado: 2\n- *Peso asignado (Weight):* **0.3** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* tristeza_sana_ante_pérdida_en_elaboración\n\n**Opción 3:** Sentir que empieza a tener un propósito aquí\n- *Ítem GDS Analizado:* 2 -> **Referencia al ítem GDS/PHQ evaluado: 2**\n- *Peso asignado (Weight):* **0.15** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* reenganche_con_actividades_con_sentido_inverso\n- *Ítem GDS Analizado:* 13 -> **Referencia al ítem GDS/PHQ evaluado: 13**\n- *Peso asignado (Weight):* **0.1** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* energía_ligada_a_propósito_encontrado_inverso\n\n---\n\n## Escena 11: Camino de regreso (ID: c01-s11) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Un domingo llegó al jardín una mujer mayor que Rosa no conocía, cargada con una bolsa y cara de no saber bien qué hacer. 'Esa es Doña Esther', le susurró Sofía. 'Vive sola en el edificio de la esquina desde hace años.' Rosa reconoció en esa mirada algo que conocía muy bien.\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Acercarse y presentarse, invitarla a su bancal\n- *Ítem GDS Analizado:* 7 -> **Referencia al ítem GDS/PHQ evaluado: 7**\n- *Peso asignado (Weight):* **0.15** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* generosidad_desde_la_propia_felicidad_inverso\n- *Ítem GDS Analizado:* 2 -> **Referencia al ítem GDS/PHQ evaluado: 2**\n- *Peso asignado (Weight):* **0.1** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* amplía_actividades_y_relaciones_sociales_inverso\n\n**Opción 2:** Esperar a que alguien más del grupo la reciba\n- *Ítem GDS Analizado:* 6 -> **Referencia al ítem GDS/PHQ evaluado: 6**\n- *Peso asignado (Weight):* **0.3** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* cautela_y_miedo_a_equivocarse_al_tomar_iniciativa\n- *Mapeo PHQ:* Variable/Ítem analizado: 7\n- *Peso asignado (Weight):* **0.35** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* dificultad_para_tomar_iniciativa_propia\n\n**Opción 3:** Solo saludarla de lejos y seguir con su trabajo\n- *Ítem GDS Analizado:* 15 -> **Referencia al ítem GDS/PHQ evaluado: 15**\n- *Peso asignado (Weight):* **0.5** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* compararse_desfavorablemente_con_los_demás\n- *Ítem GDS Analizado:* 4 -> **Referencia al ítem GDS/PHQ evaluado: 4**\n- *Peso asignado (Weight):* **0.4** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* distancia_emocional_y_pasividad_social\n\n---\n\n## Escena 12: Regreso con el elixir (ID: c01-s12) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Hoy, seis meses después de aquella tarjeta en la mesita de noche, Rosa se despierta y lo primero que piensa es en ir al jardín. No porque tenga que ir. Sino porque quiere. Mientras prepara el café, mira por la ventana el amanecer sobre los techos del barrio y piensa en el día que viene.\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Pensar en qué puede enseñarle al grupo la próxima semana\n- *Ítem GDS Analizado:* 1 -> **Referencia al ítem GDS/PHQ evaluado: 1**\n- *Peso asignado (Weight):* **0.1** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* satisfacción_con_la_propia_vida_presente_inverso\n- *Ítem GDS Analizado:* 13 -> **Referencia al ítem GDS/PHQ evaluado: 13**\n- *Peso asignado (Weight):* **0.1** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* energía_orientada_a_propósito_concreto_inverso\n- *Ítem GDS Analizado:* 11 -> **Referencia al ítem GDS/PHQ evaluado: 11**\n- *Peso asignado (Weight):* **0.1** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* valora_activamente_estar_viva_y_capaz_inverso\n\n**Opción 2:** Sentir que hoy es un día ordinario, y que eso está bien\n- *Ítem GDS Analizado:* 5 -> **Referencia al ítem GDS/PHQ evaluado: 5**\n- *Peso asignado (Weight):* **0.1** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* buen_humor_cotidiano_estable_inverso\n- *Ítem GDS Analizado:* 7 -> **Referencia al ítem GDS/PHQ evaluado: 7**\n- *Peso asignado (Weight):* **0.1** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* felicidad_tranquila_mayoría_del_tiempo_inverso\n- *Mapeo PHQ:* Variable/Ítem analizado: 1\n- *Peso asignado (Weight):* **0.1** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* interés_en_la_vida_cotidiana_recuperado_inverso\n\n**Opción 3:** Desear que más personas como Doña Esther lleguen al jardín\n- *Ítem GDS Analizado:* 11 -> **Referencia al ítem GDS/PHQ evaluado: 11**\n- *Peso asignado (Weight):* **0.1** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* celebra_el_valor_de_estar_viva_y_conectada_inverso\n- *Ítem GDS Analizado:* 15 -> **Referencia al ítem GDS/PHQ evaluado: 15**\n- *Peso asignado (Weight):* **0.1** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* ya_no_se_compara_desfavorablemente_inverso\n- *Ítem GDS Analizado:* 2 -> **Referencia al ítem GDS/PHQ evaluado: 2**\n- *Peso asignado (Weight):* **0.1** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* voluntad_de_ampliar_actividades_y_relaciones_inverso\n\n---\n\n
+# Capítulo 1: El jardín de Rosa
+
+📖 **Descripción:**
+
+Este documento contiene el desglose narrativo de las escenas y sus respectivas opciones, junto con el mapeo hacia las escalas psicológicas evaluadas.
+
+> 🚨 **INSTRUCCIÓN IMPORTANTE:** Solo se deben evaluar en el formulario las **escenas de tipo PLAYABLE (Jugables)**. Las escenas *Narradas* son contexto y transición únicamente.
+
+---
+
+## Escena 1: Mundo ordinario
+
+**ID:** `c01-s01` | **TIPO:** 🎮 **PLAYABLE**
+
+> A sus 72 años, Rosa despierta con la luz cálida que se filtra por la ventana de su apartamento en un tradicional barrio de Medellín. Como maestra jubilada, sus mañanas han pasado de tener el bullicio emocionante de los salones de clase a una quietud muy silenciosa, tal vez demasiado. Mientras cuela el primer tinto del día en su pequeña cocina, escucha a lo lejos el murmullo de los transeúntes y el cantar de los pájaros en los árboles de la cuadra. Últimamente, los días se sienten todos iguales y en el fondo sabe que le hace falta una motivación nueva. Al acercarse a la mesa de la entrada, nota una colorida tarjeta que alguien deslizó ayer por debajo de su puerta: es una invitación afectuosa de la junta de acción comunal para unirse al proyecto de recuperación del jardín vecinal. Rosa se sienta en su mecedora favorita, sosteniendo la tarjeta mientras el aroma a café recién hecho inunda la sala. ¿Cómo decide comenzar este día?
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Leer la tarjeta con atención y curiosidad"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `2` — ¿Ha dejado de lado muchas de sus actividades e intereses?
+  - **⚖️ Peso:** 0.2
+  - **💬 Justificación:** interés_en_actividades_nuevas_inverso
+
+- **Variable:** `13` — ¿Se siente lleno de energía?
+  - **⚖️ Peso:** 0.15
+  - **💬 Justificación:** pequeña_energía_de_curiosidad_inverso
+
+
+#### Opción 2
+
+**📝 Texto:** "Dejar la tarjeta para después y asomarse a la ventana"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `4` — ¿A menudo se aburre?
+  - **⚖️ Peso:** 0.3
+  - **💬 Justificación:** procrastinación_leve_señal_de_aburrimiento
+
+- **Variable:** `5` — ¿Suele estar de buen humor?
+  - **⚖️ Peso:** 0.2
+  - **💬 Justificación:** neutralidad_emocional_no_buen_humor
+
+
+#### Opción 3
+
+**📝 Texto:** "Guardar la tarjeta en el cajón sin leerla"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `3` — ¿Siente que su vida está vacía?
+  - **⚖️ Peso:** 0.75
+  - **💬 Justificación:** vida_vacía_evitación_activa_de_posibilidades
+
+- **Variable:** `9` — ¿Prefiere quedarse en casa antes que salir?
+  - **⚖️ Peso:** 0.8
+  - **💬 Justificación:** preferencia_por_quedarse_en_casa_sin_explorar
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `1` — Poco interés o placer en hacer cosas
+  - **⚖️ Peso:** 0.5
+  - **💬 Justificación:** poco_interés_en_actividades_nuevas
+
+
+---
+
+## Escena 2: La llamada de Sofía
+
+**ID:** `c01-s02` | **TIPO:** 🎮 **PLAYABLE**
+
+> Justo cuando Rosa termina el café, suena el teléfono. Es Sofía, su vecina del tercer piso, una mujer animada de 68 años. '¡Rosa! ¿Recibiste la tarjeta del jardín? Yo voy el miércoles. ¿Vienes conmigo?' Rosa siente el calor de esa voz familiar que hace tiempo no escuchaba con atención.
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Decirle que sí con entusiasmo"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `7` — ¿Se siente feliz la mayor parte del tiempo?
+  - **⚖️ Peso:** 0.15
+  - **💬 Justificación:** momento_de_felicidad_espontánea_inverso
+
+- **Variable:** `2` — ¿Ha dejado de lado muchas de sus actividades e intereses?
+  - **⚖️ Peso:** 0.2
+  - **💬 Justificación:** disposición_a_retomar_actividades_inverso
+
+
+#### Opción 2
+
+**📝 Texto:** "Decir 'a ver, déjame pensarlo'"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `6` — ¿Tiene miedo de que algo malo le suceda?
+  - **⚖️ Peso:** 0.45
+  - **💬 Justificación:** miedo_a_que_algo_salga_mal_en_lo_social
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `4` — Sentirse cansado o tener poca energía
+  - **⚖️ Peso:** 0.35
+  - **💬 Justificación:** cansancio_como_barrera_para_decidir
+
+
+#### Opción 3
+
+**📝 Texto:** "Inventar una excusa para no comprometerse"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `7` — ¿Se siente feliz la mayor parte del tiempo?
+  - **⚖️ Peso:** 0.65
+  - **💬 Justificación:** no_feliz_mayoría_del_tiempo_evita_conexión
+
+- **Variable:** `2` — ¿Ha dejado de lado muchas de sus actividades e intereses?
+  - **⚖️ Peso:** 0.7
+  - **💬 Justificación:** abandono_activo_de_posible_actividad_social
+
+
+---
+
+## Escena 3: La llamada a la aventura
+
+**ID:** `c01-s03` | **TIPO:** 📖 **NARRATED**
+
+> Esa misma tarde, Rosa decide pasar frente al centro comunitario, solo para ver. Desde la acera observa a un grupo de adultos mayores trabajando en bancales de tierra, riendo y conversando. Una joven con delantal verde la ve y le hace una señal. 'Señora, pase, siempre hay espacio para uno más.' Rosa se detiene en la esquina del andén, dudando.
+
+🚫 **Nota:** Es una escena narrativa - el usuario NO toma decisiones aquí.
+
+---
+
+## Escena 4: La duda ante el umbral
+
+**ID:** `c01-s04` | **TIPO:** 🎮 **PLAYABLE**
+
+> Rosa está parada ante la entrada del jardín. Su corazón late un poco más rápido de lo normal. Un pensamiento aparece: 'Yo ya no soy de esas personas que empiezan cosas nuevas.' La joven del delantal espera con una sonrisa paciente. El grupo del jardín trabaja sin haberla notado todavía.
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Respirar hondo y entrar a presentarse"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `1` — ¿Está basicamente satisfecho con su vida?
+  - **⚖️ Peso:** 0.15
+  - **💬 Justificación:** satisfacción_con_decisión_propia_inverso
+
+- **Variable:** `2` — ¿Ha dejado de lado muchas de sus actividades e intereses?
+  - **⚖️ Peso:** 0.25
+  - **💬 Justificación:** disposición_activa_para_retomar_actividades_inverso
+
+
+#### Opción 2
+
+**📝 Texto:** "Quedarse parada observando desde afuera un rato largo"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `6` — ¿Tiene miedo de que algo malo le suceda?
+  - **⚖️ Peso:** 0.5
+  - **💬 Justificación:** miedo_a_que_algo_salga_mal_en_situación_nueva
+
+- **Variable:** `8` — ¿Se siente desamparado/a a menudo?
+  - **⚖️ Peso:** 0.55
+  - **💬 Justificación:** sentirse_desvalida_ante_lo_desconocido
+
+
+#### Opción 3
+
+**📝 Texto:** "Dar media vuelta y caminar de regreso a casa"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `9` — ¿Prefiere quedarse en casa antes que salir?
+  - **⚖️ Peso:** 0.85
+  - **💬 Justificación:** preferencia_activa_fuerte_por_quedarse_en_casa
+
+- **Variable:** `1` — ¿Está basicamente satisfecho con su vida?
+  - **⚖️ Peso:** 0.8
+  - **💬 Justificación:** insatisfacción_con_la_propia_vida_presente
+
+- **Variable:** `14` — ¿Siente que su situación es desesperada?
+  - **⚖️ Peso:** 0.55
+  - **💬 Justificación:** sensación_de_que_no_vale_intentar_nada_nuevo
+
+
+---
+
+## Escena 5: El mentor llega
+
+**ID:** `c01-s05` | **TIPO:** 📖 **NARRATED**
+
+> Esa noche suena el timbre. Es Don Hernando, presidente de la junta de acción comunal, un señor de 78 años con voz pausada y paso lento. 'Doña Rosa, vengo de parte del jardín. Nos dijeron que estuvo por allá hoy.' Rosa lo invita a sentarse. Don Hernando habla sobre las plantas, el barrio, las personas que llegan al jardín buscando algo que no saben nombrar. Antes de irse, deja una bolsita de semillas sobre la mesa.
+
+🚫 **Nota:** Es una escena narrativa - el usuario NO toma decisiones aquí.
+
+---
+
+## Escena 6: Cruce del umbral
+
+**ID:** `c01-s06` | **TIPO:** 🎮 **PLAYABLE**
+
+> Rosa está sola en la cocina, sosteniendo la bolsita de semillas. Don Hernando dijo: 'Es más que un jardín. Es un motivo para salir de la casa cada mañana.' Las semillas pesan casi nada en su mano. ¿Qué decide Rosa?
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Decidir que va el miércoles, sin más dudas"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `2` — ¿Ha dejado de lado muchas de sus actividades e intereses?
+  - **⚖️ Peso:** 0.2
+  - **💬 Justificación:** decisión_firme_de_retomar_actividades_inverso
+
+- **Variable:** `13` — ¿Se siente lleno de energía?
+  - **⚖️ Peso:** 0.15
+  - **💬 Justificación:** energía_disponible_para_actuar_inverso
+
+
+#### Opción 2
+
+**📝 Texto:** "Guardar las semillas y decidir mañana con calma"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `6` — ¿Tiene miedo de que algo malo le suceda?
+  - **⚖️ Peso:** 0.4
+  - **💬 Justificación:** cautela_por_miedo_a_que_algo_salga_mal
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `4` — Sentirse cansado o tener poca energía
+  - **⚖️ Peso:** 0.35
+  - **💬 Justificación:** fatiga_como_barrera_para_decidir
+
+
+#### Opción 3
+
+**📝 Texto:** "Dejar las semillas y decirse que esto no es para ella"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `8` — ¿Se siente desamparado/a a menudo?
+  - **⚖️ Peso:** 0.65
+  - **💬 Justificación:** desvalimiento_ante_posibilidad_de_cambio
+
+- **Variable:** `12` — ¿Se siente bastante inútil tal como es ahora?
+  - **⚖️ Peso:** 0.7
+  - **💬 Justificación:** sentirse_inútil_para_cosas_nuevas
+
+
+---
+
+## Escena 7: La primera mañana en el jardín
+
+**ID:** `c01-s07` | **TIPO:** 🎮 **PLAYABLE**
+
+> Es miércoles. Rosa llega al jardín con los guantes que encontró en un cajón. Sofía ya está allí, con tierra en la frente y sonrisa enorme. 'Rosa, por fin.' Le presentan a Camilo, un joven de treinta años que habla de compostaje con entusiasmo contagioso. Le asignan un bancal pequeño con la tierra ya removida.
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Ponerse a trabajar con ganas genuinas"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `13` — ¿Se siente lleno de energía?
+  - **⚖️ Peso:** 0.15
+  - **💬 Justificación:** energía_disponible_y_usada_en_actividad_inverso
+
+- **Variable:** `7` — ¿Se siente feliz la mayor parte del tiempo?
+  - **⚖️ Peso:** 0.15
+  - **💬 Justificación:** momento_de_felicidad_presente_inverso
+
+
+#### Opción 2
+
+**📝 Texto:** "Trabajar tranquila, observando al grupo sin hablar mucho"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `4` — ¿A menudo se aburre?
+  - **⚖️ Peso:** 0.2
+  - **💬 Justificación:** presente_sin_aburrimiento_aunque_con_distancia
+
+- **Variable:** `5` — ¿Suele estar de buen humor?
+  - **⚖️ Peso:** 0.2
+  - **💬 Justificación:** humor_neutro_no_claramente_positivo_aún
+
+
+#### Opción 3
+
+**📝 Texto:** "Participar pero sintiéndose fuera de lugar"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `15` — ¿Cree que la mayoría de otras personas están mejor que usted?
+  - **⚖️ Peso:** 0.45
+  - **💬 Justificación:** compararse_desfavorablemente_con_los_demás
+
+- **Variable:** `10` — ¿Tiene problemas de memoria?
+  - **⚖️ Peso:** 0.5
+  - **💬 Justificación:** dificultad_para_seguir_instrucciones_memoria
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `7` — Dificultad para concentrarse en cosas
+  - **⚖️ Peso:** 0.4
+  - **💬 Justificación:** dificultad_para_concentrarse_en_tarea_nueva
+
+
+---
+
+## Escena 8: La cueva se acerca
+
+**ID:** `c01-s08` | **TIPO:** 🎮 **PLAYABLE**
+
+> Un jueves, mientras removía la tierra, Rosa encontró una foto plastificada enterrada entre las raíces. Era de hace veinte años: adultos mayores posando frente al mismo jardín en otra época. En la esquina de la imagen reconoció la sonrisa de Alberto, su esposo. Sintió que la tierra se movía bajo sus pies.
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Guardar la foto en silencio y seguir trabajando"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `4` — ¿A menudo se aburre?
+  - **⚖️ Peso:** 0.3
+  - **💬 Justificación:** bloqueo_emocional_que_genera_distancia_interna
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `3` — Dificultad para dormirse, mantenerse dormido o dormir demasiado
+  - **⚖️ Peso:** 0.35
+  - **💬 Justificación:** probable_dificultad_para_dormir_esa_noche
+
+- **Variable:** `1` — Poco interés o placer en hacer cosas
+  - **⚖️ Peso:** 0.45
+  - **💬 Justificación:** pérdida_de_conexión_con_el_presente_por_rumiación
+
+
+#### Opción 2
+
+**📝 Texto:** "Preguntarle a Don Hernando sobre la foto"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `10` — ¿Tiene problemas de memoria?
+  - **⚖️ Peso:** 0.35
+  - **💬 Justificación:** busca_apoyo_para_reconstruir_memoria_inverso
+
+- **Variable:** `11` — ¿Cree que es maravilloso estar vivo?
+  - **⚖️ Peso:** 0.25
+  - **💬 Justificación:** quiere_seguir_conectando_con_la_vida_inverso
+
+
+#### Opción 3
+
+**📝 Texto:** "Excusarse diciendo que se siente mal y marcharse"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `9` — ¿Prefiere quedarse en casa antes que salir?
+  - **⚖️ Peso:** 0.65
+  - **💬 Justificación:** huye_de_la_situación_prefiere_la_seguridad_del_hogar
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `2` — Sentirse deprimido, triste o desesperado
+  - **⚖️ Peso:** 0.55
+  - **💬 Justificación:** desbordamiento_emocional_tristeza_no_manejada
+
+
+---
+
+## Escena 9: La ordalía
+
+**ID:** `c01-s09` | **TIPO:** 🎮 **PLAYABLE**
+
+> Don Hernando le contó lo que sabía: Alberto había ayudado a fundar ese jardín veinte años atrás, antes de que cerrara por falta de apoyo. 'Él siempre decía que los jardines son la memoria viva de los barrios.' Rosa sintió que le faltaba el aire. Y luego, despacio, sintió otra cosa: que estaba parada exactamente donde Alberto hubiera querido que estuviera.
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Llorar sin disculparse y agradecer a Don Hernando"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `11` — ¿Cree que es maravilloso estar vivo?
+  - **⚖️ Peso:** 0.1
+  - **💬 Justificación:** procesa_el_dolor_y_sigue_eligiendo_estar_presente_inverso
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `2` — Sentirse deprimido, triste o desesperado
+  - **⚖️ Peso:** 0.5
+  - **💬 Justificación:** tristeza_profunda_de_duelo_en_proceso_sano
+
+
+#### Opción 2
+
+**📝 Texto:** "Sonreír y quedarse en silencio, sintiendo el momento"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `1` — ¿Está basicamente satisfecho con su vida?
+  - **⚖️ Peso:** 0.2
+  - **💬 Justificación:** satisfacción_pequeña_con_la_propia_vida_presente_inverso
+
+- **Variable:** `5` — ¿Suele estar de buen humor?
+  - **⚖️ Peso:** 0.15
+  - **💬 Justificación:** humor_suavemente_positivo_inverso
+
+
+#### Opción 3
+
+**📝 Texto:** "Sentir culpa profunda por no haber venido antes"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `12` — ¿Se siente bastante inútil tal como es ahora?
+  - **⚖️ Peso:** 0.8
+  - **💬 Justificación:** sentirse_inútil_por_años_de_aislamiento_autoculpa
+
+- **Variable:** `8` — ¿Se siente desamparado/a a menudo?
+  - **⚖️ Peso:** 0.75
+  - **💬 Justificación:** desvalimiento_ante_el_propio_pasado
+
+- **Variable:** `14` — ¿Siente que su situación es desesperada?
+  - **⚖️ Peso:** 0.6
+  - **💬 Justificación:** situación_emocional_percibida_sin_esperanza
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `6` — Sentirse mal consigo mismo o sentirse fracasado
+  - **⚖️ Peso:** 0.65
+  - **💬 Justificación:** sentirse_mal_consigo_misma_por_decisiones_pasadas
+
+
+---
+
+## Escena 10: La revelación positiva
+
+**ID:** `c01-s10` | **TIPO:** 🎮 **PLAYABLE**
+
+> A la semana siguiente, Rosa trajo la foto al jardín para mostrársela al grupo. 'Este jardín era también de Alberto, de algún modo.' El grupo la escuchó en silencio. Doña Amparo le apretó la mano. Sofía dijo: 'Y ahora también es tuyo.' Rosa miró sus propias manos con tierra y no se reconoció, pero le gustó lo que vio.
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Sentir orgullo y una sensación de continuidad con Alberto"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `11` — ¿Cree que es maravilloso estar vivo?
+  - **⚖️ Peso:** 0.1
+  - **💬 Justificación:** apreciar_que_vale_la_pena_estar_viva_y_presente_inverso
+
+- **Variable:** `1` — ¿Está basicamente satisfecho con su vida?
+  - **⚖️ Peso:** 0.2
+  - **💬 Justificación:** satisfacción_creciente_con_la_propia_vida_inverso
+
+
+#### Opción 2
+
+**📝 Texto:** "Desear que Alberto pudiera verla ahora"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `5` — ¿Suele estar de buen humor?
+  - **⚖️ Peso:** 0.2
+  - **💬 Justificación:** humor_mixto_con_tristeza_elaborada
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `2` — Sentirse deprimido, triste o desesperado
+  - **⚖️ Peso:** 0.3
+  - **💬 Justificación:** tristeza_sana_ante_pérdida_en_elaboración
+
+
+#### Opción 3
+
+**📝 Texto:** "Sentir que empieza a tener un propósito aquí"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `2` — ¿Ha dejado de lado muchas de sus actividades e intereses?
+  - **⚖️ Peso:** 0.15
+  - **💬 Justificación:** reenganche_con_actividades_con_sentido_inverso
+
+- **Variable:** `13` — ¿Se siente lleno de energía?
+  - **⚖️ Peso:** 0.1
+  - **💬 Justificación:** energía_ligada_a_propósito_encontrado_inverso
+
+
+---
+
+## Escena 11: Camino de regreso
+
+**ID:** `c01-s11` | **TIPO:** 🎮 **PLAYABLE**
+
+> Un domingo llegó al jardín una mujer mayor que Rosa no conocía, cargada con una bolsa y cara de no saber bien qué hacer. 'Esa es Doña Esther', le susurró Sofía. 'Vive sola en el edificio de la esquina desde hace años.' Rosa reconoció en esa mirada algo que conocía muy bien.
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Acercarse y presentarse, invitarla a su bancal"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `7` — ¿Se siente feliz la mayor parte del tiempo?
+  - **⚖️ Peso:** 0.15
+  - **💬 Justificación:** generosidad_desde_la_propia_felicidad_inverso
+
+- **Variable:** `2` — ¿Ha dejado de lado muchas de sus actividades e intereses?
+  - **⚖️ Peso:** 0.1
+  - **💬 Justificación:** amplía_actividades_y_relaciones_sociales_inverso
+
+
+#### Opción 2
+
+**📝 Texto:** "Esperar a que alguien más del grupo la reciba"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `6` — ¿Tiene miedo de que algo malo le suceda?
+  - **⚖️ Peso:** 0.3
+  - **💬 Justificación:** cautela_y_miedo_a_equivocarse_al_tomar_iniciativa
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `7` — Dificultad para concentrarse en cosas
+  - **⚖️ Peso:** 0.35
+  - **💬 Justificación:** dificultad_para_tomar_iniciativa_propia
+
+
+#### Opción 3
+
+**📝 Texto:** "Solo saludarla de lejos y seguir con su trabajo"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `15` — ¿Cree que la mayoría de otras personas están mejor que usted?
+  - **⚖️ Peso:** 0.5
+  - **💬 Justificación:** compararse_desfavorablemente_con_los_demás
+
+- **Variable:** `4` — ¿A menudo se aburre?
+  - **⚖️ Peso:** 0.4
+  - **💬 Justificación:** distancia_emocional_y_pasividad_social
+
+
+---
+
+## Escena 12: Regreso con el elixir
+
+**ID:** `c01-s12` | **TIPO:** 🎮 **PLAYABLE**
+
+> Hoy, seis meses después de aquella tarjeta en la mesita de noche, Rosa se despierta y lo primero que piensa es en ir al jardín. No porque tenga que ir. Sino porque quiere. Mientras prepara el café, mira por la ventana el amanecer sobre los techos del barrio y piensa en el día que viene.
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Pensar en qué puede enseñarle al grupo la próxima semana"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `1` — ¿Está basicamente satisfecho con su vida?
+  - **⚖️ Peso:** 0.1
+  - **💬 Justificación:** satisfacción_con_la_propia_vida_presente_inverso
+
+- **Variable:** `13` — ¿Se siente lleno de energía?
+  - **⚖️ Peso:** 0.1
+  - **💬 Justificación:** energía_orientada_a_propósito_concreto_inverso
+
+- **Variable:** `11` — ¿Cree que es maravilloso estar vivo?
+  - **⚖️ Peso:** 0.1
+  - **💬 Justificación:** valora_activamente_estar_viva_y_capaz_inverso
+
+
+#### Opción 2
+
+**📝 Texto:** "Sentir que hoy es un día ordinario, y que eso está bien"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `5` — ¿Suele estar de buen humor?
+  - **⚖️ Peso:** 0.1
+  - **💬 Justificación:** buen_humor_cotidiano_estable_inverso
+
+- **Variable:** `7` — ¿Se siente feliz la mayor parte del tiempo?
+  - **⚖️ Peso:** 0.1
+  - **💬 Justificación:** felicidad_tranquila_mayoría_del_tiempo_inverso
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `1` — Poco interés o placer en hacer cosas
+  - **⚖️ Peso:** 0.1
+  - **💬 Justificación:** interés_en_la_vida_cotidiana_recuperado_inverso
+
+
+#### Opción 3
+
+**📝 Texto:** "Desear que más personas como Doña Esther lleguen al jardín"
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `11` — ¿Cree que es maravilloso estar vivo?
+  - **⚖️ Peso:** 0.1
+  - **💬 Justificación:** celebra_el_valor_de_estar_viva_y_conectada_inverso
+
+- **Variable:** `15` — ¿Cree que la mayoría de otras personas están mejor que usted?
+  - **⚖️ Peso:** 0.1
+  - **💬 Justificación:** ya_no_se_compara_desfavorablemente_inverso
+
+- **Variable:** `2` — ¿Ha dejado de lado muchas de sus actividades e intereses?
+  - **⚖️ Peso:** 0.1
+  - **💬 Justificación:** voluntad_de_ampliar_actividades_y_relaciones_inverso
+
+
+---
+

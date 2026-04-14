@@ -8515,191 +8515,228 @@
       "scenes": [
         {
           "scene_id": "c14-s01",
-          "title": "Catorce días luz",
+          "title": "Catorce días después",
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Alba dominguera clausura dos semanas milagrosas redimidas desde aquel funesto encierro mudo asolador inicial asfixiante ahogado de penas. Aroma invadiente arremetes y arepadas y tostado humeante abunda cruzando bailes remozados risas escandalosas inoportunas pasadas cocinando amasijos entre cantatas alísonas románticas caribeñas destartalando pasivos mutismos antiguos curados abolidos finados aniquilados deshechos barrridos inexpugnables de la existencia actual vital acobijada por Arturo.",
+          "text": "Han pasado catorce días desde que Rosa conoció a Arturo en el taller de pintura. Esta mañana, despierta en su apartamento con una sensación diferente: el sol entra por la ventana, y lo primero que piensa es en estar con él. Arturo la espera en la cafetería cercana, el mismo lugar donde tomaron café aquella primera tarde. Rosa se mira en el espejo, sonríe, y sale de casa con paso seguro.",
           "options": [
             {
               "option_id": "c14-s01-o1",
-              "option_text": "Atajar rudo arremetiendo abrazadamente pasiones prolongadas evadiendo y despreciando tazas crudas por prolongar besos carnosos tórridos a sus 70 ardientes románticas inmaculadamente asarosas vividas carnosas encarnizadas al borde del fogón estufal caliente encendido pletórico de llama pura vivificada extasiante erótica curativa ardiente y viva.",
-              "consequence": "Exacerbo erótico priorizando sensualidades apocadas curativas de libido renaciente curable vivo enraizante redefiniendo ataduras románticas viscerales.",
-              "next_chapter_id": null,
+              "option_text": "Abraza a Arturo con confianza y alegría.",
+              "consequence": "Rosa reconoce el amor renaciente en su vida.",
               "next_scene_id": "c14-s02",
               "gds_mapping": [
                 {
                   "item": 11,
                   "weight": 0.8,
                   "confidence": 0.9,
-                  "rationale": "prioritizing_physical_affection"
+                  "rationale": "valora_estar_viva_con_propósito"
                 }
               ],
-              "phq_mapping": []
+              "phq_mapping": [
+                {
+                  "item": 1,
+                  "weight": 0.7,
+                  "confidence": 0.85,
+                  "rationale": "interés_renovado_en_relación_significativa"
+                }
+              ]
             },
             {
               "option_id": "c14-s01-o2",
-              "option_text": "Apremiar sacar platos lujo apartados navidades o postres pidiendo exaltar glorificando la banalidad simple rutinaria mañanera del simple presente honrado engalanándolo suntuosamente ordinario pero mágico e ideal exaltado valiosísimo impoluto curativo encarnado de magia banal divina.",
-              "consequence": "Engalanar de gratitud ordinario apreciando minucias existenciales recobradas volviéndose epicureismo sosegado maduro de asco y dolor resuelto en aprecio pleno del hoy trivial encendido curativo sanador madurativo.",
-              "next_chapter_id": null,
+              "option_text": "Se sientan tranquilamente y comparten el desayuno.",
+              "consequence": "Rosa aprecia la paz de la compañía compartida.",
               "next_scene_id": "c14-s02",
               "gds_mapping": [
                 {
                   "item": 7,
-                  "weight": 0.8,
+                  "weight": 0.75,
                   "confidence": 0.9,
-                  "rationale": "living_fully_in_the_present"
+                  "rationale": "felicidad_en_momentos_ordinarios"
                 }
               ],
-              "phq_mapping": []
+              "phq_mapping": [
+                {
+                  "item": 2,
+                  "weight": 0.3,
+                  "confidence": 0.8,
+                  "rationale": "tristeza_transformada_en_contentamiento"
+                }
+              ]
             },
             {
               "option_id": "c14-s01-o3",
-              "option_text": "Alzando estrofas a coro desmedido festejante bromeante entonadas exageradas ruidosas festivas desestresantes chicharacheras efusivas folclóricas en algarabías matinales sanativas efusivas joviales chistosas desenfrenadas asumiendo comediante papel liberador del encierro desinhibido y resuelto desatado locuaz curado e infantil resucitado curativo pletórico risueño inmaculado locuaz e histriónico.",
-              "consequence": "Evocación folclórica festiva arrojando histrionísmos extinguiendo soledades mediante desinhibicón comediante de renacer humorístico locuaz sano redentor alocado desefrenado libre.",
-              "next_chapter_id": null,
+              "option_text": "Toman café mientras hablan de planes futuros.",
+              "consequence": "Rosa proyecta vida más allá del presente inmediato.",
               "next_scene_id": "c14-s02",
               "gds_mapping": [
                 {
-                  "item": 5,
-                  "weight": 0.8,
-                  "confidence": 0.9,
-                  "rationale": "festive_and_extroverted_joy"
+                  "item": 2,
+                  "weight": 0.15,
+                  "confidence": 0.85,
+                  "rationale": "reenganche_con_planes_y_actividades"
                 }
               ],
-              "phq_mapping": []
+              "phq_mapping": [
+                {
+                  "item": 1,
+                  "weight": 0.5,
+                  "confidence": 0.85,
+                  "rationale": "esperanza_en_futuro_compartido"
+                }
+              ]
             }
           ]
         },
         {
           "scene_id": "c14-s02",
           "title": "El desayuno perfecto",
-          "hero_stage": "9_reward",
+          "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Embocan exquisiteces entre pausas anecdóticas retrotraídas superadas sanadas juveniles sin resquemores del reloj a espaldas cobijados relajados frescos y lozanos asimilados ya a manjares matuninos. Irrumpe pitido video llamado virtual encallado traido Elena enmarcados resplandeciendo virtualmente curiosamente interrogantes atisbando caras sonrojadas asimilando. Ella responde raudamente encausada:",
+          "text": "La cafetería está llena de luz matinal. Arturo pide arepas y café. Rosa elige jugo de naranja. Mientras comen, suena el teléfono de Arturo: es su hija Elena, que llama desde la ciudad. Ella quiere visitarlos este fin de semana. Arturo mira a Rosa buscando su aprobación. Rosa siente el peso de una decisión importante: permitir que la vida de Arturo se cruce más profundamente con la suya.",
           "options": [
             {
               "option_id": "c14-s02-o1",
-              "option_text": "Aborda algarabía encuadrando delicias preparadas empapando orgullo vitral ensalsada alardeando delicia nueva vital compartida a crías asimiladas regozijadas envidiando dicha exhalada por red unificada orgullosa y sanadora.",
-              "consequence": "Encausar presunción orgullosa validera compartiendo sanación proactiva con crías y núcleo redimido abriendo frentes explayadores envidiables sanos de viudez extinta triunfal enarbolada orgullosa y firme ejemplificante curativa.",
-              "next_chapter_id": null,
+              "option_text": "Anima a Arturo a invitar a Elena con entusiasmo.",
+              "consequence": "Rosa abre su corazón al círculo familiar de Arturo.",
               "next_scene_id": "c14-s03",
               "gds_mapping": [
                 {
                   "item": 11,
                   "weight": 0.8,
                   "confidence": 0.9,
-                  "rationale": "proud_family_involvement"
+                  "rationale": "celebra_ampliación_de_vínculos"
                 }
               ],
-              "phq_mapping": []
+              "phq_mapping": [
+                {
+                  "item": 1,
+                  "weight": 0.3,
+                  "confidence": 0.8,
+                  "rationale": "interés_activo_en_vida_social_expandida"
+                }
+              ]
             },
             {
               "option_id": "c14-s02-o2",
-              "option_text": "Aboga bromistas burlas atajando glotonerías abuelicias de arturos empachantes risueña relajada bromeante compinche familiar asumiendo nexos ya desenfadados exentos prejuicios o ceremonios asfixiantes sino rústicos campechanos empáticos asimilados.",
-              "consequence": "Aplear conejillos de bormas triviales relajados familiares desvaneciendo presiones curadas afianzando lazos de relajada y cómica camaradería amena sencilla trivial y desprovista curativa.",
-              "next_chapter_id": null,
+              "option_text": "Sonríe pero pide tiempo para conocerla previamente.",
+              "consequence": "Rosa avanza con cautela pero confianza.",
               "next_scene_id": "c14-s03",
               "gds_mapping": [
                 {
-                  "item": 7,
-                  "weight": 0.8,
-                  "confidence": 0.9,
-                  "rationale": "humorous_family_complicity"
+                  "item": 6,
+                  "weight": 0.4,
+                  "confidence": 0.8,
+                  "rationale": "prudencia_sin_parálisis"
                 }
               ],
-              "phq_mapping": []
+              "phq_mapping": [
+                {
+                  "item": 4,
+                  "weight": 0.35,
+                  "confidence": 0.75,
+                  "rationale": "cansancio_moderado_manejado_con_límites"
+                }
+              ]
             },
             {
               "option_id": "c14-s02-o3",
-              "option_text": "Atesora pasivo silencio maternal agradecida admirando rostro de cria lejana vislumbrando con paz profunda sin alardes sus cimientos asolados recobradores amoblados tranquilos inperturbables madurativos estoicos serenos incalculablemente pacíficos resueltos sanativos callados supremos impasibles sanos redimidos y curados interiores apaciguados del cosmos todo entero de ella.",
-              "consequence": "Siliente recazo profundo observador maduro introspectivo de la sanidad colmada apacible interior muda exenta fanfarrias en sosiego cúlmen redentero curador íntimo del alma maternal recelada sanada redentoramente en ella sosegadamente viva apaciguada curativa inmaculada redentora lograda interna supremamente madurada silenciosamente viva y estoica en flor.",
-              "next_chapter_id": null,
+              "option_text": "Sugiere otro día menos apresurado.",
+              "consequence": "Rosa protege su espacio pero no se aísla.",
               "next_scene_id": "c14-s03",
               "gds_mapping": [
                 {
-                  "item": 5,
-                  "weight": 0.8,
-                  "confidence": 0.9,
-                  "rationale": "serene_maternal_pride"
+                  "item": 9,
+                  "weight": 0.2,
+                  "confidence": 0.75,
+                  "rationale": "preferencia_por_hogar_no_es_aislamiento"
                 }
               ],
-              "phq_mapping": []
+              "phq_mapping": [
+                {
+                  "item": 7,
+                  "weight": 0.15,
+                  "confidence": 0.7,
+                  "rationale": "dificultad_leve_para_iniciativa_en_contexto_nuevo"
+                }
+              ]
             }
           ]
         },
         {
           "scene_id": "c14-s03",
-          "title": "Eco materno",
-          "hero_stage": "10_road_back",
+          "title": "Elena se presenta",
+          "hero_stage": "3_refusal_of_call",
           "type": "narrated",
           "order": 3,
-          "text": "Pantalla desglosando Elena de crías en lagrimal desborde 'Me asusto mamá aseverándote renacidas caras foráneas tuyas alucinantes purificadas jamás atisbé remozadas de tan inmacualdas luces explosivamente curadoras... me salvas y enmiendas tú más mi amor mío...'. Resbalan sal curadora empapante ratificando su sello redimido exento sin faltas sanado ratificando de validancia en sangre viva de la progenie eterna y agradecida atestiguando absolución curada del dolor ahogado redimido bendecido milagrosamente glorificado encumbrado.",
-          "options": [
-            {
-              "option_id": "c14-s03-o1",
-              "option_text": "Continuar",
-              "consequence": "",
-              "next_chapter_id": null,
-              "next_scene_id": "c14-s04",
-              "gds_mapping": [],
-              "phq_mapping": []
-            }
-          ]
+          "text": "El viernes por la tarde, Elena llega. Es una mujer de cuarenta años, con los ojos amables de Arturo. Viene con su esposo Miguel y sus dos nietos. Rosa los recibe en el apartamento, que ha limpiado y adornado con flores del jardín comunitario. Elena abraza a su padre. Luego se acerca a Rosa: 'Papá ha hablado tanto de ti. Es... es bueno verlo sonreír así'.",
+          "options": []
         },
         {
           "scene_id": "c14-s04",
           "title": "El bucle se cierra",
-          "hero_stage": "6_tests_allies_enemies",
+          "hero_stage": "4_meeting_mentor",
           "type": "playable",
           "order": 4,
-          "text": "De corto a medio sol abalanzan caminata enlazada anillos por caminos robledales y ceibas frondosos exhalando del brazo y pecho rústico paseos domingueros plácidos serenos de ancianidad curada bendita sin parangones asombrantes asimilados y glorificados resucitados andantes enamorados maduros pletóricos renacidos. Avistan a la banca aislada silueta pálida abatida enlutada y encovardada idéntica calcada cual estampa tétrica enmudecida a la mismisima de días ha padecientes de soledad viudal asfixiada idéntica calcada réplica moribunda encogida lastimera ahogada de encierros. Cierre de mentor.",
+          "text": "En el parque comunitario, Rosa, Arturo y Elena caminan entre los senderos. Arturo la toma del brazo a Rosa. Elena observa esto con una sonrisa. De repente, ven a una mujer mayor sentada sola en una banca, con expresión perdida. Rosa la reconoce: es como ella era hace meses. Los ojos de ambas se encuentran. Rosa recuerda a Doña Esther, aquella primera mujer sola que vio llegar al jardín.",
           "options": [
             {
               "option_id": "c14-s04-o1",
-              "option_text": "Abordar frontal deshaciendo asocio varonil compasiva extendiendo saludos rescatistas y amables atisbando a la salvación de otra padeciente en proeza mentora rescatadora angelical milagrosa redentoria barrial encumbrana heróica.",
-              "consequence": "Aduce postura mentora y ángel rescatando cíclicamente a la red herida cerrando el misticismo del viaje del héroe siendo ella de antorcha salvadora curativa filantrópica redentora iluminando y salvando en proeza colosal mártir a quien lo pide encumbradora heróica curativa magistral coronando su cierre encumbrada.",
-              "next_chapter_id": null,
+              "option_text": "Rosa va hacia ella y la invita al jardín.",
+              "consequence": "Rosa completa su ciclo de mentor.",
               "next_scene_id": "c14-s05",
               "gds_mapping": [
                 {
                   "item": 11,
-                  "weight": 0.8,
-                  "confidence": 0.9,
-                  "rationale": "assuming_mentor_role_actively"
+                  "weight": 0.85,
+                  "confidence": 0.95,
+                  "rationale": "Rosa_es_ahora_quien_ofrece_oportunidad"
                 }
               ],
-              "phq_mapping": []
+              "phq_mapping": [
+                {
+                  "item": 1,
+                  "weight": 0.2,
+                  "confidence": 0.8,
+                  "rationale": "propósito_de_ayudar_fortalece_interés"
+                }
+              ]
             },
             {
               "option_id": "c14-s04-o2",
-              "option_text": "Apaciguar regaloneos telepáticos exhalándole sonrisas cálidas empatizando prudenciada sin estruendos de resquemores atusantes discretamente pero ofenando empatía viudal reconfortadora sanativa tierna asimilando respeto exento intromisiones ahogadizas discretamente lejanas redentoras nobles prudentes calladas.",
-              "consequence": "Ceder en lejanía compasiva asimiladora empatizante pero reservista protegiendo su barrera asumiendo curas con barreras de contención pasivas tiernas redentoras exentas activivaciones entrometidas respetuosas silentes benévolas.",
-              "next_chapter_id": null,
+              "option_text": "Rosa comparte la mirada, sin intervenir aún.",
+              "consequence": "Rosa respeta el timing de cada persona.",
               "next_scene_id": "c14-s05",
               "gds_mapping": [
                 {
                   "item": 7,
-                  "weight": 0.8,
-                  "confidence": 0.9,
-                  "rationale": "empathetic_but_reserved"
+                  "weight": 0.7,
+                  "confidence": 0.85,
+                  "rationale": "compasión_sin_imposición"
                 }
               ],
-              "phq_mapping": []
+              "phq_mapping": [
+                {
+                  "item": 2,
+                  "weight": 0.25,
+                  "confidence": 0.75,
+                  "rationale": "empatía_madura_basada_en_experiencia"
+                }
+              ]
             },
             {
               "option_id": "c14-s04-o3",
-              "option_text": "Anotaciones sutiles logísticas urdiendo tramas sigilosas para adecuar envalajes u papeletas comunitarias forjándole sutilmente repeticiones de envios a su rancho rescatándola por medio de anómimos recados repitiendo el mágico fortuito del destino azaroso a favor de otrxs en desgracias sutiles tácticas redentoras sigilosas benefactoras calladas.",
-              "consequence": "Repaso de logística indirecta encumbrante forjando puentes de tácticas aledañas eficientes recobradoras sin frontalidades redentoras logísticas prácticas repitisando proezas curadoras indirectas geniales salvadoras calladas eficaces altruistas astutas funcionales curativas silenciosas efectivas logísticas maravillosas sutiles.",
-              "next_chapter_id": null,
+              "option_text": "Pide a Elena que hable con la mujer mientras ella observa.",
+              "consequence": "Rosa amplía el círculo de ayuda.",
               "next_scene_id": "c14-s05",
               "gds_mapping": [
                 {
-                  "item": 5,
-                  "weight": 0.8,
-                  "confidence": 0.9,
-                  "rationale": "repeating_the_blessed_card_cycle"
+                  "item": 2,
+                  "weight": 0.3,
+                  "confidence": 0.8,
+                  "rationale": "integra_su_círculo_en_su_misión"
                 }
               ],
               "phq_mapping": []
@@ -8709,55 +8746,59 @@
         {
           "scene_id": "c14-s05",
           "title": "Reflejos compartidos",
-          "hero_stage": "7_approach_inmost_cave",
+          "hero_stage": "5_crossing_threshold",
           "type": "playable",
           "order": 5,
-          "text": "Sra asombrada se delata Gloria hundida de pánico y reclusencia lúgubre asomando miedos crónicos y tembloros ahogados. Sienta Rosa estandárte cual profeta viva asestando consejo descarnado amparador y madurativo para revivificar cenizas extintas profetizando encendedora y de mentora heróica resucitada exprofesa del mismísimo cadalso ex viuda renergizada apaciguada valedera empírica curada redentora alada angelical a otra. ¿Que cruda medicina recita?",
+          "text": "La mujer se llama Gloria. Rosa le habla suavemente sobre el jardín. Gloria, tímida al principio, escucha. Arturo añade: 'El jardín cambió mi vida también'. Su hija Elena, sorprendida, pregunta: '¿Papá, tú también estabas...?' Arturo asiente: 'Estaba solo, perdido. Rosa y este lugar me mostraron que la vida seguía'.",
           "options": [
             {
               "option_id": "c14-s05-o1",
-              "option_text": "Abogar poéticamente: 'Ahogará inviernos secos Gloria pero amanece y destrozan los rosales pletóricos si amansa un paso encumbrado a la ceiba y el terral amigable'.",
-              "consequence": "Lírica existencal en metáfora ajardinada devolviendo y entregando sanación onírica filosófica y asimilable abstracta compasiva pero honda poética curativa empática y majestuosa elevada alada redentora iluminando del poético verbo sanador etereo y milenario compasivo profundo heróico supremo.",
-              "next_chapter_id": null,
+              "option_text": "Rosa toma la mano de Gloria con calidez.",
+              "consequence": "Rosa transmite seguridad a través del contacto.",
               "next_scene_id": "c14-s06",
               "gds_mapping": [
                 {
                   "item": 11,
-                  "weight": 0.8,
+                  "weight": 0.85,
                   "confidence": 0.9,
-                  "rationale": "poetic_garden_metaphor_advice"
+                  "rationale": "generosidad_tangible"
                 }
               ],
               "phq_mapping": []
             },
             {
               "option_id": "c14-s05-o2",
-              "option_text": "Confesión abierta de par par: 'Tiritaba hundida iguales escombros Gloria.. baje las cercas de piedra y enfile resucitada un milagro de asomo y la red de todos jalonará curándose pura y valiente arrojada valerosa sin vergüemzas exangües abatida del miedo tétrico encierro ahogado de murallones viudales'.",
-              "consequence": "Arrojada y brutal asimilancia empatizante confesional de cruda viudez exangüe deprimida inicial empatando curada de la trinchera par a par heróica sin tapujos eximiendo tabúes del dolor para inspirar curada visceral real rústica sanatoria envalentonadora transparente fiera e imparable rústica fuerte impetuosa.",
-              "next_chapter_id": null,
+              "option_text": "Rosa invita a Gloria a desayunar con ellos mañana.",
+              "consequence": "Rosa ofrece acción concreta.",
+              "next_scene_id": "c14-s06",
+              "gds_mapping": [
+                {
+                  "item": 2,
+                  "weight": 0.25,
+                  "confidence": 0.85,
+                  "rationale": "Rosa_actúa_como_agente_activo_de_cambio"
+                }
+              ],
+              "phq_mapping": [
+                {
+                  "item": 1,
+                  "weight": 0.3,
+                  "confidence": 0.8,
+                  "rationale": "propósito_de_mentoría"
+                }
+              ]
+            },
+            {
+              "option_id": "c14-s05-o3",
+              "option_text": "Sonríe y le deja su número de teléfono.",
+              "consequence": "Rosa respeta autonomía pero abre puerta.",
               "next_scene_id": "c14-s06",
               "gds_mapping": [
                 {
                   "item": 7,
-                  "weight": 0.8,
-                  "confidence": 0.9,
-                  "rationale": "raw_confession_of_overcoming"
-                }
-              ],
-              "phq_mapping": []
-            },
-            {
-              "option_id": "c14-s05-o3",
-              "option_text": "Pragmatizar en llanura crasa arrinconante: 'Un tinto y paso lento y perdón a raudales Gloria... le encomiendo mañana las panaderías de Sofía abriendo compuertas sanadoras barriales de comunidad y simple compañía rústica encumbradora de simple amasijo sanatorio simpleza colosal humana vecinal'.",
-              "consequence": "Empirísmo brutal curativo de terapia ocupacional simple terrenal y abalanzada comunal rústica afianzando la manada sin pomposidad enfocada curación básica elemental comunitaria redentora terrenal simplista salvavidas vecinal enlazadora eficaz funcional rotunda curativa sana pragmática milagrosa social comunal gregaria amparadora en masa unida.",
-              "next_chapter_id": null,
-              "next_scene_id": "c14-s06",
-              "gds_mapping": [
-                {
-                  "item": 5,
-                  "weight": 0.8,
-                  "confidence": 0.9,
-                  "rationale": "pragmatic_community_advice"
+                  "weight": 0.65,
+                  "confidence": 0.85,
+                  "rationale": "Rosa_actúa_con_empatía_y_respeto"
                 }
               ],
               "phq_mapping": []
@@ -8766,178 +8807,223 @@
         },
         {
           "scene_id": "c14-s06",
-          "title": "Testigo ciego",
-          "hero_stage": "8_ordeal",
+          "title": "Testigo del milagro",
+          "hero_stage": "6_tests_allies_enemies",
           "type": "narrated",
           "order": 6,
-          "text": "Resuelte entre miedos enjuaga promesas juradas de arrimarse despoblada a la tropa al alba siguiente secando lajas lagrimales idas. Callado y abyecto del portento Arturo absorbe a asombro de hinojos atónico vislumbrando milagro encarnado donde su asolada flor marchita curó apaciguante a manadas de almas ahogadas desamparadas asumiendola arcangel y resucitardora curada en carne viva milagrosa redentoria asombrosamente viva colosal radiante inquebrantable heroica milagrosa deidad de ancianidad impoluta y salvífica sanadora divina inagotable suprema.",
-          "options": [
-            {
-              "option_id": "c14-s06-o1",
-              "option_text": "Continuar",
-              "consequence": "",
-              "next_chapter_id": null,
-              "next_scene_id": "c14-s07",
-              "gds_mapping": [],
-              "phq_mapping": []
-            }
-          ]
+          "text": "Esa noche, en el apartamento de Rosa, Elena habla con su padre a solas. 'Papá, no te había visto así en años. Rosa... ella es especial.' Arturo asiente, inundado de gratitud. 'La vida me devolvió la alegría cuando más la necesitaba.' Elena abraza a su padre. Desde la cocina, Rosa escucha estas palabras. Sus ojos se humedecen, pero son lágrimas de paz.",
+          "options": []
         },
         {
           "scene_id": "c14-s07",
           "title": "La cosecha madura",
-          "hero_stage": "11_resurrection",
+          "hero_stage": "7_approach_inmost_cave",
           "type": "playable",
           "order": 7,
-          "text": "Alejados de regreso asoman ver a Gloria partir de adión esperanzador tembloros curada de remanente. Besa Arturo testas encumbradas de Rosa atesorándola exclamando 'Milagro andante flor encendida que cura ancianidades arrumbadas e ilumina faros de almas ahogadas en sombras... de las que desprovisto arrumbaba yo emparejado y fui de primero y egoísta redimido por tu faro de amor valiente rústico impoluto y arrojado... flor celestial heroina radiante infinita curativa milagrosa y diosa humilde impetuosa renacida'. Qué rubrica al cierre heroico inmenso postrera clímax exclamada en el cielo puro?",
+          "text": "El domingo, Rosa y Arturo están en el jardín comunitario. Sofía, Don Hernando, y otros amigos están allí. Hoy es especial: Arturo ofrece un taller de escritura de poesía. Sofía bromea: 'Miren a Rosa, tan feliz... y nosotros que pensábamos que nunca volvería a sonreír.' Rosa abraza a Sofía. Arturo toma su mano. ¿Qué siente Rosa en este momento?",
           "options": [
             {
               "option_id": "c14-s07-o1",
-              "option_text": "Acoger vastedades de firmamentos de estrellas sabiéndose exenta e invencible de penas ahogadas curada sanada redimida colmada pletórica libre iluminada heroica divinizada encumbrada de por vida inmaculada alada inmortal espiritual curativa absoluta encendida pura redentora lograda interna supremamente madurada exenta eternamente libre radiante redimida resucitada coronada fin y sanada.",
-              "consequence": "Climax universal asimilado al viaje redimido del héroe curado exento inmaculado puro librado de las fauces coronándose apoteósico espiritual majestuso invicto pletórico inmutable en gracia de deidades heroidas de resurreción eterna espiritual encumbrada libre sanadora de viuda curada plena al fin radiante invencible redentora glorificada espiritual eterna inmaculada redentora inmutable espiritualizada de renacer heróico.",
-              "next_chapter_id": null,
+              "option_text": "Agradece a todos por haber estado con ella.",
+              "consequence": "Rosa reconoce el poder del apoyo comunitario.",
               "next_scene_id": "c14-s08",
               "gds_mapping": [
                 {
                   "item": 11,
                   "weight": 0.8,
                   "confidence": 0.9,
-                  "rationale": "universal_transcendental_peace"
+                  "rationale": "valora_estar_viva_y_acompañada"
                 }
               ],
-              "phq_mapping": []
+              "phq_mapping": [
+                {
+                  "item": 1,
+                  "weight": 0.2,
+                  "confidence": 0.85,
+                  "rationale": "interés_verdadero_en_comunidad"
+                }
+              ]
             },
             {
               "option_id": "c14-s07-o2",
-              "option_text": "Avocar lealtad amparadora mutua anidándose a arrugas y canas asumiendo leal trinchera conjunta encadenando fuerzas enraizadas inquebrantables de pilares maduros enlazados heroicos de compinches valientes de años por transcurrir juntos apaciguados rústicos empáticos curadores asimialdos amantes férreos tiernos enarbolados valientes guardianes conjuntos recíprocos imbatibles e incólumes invencibles guardianes y curadores fieles amantes rendidos dulces en amor curativo asombrosamente vivo y empático real sincero rústico puro enamorado heroico guardin leal eterno.",
-              "consequence": "Proyección resolutoria abalizando manadas curadas mutuas ensalsando romance perenne fiel heroico real abocado empatía incondicional de escudos perennes amorosos tiernos de longevidades asimiladas empáticas guardianes leales fieros sinceros robustos amparadores anidados incólumes redentores anclados mutuamente fuertes leales encumbrados rústicos invencibles eternos curadores mutuos relacionales románticos.",
-              "next_chapter_id": null,
+              "option_text": "Observa en silencio, asimilando la transformación.",
+              "consequence": "Rosa integra lo vivido en su ser.",
               "next_scene_id": "c14-s08",
               "gds_mapping": [
                 {
-                  "item": 7,
-                  "weight": 0.8,
-                  "confidence": 0.9,
-                  "rationale": "invincible_loyal_projection"
+                  "item": 5,
+                  "weight": 0.15,
+                  "confidence": 0.85,
+                  "rationale": "paz_y_buen_humor_sin_dramatismo"
                 }
               ],
               "phq_mapping": []
             },
             {
               "option_id": "c14-s07-o3",
-              "option_text": "Abalanzar dulce risa picaresca de asomo jocoso tierna relajada espetando 'Dejés tramas celestes abuelo tú solo asimilas mi loco rústico ideal y yo jardinera empachosa barrial te amarraré a palazos el alma anciana si de afanes huyes'. Cierre terrenal relajante irónico desempacando lo burdo o irónico y glorificando encumbrado heroína relajada terrenal chistosa juguetona irónica encumbrada humoristica sana de picos desentonados humorísticos sanadores terrenales.",
-              "consequence": "Climax desenfadado bajando la pompa eterea cerrando un romanticismo de anclaje de comedia desopilante de vejez real incondicional y empírica curada exenta de lamentos usando comeda rústica barrial heroica sanada burda juguetona tierna validera en risos de complicidades rústicas relajadas triviales y sanas terrenales encendidas jocosas terrenadas heróicas puras desenfadadas divinas relajadas impolutas jocosas libres.",
-              "next_chapter_id": null,
+              "option_text": "Abre el taller de Arturo con su primer poema.",
+              "consequence": "Rosa se expresa creativamente con seguridad.",
               "next_scene_id": "c14-s08",
               "gds_mapping": [
                 {
-                  "item": 5,
+                  "item": 13,
                   "weight": 0.8,
                   "confidence": 0.9,
-                  "rationale": "sweet_comic_closure"
+                  "rationale": "energía_dirigida_a_expresión_creativa"
                 }
               ],
-              "phq_mapping": []
+              "phq_mapping": [
+                {
+                  "item": 1,
+                  "weight": 0.3,
+                  "confidence": 0.85,
+                  "rationale": "interés_en_actividad_creativa_compartida"
+                }
+              ]
             }
           ]
         },
         {
           "scene_id": "c14-s08",
-          "title": "Fin",
-          "hero_stage": "12_return_with_elixir",
+          "title": "Epilogo luminoso",
+          "hero_stage": "8_ordeal",
           "type": "narrated",
           "order": 8,
-          "text": "Dejando huella y destellos en ráfagas de luz solar arropante de parque reverdecido por manos propias asimilado de amor encumbrante enraizada colosal abuelo amante invencible inmaculado amparado sanativo redentor curado amparador en la mano tiernos. Sombras desvanecidas erradicadas extintas de hace escasos meses apagadas barridas erradicadas de vida curadas en resurreción invencible abalizada pletórica divina ardiendo galaxias. La historia concluye radiante y renacida heroica encumbrada sanita libre inmaculada infinita. Has finalizado.",
-          "options": [
-            {
-              "option_id": "c14-s08-o1",
-              "option_text": "Finalizar la experiencia interactiva",
-              "consequence": "Cierre Exitoso",
-              "next_chapter_id": "c14",
-              "next_scene_id": "c14-s09",
-              "gds_mapping": [],
-              "phq_mapping": []
-            }
-          ]
+          "text": "Semanas después, Rosa y Arturo establecen una rutina: desayunan juntos, trabajan en el jardín, asisten a los talleres, y a veces cenan en el balcón viendo la ciudad. Gloria, la mujer del parque, ahora viene regularmente al jardín. Elena y su familia visitan cada quincena. La vida de Rosa, que una vez fue un cuarto silencioso y un café solo, ahora es un concierto constante de voces amadas, risas, y proyectos compartidos.",
+          "options": []
         },
         {
           "scene_id": "c14-s09",
-          "title": "Visita al parque",
+          "title": "Un nuevo capítulo",
           "hero_stage": "9_reward",
           "type": "playable",
           "order": 9,
-          "text": "Después de charlar con Gloria, deciden dar una vuelta por los columpios.",
+          "text": "Una mañana, Rosa despierta y Arturo ya está haciendo café. Los rayos de sol iluminan el apartamento. Ella piensa en Alberto, su esposo fallecido. Lo recuerda con amor, sin la tristeza abrumadora de antes. Siente que Alberto estaría feliz de verla así: viva, conectada, amada. ¿Cómo procesa Rosa este momento?",
           "options": [
             {
               "option_id": "c14-s09-o1",
-              "option_text": "Sentarse a ver a los niños jugar.",
-              "consequence": "Alegre observación.",
-              "next_chapter_id": "c14",
+              "option_text": "Comparte con Arturo lo que siente sobre Alberto.",
+              "consequence": "Rosa integra su pasado con su presente.",
               "next_scene_id": "c14-s10",
               "gds_mapping": [
                 {
-                  "item": "social_interest",
+                  "item": 1,
+                  "weight": 0.15,
+                  "confidence": 0.85,
+                  "rationale": "satisfacción_con_vida_honesta"
+                }
+              ],
+              "phq_mapping": [
+                {
+                  "item": 2,
+                  "weight": 0.25,
+                  "confidence": 0.8,
+                  "rationale": "trigeza_sana_elaborada"
+                }
+              ]
+            },
+            {
+              "option_id": "c14-s09-o2",
+              "option_text": "Se sienta en silencio, en paz con la memoria.",
+              "consequence": "Rosa respeta el duelo desde la plenitud.",
+              "next_scene_id": "c14-s10",
+              "gds_mapping": [
+                {
+                  "item": 11,
                   "weight": 0.8,
                   "confidence": 0.9,
-                  "rationale": "Interés en dinámica vital"
+                  "rationale": "valida_estar_viva_honrando_memoria"
                 }
               ],
               "phq_mapping": []
             },
             {
-              "option_id": "c14-s09-o2",
-              "option_text": "Caminar tomados de la mano.",
-              "consequence": "Enfoque en el romance.",
-              "next_chapter_id": "c14",
+              "option_id": "c14-s09-o3",
+              "option_text": "Sale al balcón a contemplar el nuevo día.",
+              "consequence": "Rosa vive el presente plenamente.",
               "next_scene_id": "c14-s10",
               "gds_mapping": [
                 {
-                  "item": "mood",
+                  "item": 7,
                   "weight": 0.8,
                   "confidence": 0.9,
-                  "rationale": "Consolidación romántica"
+                  "rationale": "felicidad_en_lo_cotidiano"
                 }
               ],
-              "phq_mapping": []
+              "phq_mapping": [
+                {
+                  "item": 1,
+                  "weight": 0.2,
+                  "confidence": 0.85,
+                  "rationale": "interés_en_vida_renovada"
+                }
+              ]
             }
           ]
         },
         {
           "scene_id": "c14-s10",
-          "title": "La gata perdida",
+          "title": "El mentee se convierte en mentor",
           "hero_stage": "10_road_back",
           "type": "playable",
           "order": 10,
-          "text": "Encuentran un animalito asustado cerca de la fuente.",
+          "text": "Gloria ha empezado a venir regularmente al jardín. Hoy trae a su propia hermana, que también está pasando por depresión. Gloria presenta a Rosa como su 'hada madrina'. Los ojos de la hermana se llenan de esperanza al ver la transformación de Gloria. Rosa sonríe: lo que en ella fue caída profunda ahora es escalera para otros.",
           "options": [
             {
               "option_id": "c14-s10-o1",
-              "option_text": "Acercarse para cuidarlo.",
-              "consequence": "Instinto cuidador activo.",
-              "next_chapter_id": "c14",
+              "option_text": "Recibe a la hermana con genuino interés.",
+              "consequence": "Rosa expande su círculo de mentoría.",
               "next_scene_id": "c14-s11",
               "gds_mapping": [
                 {
-                  "item": "empathy",
-                  "weight": 0.8,
-                  "confidence": 0.9,
-                  "rationale": "Empatía extendida al entorno"
+                  "item": 11,
+                  "weight": 0.85,
+                  "confidence": 0.95,
+                  "rationale": "propósito_de_Rosa_es_ahora_ayudar"
                 }
               ],
-              "phq_mapping": []
+              "phq_mapping": [
+                {
+                  "item": 1,
+                  "weight": 0.3,
+                  "confidence": 0.85,
+                  "rationale": "interés_en_vida_de_otros"
+                }
+              ]
             },
             {
               "option_id": "c14-s10-o2",
-              "option_text": "Llamar al celador para ayudar.",
-              "consequence": "Delegación prudente.",
-              "next_chapter_id": "c14",
+              "option_text": "Comparte su propia historia de transformación.",
+              "consequence": "Rosa normaliza la recuperación de depresión.",
               "next_scene_id": "c14-s11",
               "gds_mapping": [
                 {
-                  "item": "problem_solving",
-                  "weight": 0.8,
-                  "confidence": 0.9,
-                  "rationale": "Cuidado estructurado"
+                  "item": 2,
+                  "weight": 0.25,
+                  "confidence": 0.85,
+                  "rationale": "Rosa_es_modelo_vivo"
+                }
+              ],
+              "phq_mapping": [
+                {
+                  "item": 5,
+                  "weight": 0.2,
+                  "confidence": 0.8,
+                  "rationale": "validación_de_esperanza"
+                }
+              ]
+            },
+            {
+              "option_id": "c14-s10-o3",
+              "option_text": "Le da tareas en el jardín, dejando que la acción hable.",
+              "consequence": "Rosa confía en la naturaleza terapéutica.",
+              "next_scene_id": "c14-s11",
+              "gds_mapping": [
+                {
+                  "item": 13,
+                  "weight": 0.7,
+                  "confidence": 0.85,
+                  "rationale": "energía_en_actividad_directa"
                 }
               ],
               "phq_mapping": []
@@ -8950,32 +9036,78 @@
           "hero_stage": "11_resurrection",
           "type": "narrated",
           "order": 11,
-          "text": "Se sientan en la banca central mientras el cielo se tiñe de violeta.",
+          "text": "Esa tarde, Rosa y Arturo se sientan en su banca favorita del parque. El cielo se tiñe de naranja y violeta. Alrededor, el mundo sigue su ritmo. Rosa piensa: 'Hace un año, yo estaba aquí pero no estaba viva. Hoy, respiro cada segundo de esta puesta de sol.' Arturo toma su mano. No necesitan palabras.",
           "options": []
         },
         {
           "scene_id": "c14-s12",
-          "title": "Fin de la experiencia",
+          "title": "Nuevo amanecer",
           "hero_stage": "12_return_with_elixir",
           "type": "playable",
           "order": 12,
-          "text": "El sol se oculta, y el futuro brilla intensamente. (Fin del juego).",
+          "text": "Mañana es otro día. Rosa se levantará, beberá café con Arturo, irá al jardín, volverá a encontrar a personas que necesitan lo que ella puede ofrecer: esperanza, companía, porque ella también la necesitó una vez y fue salvada. El ciclo se repite, pero ahora ella es parte de él.",
           "options": [
             {
               "option_id": "c14-s12-o1",
-              "option_text": "Cerrar los ojos, agradecida. (Fin)",
-              "consequence": "Retorno curado.",
+              "option_text": "Rosa entra en el nuevo amanecer agradecida.",
+              "consequence": "Rosa integra gratitud en su ser transformado.",
               "next_chapter_id": null,
               "next_scene_id": null,
               "gds_mapping": [
                 {
-                  "item": "gratitude",
+                  "item": 11,
                   "weight": 0.8,
+                  "confidence": 0.95,
+                  "rationale": "valoración_existencial_completa"
+                }
+              ],
+              "phq_mapping": [
+                {
+                  "item": 1,
+                  "weight": 0.15,
                   "confidence": 0.9,
-                  "rationale": "Aceptación universal final"
+                  "rationale": "interés_plenamente_restaurado"
+                }
+              ]
+            },
+            {
+              "option_id": "c14-s12-o2",
+              "option_text": "Rosa cierra los ojos, sonriendo en paz.",
+              "consequence": "Rosa encuentra paz interior en completud.",
+              "next_chapter_id": null,
+              "next_scene_id": null,
+              "gds_mapping": [
+                {
+                  "item": 5,
+                  "weight": 0.1,
+                  "confidence": 0.9,
+                  "rationale": "buen_humor_profundo_y_estable"
                 }
               ],
               "phq_mapping": []
+            },
+            {
+              "option_id": "c14-s12-o3",
+              "option_text": "Rosa se levanta para iniciar el nuevo ciclo.",
+              "consequence": "Rosa vive el retorno como acción constante.",
+              "next_chapter_id": null,
+              "next_scene_id": null,
+              "gds_mapping": [
+                {
+                  "item": 13,
+                  "weight": 0.8,
+                  "confidence": 0.9,
+                  "rationale": "energía_de_vida_plenamente_restaurada"
+                }
+              ],
+              "phq_mapping": [
+                {
+                  "item": 1,
+                  "weight": 0.2,
+                  "confidence": 0.9,
+                  "rationale": "compromiso_existencial_renovado"
+                }
+              ]
             }
           ]
         }

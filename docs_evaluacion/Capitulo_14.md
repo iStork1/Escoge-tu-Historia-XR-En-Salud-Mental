@@ -1,1 +1,496 @@
-# Capítulo 14: El nuevo amanecer\n\nEste documento contiene el desglose narrativo de las escenas y sus respectivas opciones, junto con el mapeo hacia las escalas evaluadas (especialmente la Escala de Depresión Geriátrica - GDS 15).\n\n**🚨 INSTRUCCIÓN IMPORTANTE:** Solo se deben evaluar en su formulario correspondiente las **escenas de tipo PLAYABLE (Jugables)**. Las escenas *Narradas* no tienen variables psicológicas medidas, son solo texto de transición.\n\n---\n\n## Escena 1: Catorce días luz (ID: c14-s01) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Alba dominguera clausura dos semanas milagrosas redimidas desde aquel funesto encierro mudo asolador inicial asfixiante ahogado de penas. Aroma invadiente arremetes y arepadas y tostado humeante abunda cruzando bailes remozados risas escandalosas inoportunas pasadas cocinando amasijos entre cantatas alísonas románticas caribeñas destartalando pasivos mutismos antiguos curados abolidos finados aniquilados deshechos barrridos inexpugnables de la existencia actual vital acobijada por Arturo.\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Atajar rudo arremetiendo abrazadamente pasiones prolongadas evadiendo y despreciando tazas crudas por prolongar besos carnosos tórridos a sus 70 ardientes románticas inmaculadamente asarosas vividas carnosas encarnizadas al borde del fogón estufal caliente encendido pletórico de llama pura vivificada extasiante erótica curativa ardiente y viva.\n- *Ítem GDS Analizado:* 11 -> **Referencia al ítem GDS/PHQ evaluado: 11**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* prioritizing_physical_affection\n\n**Opción 2:** Apremiar sacar platos lujo apartados navidades o postres pidiendo exaltar glorificando la banalidad simple rutinaria mañanera del simple presente honrado engalanándolo suntuosamente ordinario pero mágico e ideal exaltado valiosísimo impoluto curativo encarnado de magia banal divina.\n- *Ítem GDS Analizado:* 7 -> **Referencia al ítem GDS/PHQ evaluado: 7**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* living_fully_in_the_present\n\n**Opción 3:** Alzando estrofas a coro desmedido festejante bromeante entonadas exageradas ruidosas festivas desestresantes chicharacheras efusivas folclóricas en algarabías matinales sanativas efusivas joviales chistosas desenfrenadas asumiendo comediante papel liberador del encierro desinhibido y resuelto desatado locuaz curado e infantil resucitado curativo pletórico risueño inmaculado locuaz e histriónico.\n- *Ítem GDS Analizado:* 5 -> **Referencia al ítem GDS/PHQ evaluado: 5**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* festive_and_extroverted_joy\n\n---\n\n## Escena 2: El desayuno perfecto (ID: c14-s02) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Embocan exquisiteces entre pausas anecdóticas retrotraídas superadas sanadas juveniles sin resquemores del reloj a espaldas cobijados relajados frescos y lozanos asimilados ya a manjares matuninos. Irrumpe pitido video llamado virtual encallado traido Elena enmarcados resplandeciendo virtualmente curiosamente interrogantes atisbando caras sonrojadas asimilando. Ella responde raudamente encausada:\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Aborda algarabía encuadrando delicias preparadas empapando orgullo vitral ensalsada alardeando delicia nueva vital compartida a crías asimiladas regozijadas envidiando dicha exhalada por red unificada orgullosa y sanadora.\n- *Ítem GDS Analizado:* 11 -> **Referencia al ítem GDS/PHQ evaluado: 11**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* proud_family_involvement\n\n**Opción 2:** Aboga bromistas burlas atajando glotonerías abuelicias de arturos empachantes risueña relajada bromeante compinche familiar asumiendo nexos ya desenfadados exentos prejuicios o ceremonios asfixiantes sino rústicos campechanos empáticos asimilados.\n- *Ítem GDS Analizado:* 7 -> **Referencia al ítem GDS/PHQ evaluado: 7**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* humorous_family_complicity\n\n**Opción 3:** Atesora pasivo silencio maternal agradecida admirando rostro de cria lejana vislumbrando con paz profunda sin alardes sus cimientos asolados recobradores amoblados tranquilos inperturbables madurativos estoicos serenos incalculablemente pacíficos resueltos sanativos callados supremos impasibles sanos redimidos y curados interiores apaciguados del cosmos todo entero de ella.\n- *Ítem GDS Analizado:* 5 -> **Referencia al ítem GDS/PHQ evaluado: 5**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* serene_maternal_pride\n\n---\n\n## Escena 3: Eco materno (ID: c14-s03) - TIPO: **NARRATED**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Pantalla desglosando Elena de crías en lagrimal desborde 'Me asusto mamá aseverándote renacidas caras foráneas tuyas alucinantes purificadas jamás atisbé remozadas de tan inmacualdas luces explosivamente curadoras... me salvas y enmiendas tú más mi amor mío...'. Resbalan sal curadora empapante ratificando su sello redimido exento sin faltas sanado ratificando de validancia en sangre viva de la progenie eterna y agradecida atestiguando absolución curada del dolor ahogado redimido bendecido milagrosamente glorificado encumbrado.\n\n*[Es una escena puramente narrativa de contexto, el usuario no toma decisiones aquí. 🚫 NO EVALUAR EN EL FORMULARIO.]*\n\n---\n\n## Escena 4: El bucle se cierra (ID: c14-s04) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> De corto a medio sol abalanzan caminata enlazada anillos por caminos robledales y ceibas frondosos exhalando del brazo y pecho rústico paseos domingueros plácidos serenos de ancianidad curada bendita sin parangones asombrantes asimilados y glorificados resucitados andantes enamorados maduros pletóricos renacidos. Avistan a la banca aislada silueta pálida abatida enlutada y encovardada idéntica calcada cual estampa tétrica enmudecida a la mismisima de días ha padecientes de soledad viudal asfixiada idéntica calcada réplica moribunda encogida lastimera ahogada de encierros. Cierre de mentor.\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Abordar frontal deshaciendo asocio varonil compasiva extendiendo saludos rescatistas y amables atisbando a la salvación de otra padeciente en proeza mentora rescatadora angelical milagrosa redentoria barrial encumbrana heróica.\n- *Ítem GDS Analizado:* 11 -> **Referencia al ítem GDS/PHQ evaluado: 11**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* assuming_mentor_role_actively\n\n**Opción 2:** Apaciguar regaloneos telepáticos exhalándole sonrisas cálidas empatizando prudenciada sin estruendos de resquemores atusantes discretamente pero ofenando empatía viudal reconfortadora sanativa tierna asimilando respeto exento intromisiones ahogadizas discretamente lejanas redentoras nobles prudentes calladas.\n- *Ítem GDS Analizado:* 7 -> **Referencia al ítem GDS/PHQ evaluado: 7**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* empathetic_but_reserved\n\n**Opción 3:** Anotaciones sutiles logísticas urdiendo tramas sigilosas para adecuar envalajes u papeletas comunitarias forjándole sutilmente repeticiones de envios a su rancho rescatándola por medio de anómimos recados repitiendo el mágico fortuito del destino azaroso a favor de otrxs en desgracias sutiles tácticas redentoras sigilosas benefactoras calladas.\n- *Ítem GDS Analizado:* 5 -> **Referencia al ítem GDS/PHQ evaluado: 5**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* repeating_the_blessed_card_cycle\n\n---\n\n## Escena 5: Reflejos compartidos (ID: c14-s05) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Sra asombrada se delata Gloria hundida de pánico y reclusencia lúgubre asomando miedos crónicos y tembloros ahogados. Sienta Rosa estandárte cual profeta viva asestando consejo descarnado amparador y madurativo para revivificar cenizas extintas profetizando encendedora y de mentora heróica resucitada exprofesa del mismísimo cadalso ex viuda renergizada apaciguada valedera empírica curada redentora alada angelical a otra. ¿Que cruda medicina recita?\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Abogar poéticamente: 'Ahogará inviernos secos Gloria pero amanece y destrozan los rosales pletóricos si amansa un paso encumbrado a la ceiba y el terral amigable'.\n- *Ítem GDS Analizado:* 11 -> **Referencia al ítem GDS/PHQ evaluado: 11**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* poetic_garden_metaphor_advice\n\n**Opción 2:** Confesión abierta de par par: 'Tiritaba hundida iguales escombros Gloria.. baje las cercas de piedra y enfile resucitada un milagro de asomo y la red de todos jalonará curándose pura y valiente arrojada valerosa sin vergüemzas exangües abatida del miedo tétrico encierro ahogado de murallones viudales'.\n- *Ítem GDS Analizado:* 7 -> **Referencia al ítem GDS/PHQ evaluado: 7**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* raw_confession_of_overcoming\n\n**Opción 3:** Pragmatizar en llanura crasa arrinconante: 'Un tinto y paso lento y perdón a raudales Gloria... le encomiendo mañana las panaderías de Sofía abriendo compuertas sanadoras barriales de comunidad y simple compañía rústica encumbradora de simple amasijo sanatorio simpleza colosal humana vecinal'.\n- *Ítem GDS Analizado:* 5 -> **Referencia al ítem GDS/PHQ evaluado: 5**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* pragmatic_community_advice\n\n---\n\n## Escena 6: Testigo ciego (ID: c14-s06) - TIPO: **NARRATED**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Resuelte entre miedos enjuaga promesas juradas de arrimarse despoblada a la tropa al alba siguiente secando lajas lagrimales idas. Callado y abyecto del portento Arturo absorbe a asombro de hinojos atónico vislumbrando milagro encarnado donde su asolada flor marchita curó apaciguante a manadas de almas ahogadas desamparadas asumiendola arcangel y resucitardora curada en carne viva milagrosa redentoria asombrosamente viva colosal radiante inquebrantable heroica milagrosa deidad de ancianidad impoluta y salvífica sanadora divina inagotable suprema.\n\n*[Es una escena puramente narrativa de contexto, el usuario no toma decisiones aquí. 🚫 NO EVALUAR EN EL FORMULARIO.]*\n\n---\n\n## Escena 7: La cosecha madura (ID: c14-s07) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Alejados de regreso asoman ver a Gloria partir de adión esperanzador tembloros curada de remanente. Besa Arturo testas encumbradas de Rosa atesorándola exclamando 'Milagro andante flor encendida que cura ancianidades arrumbadas e ilumina faros de almas ahogadas en sombras... de las que desprovisto arrumbaba yo emparejado y fui de primero y egoísta redimido por tu faro de amor valiente rústico impoluto y arrojado... flor celestial heroina radiante infinita curativa milagrosa y diosa humilde impetuosa renacida'. Qué rubrica al cierre heroico inmenso postrera clímax exclamada en el cielo puro?\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Acoger vastedades de firmamentos de estrellas sabiéndose exenta e invencible de penas ahogadas curada sanada redimida colmada pletórica libre iluminada heroica divinizada encumbrada de por vida inmaculada alada inmortal espiritual curativa absoluta encendida pura redentora lograda interna supremamente madurada exenta eternamente libre radiante redimida resucitada coronada fin y sanada.\n- *Ítem GDS Analizado:* 11 -> **Referencia al ítem GDS/PHQ evaluado: 11**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* universal_transcendental_peace\n\n**Opción 2:** Avocar lealtad amparadora mutua anidándose a arrugas y canas asumiendo leal trinchera conjunta encadenando fuerzas enraizadas inquebrantables de pilares maduros enlazados heroicos de compinches valientes de años por transcurrir juntos apaciguados rústicos empáticos curadores asimialdos amantes férreos tiernos enarbolados valientes guardianes conjuntos recíprocos imbatibles e incólumes invencibles guardianes y curadores fieles amantes rendidos dulces en amor curativo asombrosamente vivo y empático real sincero rústico puro enamorado heroico guardin leal eterno.\n- *Ítem GDS Analizado:* 7 -> **Referencia al ítem GDS/PHQ evaluado: 7**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* invincible_loyal_projection\n\n**Opción 3:** Abalanzar dulce risa picaresca de asomo jocoso tierna relajada espetando 'Dejés tramas celestes abuelo tú solo asimilas mi loco rústico ideal y yo jardinera empachosa barrial te amarraré a palazos el alma anciana si de afanes huyes'. Cierre terrenal relajante irónico desempacando lo burdo o irónico y glorificando encumbrado heroína relajada terrenal chistosa juguetona irónica encumbrada humoristica sana de picos desentonados humorísticos sanadores terrenales.\n- *Ítem GDS Analizado:* 5 -> **Referencia al ítem GDS/PHQ evaluado: 5**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* sweet_comic_closure\n\n---\n\n## Escena 8: Fin (ID: c14-s08) - TIPO: **NARRATED**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Dejando huella y destellos en ráfagas de luz solar arropante de parque reverdecido por manos propias asimilado de amor encumbrante enraizada colosal abuelo amante invencible inmaculado amparado sanativo redentor curado amparador en la mano tiernos. Sombras desvanecidas erradicadas extintas de hace escasos meses apagadas barridas erradicadas de vida curadas en resurreción invencible abalizada pletórica divina ardiendo galaxias. La historia concluye radiante y renacida heroica encumbrada sanita libre inmaculada infinita. Has finalizado.\n\n*[Es una escena puramente narrativa de contexto, el usuario no toma decisiones aquí. 🚫 NO EVALUAR EN EL FORMULARIO.]*\n\n---\n\n## Escena 9: Visita al parque (ID: c14-s09) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Después de charlar con Gloria, deciden dar una vuelta por los columpios.\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Sentarse a ver a los niños jugar.\n- *Ítem GDS Analizado:* social_interest -> **Ítem 2 GDS-15 (¿Ha renunciado a muchas de sus actividades e intereses?)**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* Interés en dinámica vital\n\n**Opción 2:** Caminar tomados de la mano.\n- *Ítem GDS Analizado:* mood -> **Ítem 5 GDS-15 (¿Está de buen humor la mayor parte del tiempo?)**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* Consolidación romántica\n\n---\n\n## Escena 10: La gata perdida (ID: c14-s10) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Encuentran un animalito asustado cerca de la fuente.\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Acercarse para cuidarlo.\n- *Ítem GDS Analizado:* empathy -> **Conexión emocional (Asociado al Ítem 5 / Ítem 7 GDS-15)**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* Empatía extendida al entorno\n\n**Opción 2:** Llamar al celador para ayudar.\n- *Ítem GDS Analizado:* problem_solving -> **Ítem 8 GDS-15 (¿Se siente a menudo desamparado/inútil ante un problema?)**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* Cuidado estructurado\n\n---\n\n## Escena 11: El atardecer perfecto (ID: c14-s11) - TIPO: **NARRATED**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> Se sientan en la banca central mientras el cielo se tiñe de violeta.\n\n*[Es una escena puramente narrativa de contexto, el usuario no toma decisiones aquí. 🚫 NO EVALUAR EN EL FORMULARIO.]*\n\n---\n\n## Escena 12: Fin de la experiencia (ID: c14-s12) - TIPO: **PLAYABLE**\n\n**Contexto Narrativo / Pregunta de la Escena:**\n> El sol se oculta, y el futuro brilla intensamente. (Fin del juego).\n\n### Opciones del Jugador y Mapeo Asociado\n\n**Opción 1:** Cerrar los ojos, agradecida. (Fin)\n- *Ítem GDS Analizado:* gratitude -> **Ítem 1 y 11 GDS-15 (¿Está básicamente satisfecho con su vida? / ¿Cree que es maravilloso estar vivo?)**\n- *Peso asignado (Weight):* **0.8** *(Fuerza matemática de esta característica)*\n- *Justificación Clínica (Rationale):* Aceptación universal final\n\n---\n\n
+# Capítulo 14: El nuevo amanecer
+
+📖 **Descripción:**
+
+Este documento contiene el desglose narrativo de las escenas y sus respectivas opciones, junto con el mapeo hacia las escalas psicológicas evaluadas.
+
+> 🚨 **INSTRUCCIÓN IMPORTANTE:** Solo se deben evaluar en el formulario las **escenas de tipo PLAYABLE (Jugables)**. Las escenas *Narradas* son contexto y transición únicamente.
+
+---
+
+## Escena 1: Catorce días después
+
+**ID:** `c14-s01` | **TIPO:** 🎮 **PLAYABLE**
+
+> Han pasado catorce días desde que Rosa conoció a Arturo en el taller de pintura. Esta mañana, despierta en su apartamento con una sensación diferente: el sol entra por la ventana, y lo primero que piensa es en estar con él. Arturo la espera en la cafetería cercana, el mismo lugar donde tomaron café aquella primera tarde. Rosa se mira en el espejo, sonríe, y sale de casa con paso seguro.
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Abraza a Arturo con confianza y alegría."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `11` — ¿Cree que es maravilloso estar vivo?
+  - **⚖️ Peso:** 0.8
+  - **💬 Justificación:** valora_estar_viva_con_propósito
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `1` — Poco interés o placer en hacer cosas
+  - **⚖️ Peso:** 0.7
+  - **💬 Justificación:** interés_renovado_en_relación_significativa
+
+
+#### Opción 2
+
+**📝 Texto:** "Se sientan tranquilamente y comparten el desayuno."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `7` — ¿Se siente feliz la mayor parte del tiempo?
+  - **⚖️ Peso:** 0.75
+  - **💬 Justificación:** felicidad_en_momentos_ordinarios
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `2` — Sentirse deprimido, triste o desesperado
+  - **⚖️ Peso:** 0.3
+  - **💬 Justificación:** tristeza_transformada_en_contentamiento
+
+
+#### Opción 3
+
+**📝 Texto:** "Toman café mientras hablan de planes futuros."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `2` — ¿Ha dejado de lado muchas de sus actividades e intereses?
+  - **⚖️ Peso:** 0.15
+  - **💬 Justificación:** reenganche_con_planes_y_actividades
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `1` — Poco interés o placer en hacer cosas
+  - **⚖️ Peso:** 0.5
+  - **💬 Justificación:** esperanza_en_futuro_compartido
+
+
+---
+
+## Escena 2: El desayuno perfecto
+
+**ID:** `c14-s02` | **TIPO:** 🎮 **PLAYABLE**
+
+> La cafetería está llena de luz matinal. Arturo pide arepas y café. Rosa elige jugo de naranja. Mientras comen, suena el teléfono de Arturo: es su hija Elena, que llama desde la ciudad. Ella quiere visitarlos este fin de semana. Arturo mira a Rosa buscando su aprobación. Rosa siente el peso de una decisión importante: permitir que la vida de Arturo se cruce más profundamente con la suya.
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Anima a Arturo a invitar a Elena con entusiasmo."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `11` — ¿Cree que es maravilloso estar vivo?
+  - **⚖️ Peso:** 0.8
+  - **💬 Justificación:** celebra_ampliación_de_vínculos
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `1` — Poco interés o placer en hacer cosas
+  - **⚖️ Peso:** 0.3
+  - **💬 Justificación:** interés_activo_en_vida_social_expandida
+
+
+#### Opción 2
+
+**📝 Texto:** "Sonríe pero pide tiempo para conocerla previamente."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `6` — ¿Tiene miedo de que algo malo le suceda?
+  - **⚖️ Peso:** 0.4
+  - **💬 Justificación:** prudencia_sin_parálisis
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `4` — Sentirse cansado o tener poca energía
+  - **⚖️ Peso:** 0.35
+  - **💬 Justificación:** cansancio_moderado_manejado_con_límites
+
+
+#### Opción 3
+
+**📝 Texto:** "Sugiere otro día menos apresurado."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `9` — ¿Prefiere quedarse en casa antes que salir?
+  - **⚖️ Peso:** 0.2
+  - **💬 Justificación:** preferencia_por_hogar_no_es_aislamiento
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `7` — Dificultad para concentrarse en cosas
+  - **⚖️ Peso:** 0.15
+  - **💬 Justificación:** dificultad_leve_para_iniciativa_en_contexto_nuevo
+
+
+---
+
+## Escena 3: Elena se presenta
+
+**ID:** `c14-s03` | **TIPO:** 📖 **NARRATED**
+
+> El viernes por la tarde, Elena llega. Es una mujer de cuarenta años, con los ojos amables de Arturo. Viene con su esposo Miguel y sus dos nietos. Rosa los recibe en el apartamento, que ha limpiado y adornado con flores del jardín comunitario. Elena abraza a su padre. Luego se acerca a Rosa: 'Papá ha hablado tanto de ti. Es... es bueno verlo sonreír así'.
+
+🚫 **Nota:** Es una escena narrativa - el usuario NO toma decisiones aquí.
+
+---
+
+## Escena 4: El bucle se cierra
+
+**ID:** `c14-s04` | **TIPO:** 🎮 **PLAYABLE**
+
+> En el parque comunitario, Rosa, Arturo y Elena caminan entre los senderos. Arturo la toma del brazo a Rosa. Elena observa esto con una sonrisa. De repente, ven a una mujer mayor sentada sola en una banca, con expresión perdida. Rosa la reconoce: es como ella era hace meses. Los ojos de ambas se encuentran. Rosa recuerda a Doña Esther, aquella primera mujer sola que vio llegar al jardín.
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Rosa va hacia ella y la invita al jardín."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `11` — ¿Cree que es maravilloso estar vivo?
+  - **⚖️ Peso:** 0.85
+  - **💬 Justificación:** Rosa_es_ahora_quien_ofrece_oportunidad
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `1` — Poco interés o placer en hacer cosas
+  - **⚖️ Peso:** 0.2
+  - **💬 Justificación:** propósito_de_ayudar_fortalece_interés
+
+
+#### Opción 2
+
+**📝 Texto:** "Rosa comparte la mirada, sin intervenir aún."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `7` — ¿Se siente feliz la mayor parte del tiempo?
+  - **⚖️ Peso:** 0.7
+  - **💬 Justificación:** compasión_sin_imposición
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `2` — Sentirse deprimido, triste o desesperado
+  - **⚖️ Peso:** 0.25
+  - **💬 Justificación:** empatía_madura_basada_en_experiencia
+
+
+#### Opción 3
+
+**📝 Texto:** "Pide a Elena que hable con la mujer mientras ella observa."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `2` — ¿Ha dejado de lado muchas de sus actividades e intereses?
+  - **⚖️ Peso:** 0.3
+  - **💬 Justificación:** integra_su_círculo_en_su_misión
+
+
+---
+
+## Escena 5: Reflejos compartidos
+
+**ID:** `c14-s05` | **TIPO:** 🎮 **PLAYABLE**
+
+> La mujer se llama Gloria. Rosa le habla suavemente sobre el jardín. Gloria, tímida al principio, escucha. Arturo añade: 'El jardín cambió mi vida también'. Su hija Elena, sorprendida, pregunta: '¿Papá, tú también estabas...?' Arturo asiente: 'Estaba solo, perdido. Rosa y este lugar me mostraron que la vida seguía'.
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Rosa toma la mano de Gloria con calidez."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `11` — ¿Cree que es maravilloso estar vivo?
+  - **⚖️ Peso:** 0.85
+  - **💬 Justificación:** generosidad_tangible
+
+
+#### Opción 2
+
+**📝 Texto:** "Rosa invita a Gloria a desayunar con ellos mañana."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `2` — ¿Ha dejado de lado muchas de sus actividades e intereses?
+  - **⚖️ Peso:** 0.25
+  - **💬 Justificación:** Rosa_actúa_como_agente_activo_de_cambio
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `1` — Poco interés o placer en hacer cosas
+  - **⚖️ Peso:** 0.3
+  - **💬 Justificación:** propósito_de_mentoría
+
+
+#### Opción 3
+
+**📝 Texto:** "Sonríe y le deja su número de teléfono."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `7` — ¿Se siente feliz la mayor parte del tiempo?
+  - **⚖️ Peso:** 0.65
+  - **💬 Justificación:** Rosa_actúa_con_empatía_y_respeto
+
+
+---
+
+## Escena 6: Testigo del milagro
+
+**ID:** `c14-s06` | **TIPO:** 📖 **NARRATED**
+
+> Esa noche, en el apartamento de Rosa, Elena habla con su padre a solas. 'Papá, no te había visto así en años. Rosa... ella es especial.' Arturo asiente, inundado de gratitud. 'La vida me devolvió la alegría cuando más la necesitaba.' Elena abraza a su padre. Desde la cocina, Rosa escucha estas palabras. Sus ojos se humedecen, pero son lágrimas de paz.
+
+🚫 **Nota:** Es una escena narrativa - el usuario NO toma decisiones aquí.
+
+---
+
+## Escena 7: La cosecha madura
+
+**ID:** `c14-s07` | **TIPO:** 🎮 **PLAYABLE**
+
+> El domingo, Rosa y Arturo están en el jardín comunitario. Sofía, Don Hernando, y otros amigos están allí. Hoy es especial: Arturo ofrece un taller de escritura de poesía. Sofía bromea: 'Miren a Rosa, tan feliz... y nosotros que pensábamos que nunca volvería a sonreír.' Rosa abraza a Sofía. Arturo toma su mano. ¿Qué siente Rosa en este momento?
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Agradece a todos por haber estado con ella."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `11` — ¿Cree que es maravilloso estar vivo?
+  - **⚖️ Peso:** 0.8
+  - **💬 Justificación:** valora_estar_viva_y_acompañada
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `1` — Poco interés o placer en hacer cosas
+  - **⚖️ Peso:** 0.2
+  - **💬 Justificación:** interés_verdadero_en_comunidad
+
+
+#### Opción 2
+
+**📝 Texto:** "Observa en silencio, asimilando la transformación."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `5` — ¿Suele estar de buen humor?
+  - **⚖️ Peso:** 0.15
+  - **💬 Justificación:** paz_y_buen_humor_sin_dramatismo
+
+
+#### Opción 3
+
+**📝 Texto:** "Abre el taller de Arturo con su primer poema."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `13` — ¿Se siente lleno de energía?
+  - **⚖️ Peso:** 0.8
+  - **💬 Justificación:** energía_dirigida_a_expresión_creativa
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `1` — Poco interés o placer en hacer cosas
+  - **⚖️ Peso:** 0.3
+  - **💬 Justificación:** interés_en_actividad_creativa_compartida
+
+
+---
+
+## Escena 8: Epilogo luminoso
+
+**ID:** `c14-s08` | **TIPO:** 📖 **NARRATED**
+
+> Semanas después, Rosa y Arturo establecen una rutina: desayunan juntos, trabajan en el jardín, asisten a los talleres, y a veces cenan en el balcón viendo la ciudad. Gloria, la mujer del parque, ahora viene regularmente al jardín. Elena y su familia visitan cada quincena. La vida de Rosa, que una vez fue un cuarto silencioso y un café solo, ahora es un concierto constante de voces amadas, risas, y proyectos compartidos.
+
+🚫 **Nota:** Es una escena narrativa - el usuario NO toma decisiones aquí.
+
+---
+
+## Escena 9: Un nuevo capítulo
+
+**ID:** `c14-s09` | **TIPO:** 🎮 **PLAYABLE**
+
+> Una mañana, Rosa despierta y Arturo ya está haciendo café. Los rayos de sol iluminan el apartamento. Ella piensa en Alberto, su esposo fallecido. Lo recuerda con amor, sin la tristeza abrumadora de antes. Siente que Alberto estaría feliz de verla así: viva, conectada, amada. ¿Cómo procesa Rosa este momento?
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Comparte con Arturo lo que siente sobre Alberto."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `1` — ¿Está basicamente satisfecho con su vida?
+  - **⚖️ Peso:** 0.15
+  - **💬 Justificación:** satisfacción_con_vida_honesta
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `2` — Sentirse deprimido, triste o desesperado
+  - **⚖️ Peso:** 0.25
+  - **💬 Justificación:** trigeza_sana_elaborada
+
+
+#### Opción 2
+
+**📝 Texto:** "Se sienta en silencio, en paz con la memoria."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `11` — ¿Cree que es maravilloso estar vivo?
+  - **⚖️ Peso:** 0.8
+  - **💬 Justificación:** valida_estar_viva_honrando_memoria
+
+
+#### Opción 3
+
+**📝 Texto:** "Sale al balcón a contemplar el nuevo día."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `7` — ¿Se siente feliz la mayor parte del tiempo?
+  - **⚖️ Peso:** 0.8
+  - **💬 Justificación:** felicidad_en_lo_cotidiano
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `1` — Poco interés o placer en hacer cosas
+  - **⚖️ Peso:** 0.2
+  - **💬 Justificación:** interés_en_vida_renovada
+
+
+---
+
+## Escena 10: El mentee se convierte en mentor
+
+**ID:** `c14-s10` | **TIPO:** 🎮 **PLAYABLE**
+
+> Gloria ha empezado a venir regularmente al jardín. Hoy trae a su propia hermana, que también está pasando por depresión. Gloria presenta a Rosa como su 'hada madrina'. Los ojos de la hermana se llenan de esperanza al ver la transformación de Gloria. Rosa sonríe: lo que en ella fue caída profunda ahora es escalera para otros.
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Recibe a la hermana con genuino interés."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `11` — ¿Cree que es maravilloso estar vivo?
+  - **⚖️ Peso:** 0.85
+  - **💬 Justificación:** propósito_de_Rosa_es_ahora_ayudar
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `1` — Poco interés o placer en hacer cosas
+  - **⚖️ Peso:** 0.3
+  - **💬 Justificación:** interés_en_vida_de_otros
+
+
+#### Opción 2
+
+**📝 Texto:** "Comparte su propia historia de transformación."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `2` — ¿Ha dejado de lado muchas de sus actividades e intereses?
+  - **⚖️ Peso:** 0.25
+  - **💬 Justificación:** Rosa_es_modelo_vivo
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `5` — Poco apetito o comer demasiado
+  - **⚖️ Peso:** 0.2
+  - **💬 Justificación:** validación_de_esperanza
+
+
+#### Opción 3
+
+**📝 Texto:** "Le da tareas en el jardín, dejando que la acción hable."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `13` — ¿Se siente lleno de energía?
+  - **⚖️ Peso:** 0.7
+  - **💬 Justificación:** energía_en_actividad_directa
+
+
+---
+
+## Escena 11: El atardecer perfecto
+
+**ID:** `c14-s11` | **TIPO:** 📖 **NARRATED**
+
+> Esa tarde, Rosa y Arturo se sientan en su banca favorita del parque. El cielo se tiñe de naranja y violeta. Alrededor, el mundo sigue su ritmo. Rosa piensa: 'Hace un año, yo estaba aquí pero no estaba viva. Hoy, respiro cada segundo de esta puesta de sol.' Arturo toma su mano. No necesitan palabras.
+
+🚫 **Nota:** Es una escena narrativa - el usuario NO toma decisiones aquí.
+
+---
+
+## Escena 12: Nuevo amanecer
+
+**ID:** `c14-s12` | **TIPO:** 🎮 **PLAYABLE**
+
+> Mañana es otro día. Rosa se levantará, beberá café con Arturo, irá al jardín, volverá a encontrar a personas que necesitan lo que ella puede ofrecer: esperanza, companía, porque ella también la necesitó una vez y fue salvada. El ciclo se repite, pero ahora ella es parte de él.
+
+### 🎯 Opciones del Jugador
+
+#### Opción 1
+
+**📝 Texto:** "Rosa entra en el nuevo amanecer agradecida."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `11` — ¿Cree que es maravilloso estar vivo?
+  - **⚖️ Peso:** 0.8
+  - **💬 Justificación:** valoración_existencial_completa
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `1` — Poco interés o placer en hacer cosas
+  - **⚖️ Peso:** 0.15
+  - **💬 Justificación:** interés_plenamente_restaurado
+
+
+#### Opción 2
+
+**📝 Texto:** "Rosa cierra los ojos, sonriendo en paz."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `5` — ¿Suele estar de buen humor?
+  - **⚖️ Peso:** 0.1
+  - **💬 Justificación:** buen_humor_profundo_y_estable
+
+
+#### Opción 3
+
+**📝 Texto:** "Rosa se levanta para iniciar el nuevo ciclo."
+
+**🧠 Evaluación GDS (Geriatric Depression Scale):**
+
+- **Variable:** `13` — ¿Se siente lleno de energía?
+  - **⚖️ Peso:** 0.8
+  - **💬 Justificación:** energía_de_vida_plenamente_restaurada
+
+**🧠 Evaluación PHQ-9:**
+
+- **Variable:** `1` — Poco interés o placer en hacer cosas
+  - **⚖️ Peso:** 0.2
+  - **💬 Justificación:** compromiso_existencial_renovado
+
+
+---
+
