@@ -1002,15 +1002,16 @@ const supabase = (createClient && process.env.SUPABASE_URL && process.env.SUPABA
 // Load chapter content file
 let CHAPTERS = { chapters: [] };
 try {
-  const p = path.join(__dirname, '..', 'content', 'chapters.json');
+  const chaptersFileName = process.env.CHAPTERS_FILE || 'chapters.json';
+  const p = path.join(__dirname, '..', 'content', chaptersFileName);
   if (fs.existsSync(p)) {
     CHAPTERS = JSON.parse(fs.readFileSync(p, 'utf8'));
-    console.log('Loaded chapters:', CHAPTERS.chapters.length);
+    console.log(`Loaded chapters from ${chaptersFileName}:`, CHAPTERS.chapters.length);
   } else {
-    console.warn('chapters.json not found at', p);
+    console.warn(`${chaptersFileName} not found at`, p);
   }
 } catch (e) {
-  console.warn('Failed to load chapters.json', e && e.message);
+  console.warn(`Failed to load ${process.env.CHAPTERS_FILE || 'chapters.json'}`, e && e.message);
 }
 
 function findChapter(chapter_id) {
@@ -1250,17 +1251,23 @@ async function resolveOrGenerateNextScene(session_id, chapter_id, nextSceneId, o
   const allowGeneration = options.allowGeneration !== false;
   if (!chapter_id || !nextSceneId) return { nextChapter: null, nextScene: null };
 
+  const requestedSceneId = String(nextSceneId || '').trim();
+  const canonicalSceneId = requestedSceneId.replace(/^(c\d{2}-s\d{2})[a-z]$/i, '$1');
+  const sceneIdCandidates = requestedSceneId === canonicalSceneId
+    ? [requestedSceneId]
+    : [requestedSceneId, canonicalSceneId];
+
   // 1) Try in-memory chapter first.
   let nextChapter = findChapter(chapter_id);
   let nextScene = (nextChapter && nextChapter.scenes)
-    ? nextChapter.scenes.find(s => s.scene_id === nextSceneId)
+    ? nextChapter.scenes.find(s => sceneIdCandidates.includes(String(s.scene_id || '')))
     : null;
   if (nextScene) return { nextChapter, nextScene };
 
   // 2) Try DB hydration.
   nextChapter = await hydrateChapterFromDb(chapter_id);
   nextScene = (nextChapter && nextChapter.scenes)
-    ? nextChapter.scenes.find(s => s.scene_id === nextSceneId)
+    ? nextChapter.scenes.find(s => sceneIdCandidates.includes(String(s.scene_id || '')))
     : null;
   if (nextScene) return { nextChapter, nextScene };
 
@@ -3042,15 +3049,16 @@ async function processTelemetryPayload(payload, headers) {
 async function handleSyncChapters(req, res) {
   try {
     // Load chapters from file
-    const p = path.join(__dirname, '..', 'content', 'chapters.json');
+    const chaptersFileName = process.env.CHAPTERS_FILE || 'chapters.json';
+    const p = path.join(__dirname, '..', 'content', chaptersFileName);
     if (!fs.existsSync(p)) {
       res.writeHead(404, { 'Content-Type': 'application/json' });
-      return res.end(JSON.stringify({ error: 'chapters.json not found' }));
+      return res.end(JSON.stringify({ error: `${chaptersFileName} not found` }));
     }
     const chaptersData = JSON.parse(fs.readFileSync(p, 'utf8'));
     if (!chaptersData.chapters || !Array.isArray(chaptersData.chapters)) {
       res.writeHead(400, { 'Content-Type': 'application/json' });
-      return res.end(JSON.stringify({ error: 'invalid chapters.json format: chapters array required' }));
+      return res.end(JSON.stringify({ error: `invalid ${chaptersFileName} format: chapters array required` }));
     }
 
     let chaptersUpserted = 0;
