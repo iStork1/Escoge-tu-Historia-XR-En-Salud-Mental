@@ -111,17 +111,25 @@ FOR EACH ROW EXECUTE FUNCTION fn_compute_session_scores();
 -- Function: maintain user_metrics_aggregated when sessions end (simple upsert)
 CREATE OR REPLACE FUNCTION fn_sessions_after_update()
 RETURNS TRIGGER AS $$
+DECLARE
+  v_gds_total NUMERIC := 0;
+  v_phq_total NUMERIC := 0;
 BEGIN
   -- Only act when session ended_at becomes not null
   IF TG_OP = 'UPDATE' AND NEW.ended_at IS NOT NULL AND (OLD.ended_at IS NULL) THEN
+    SELECT COALESCE(ss.gds_total, 0), COALESCE(ss.phq_total, 0)
+    INTO v_gds_total, v_phq_total
+    FROM session_scores ss
+    WHERE ss.session_id = NEW.session_id;
+
     INSERT INTO user_metrics_aggregated(pseudonym, total_sessions, avg_session_length_seconds, abandonment_rate, avg_emotional_score_gds, avg_emotional_score_phq, last_risk_flag_date, frequency_of_use_days, updated_at)
     VALUES (
       NEW.pseudonym,
       1,
       COALESCE(NEW.session_length_seconds,0),
       CASE WHEN NEW.abandonment_flag THEN 1 ELSE 0 END,
-      NEW.normalized_emotional_score_gds,
-      NEW.normalized_emotional_score_phq,
+      LEAST(1, GREATEST(0, v_gds_total / 15.0)),
+      LEAST(1, GREATEST(0, v_phq_total / 27.0)),
       (SELECT MAX(timestamp) FROM risk_events WHERE session_id = NEW.session_id),
       0,
       now()
@@ -131,8 +139,8 @@ BEGIN
       total_sessions = user_metrics_aggregated.total_sessions + 1,
       avg_session_length_seconds = ((COALESCE(user_metrics_aggregated.avg_session_length_seconds,0) * user_metrics_aggregated.total_sessions) + COALESCE(NEW.session_length_seconds,0)) / (user_metrics_aggregated.total_sessions + 1),
       abandonment_rate = ((COALESCE(user_metrics_aggregated.abandonment_rate,0) * user_metrics_aggregated.total_sessions) + CASE WHEN NEW.abandonment_flag THEN 1 ELSE 0 END) / (user_metrics_aggregated.total_sessions + 1),
-      avg_emotional_score_gds = ((COALESCE(user_metrics_aggregated.avg_emotional_score_gds,0) * user_metrics_aggregated.total_sessions) + COALESCE(NEW.normalized_emotional_score_gds,0)) / (user_metrics_aggregated.total_sessions + 1),
-      avg_emotional_score_phq = ((COALESCE(user_metrics_aggregated.avg_emotional_score_phq,0) * user_metrics_aggregated.total_sessions) + COALESCE(NEW.normalized_emotional_score_phq,0)) / (user_metrics_aggregated.total_sessions + 1),
+      avg_emotional_score_gds = ((COALESCE(user_metrics_aggregated.avg_emotional_score_gds,0) * user_metrics_aggregated.total_sessions) + LEAST(1, GREATEST(0, v_gds_total / 15.0))) / (user_metrics_aggregated.total_sessions + 1),
+      avg_emotional_score_phq = ((COALESCE(user_metrics_aggregated.avg_emotional_score_phq,0) * user_metrics_aggregated.total_sessions) + LEAST(1, GREATEST(0, v_phq_total / 27.0))) / (user_metrics_aggregated.total_sessions + 1),
       last_risk_flag_date = GREATEST(COALESCE(user_metrics_aggregated.last_risk_flag_date, TO_TIMESTAMP(0)), (SELECT COALESCE(MAX(timestamp), TO_TIMESTAMP(0)) FROM risk_events WHERE session_id = NEW.session_id)),
       frequency_of_use_days = user_metrics_aggregated.frequency_of_use_days,
       updated_at = now();

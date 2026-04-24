@@ -13,6 +13,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { sanitizeSsml, longForm } = require('./ssml-helpers');
+const { validateTelemetryPayload, verifyAlexaRequest } = require('./p0-helpers');
 let jsonRepair = null;
 try {
   ({ jsonrepair: jsonRepair } = require('jsonrepair'));
@@ -1425,8 +1426,20 @@ async function ensureOptionsUpsert() {
 
 // Lightweight validator
 function ensureSessionPayload(p) {
-  if (!p) return false;
-  return true;
+  return validateTelemetryPayload(p).valid;
+}
+
+function validateSessionPayloadDetails(p) {
+  return validateTelemetryPayload(p);
+}
+
+function parseRawBody(req) {
+  return new Promise((resolve, reject) => {
+    let body = '';
+    req.on('data', chunk => { body += chunk.toString(); });
+    req.on('end', () => resolve(body));
+    req.on('error', reject);
+  });
 }
 
 function parseJsonBody(req) {
@@ -1542,9 +1555,14 @@ async function handleTelemetry(req, res) {
     }
     
     // Additional semantic validation (after schema validation passes)
-    if (!ensureSessionPayload(payload)) {
+    const semanticValidation = validateSessionPayloadDetails(payload);
+    if (!semanticValidation.valid) {
       res.writeHead(400, { 'Content-Type': 'application/json' });
-      return res.end(JSON.stringify({ error: 'invalid payload structure' }));
+      return res.end(JSON.stringify({
+        error: 'invalid payload structure',
+        details: semanticValidation.errors,
+        hint: 'Expected a telemetry payload with a valid session_id, optional pseudonym/consent fields, and decisions[] entries containing timestamp, scene_id, and option_id when decisions are present.'
+      }));
     }
     
     const result = await processTelemetryPayload(payload, req.headers);
@@ -1580,12 +1598,26 @@ async function handleIdentify(req, res) {
 
 async function handleAlexa(req, res) {
   try {
-    const body = await parseJsonBody(req);
+    const rawBody = await parseRawBody(req);
+    let body;
+    try {
+      body = rawBody ? JSON.parse(rawBody) : {};
+    } catch (parseErr) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: 'invalid Alexa JSON body' }));
+    }
+
     console.log('alexa request received');
     console.log(JSON.stringify(body));
     if (!body || !body.request) {
       res.writeHead(400, {'Content-Type':'application/json'});
       return res.end(JSON.stringify({ error: 'not an Alexa request' }));
+    }
+
+    const verification = await verifyAlexaRequest({ headers: req.headers, rawBody });
+    if (!verification.valid) {
+      res.writeHead(verification.statusCode || 401, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: verification.error || 'unauthorized Alexa request' }));
     }
 
     const noResponsePrompt = 'Si quieres continuar, responde ahora. Si no, vuelve pronto.';
@@ -1740,46 +1772,6 @@ async function handleAlexa(req, res) {
 
         if (isYes) {
           const pn = String(pending).slice(0,64);
-          // Check if this pseudonym already gave consent in a previous session; if so, skip consent
-          try {
-            const { data: prev, error: prevErr } = await supabase.from('sessions').select('consent_given, session_id').eq('pseudonym', pn).order('started_at', { ascending: false }).limit(1).maybeSingle();
-            if (prevErr) console.warn('prev session lookup error', prevErr);
-            if (prev && prev.consent_given) {
-              // Ensure user exists for this pseudonym
-              try {
-                const { error: userErr } = await supabase
-                  .from('users')
-                  .upsert({ pseudonym: pn, created_at: new Date().toISOString() }, { onConflict: 'pseudonym' })
-                  .select();
-                if (userErr) console.warn('user upsert error (existing user):', userErr);
-              } catch (e) { console.warn('user upsert exception (existing user)', e && e.message); }
-              // Create a new session and present first scene directly
-              const sessionPayload = { source: 'alexa', pseudonym: pn, consent_given: true, chapter_id: 'c01' };
-              const persist = await processTelemetryPayload(sessionPayload, req.headers);
-              const session_id = persist.session_id;
-              const sa = Object.assign({}, sessionAttrs, { stage: 'scene', session_id, pseudonym: pn, consent_given: true, chapter_id: 'c01', pending_pseudonym: null });
-              const chapter = findChapter('c01');
-              const firstScene = (chapter && chapter.scenes && chapter.scenes[0]) ? chapter.scenes[0] : null;
-              if (!firstScene) {
-                res.writeHead(500, {'Content-Type':'application/json'});
-                return res.end(JSON.stringify(alexaResponse('No se encontró la escena inicial.', sessionAttrs, true)));
-              }
-              const rawOpts = firstScene.options || [];
-              const opts = rawOpts.slice(0, 3).map((o, idx) => ({ option_id: o.option_id, option_text: o.option_text, index: idx + 1, next_chapter_id: o.next_chapter_id || null, next_scene_id: o.next_scene_id || null }));
-              let sceneSpeech = `${firstScene.text} `;
-              if (opts.length > 0) {
-                const labels = ['uno', 'dos', 'tres'];
-                sceneSpeech += opts.map((o, i) => `${labels[i]}. ${o.option_text}`).join('. ');
-                if (opts.length === 1) sceneSpeech += ' Di "uno" o "continuar" para elegir.';
-                else if (opts.length === 2) sceneSpeech += ' Di "uno" o "dos" para elegir.';
-                else sceneSpeech += ' Di "uno", "dos" o "tres" para elegir.';
-              }
-              const sa2 = Object.assign({}, sa, { current_scene_id: firstScene.scene_id, current_options: opts });
-              res.writeHead(200, {'Content-Type':'application/json'});
-              return res.end(JSON.stringify(alexaResponse(sceneSpeech, sa2, false, true, noResponsePrompt)));
-            }
-          } catch (e) { console.warn('pseudonym consent check error', e && e.message); }
-
           // Ensure user exists before asking for consent
           try {
             const { error: userErr } = await supabase
