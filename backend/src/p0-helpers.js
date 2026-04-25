@@ -283,6 +283,138 @@ async function verifyAlexaRequest({ headers = {}, rawBody = '', now = Date.now, 
   return { valid: true, payload: parsedBody, certificateUrl: certUrl };
 }
 
+function normalizeHeaderCollection(headers = {}) {
+  return Object.entries(headers || {}).reduce((acc, [key, value]) => {
+    acc[String(key).toLowerCase()] = Array.isArray(value) ? value[0] : value;
+    return acc;
+  }, {});
+}
+
+function extractBearerToken(headers = {}) {
+  const normalizedHeaders = normalizeHeaderCollection(headers);
+  const authorization = String(normalizedHeaders.authorization || '').trim();
+  if (authorization.toLowerCase().startsWith('bearer ')) {
+    return authorization.slice(7).trim();
+  }
+  return String(normalizedHeaders['x-api-key'] || normalizedHeaders['x-dashboard-token'] || '').trim() || null;
+}
+
+function getOperationalDashboardTokens() {
+  return [
+    process.env.OPERATIONS_API_KEY,
+    process.env.DASHBOARD_API_KEY,
+    process.env.ADMIN_API_KEY,
+    process.env.CLINICAL_DASHBOARD_TOKEN
+  ]
+    .map(value => String(value || '').trim())
+    .filter(Boolean);
+}
+
+function verifyOperationalAccess(headers = {}) {
+  const configuredTokens = [...new Set(getOperationalDashboardTokens())];
+  const providedToken = extractBearerToken(headers);
+
+  if (configuredTokens.length === 0) {
+    return { valid: true, authenticated: false, mode: 'open' };
+  }
+
+  if (!providedToken) {
+    return { valid: false, statusCode: 401, error: 'missing operational API token' };
+  }
+
+  if (!configuredTokens.includes(providedToken)) {
+    return { valid: false, statusCode: 403, error: 'invalid operational API token' };
+  }
+
+  return { valid: true, authenticated: true, mode: 'bearer' };
+}
+
+function getRiskSlaPolicy() {
+  return {
+    notificationMinutes: Math.max(1, Number(process.env.RISK_NOTIFICATION_SLA_MINUTES || 15)),
+    firstActionMinutes: Math.max(1, Number(process.env.RISK_FIRST_ACTION_SLA_MINUTES || 30)),
+    closureMinutes: Math.max(1, Number(process.env.RISK_CLOSURE_SLA_MINUTES || 1440))
+  };
+}
+
+function toTimestamp(value) {
+  if (!value) return null;
+  const ms = Date.parse(value);
+  return Number.isFinite(ms) ? ms : null;
+}
+
+function formatTimestampOrNull(ms) {
+  return Number.isFinite(ms) ? new Date(ms).toISOString() : null;
+}
+
+function computeRiskSlaState(riskEvent = {}, now = Date.now(), policy = getRiskSlaPolicy()) {
+  const nowMs = Number(now);
+  const detectedAtMs = toTimestamp(riskEvent.detected_at || riskEvent.timestamp || riskEvent.created_at);
+  const notifiedAtMs = toTimestamp(riskEvent.notified_at);
+  const firstActionAtMs = toTimestamp(riskEvent.first_action_at);
+  const closedAtMs = toTimestamp(riskEvent.closed_at);
+  const resolved = Boolean(riskEvent.resolved) || Boolean(closedAtMs);
+  const notified = Boolean(riskEvent.notified) || Boolean(notifiedAtMs);
+  const firstActionTaken = Boolean(firstActionAtMs);
+  const closed = Boolean(closedAtMs);
+
+  const notificationDueAtMs = detectedAtMs !== null ? detectedAtMs + policy.notificationMinutes * 60000 : null;
+  const firstActionAnchorMs = notifiedAtMs !== null ? notifiedAtMs : detectedAtMs;
+  const firstActionDueAtMs = firstActionAnchorMs !== null ? firstActionAnchorMs + policy.firstActionMinutes * 60000 : null;
+  const closureAnchorMs = firstActionAtMs !== null ? firstActionAtMs : detectedAtMs;
+  const closureDueAtMs = closureAnchorMs !== null ? closureAnchorMs + policy.closureMinutes * 60000 : null;
+
+  const breachedNotification = !notified && notificationDueAtMs !== null && nowMs > notificationDueAtMs;
+  const breachedFirstAction = !firstActionTaken && firstActionDueAtMs !== null && nowMs > firstActionDueAtMs;
+  const breachedClosure = !closed && closureDueAtMs !== null && nowMs > closureDueAtMs;
+
+  const escalationLevel = breachedClosure ? 3 : breachedFirstAction ? 2 : breachedNotification ? 1 : Number(riskEvent.escalation_level || 0);
+
+  let status = 'open';
+  if (closed) status = 'closed';
+  else if (resolved) status = 'resolved';
+  else if (firstActionTaken) status = 'in_progress';
+  else if (notified) status = 'notified';
+
+  if (breachedClosure) status = 'overdue_closure';
+  else if (breachedFirstAction) status = 'overdue_action';
+  else if (breachedNotification) status = 'overdue_notification';
+
+  return {
+    status,
+    detected_at: formatTimestampOrNull(detectedAtMs),
+    notified_at: formatTimestampOrNull(notifiedAtMs),
+    first_action_at: formatTimestampOrNull(firstActionAtMs),
+    closed_at: formatTimestampOrNull(closedAtMs),
+    notification_due_at: formatTimestampOrNull(notificationDueAtMs),
+    first_action_due_at: formatTimestampOrNull(firstActionDueAtMs),
+    closure_due_at: formatTimestampOrNull(closureDueAtMs),
+    breached_notification: breachedNotification,
+    breached_first_action: breachedFirstAction,
+    breached_closure: breachedClosure,
+    escalation_level: escalationLevel,
+    sla_policy: policy,
+    resolved,
+    notified,
+    first_action_taken: firstActionTaken,
+    closed
+  };
+}
+
+function summarizeRiskEvents(events = [], now = Date.now()) {
+  const snapshots = Array.isArray(events) ? events.map(event => ({ ...event, ...computeRiskSlaState(event, now) })) : [];
+  const counts = snapshots.reduce((acc, event) => {
+    acc.total += 1;
+    acc.by_status[event.status] = (acc.by_status[event.status] || 0) + 1;
+    if (event.breached_notification || event.breached_first_action || event.breached_closure) acc.overdue += 1;
+    if (event.notified) acc.notified += 1;
+    if (event.resolved || event.closed) acc.closed += 1;
+    return acc;
+  }, { total: 0, overdue: 0, notified: 0, closed: 0, by_status: {} });
+
+  return { ...counts, rows: snapshots };
+}
+
 module.exports = {
   extractAlexaTimestamp,
   isAllowedAlexaCertificateUrl,
@@ -290,6 +422,13 @@ module.exports = {
   isIsoDateTime,
   isPlainObject,
   isUuid,
+  computeRiskSlaState,
+  extractBearerToken,
+  getOperationalDashboardTokens,
+  getRiskSlaPolicy,
+  normalizeHeaderCollection,
+  summarizeRiskEvents,
+  verifyOperationalAccess,
   validateTelemetryPayload,
   verifyAlexaRequest,
   verifyBodySignature

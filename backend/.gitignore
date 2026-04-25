@@ -1,2 +1,6 @@
-.env
 tmp_query_supabase.ps1
+
+# Environment files
+.env
+.env.*
+!.env.example

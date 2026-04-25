@@ -133,13 +133,33 @@ CREATE TABLE IF NOT EXISTS risk_events (
   session_id UUID REFERENCES sessions(session_id) ON DELETE CASCADE,
   decision_id UUID REFERENCES decisions(decision_id),
   timestamp TIMESTAMPTZ DEFAULT now(),
+  detected_at TIMESTAMPTZ DEFAULT now(),
   risk_type VARCHAR(50),
   score FLOAT,
   threshold_used FLOAT,
   action_taken VARCHAR(100),
   notified BOOLEAN DEFAULT FALSE,
   resolved BOOLEAN DEFAULT FALSE,
+  notified_at TIMESTAMPTZ,
+  first_action_at TIMESTAMPTZ,
+  closed_at TIMESTAMPTZ,
+  notification_attempts INT DEFAULT 0,
+  escalation_level INT DEFAULT 0,
+  sla_target_minutes INT DEFAULT 15,
+  status VARCHAR(30) DEFAULT 'open' CHECK (status IN ('open','notified','in_progress','resolved','closed','overdue_notification','overdue_action','overdue_closure','escalated')),
   notes TEXT
+);
+
+CREATE TABLE IF NOT EXISTS risk_event_notifications (
+  notification_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  risk_event_id UUID REFERENCES risk_events(risk_event_id) ON DELETE CASCADE,
+  attempt_number INT NOT NULL,
+  channel VARCHAR(30) NOT NULL,
+  status VARCHAR(20) CHECK (status IN ('queued','sent','failed','acknowledged')) DEFAULT 'queued',
+  provider_message_id TEXT,
+  payload JSONB,
+  error TEXT,
+  created_at TIMESTAMPTZ DEFAULT now()
 );
 
 -- Aggregated user metrics for longitudinal analysis

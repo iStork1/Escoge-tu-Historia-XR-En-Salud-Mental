@@ -154,6 +154,25 @@ CREATE TRIGGER trg_sessions_after_update
 AFTER UPDATE ON sessions
 FOR EACH ROW EXECUTE FUNCTION fn_sessions_after_update();
 
+-- ===== RISK EVENT LIFECYCLE DEFAULTS =====
+
+CREATE OR REPLACE FUNCTION fn_risk_events_before_insert()
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW.detected_at = COALESCE(NEW.detected_at, NEW.timestamp, now());
+  NEW.notification_attempts = COALESCE(NEW.notification_attempts, 0);
+  NEW.escalation_level = COALESCE(NEW.escalation_level, 0);
+  NEW.sla_target_minutes = COALESCE(NEW.sla_target_minutes, 15);
+  NEW.status = COALESCE(NEW.status, 'open');
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS trg_risk_events_before_insert ON risk_events;
+CREATE TRIGGER trg_risk_events_before_insert
+BEFORE INSERT ON risk_events
+FOR EACH ROW EXECUTE FUNCTION fn_risk_events_before_insert();
+
 -- ===== AUDIT LOG TRIGGER =====
 
 -- Optional: trigger to copy decision audit link when decision inserted

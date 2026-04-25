@@ -4,6 +4,7 @@ Simple Node.js service that ingests telemetry from Alexa frontend and persists t
 
 Setup
 1. Copy `.env.example` to `.env` and set `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` (use service role key server-side only).
+  - The backend loads env from `backend/.env` or repository root `.env`.
 2. Install deps:
 
 ```bash
@@ -41,6 +42,22 @@ ngrok http 3000 --authtoken YOUR_TOKEN --bind-tls=true --auth="devuser:StrongPas
 
 API
 - POST `/telemetry` — accepts a JSON payload with `session` fields and `decisions` array. Example minimal payload:
+
+Operational dashboard endpoints
+- GET `/admin/dashboard` — visual operator panel that renders the review queue and clinical report data in a single page.
+- GET `/admin/review-queue` — returns the clinician review queue from `v_mapping_review_queue`. Requires `Authorization: Bearer <token>` or `x-api-key` when `OPERATIONS_API_KEY`, `DASHBOARD_API_KEY`, `ADMIN_API_KEY`, or `CLINICAL_DASHBOARD_TOKEN` is set.
+- POST `/admin/review-actions` — stores a clinician review for a mapping and updates `clinical_mappings.validated` based on the verdict.
+- GET `/admin/clinical-reports` — returns aggregate clinical dashboard data. Add `session_id=<uuid>` to get a per-session clinical report. Same authentication as the review queue.
+
+Risk worker
+- `npm run risk:worker:once` — processes pending `risk_events`, writes notification attempts, and updates SLA state.
+- `npm run risk:worker` — runs the worker in polling mode.
+
+Recommended SLA env vars
+- `RISK_NOTIFICATION_SLA_MINUTES`
+- `RISK_FIRST_ACTION_SLA_MINUTES`
+- `RISK_CLOSURE_SLA_MINUTES`
+- `OPERATIONS_API_KEY` or `DASHBOARD_API_KEY` for dashboard access
 
 LLM Arc Workflow (Prompt 1 + Prompt 2)
 

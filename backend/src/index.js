@@ -1,4 +1,19 @@
-try { require('dotenv').config(); } catch (e) { /* dotenv not installed in this environment; continue */ }
+const fs = require('fs');
+const path = require('path');
+
+try {
+  const dotenv = require('dotenv');
+  const envCandidates = [
+    path.resolve(process.cwd(), '.env'),
+    path.resolve(__dirname, '..', '.env'),
+    path.resolve(__dirname, '..', '..', '.env')
+  ];
+  for (const envPath of envCandidates) {
+    if (fs.existsSync(envPath)) {
+      dotenv.config({ path: envPath, override: false });
+    }
+  }
+} catch (e) { /* dotenv not installed in this environment; continue */ }
 // Use native http server to avoid heavy external dependencies in local tests
 const http = require('http');
 let createClient;
@@ -9,11 +24,9 @@ try {
   // console.debug('Supabase load error:', e && e.message);
 }
 const { v4: uuidv4, validate: uuidValidate } = require('uuid');
-const fs = require('fs');
-const path = require('path');
 const crypto = require('crypto');
 const { sanitizeSsml, longForm } = require('./ssml-helpers');
-const { validateTelemetryPayload, verifyAlexaRequest } = require('./p0-helpers');
+const { validateTelemetryPayload, verifyAlexaRequest, verifyOperationalAccess, summarizeRiskEvents, computeRiskSlaState } = require('./p0-helpers');
 let jsonRepair = null;
 try {
   ({ jsonrepair: jsonRepair } = require('jsonrepair'));
@@ -6216,6 +6229,778 @@ async function handleRiskOverview(req, res) {
   }
 }
 
+async function handleReviewQueue(req, res) {
+  try {
+    const access = verifyOperationalAccess(req.headers);
+    if (!access.valid) {
+      res.writeHead(access.statusCode || 401, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: access.error || 'unauthorized' }));
+    }
+
+    const reqUrl = new URL(req.url || '', `http://${req.headers.host || 'localhost'}`);
+    const limit = Math.max(1, Math.min(200, Number(reqUrl.searchParams.get('limit') || 50)));
+    const onlyPending = String(reqUrl.searchParams.get('pending_only') || '').toLowerCase() === 'true';
+
+    const { data, error } = await supabase
+      .from('v_mapping_review_queue')
+      .select('*')
+      .order('review_count', { ascending: true })
+      .order('last_review_at', { ascending: true, nullsFirst: true })
+      .order('timestamp', { ascending: true })
+      .limit(limit);
+    if (error) throw error;
+
+    const rows = (data || []).map(row => {
+      const queueState = row.review_count > 0
+        ? (row.has_reject ? 'needs_clinical_attention' : (row.has_adjust ? 'needs_adjustment' : (row.training_ready ? 'ready_for_training' : 'in_review')))
+        : 'pending_review';
+      return {
+        ...row,
+        queue_state: queueState,
+        priority: row.has_reject ? 'high' : (row.has_adjust ? 'medium' : 'normal')
+      };
+    }).filter(row => (onlyPending ? row.queue_state !== 'in_review' && row.queue_state !== 'ready_for_training' : true));
+
+    const summary = rows.reduce((acc, row) => {
+      acc.total += 1;
+      acc.by_state[row.queue_state] = (acc.by_state[row.queue_state] || 0) + 1;
+      return acc;
+    }, { total: 0, by_state: {} });
+
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({ ok: true, authenticated: access.authenticated, limit, summary, rows }));
+  } catch (err) {
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({ error: err.message || String(err) }));
+  }
+}
+
+async function handleClinicalReports(req, res) {
+  try {
+    const access = verifyOperationalAccess(req.headers);
+    if (!access.valid) {
+      res.writeHead(access.statusCode || 401, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: access.error || 'unauthorized' }));
+    }
+
+    const reqUrl = new URL(req.url || '', `http://${req.headers.host || 'localhost'}`);
+    const sessionId = reqUrl.searchParams.get('session_id');
+    const pseudonym = reqUrl.searchParams.get('pseudonym');
+    const limit = Math.max(1, Math.min(100, Number(reqUrl.searchParams.get('limit') || 20)));
+
+    if (sessionId) {
+      const { data: sessionRow, error: sessionErr } = await supabase
+        .from('sessions')
+        .select('*')
+        .eq('session_id', sessionId)
+        .maybeSingle();
+      if (sessionErr) throw sessionErr;
+      if (!sessionRow) {
+        res.writeHead(404, { 'Content-Type': 'application/json' });
+        return res.end(JSON.stringify({ error: 'session not found' }));
+      }
+
+      const { data: sessionScores, error: scoreErr } = await supabase
+        .from('session_scores')
+        .select('*')
+        .eq('session_id', sessionId)
+        .maybeSingle();
+      if (scoreErr) throw scoreErr;
+
+      const { data: decisions, error: decisionErr } = await supabase
+        .from('decisions')
+        .select('decision_id,timestamp,chapter_id,scene_id,option_id,option_text,time_to_decision_ms,mapping_confidence,validation_steps,risk_flags')
+        .eq('session_id', sessionId)
+        .order('timestamp', { ascending: true });
+      if (decisionErr) throw decisionErr;
+
+      const decisionIds = (decisions || []).map(item => item.decision_id).filter(Boolean);
+      const { data: clinicalMappings, error: mappingErr } = decisionIds.length
+        ? await supabase
+          .from('clinical_mappings')
+          .select('*')
+          .in('decision_id', decisionIds)
+          .order('created_at', { ascending: true })
+        : { data: [], error: null };
+      if (mappingErr) throw mappingErr;
+
+      const mappingIds = (clinicalMappings || []).map(item => item.mapping_id).filter(Boolean);
+      const { data: mappingReviews, error: reviewErr } = mappingIds.length
+        ? await supabase
+          .from('clinical_mapping_reviews')
+          .select('*')
+          .in('mapping_id', mappingIds)
+          .order('created_at', { ascending: true })
+        : { data: [], error: null };
+      if (reviewErr) throw reviewErr;
+
+      const { data: riskEvents, error: riskErr } = await supabase
+        .from('risk_events')
+        .select('*')
+        .eq('session_id', sessionId)
+        .order('timestamp', { ascending: true });
+      if (riskErr) throw riskErr;
+
+      const riskSummary = summarizeRiskEvents(riskEvents || []);
+      const currentRiskStates = (riskEvents || []).map(event => ({ ...event, operational_state: computeRiskSlaState(event) }));
+
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({
+        ok: true,
+        authenticated: access.authenticated,
+        report_type: 'session_clinical_report',
+        session: sessionRow,
+        session_scores: sessionScores || null,
+        decisions: decisions || [],
+        clinical_mappings: clinicalMappings || [],
+        reviews: mappingReviews || [],
+        risk_summary: riskSummary,
+        risk_events: currentRiskStates,
+        risk_targets: {
+          notification_minutes: riskSummary.rows.length ? riskSummary.rows[0].sla_policy.notificationMinutes : null,
+          first_action_minutes: riskSummary.rows.length ? riskSummary.rows[0].sla_policy.firstActionMinutes : null,
+          closure_minutes: riskSummary.rows.length ? riskSummary.rows[0].sla_policy.closureMinutes : null
+        }
+      }));
+    }
+
+    const [dashboardSessions, riskOverview, reviewStats, reviewQueue, trainingReady] = await Promise.all([
+      supabase.from('dashboard_sessions').select('*').order('total_sessions', { ascending: false }).limit(limit),
+      supabase.from('risk_overview').select('*').order('date', { ascending: false }).limit(limit),
+      supabase.from('v_mapping_review_stats').select('*').order('review_date', { ascending: false }).limit(limit),
+      supabase.from('v_mapping_review_queue').select('*').order('review_count', { ascending: true }).limit(limit),
+      supabase.from('v_mapping_training_ready').select('*').order('created_at', { ascending: false }).limit(limit)
+    ]);
+
+    const queryErrors = [dashboardSessions.error, riskOverview.error, reviewStats.error, reviewQueue.error, trainingReady.error].filter(Boolean);
+    if (queryErrors.length) throw queryErrors[0];
+
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+      ok: true,
+      authenticated: access.authenticated,
+      report_type: 'dashboard_clinical_report',
+      filters: { pseudonym, limit },
+      dashboard_sessions: dashboardSessions.data || [],
+      risk_overview: riskOverview.data || [],
+      review_stats: reviewStats.data || [],
+      review_queue: reviewQueue.data || [],
+      training_ready: trainingReady.data || [],
+      summary: {
+        dashboard_sessions_count: (dashboardSessions.data || []).length,
+        risk_overview_count: (riskOverview.data || []).length,
+        review_queue_count: (reviewQueue.data || []).length,
+        training_ready_count: (trainingReady.data || []).length
+      }
+    }));
+  } catch (err) {
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({ error: err.message || String(err) }));
+  }
+}
+
+async function handleReviewAction(req, res) {
+  try {
+    const access = verifyOperationalAccess(req.headers);
+    if (!access.valid) {
+      res.writeHead(access.statusCode || 401, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: access.error || 'unauthorized' }));
+    }
+
+    const body = await parseJsonBody(req);
+    const mappingId = String(body && body.mapping_id || '').trim();
+    const verdict = String(body && body.verdict || '').trim().toLowerCase();
+    const reviewerId = body && body.reviewer_id ? String(body.reviewer_id).trim() : null;
+    const reviewerConfidence = typeof body?.reviewer_confidence === 'number' ? body.reviewer_confidence : null;
+    const reason = body && body.reason ? String(body.reason).trim() : null;
+    const suggestedMapping = typeof body?.suggested_mapping === 'undefined' ? null : body.suggested_mapping;
+    const reviewTags = Array.isArray(body?.review_tags) ? body.review_tags.map(tag => String(tag).trim()).filter(Boolean) : null;
+    const trainingReady = typeof body?.training_ready === 'boolean' ? body.training_ready : verdict === 'approve';
+
+    const allowedVerdicts = new Set(['approve', 'reject', 'adjust', 'unclear']);
+    if (!mappingId || !allowedVerdicts.has(verdict)) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: 'mapping_id and valid verdict are required' }));
+    }
+
+    const { data: mappingRow, error: mappingErr } = await supabase
+      .from('clinical_mappings')
+      .select('*')
+      .eq('mapping_id', mappingId)
+      .maybeSingle();
+    if (mappingErr) throw mappingErr;
+    if (!mappingRow) {
+      res.writeHead(404, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: 'clinical mapping not found' }));
+    }
+
+    const { data: insertedReview, error: reviewErr } = await supabase
+      .from('clinical_mapping_reviews')
+      .insert([{
+        mapping_id: mappingId,
+        decision_id: mappingRow.decision_id,
+        option_id: mappingRow.option_id,
+        reviewer_id: reviewerId,
+        verdict,
+        reviewer_confidence: reviewerConfidence,
+        reason,
+        suggested_mapping: suggestedMapping,
+        review_tags: reviewTags,
+        training_ready: trainingReady
+      }])
+      .select('*')
+      .maybeSingle();
+    if (reviewErr) throw reviewErr;
+
+    const mappingUpdates = {
+      validated: verdict === 'approve' || verdict === 'adjust'
+    };
+
+    if (verdict === 'reject') {
+      mappingUpdates.validated = false;
+    }
+
+    const { error: updateErr } = await supabase
+      .from('clinical_mappings')
+      .update(mappingUpdates)
+      .eq('mapping_id', mappingId);
+    if (updateErr) throw updateErr;
+
+    res.writeHead(201, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+      ok: true,
+      authenticated: access.authenticated,
+      review: insertedReview || null,
+      mapping: {
+        mapping_id: mappingId,
+        validated: mappingUpdates.validated,
+        verdict
+      }
+    }));
+  } catch (err) {
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({ error: err.message || String(err) }));
+  }
+}
+
+function buildOperationalDashboardHtml() {
+  return `<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panel Operativo Clínico</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #0b1020;
+      --bg-soft: #111831;
+      --panel: rgba(15, 23, 42, 0.82);
+      --panel-2: rgba(30, 41, 59, 0.8);
+      --line: rgba(148, 163, 184, 0.22);
+      --text: #e5eefc;
+      --muted: #9fb0cf;
+      --accent: #7dd3fc;
+      --accent-2: #a78bfa;
+      --good: #4ade80;
+      --warn: #fbbf24;
+      --bad: #fb7185;
+      --shadow: 0 24px 60px rgba(2, 6, 23, 0.45);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(125, 211, 252, 0.16), transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(167, 139, 250, 0.18), transparent 28%),
+        linear-gradient(180deg, #050816 0%, #0b1020 40%, #0f172a 100%);
+      color: var(--text);
+    }
+    .wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-bottom: 20px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+    .hero-main { padding: 28px; position: relative; overflow: hidden; }
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -100px auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(125, 211, 252, 0.22), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: 0.18em; font-size: 12px; font-weight: 700; }
+    h1 {
+      margin: 10px 0 8px;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.02;
+    }
+    .subtitle { max-width: 760px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+    .meta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 13px;
+    }
+    .chip strong { color: white; }
+    .hero-side { padding: 18px; display: grid; gap: 12px; }
+    .control-grid { display: grid; gap: 10px; }
+    .field {
+      display: grid;
+      gap: 6px;
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.72);
+      border: 1px solid var(--line);
+    }
+    .field label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .field input, .field select {
+      width: 100%;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 12px;
+      padding: 11px 12px;
+      background: rgba(2, 6, 23, 0.6);
+      color: var(--text);
+      outline: none;
+    }
+    .field input:focus, .field select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.15); }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 11px 14px;
+      cursor: pointer;
+      font-weight: 700;
+      color: #08111f;
+      background: linear-gradient(135deg, var(--accent), #f8fafc);
+    }
+    button.secondary { color: var(--text); background: rgba(148, 163, 184, 0.15); border: 1px solid var(--line); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .metric {
+      grid-column: span 3;
+      padding: 18px;
+      border-radius: 18px;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+    }
+    .metric .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .metric .value { margin-top: 10px; font-size: 30px; font-weight: 800; }
+    .metric .hint { margin-top: 8px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .section {
+      grid-column: span 12;
+      padding: 18px;
+      border-radius: 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .section h2 { margin: 0 0 12px; font-size: 20px; }
+    .section-header { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .section-header p { margin: 0; color: var(--muted); }
+    table { width: 100%; border-collapse: collapse; overflow: hidden; }
+    th, td {
+      text-align: left;
+      padding: 12px 10px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+      vertical-align: top;
+      font-size: 13px;
+    }
+    th { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+    tr:hover td { background: rgba(125, 211, 252, 0.05); }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .badge.high, .badge.needs_clinical_attention, .badge.overdue_closure { background: rgba(251, 113, 133, 0.18); color: #fecdd3; }
+    .badge.medium, .badge.needs_adjustment, .badge.overdue_action { background: rgba(251, 191, 36, 0.18); color: #fde68a; }
+    .badge.normal, .badge.pending_review, .badge.in_review, .badge.ready_for_training, .badge.open, .badge.notified { background: rgba(125, 211, 252, 0.16); color: #bae6fd; }
+    .badge.closed, .badge.resolved { background: rgba(74, 222, 128, 0.16); color: #bbf7d0; }
+    .action-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .action-group button {
+      padding: 8px 10px;
+      font-size: 12px;
+      border-radius: 10px;
+    }
+    .action-group button.approve { background: linear-gradient(135deg, #4ade80, #dcfce7); }
+    .action-group button.reject { background: linear-gradient(135deg, #fb7185, #ffe4e6); }
+    .action-group button.adjust { background: linear-gradient(135deg, #fbbf24, #fef3c7); }
+    .action-group button.neutral { color: var(--text); background: rgba(148, 163, 184, 0.15); border: 1px solid var(--line); }
+    .subgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .list {
+      display: grid;
+      gap: 10px;
+    }
+    .list-item {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.74);
+      border: 1px solid rgba(148, 163, 184, 0.16);
+    }
+    .list-item strong { display: block; margin-bottom: 6px; }
+    .muted { color: var(--muted); }
+    .footer-note { margin-top: 18px; color: var(--muted); font-size: 12px; }
+    .error { color: #fecaca; }
+    .loading {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(125, 211, 252, 0.12);
+    }
+    @media (max-width: 1080px) {
+      .hero, .subgrid { grid-template-columns: 1fr; }
+      .metric { grid-column: span 6; }
+    }
+    @media (max-width: 680px) {
+      .wrap { padding: 16px; }
+      .metric { grid-column: span 12; }
+      .hero-main, .hero-side, .section { padding: 16px; }
+      th, td { font-size: 12px; padding: 10px 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="panel hero-main">
+        <div class="eyebrow">Panel operativo clínico</div>
+        <h1>Revisión manual, reportes clínicos y riesgo en una sola vista.</h1>
+        <p class="subtitle">Este tablero consume la cola de revisión, los reportes clínicos y el estado SLA de riesgo desde el backend existente. Está pensado para supervisión rápida del dashboard, con autenticación por token y un modo visual que prioriza lectura clínica.</p>
+        <div class="meta-row">
+          <div class="chip"><strong>Endpoint</strong> /admin/dashboard</div>
+          <div class="chip"><strong>Queue</strong> /admin/review-queue</div>
+          <div class="chip"><strong>Reports</strong> /admin/clinical-reports</div>
+          <div class="chip"><strong>Auth</strong> Bearer o x-api-key</div>
+        </div>
+      </div>
+      <div class="panel hero-side">
+        <div class="control-grid">
+          <div class="field">
+            <label for="token">Token operativo</label>
+            <input id="token" type="password" placeholder="OPERATIONS_API_KEY o DASHBOARD_API_KEY" autocomplete="off" />
+          </div>
+          <div class="field">
+            <label for="sessionId">Session ID</label>
+            <input id="sessionId" type="text" placeholder="550e8400-e29b-41d4-a716-446655440000" autocomplete="off" />
+          </div>
+          <div class="field">
+            <label for="pseudonym">Pseudónimo</label>
+            <input id="pseudonym" type="text" placeholder="user_123" autocomplete="off" />
+          </div>
+          <div class="field">
+            <label for="limit">Límite</label>
+            <select id="limit">
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50" selected>50</option>
+              <option value="100">100</option>
+            </select>
+          </div>
+        </div>
+        <div class="actions">
+          <button id="refreshBtn">Actualizar panel</button>
+          <button class="secondary" id="saveTokenBtn">Guardar token</button>
+          <button class="secondary" id="clearTokenBtn">Limpiar</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" id="metricsGrid">
+      <div class="metric"><div class="label">Review queue</div><div class="value" id="metricQueue">—</div><div class="hint">Candidatos pendientes y en revisión.</div></div>
+      <div class="metric"><div class="label">Training ready</div><div class="value" id="metricTraining">—</div><div class="hint">Mapeos listos para reutilización.</div></div>
+      <div class="metric"><div class="label">Riesgo abierto</div><div class="value" id="metricRisk">—</div><div class="hint">Eventos pendientes o en escalamiento.</div></div>
+      <div class="metric"><div class="label">Reporte clínico</div><div class="value" id="metricReports">—</div><div class="hint">Filas agregadas para lectura rápida.</div></div>
+
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <h2>Cola de revisión manual</h2>
+            <p>Ordenada por prioridad operativa y estado de feedback.</p>
+          </div>
+          <div class="loading" id="queueStatus"><span class="dot"></span><span class="muted">Esperando actualización</span></div>
+        </div>
+        <div style="overflow:auto; margin-top: 10px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Prioridad</th>
+                <th>Mapa</th>
+                <th>Contexto</th>
+                <th>Estado</th>
+                <th>Última revisión</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="queueBody">
+              <tr><td colspan="6" class="muted">No hay datos cargados todavía.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <h2>Reporte clínico</h2>
+            <p>Resumen por sesión con scores, decisiones, reviews y SLA de riesgo.</p>
+          </div>
+          <div class="loading" id="reportStatus"><span class="dot"></span><span class="muted">Esperando actualización</span></div>
+        </div>
+        <div class="subgrid" style="margin-top: 12px;">
+          <div class="list" id="reportSummary">
+            <div class="list-item muted">Ingresa un session ID o pseudónimo y actualiza el panel.</div>
+          </div>
+          <div class="list" id="riskSummary"></div>
+        </div>
+      </section>
+    </section>
+
+    <p class="footer-note">El dashboard se sirve desde el backend existente y reutiliza las rutas operativas ya autenticadas. Los botones de revisión manual deben ejecutarse desde un cliente con acceso al token operativo.</p>
+  </div>
+
+  <script>
+    const tokenInput = document.getElementById('token');
+    const sessionInput = document.getElementById('sessionId');
+    const pseudonymInput = document.getElementById('pseudonym');
+    const limitInput = document.getElementById('limit');
+    const queueBody = document.getElementById('queueBody');
+    const reportSummary = document.getElementById('reportSummary');
+    const riskSummary = document.getElementById('riskSummary');
+    const queueStatus = document.getElementById('queueStatus');
+    const reportStatus = document.getElementById('reportStatus');
+    const metricQueue = document.getElementById('metricQueue');
+    const metricTraining = document.getElementById('metricTraining');
+    const metricRisk = document.getElementById('metricRisk');
+    const metricReports = document.getElementById('metricReports');
+
+    const params = new URLSearchParams(location.search);
+    const savedToken = localStorage.getItem('ops_token') || params.get('token') || '';
+    if (savedToken) tokenInput.value = savedToken;
+    if (params.get('session_id')) sessionInput.value = params.get('session_id');
+    if (params.get('pseudonym')) pseudonymInput.value = params.get('pseudonym');
+    if (params.get('limit')) limitInput.value = params.get('limit');
+
+    function authHeaders() {
+      const token = tokenInput.value.trim();
+      const headers = { 'Content-Type': 'application/json' };
+      if (token) headers.Authorization = 'Bearer ' + token;
+      return headers;
+    }
+
+    function fmt(value) {
+      if (value === null || typeof value === 'undefined' || value === '') return '—';
+      return String(value);
+    }
+
+    function badge(value) {
+      return '<span class="badge ' + String(value || 'normal') + '">' + String(value || 'normal') + '</span>';
+    }
+
+    function setStatus(el, text, error = false) {
+      el.innerHTML = '<span class="dot"></span><span class="muted ' + (error ? 'error' : '') + '">' + text + '</span>';
+    }
+
+    async function submitReviewAction(mappingId, verdict, row) {
+      const reason = window.prompt('Motivo o nota clínica para ' + verdict + ':', '');
+      if (reason === null) return;
+      const reviewerConfidence = verdict === 'approve' ? 0.9 : verdict === 'adjust' ? 0.7 : 0.6;
+      const payload = {
+        mapping_id: mappingId,
+        verdict,
+        reviewer_confidence: reviewerConfidence,
+        reason: reason.trim() || null,
+        suggested_mapping: verdict === 'adjust' ? { scale: row.scale, item: row.item, note: reason.trim() || 'Ajuste manual desde dashboard' } : null,
+        review_tags: ['dashboard', verdict],
+        training_ready: verdict === 'approve'
+      };
+
+      try {
+        const response = await fetch('/admin/review-actions', {
+          method: 'POST',
+          headers: authHeaders(),
+          body: JSON.stringify(payload)
+        });
+        const json = await response.json();
+        if (!response.ok) throw new Error(json.error || 'No se pudo guardar la revisión');
+        setStatus(queueStatus, 'Revisión guardada: ' + verdict);
+        await loadDashboard();
+      } catch (error) {
+        setStatus(queueStatus, error.message, true);
+        alert(error.message);
+      }
+    }
+
+    function renderQueue(rows = []) {
+      if (!rows.length) {
+        queueBody.innerHTML = '<tr><td colspan="6" class="muted">La cola está vacía.</td></tr>';
+        return;
+      }
+      queueBody.innerHTML = rows.map(row => {
+        const actionButtons = '<div class="action-group">' +
+          '<button class="approve" data-mapping="' + fmt(row.mapping_id) + '">Aprobar</button>' +
+          '<button class="reject" data-mapping="' + fmt(row.mapping_id) + '">Rechazar</button>' +
+          '<button class="adjust" data-mapping="' + fmt(row.mapping_id) + '">Ajustar</button>' +
+          '</div>';
+        return '<tr>' +
+          '<td>' + badge(row.priority || 'normal') + '</td>' +
+          '<td><strong>' + fmt(row.scale) + ' ' + fmt(row.item) + '</strong><div class="muted">' + fmt(row.primary_construct) + '</div></td>' +
+          '<td><div><strong>' + fmt(row.pseudonym) + '</strong></div><div class="muted">' + fmt(row.option_text) + '</div></td>' +
+          '<td>' + badge(row.queue_state || 'pending_review') + '<div class="muted" style="margin-top:6px;">reviews: ' + fmt(row.review_count) + '</div></td>' +
+          '<td class="muted">' + fmt(row.last_review_at || row.timestamp) + '</td>' +
+          '<td>' + actionButtons + '</td>' +
+        '</tr>';
+      }).join('');
+
+      queueBody.querySelectorAll('button[data-mapping]').forEach(button => {
+        button.addEventListener('click', () => {
+          const mappingId = button.getAttribute('data-mapping');
+          const row = rows.find(item => String(item.mapping_id) === String(mappingId));
+          const verdict = button.classList.contains('approve') ? 'approve' : button.classList.contains('reject') ? 'reject' : 'adjust';
+          submitReviewAction(mappingId, verdict, row || {});
+        });
+      });
+    }
+
+    function renderReport(payload) {
+      const sections = [];
+      if (payload?.session) {
+        sections.push('<div class="list-item"><strong>Sesión</strong><div class="muted">' + fmt(payload.session.session_id) + '</div><div class="muted">' + fmt(payload.session.pseudonym) + '</div></div>');
+      }
+      if (payload?.session_scores) {
+        sections.push('<div class="list-item"><strong>Scores</strong><div class="muted">GDS: ' + fmt(payload.session_scores.gds_total) + ' | PHQ: ' + fmt(payload.session_scores.phq_total) + '</div><div class="muted">Calculado: ' + fmt(payload.session_scores.computed_at) + '</div></div>');
+      }
+      if (payload?.decisions) {
+        sections.push('<div class="list-item"><strong>Decisiones</strong><div class="muted">' + fmt(payload.decisions.length) + ' entradas registradas</div></div>');
+      }
+      if (payload?.reviews) {
+        sections.push('<div class="list-item"><strong>Reviews</strong><div class="muted">' + fmt(payload.reviews.length) + ' revisiones asociadas</div></div>');
+      }
+      if (payload?.risk_summary) {
+        sections.push('<div class="list-item"><strong>Riesgo</strong><div class="muted">Total: ' + fmt(payload.risk_summary.total) + ' | Notificados: ' + fmt(payload.risk_summary.notified) + ' | Cerrados: ' + fmt(payload.risk_summary.closed) + '</div></div>');
+      }
+      reportSummary.innerHTML = sections.join('') || '<div class="list-item muted">Sin datos de reporte.</div>';
+
+      const rows = payload?.risk_events || [];
+      riskSummary.innerHTML = rows.length ? rows.slice(0, 6).map(event => {
+        const state = event.operational_state || {};
+        return '<div class="list-item"><strong>' + fmt(event.risk_type) + '</strong><div class="muted">' + fmt(event.session_id) + '</div><div style="margin-top:8px;">' + badge(state.status || event.status || 'open') + '</div><div class="muted" style="margin-top:8px;">Notificado: ' + fmt(state.notified_at || event.notified_at) + ' · Acción: ' + fmt(state.first_action_at || event.first_action_at) + ' · Cierre: ' + fmt(state.closed_at || event.closed_at) + '</div></div>';
+      }).join('') : '<div class="list-item muted">No hay eventos de riesgo para mostrar.</div>';
+    }
+
+    async function loadDashboard() {
+      const limit = limitInput.value || '50';
+      const token = tokenInput.value.trim();
+      localStorage.setItem('ops_token', token);
+      const headers = authHeaders();
+
+      queueStatus.innerHTML = '<span class="dot"></span><span class="muted">Cargando cola...</span>';
+      reportStatus.innerHTML = '<span class="dot"></span><span class="muted">Cargando reporte...</span>';
+
+      try {
+        const queueResp = await fetch('/admin/review-queue?limit=' + encodeURIComponent(limit) + '&pending_only=true', { headers });
+        const queueJson = await queueResp.json();
+        if (!queueResp.ok) throw new Error(queueJson.error || 'No se pudo cargar la cola');
+
+        renderQueue(queueJson.rows || []);
+        metricQueue.textContent = fmt(queueJson.summary?.total || 0);
+        metricTraining.textContent = fmt(queueJson.summary?.by_state?.ready_for_training || 0);
+        setStatus(queueStatus, 'Cola actualizada');
+      } catch (error) {
+        queueBody.innerHTML = '<tr><td colspan="5" class="error">' + error.message + '</td></tr>';
+        setStatus(queueStatus, error.message, true);
+      }
+
+      try {
+        const params = new URLSearchParams();
+        params.set('limit', limit);
+        if (sessionInput.value.trim()) params.set('session_id', sessionInput.value.trim());
+        else if (pseudonymInput.value.trim()) params.set('pseudonym', pseudonymInput.value.trim());
+        const reportResp = await fetch('/admin/clinical-reports?' + params.toString(), { headers });
+        const reportJson = await reportResp.json();
+        if (!reportResp.ok) throw new Error(reportJson.error || 'No se pudo cargar el reporte');
+
+        renderReport(reportJson);
+        metricRisk.textContent = fmt(reportJson.risk_summary?.overdue || 0);
+        metricReports.textContent = fmt((reportJson.review_queue || []).length + (reportJson.training_ready || []).length);
+        setStatus(reportStatus, 'Reporte actualizado');
+      } catch (error) {
+        reportSummary.innerHTML = '<div class="list-item error">' + error.message + '</div>';
+        riskSummary.innerHTML = '<div class="list-item error">' + error.message + '</div>';
+        setStatus(reportStatus, error.message, true);
+      }
+    }
+
+    document.getElementById('refreshBtn').addEventListener('click', loadDashboard);
+    document.getElementById('saveTokenBtn').addEventListener('click', () => {
+      localStorage.setItem('ops_token', tokenInput.value.trim());
+      loadDashboard();
+    });
+    document.getElementById('clearTokenBtn').addEventListener('click', () => {
+      localStorage.removeItem('ops_token');
+      tokenInput.value = '';
+      loadDashboard();
+    });
+
+    loadDashboard();
+  </script>
+</body>
+</html>`;
+}
+
+async function handleOperationalDashboard(req, res) {
+  try {
+    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+    return res.end(buildOperationalDashboardHtml());
+  } catch (err) {
+    res.writeHead(500, { 'Content-Type': 'text/html; charset=utf-8' });
+    return res.end(`<h1>Error: ${String(err && err.message ? err.message : err)}</h1>`);
+  }
+}
+
 async function handleNarrativeDebugState(req, res) {
   try {
     const reqUrl = new URL(req.url || '', `http://${req.headers.host || 'localhost'}`);
@@ -6418,6 +7203,10 @@ const server = http.createServer(async (req, res) => {
     if (req.method === 'GET' && url === '/llm/arcs/cache-kpis') return await handleNarrativeCacheKpis(req, res);
     if (req.method === 'GET' && url === '/analytics/dashboard-sessions') return await handleDashboardSessions(req, res);
     if (req.method === 'GET' && url === '/analytics/risk-overview') return await handleRiskOverview(req, res);
+    if (req.method === 'GET' && url === '/admin/dashboard') return await handleOperationalDashboard(req, res);
+    if (req.method === 'GET' && url === '/admin/review-queue') return await handleReviewQueue(req, res);
+    if (req.method === 'POST' && url === '/admin/review-actions') return await handleReviewAction(req, res);
+    if (req.method === 'GET' && url === '/admin/clinical-reports') return await handleClinicalReports(req, res);
     if (req.method === 'GET' && url === '/debug/narrative-state') return await handleNarrativeDebugState(req, res);
     if (req.method === 'GET' && url === '/admin/llm-health') return await handleLLMHealth(req, res);
     if (req.method === 'GET' && (url === '/' || url === '/health')) {
