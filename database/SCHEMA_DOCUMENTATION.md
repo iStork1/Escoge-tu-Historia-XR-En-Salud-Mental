@@ -33,6 +33,12 @@ Tablas principales (descripción breve)
 - `user_metrics_aggregated` — métricas por pseudónimo (longitudinales) para reporting.
 - `audio_metrics` — (opcional) métricas derivadas del audio; almacenar solo si `consent_given=true`. Guardar audio en Supabase Storage y referenciar `audio_path`.
 
+Custodia separada de reclutamiento y contacto
+- Los datos de contacto usados para convocatoria, consentimiento informado y seguimiento logístico deben vivir fuera del motor narrativo.
+- El backend narrativo solo debe operar con `pseudonym` y datos de sesión mínimos.
+- La tabla o repositorio de contacto debe tener acceso restringido y retención independiente.
+- Ver protocolos operativos: [P3-01_protocolo_reclutamiento_contacto_custodia.md](../Important%20decisions/P3-01_protocolo_reclutamiento_contacto_custodia.md) y [P3-02_matriz_responsabilidades.md](../Important%20decisions/P3-02_matriz_responsabilidades.md).
+
 Decisiones de diseño importantes
 - **Mapeos primarios (Designer)**: Las opciones deben estar pre‑mapeadas con `gds_mapping` JSONB cuando sea posible. Estructura: `[{ "item": 7, "weight": 0.8, "confidence": 0.9, "rationale": "social_engagement" }]`
 - **Mapeos secundarios (LLM)**: Llamadas post-hoc que se persisten en `clinical_mappings` con `mapping_source='llm'` y se comparan vs designer mappings.
