@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "dataset_name": "pilot_clinical_validation",
+    "dataset_version": "v1.0.0",
+    "pipeline_version": "psy-pipeline-v2026.04.1",
+    "rules_version": "rules-v2026.04.r1",
+    "threshold_version": "v2026_04_pilot_r1",
+    "run_date": "2026-04-25",
+    "thresholds": {
+      "PHQ9_ITEM9_SELFHARM": 0.18,
+      "GDS7_SOCIAL_ISOLATION": 0.26
+    },
+    "score_thresholds": {
+      "low": 0.3,
+      "moderate": 0.55,
+      "high": 0.78
+    },
+    "notes": "Pilot cohort labels curated from clinical reference interviews"
+  },
+  "records": [
+    {
+      "session_id": "11111111-1111-1111-1111-111111111111",
+      "pseudonym": "pilot_u01",
+      "cohort": "adultos_mayores",
+      "model_version": "model-risk-v3.2.1",
+      "risk_type": "PHQ9_ITEM9_SELFHARM",
+      "predicted_score": 0.11,
+      "reference_score": 0.08,
+      "reference_positive": false
+    },
+    {
+      "session_id": "11111111-1111-1111-1111-111111111112",
+      "pseudonym": "pilot_u02",
+      "cohort": "adultos_mayores",
+      "model_version": "model-risk-v3.2.1",
+      "risk_type": "PHQ9_ITEM9_SELFHARM",
+      "predicted_score": 0.31,
+      "reference_score": 0.46,
+      "reference_positive": true
+    },
+    {
+      "session_id": "11111111-1111-1111-1111-111111111113",
+      "pseudonym": "pilot_u03",
+      "cohort": "adultos_mayores",
+      "model_version": "model-risk-v3.2.1",
+      "risk_type": "PHQ9_ITEM9_SELFHARM",
+      "predicted_score": 0.22,
+      "reference_score": 0.27,
+      "reference_positive": true
+    },
+    {
+      "session_id": "11111111-1111-1111-1111-111111111114",
+      "pseudonym": "pilot_u04",
+      "cohort": "adultos_mayores",
+      "model_version": "model-risk-v3.2.1",
+      "risk_type": "PHQ9_ITEM9_SELFHARM",
+      "predicted_score": 0.15,
+      "reference_score": 0.21,
+      "reference_positive": true
+    },
+    {
+      "session_id": "11111111-1111-1111-1111-111111111115",
+      "pseudonym": "pilot_u05",
+      "cohort": "adultos_mayores",
+      "model_version": "model-risk-v3.1.0",
+      "risk_type": "GDS7_SOCIAL_ISOLATION",
+      "predicted_score": 0.32,
+      "reference_score": 0.34,
+      "reference_positive": true
+    },
+    {
+      "session_id": "11111111-1111-1111-1111-111111111116",
+      "pseudonym": "pilot_u06",
+      "cohort": "adultos_mayores",
+      "model_version": "model-risk-v3.1.0",
+      "risk_type": "GDS7_SOCIAL_ISOLATION",
+      "predicted_score": 0.19,
+      "reference_score": 0.14,
+      "reference_positive": false
+    },
+    {
+      "session_id": "11111111-1111-1111-1111-111111111117",
+      "pseudonym": "pilot_u07",
+      "cohort": "cuidadores",
+      "model_version": "model-risk-v3.2.1",
+      "risk_type": "PHQ9_ITEM9_SELFHARM",
+      "predicted_score": 0.29,
+      "reference_score": 0.37,
+      "reference_positive": true
+    },
+    {
+      "session_id": "11111111-1111-1111-1111-111111111118",
+      "pseudonym": "pilot_u08",
+      "cohort": "cuidadores",
+      "model_version": "model-risk-v3.2.1",
+      "risk_type": "PHQ9_ITEM9_SELFHARM",
+      "predicted_score": 0.12,
+      "reference_score": 0.09,
+      "reference_positive": false
+    },
+    {
+      "session_id": "11111111-1111-1111-1111-111111111119",
+      "pseudonym": "pilot_u09",
+      "cohort": "cuidadores",
+      "model_version": "model-risk-v3.1.0",
+      "risk_type": "GDS7_SOCIAL_ISOLATION",
+      "predicted_score": 0.24,
+      "reference_score": 0.31,
+      "reference_positive": true
+    },
+    {
+      "session_id": "11111111-1111-1111-1111-111111111120",
+      "pseudonym": "pilot_u10",
+      "cohort": "cuidadores",
+      "model_version": "model-risk-v3.1.0",
+      "risk_type": "GDS7_SOCIAL_ISOLATION",
+      "predicted_score": 0.28,
+      "reference_score": 0.18,
+      "reference_positive": false
+    },
+    {
+      "session_id": "11111111-1111-1111-1111-111111111121",
+      "pseudonym": "pilot_u11",
+      "cohort": "cuidadores",
+      "model_version": "model-risk-v3.1.0",
+      "risk_type": "GDS7_SOCIAL_ISOLATION",
+      "predicted_score": 0.35,
+      "reference_score": 0.33,
+      "reference_positive": true
+    },
+    {
+      "session_id": "11111111-1111-1111-1111-111111111122",
+      "pseudonym": "pilot_u12",
+      "cohort": "cuidadores",
+      "model_version": "model-risk-v3.1.0",
+      "risk_type": "GDS7_SOCIAL_ISOLATION",
+      "predicted_score": 0.09,
+      "reference_score": 0.12,
+      "reference_positive": false
+    }
+  ]
+}

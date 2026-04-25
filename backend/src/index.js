@@ -132,9 +132,9 @@ function classifyOptionTone(text) {
 }
 
 function getClinicalScoreThresholds() {
-  const low = normalizeUnitScore(process.env.CLINICAL_SCORE_THRESHOLD_LOW, 0.25);
-  const moderate = normalizeUnitScore(process.env.CLINICAL_SCORE_THRESHOLD_MODERATE, 0.5);
-  const high = normalizeUnitScore(process.env.CLINICAL_SCORE_THRESHOLD_HIGH, 0.75);
+  const low = normalizeUnitScore(process.env.CLINICAL_SCORE_THRESHOLD_LOW, 0.30);
+  const moderate = normalizeUnitScore(process.env.CLINICAL_SCORE_THRESHOLD_MODERATE, 0.55);
+  const high = normalizeUnitScore(process.env.CLINICAL_SCORE_THRESHOLD_HIGH, 0.78);
   return { low, moderate, high };
 }
 

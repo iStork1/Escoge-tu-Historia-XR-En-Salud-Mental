@@ -5,8 +5,8 @@
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
--- SETTINGS / CONSTANTS (adjust in migration or app config)
--- phq9_item9 risk threshold used by triggers/logic: 0.2
+-- SETTINGS / CONSTANTS
+-- Risk thresholds are versioned in clinical_thresholds and selected via active_threshold_versions.
 
 -- Users (separate identity table)
 CREATE TABLE IF NOT EXISTS users (
@@ -125,6 +125,87 @@ CREATE TABLE IF NOT EXISTS clinical_mappings (
   mapping_source VARCHAR(20) CHECK (mapping_source IN ('designer','llm','heuristic')) DEFAULT 'llm',
   source_confidence FLOAT,
   validated BOOLEAN DEFAULT FALSE
+);
+
+-- Threshold versions and values for risk detection/recalibration (post-pilot)
+CREATE TABLE IF NOT EXISTS active_threshold_versions (
+  threshold_domain VARCHAR(50) PRIMARY KEY,
+  threshold_version VARCHAR(50) NOT NULL,
+  activated_at TIMESTAMPTZ DEFAULT now(),
+  notes TEXT
+);
+
+CREATE TABLE IF NOT EXISTS clinical_thresholds (
+  threshold_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  threshold_domain VARCHAR(50) NOT NULL DEFAULT 'risk_detection',
+  threshold_version VARCHAR(50) NOT NULL,
+  risk_type VARCHAR(80) NOT NULL,
+  threshold_value NUMERIC NOT NULL,
+  score_min NUMERIC,
+  score_max NUMERIC,
+  calibrated_from_run_id UUID,
+  calibrated_at TIMESTAMPTZ DEFAULT now(),
+  rationale TEXT,
+  is_active BOOLEAN DEFAULT FALSE,
+  UNIQUE (threshold_domain, threshold_version, risk_type)
+);
+
+-- Psychometric validation pipeline metadata and run lineage
+CREATE TABLE IF NOT EXISTS psychometric_pipeline_versions (
+  pipeline_version_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  pipeline_version VARCHAR(50) UNIQUE NOT NULL,
+  model_version VARCHAR(50) NOT NULL,
+  rules_version VARCHAR(50) NOT NULL,
+  threshold_version VARCHAR(50) NOT NULL,
+  created_at TIMESTAMPTZ DEFAULT now(),
+  created_by VARCHAR(100),
+  notes TEXT,
+  config JSONB
+);
+
+CREATE TABLE IF NOT EXISTS psychometric_validation_datasets (
+  dataset_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  dataset_name VARCHAR(100) NOT NULL,
+  dataset_version VARCHAR(50) NOT NULL,
+  cohort VARCHAR(50) NOT NULL DEFAULT 'all',
+  source_reference TEXT,
+  created_at TIMESTAMPTZ DEFAULT now(),
+  metadata JSONB,
+  UNIQUE (dataset_name, dataset_version, cohort)
+);
+
+CREATE TABLE IF NOT EXISTS psychometric_validation_runs (
+  run_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  pipeline_version_id UUID NOT NULL REFERENCES psychometric_pipeline_versions(pipeline_version_id) ON DELETE RESTRICT,
+  dataset_id UUID NOT NULL REFERENCES psychometric_validation_datasets(dataset_id) ON DELETE RESTRICT,
+  executed_at TIMESTAMPTZ DEFAULT now(),
+  run_date DATE NOT NULL DEFAULT CURRENT_DATE,
+  cohort VARCHAR(50),
+  rules_version VARCHAR(50) NOT NULL,
+  threshold_version VARCHAR(50) NOT NULL,
+  model_version VARCHAR(50) NOT NULL,
+  parameters JSONB,
+  notes TEXT
+);
+
+CREATE TABLE IF NOT EXISTS psychometric_validation_results (
+  result_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  run_id UUID NOT NULL REFERENCES psychometric_validation_runs(run_id) ON DELETE CASCADE,
+  pipeline_version_id UUID NOT NULL REFERENCES psychometric_pipeline_versions(pipeline_version_id) ON DELETE RESTRICT,
+  session_id UUID REFERENCES sessions(session_id) ON DELETE SET NULL,
+  pseudonym VARCHAR(64),
+  cohort VARCHAR(50) NOT NULL,
+  model_version VARCHAR(50) NOT NULL,
+  rules_version VARCHAR(50) NOT NULL,
+  threshold_version VARCHAR(50) NOT NULL,
+  predicted_score NUMERIC NOT NULL,
+  threshold_used NUMERIC NOT NULL,
+  predicted_positive BOOLEAN NOT NULL,
+  reference_score NUMERIC,
+  reference_positive BOOLEAN NOT NULL,
+  confusion_bucket VARCHAR(2) CHECK (confusion_bucket IN ('TP','TN','FP','FN')),
+  created_at TIMESTAMPTZ DEFAULT now(),
+  metadata JSONB
 );
 
 -- Risk events table

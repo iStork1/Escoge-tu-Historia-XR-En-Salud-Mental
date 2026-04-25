@@ -5,6 +5,37 @@ This folder contains all database migration scripts for "Escoje tu Historia". Mi
 
 ## Current Migrations
 
+### 011_psychometric_pipeline_and_threshold_calibration.sql 🆕
+**Status**: Ready to apply after `010_risk_operational_flow.sql`
+
+**What it does**:
+- Adds versioned threshold tables (`active_threshold_versions`, `clinical_thresholds`) for risk detection and score banding.
+- Adds psychometric validation lineage tables:
+  - `psychometric_pipeline_versions`
+  - `psychometric_validation_datasets`
+  - `psychometric_validation_runs`
+  - `psychometric_validation_results`
+- Seeds calibrated pilot thresholds (`v2026_04_pilot_r1` for risk detection, `v2026_04_score_r1` for score banding) and activates them.
+- Replaces `fn_clinical_mappings_after_insert()` so SQL risk detection uses active calibrated thresholds, not hardcoded constants.
+
+**Why this matters**:
+- Enables reproducible psychometric validation runs.
+- Guarantees each clinical validation result is traceable to one concrete pipeline, rules version, threshold version, and run date.
+- Keeps threshold calibration consistent between code outputs and SQL-triggered risk events.
+
+**Verify it worked**:
+```sql
+SELECT threshold_domain, threshold_version FROM active_threshold_versions;
+
+SELECT risk_type, threshold_value, threshold_version, is_active
+FROM clinical_thresholds
+WHERE threshold_domain IN ('risk_detection', 'score_banding');
+
+SELECT table_name
+FROM information_schema.tables
+WHERE table_name LIKE 'psychometric_validation_%' OR table_name = 'psychometric_pipeline_versions';
+```
+
 ### 009_stable_scores_and_dashboard_metrics.sql 🆕
 **Status**: Ready to apply after `008_prune_optional_tables.sql`
 

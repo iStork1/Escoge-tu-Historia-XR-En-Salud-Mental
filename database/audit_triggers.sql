@@ -2,19 +2,53 @@
 
 -- ===== RISK DETECTION TRIGGERS =====
 
+-- Resolve threshold from active threshold version with fallback value.
+CREATE OR REPLACE FUNCTION fn_get_active_clinical_threshold(
+  p_risk_type TEXT,
+  p_default NUMERIC,
+  p_domain TEXT DEFAULT 'risk_detection'
+)
+RETURNS NUMERIC AS $$
+DECLARE
+  v_threshold NUMERIC;
+BEGIN
+  SELECT ct.threshold_value
+  INTO v_threshold
+  FROM clinical_thresholds ct
+  JOIN active_threshold_versions atv
+    ON atv.threshold_domain = ct.threshold_domain
+   AND atv.threshold_version = ct.threshold_version
+  WHERE ct.threshold_domain = p_domain
+    AND ct.risk_type = p_risk_type
+    AND ct.is_active = TRUE
+  ORDER BY ct.calibrated_at DESC
+  LIMIT 1;
+
+  RETURN COALESCE(v_threshold, p_default);
+END;
+$$ LANGUAGE plpgsql;
+
 -- Function: on insert into clinical_mappings, detect PHQ9 item 9 and GDS item 7 risk
 CREATE OR REPLACE FUNCTION fn_clinical_mappings_after_insert()
 RETURNS TRIGGER AS $$
+DECLARE
+  v_score NUMERIC;
+  v_threshold_phq9 NUMERIC;
+  v_threshold_gds7 NUMERIC;
 BEGIN
+  v_score := (COALESCE(NEW.weight,0) * COALESCE(NEW.confidence,0));
+  v_threshold_phq9 := fn_get_active_clinical_threshold('PHQ9_ITEM9_SELFHARM', 0.2);
+  v_threshold_gds7 := fn_get_active_clinical_threshold('GDS7_SOCIAL_ISOLATION', 0.3);
+
   -- If mapping is PHQ item 9 and weight*confidence >= 0.2 -> create risk_event
-  IF (NEW.scale = 'PHQ' AND NEW.item = 9 AND (COALESCE(NEW.weight,0) * COALESCE(NEW.confidence,0)) >= 0.2) THEN
+  IF (NEW.scale = 'PHQ' AND NEW.item = 9 AND v_score >= v_threshold_phq9) THEN
     INSERT INTO risk_events(session_id, decision_id, risk_type, score, threshold_used, action_taken, notified)
     SELECT
       d.session_id,
       NEW.decision_id,
       'PHQ9_ITEM9_SELFHARM',
-      (COALESCE(NEW.weight,0) * COALESCE(NEW.confidence,0)),
-      0.2,
+      v_score,
+      v_threshold_phq9,
       'AUTO_INSERT',
       FALSE
     FROM decisions d
@@ -22,14 +56,14 @@ BEGIN
   END IF;
   
   -- If mapping is GDS item 7 (social engagement) and weight*confidence >= 0.3 -> create risk_event
-  IF (NEW.scale = 'GDS' AND NEW.item = 7 AND (COALESCE(NEW.weight,0) * COALESCE(NEW.confidence,0)) >= 0.3) THEN
+  IF (NEW.scale = 'GDS' AND NEW.item = 7 AND v_score >= v_threshold_gds7) THEN
     INSERT INTO risk_events(session_id, decision_id, risk_type, score, threshold_used, action_taken, notified)
     SELECT
       d.session_id,
       NEW.decision_id,
       'GDS7_SOCIAL_ISOLATION',
-      (COALESCE(NEW.weight,0) * COALESCE(NEW.confidence,0)),
-      0.3,
+      v_score,
+      v_threshold_gds7,
       'AUTO_INSERT',
       FALSE
     FROM decisions d

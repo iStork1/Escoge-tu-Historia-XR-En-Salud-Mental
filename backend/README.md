@@ -59,6 +59,34 @@ Recommended SLA env vars
 - `RISK_CLOSURE_SLA_MINUTES`
 - `OPERATIONS_API_KEY` or `DASHBOARD_API_KEY` for dashboard access
 
+Psychometric validation pipeline (P2)
+- `npm run psychometrics:run` executes a reproducible pilot analysis over `backend/content/validation/pilot_validation_dataset.v1.json`.
+- Output JSON artifact: `backend/content/validation/psychometric_metrics.latest.json`.
+- The report includes:
+  - Correlation (Pearson), sensitivity, specificity, precision, accuracy.
+  - Confusion matrix (`TP`, `TN`, `FP`, `FN`) per cohort and model version.
+  - Run traceability fields (`run_id`, `pipeline_version`, `rules_version`, `threshold_version`, `model_version`).
+- Override paths:
+
+```bash
+npm run psychometrics:run -- --dataset ./content/validation/pilot_validation_dataset.v1.json --output ./content/validation/psychometric_metrics.custom.json
+```
+
+P2 schema/migration assets
+- `database/migrations/011_psychometric_pipeline_and_threshold_calibration.sql`
+  - Adds versioned pipeline tables and traceability (`psychometric_pipeline_versions`, datasets, runs, results).
+  - Adds threshold versioning (`clinical_thresholds`, `active_threshold_versions`) for risk detection and score banding.
+  - Applies calibrated pilot thresholds in SQL for risk detection and score classification consistency.
+
+Calibrated pilot thresholds (v2026_04)
+- Risk detection (SQL + dataset + pipeline report):
+  - `PHQ9_ITEM9_SELFHARM = 0.18`
+  - `GDS7_SOCIAL_ISOLATION = 0.26`
+- Score levels (backend defaults + SQL score_banding domain):
+  - `low = 0.30`
+  - `moderate = 0.55`
+  - `high = 0.78`
+
 LLM Arc Workflow (Prompt 1 + Prompt 2)
 
 - POST `/llm/arcs/plan`

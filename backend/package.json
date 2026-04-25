@@ -9,7 +9,8 @@
     "test:p0": "node --test tests/p0-regression.test.js",
     "risk:worker": "node src/risk-worker.js",
     "risk:worker:once": "RISK_WORKER_ONCE=true node src/risk-worker.js",
-    "test:p1": "node --test tests/p1-operational.test.js"
+    "test:p1": "node --test tests/p1-operational.test.js",
+    "psychometrics:run": "node scripts/run-psychometric-pipeline.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.95.3",
