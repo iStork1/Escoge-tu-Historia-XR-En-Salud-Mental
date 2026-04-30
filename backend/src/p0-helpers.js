@@ -230,7 +230,12 @@ async function verifyAlexaRequest({ headers = {}, rawBody = '', now = Date.now, 
   }, {});
 
   const signature = normalizedHeaders['x-amzn-signature'] || normalizedHeaders.signature || null;
-  const certUrl = normalizedHeaders['x-amzn-signature-cert-chain-url'] || normalizedHeaders['x-amzn-signature-certchainurl'] || null;
+  const certUrl =
+    normalizedHeaders['x-amzn-signature-cert-chain-url'] ||
+    normalizedHeaders['x-amzn-signature-certchainurl'] ||
+    normalizedHeaders.signaturecertchainurl ||
+    normalizedHeaders['signature-cert-chain-url'] ||
+    null;
 
   if (!signature || !certUrl) {
     return { valid: false, statusCode: 401, error: 'missing Alexa signature headers' };

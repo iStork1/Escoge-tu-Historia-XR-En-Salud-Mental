@@ -129,8 +129,8 @@ Continuity between weeks
 Alexa Request Verification
 
 All Alexa requests to the skill must be verified for authenticity. The backend validates:
-1. Request signature (X-Alexa-Signature header)
-2. Certificate chain validity (X-Alexa-Signature-Certificate-Chain-Url)
+1. Request signature (`Signature` / `x-amzn-signature` header)
+2. Certificate chain validity (`SignatureCertChainUrl` / `x-amzn-signature-cert-chain-url` header)
 3. Timestamp freshness (within ±150 seconds)
 
 Currently, the `/alexa` endpoint uses the `alexaResponse()` helper which wraps responses in SSML tags to support audio effects (breaks, prosody, whispered). **Note:** The verification middleware should be enforced before processing intent logic in production.

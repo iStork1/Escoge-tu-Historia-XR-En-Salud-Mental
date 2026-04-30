@@ -1616,21 +1616,65 @@ async function handleAlexa(req, res) {
     try {
       body = rawBody ? JSON.parse(rawBody) : {};
     } catch (parseErr) {
-      res.writeHead(400, { 'Content-Type': 'application/json' });
-      return res.end(JSON.stringify({ error: 'invalid Alexa JSON body' }));
+      console.error('JSON parse error:', parseErr.message);
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      const errorResp = {
+        version: '1.0',
+        response: {
+          outputSpeech: { type: 'PlainText', text: 'Error al procesar la solicitud. Por favor intenta de nuevo.' },
+          shouldEndSession: true
+        },
+        sessionAttributes: {}
+      };
+      return res.end(JSON.stringify(errorResp));
     }
 
     console.log('alexa request received');
     console.log(JSON.stringify(body));
     if (!body || !body.request) {
-      res.writeHead(400, {'Content-Type':'application/json'});
-      return res.end(JSON.stringify({ error: 'not an Alexa request' }));
+      console.warn('Invalid Alexa request structure');
+      res.writeHead(200, {'Content-Type':'application/json'});
+      const errorResp = {
+        version: '1.0',
+        response: {
+          outputSpeech: { type: 'PlainText', text: 'No se reconoce como solicitud válida.' },
+          shouldEndSession: true
+        },
+        sessionAttributes: {}
+      };
+      return res.end(JSON.stringify(errorResp));
     }
 
-    const verification = await verifyAlexaRequest({ headers: req.headers, rawBody });
-    if (!verification.valid) {
-      res.writeHead(verification.statusCode || 401, { 'Content-Type': 'application/json' });
-      return res.end(JSON.stringify({ error: verification.error || 'unauthorized Alexa request' }));
+    // In dev mode, skip verification
+    const DISABLE_ALEXA_VERIFICATION = String(process.env.DISABLE_ALEXA_VERIFICATION || 'false').toLowerCase() === 'true';
+    if (!DISABLE_ALEXA_VERIFICATION) {
+      const hasSignatureHeader = Boolean(req.headers?.signature || req.headers?.['x-amzn-signature']);
+      const hasCertChainHeader = Boolean(
+        req.headers?.signaturecertchainurl ||
+        req.headers?.['x-amzn-signature-cert-chain-url'] ||
+        req.headers?.['x-amzn-signature-certchainurl']
+      );
+      console.log('[alexa] signature headers present:', {
+        signature: hasSignatureHeader,
+        certChainUrl: hasCertChainHeader
+      });
+      const verification = await verifyAlexaRequest({ headers: req.headers, rawBody });
+      if (!verification.valid) {
+        console.warn('Alexa verification failed:', verification.error);
+        // Always return 200 with valid Alexa response, even on verification failure
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        const errorResp = {
+          version: '1.0',
+          response: {
+            outputSpeech: { type: 'PlainText', text: 'No se pudo verificar tu solicitud. Por favor intenta de nuevo.' },
+            shouldEndSession: true
+          },
+          sessionAttributes: {}
+        };
+        return res.end(JSON.stringify(errorResp));
+      }
+    } else {
+      console.log('⚠️  DISABLE_ALEXA_VERIFICATION is true; skipping signature verification for testing');
     }
 
     const noResponsePrompt = 'Si quieres continuar, responde ahora. Si no, vuelve pronto.';
@@ -1687,6 +1731,48 @@ async function handleAlexa(req, res) {
       return resp;
     }
 
+    function alexaElicitPseudonym(text, sessionAttributes = {}, repromptText = null) {
+      const stripSsml = (value) => String(value || '')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+      const plainText = trimAlexaText(stripSsml(text), MAX_ALEXA_TEXT_CHARS);
+      const resp = {
+        version: '1.0',
+        response: {
+          outputSpeech: { type: 'PlainText', text: plainText },
+          shouldEndSession: false,
+          directives: [
+            {
+              type: 'Dialog.ElicitSlot',
+              slotToElicit: 'pseudonym',
+              updatedIntent: {
+                name: 'PseudonymIntent',
+                confirmationStatus: 'NONE',
+                slots: {
+                  pseudonym: {
+                    name: 'pseudonym',
+                    confirmationStatus: 'NONE'
+                  }
+                }
+              }
+            }
+          ]
+        },
+        sessionAttributes
+      };
+
+      if (repromptText) {
+        resp.response.reprompt = {
+          outputSpeech: { type: 'PlainText', text: trimAlexaText(stripSsml(repromptText), MAX_REPROMPT_CHARS) }
+        };
+      }
+
+      try { console.log('alexa response (elicit pseudonym) =>', JSON.stringify(resp)); } catch (e) { console.log('alexa response (elicit pseudonym, err stringify)'); }
+      return resp;
+    }
+
     const sessionAttrs = (body.session && body.session.attributes) ? body.session.attributes : {};
 
     if (body.request.type === 'SessionEndedRequest') {
@@ -1721,8 +1807,9 @@ async function handleAlexa(req, res) {
       // Start mini-login flow
       const sa = Object.assign({}, sessionAttrs, { stage: 'login' });
       const speech = 'Bienvenido a Escoge tu Historia. Para comenzar, dime tu pseudónimo.';
+      const loginReprompt = 'Dime tu pseudónimo, por ejemplo Felipe.';
       res.writeHead(200, {'Content-Type':'application/json'});
-      return res.end(JSON.stringify(alexaResponse(speech, sa, false, true, noResponsePrompt)));
+      return res.end(JSON.stringify(alexaElicitPseudonym(speech, sa, loginReprompt)));
     }
 
     if (body.request.type === 'IntentRequest') {
@@ -1753,12 +1840,14 @@ async function handleAlexa(req, res) {
           const pn = String(pseudonym).slice(0,64);
           const sa = Object.assign({}, sessionAttrs, { stage: 'confirm_pseudonym', pending_pseudonym: pn });
           const speech = `Dijiste ${pn}. ¿Es correcto tu pseudónimo? Di sí o no.`;
+          const confirmReprompt = 'Responde sí para confirmar tu pseudónimo, o no para cambiarlo.';
           res.writeHead(200, {'Content-Type':'application/json'});
-          return res.end(JSON.stringify(alexaResponse(speech, sa, false, true, noResponsePrompt)));
+          return res.end(JSON.stringify(alexaResponse(speech, sa, false, true, confirmReprompt)));
         }
         // If no pseudonym provided, reprompt
+        const loginReprompt = 'Dime tu pseudónimo, por ejemplo Felipe.';
         res.writeHead(200, {'Content-Type':'application/json'});
-        return res.end(JSON.stringify(alexaResponse('No entendí tu pseudónimo. Por favor dilo de nuevo.', sessionAttrs, false, true, noResponsePrompt)));
+        return res.end(JSON.stringify(alexaElicitPseudonym('No entendí tu pseudónimo. Por favor dilo de nuevo.', sessionAttrs, loginReprompt)));
       }
 
       if (sessionAttrs.stage === 'confirm_pseudonym') {
@@ -1779,8 +1868,9 @@ async function handleAlexa(req, res) {
         if (isNo) {
           const sa = Object.assign({}, sessionAttrs, { stage: 'login', pending_pseudonym: null, pseudonym: null });
           const speech = 'De acuerdo. Dime tu pseudónimo de nuevo.';
+          const loginReprompt = 'Dime tu pseudónimo, por ejemplo Felipe.';
           res.writeHead(200, {'Content-Type':'application/json'});
-          return res.end(JSON.stringify(alexaResponse(speech, sa, false, true, noResponsePrompt)));
+          return res.end(JSON.stringify(alexaElicitPseudonym(speech, sa, loginReprompt)));
         }
 
         if (isYes) {
@@ -1796,12 +1886,14 @@ async function handleAlexa(req, res) {
 
           const sa = Object.assign({}, sessionAttrs, { stage: 'consent', pseudonym: pn, pending_pseudonym: null });
           const speech = `Hola ${pn}. Antes de continuar, das tu consentimiento para registrar tu progreso? Di sí o no.`;
+          const consentReprompt = 'Responde sí para dar consentimiento, o no para salir.';
           res.writeHead(200, {'Content-Type':'application/json'});
-          return res.end(JSON.stringify(alexaResponse(speech, sa, false, true, noResponsePrompt)));
+          return res.end(JSON.stringify(alexaResponse(speech, sa, false, true, consentReprompt)));
         }
 
+        const confirmReprompt = 'Responde sí para confirmar tu pseudónimo, o no para cambiarlo.';
         res.writeHead(200, {'Content-Type':'application/json'});
-        return res.end(JSON.stringify(alexaResponse('Por favor responde sí o no.', sessionAttrs, false, true, noResponsePrompt)));
+        return res.end(JSON.stringify(alexaResponse('Por favor responde sí o no.', sessionAttrs, false, true, confirmReprompt)));
       }
 
       // Scheduling decision: handle reminder confirmation
@@ -2183,8 +2275,9 @@ async function handleAlexa(req, res) {
           return res.end(JSON.stringify(alexaResponse('Entiendo. Si cambias de opinión, vuelve cuando quieras.', {}, true)));
         }
         // Reprompt for consent
+        const consentReprompt = 'Responde sí para dar consentimiento, o no para salir.';
         res.writeHead(200, {'Content-Type':'application/json'});
-        return res.end(JSON.stringify(alexaResponse('Por favor responde sí o no.', sessionAttrs, false, true, noResponsePrompt)));
+        return res.end(JSON.stringify(alexaResponse('Por favor responde sí o no.', sessionAttrs, false, true, consentReprompt)));
       }
 
       // Scene interaction: expect an intent that selects an option (we accept any intent name as option)
@@ -2695,7 +2788,18 @@ async function handleAlexa(req, res) {
   } catch (err) {
     console.error('alexa error', err);
     res.writeHead(500, {'Content-Type':'application/json'});
-    return res.end(JSON.stringify({ error: err.message || String(err) }));
+     const errorResp = {
+       version: '1.0',
+       response: {
+         outputSpeech: {
+           type: 'PlainText',
+           text: 'Lo sentimos, hubo un error. Por favor intenta de nuevo más tarde.'
+         },
+         shouldEndSession: true
+       },
+       sessionAttributes: {}
+     };
+     return res.end(JSON.stringify(errorResp));
   }
 }
 

@@ -154,9 +154,9 @@
         {
           "name": "OptionNumber",
           "values": [
-            {"name": {"value": "uno", "synonyms": ["1", "primera", "primero", "opción 1"]}},
-            {"name": {"value": "dos", "synonyms": ["2", "segunda", "segundo", "opción 2"]}},
-            {"name": {"value": "tres", "synonyms": ["3", "tercera", "tercero", "opción 3"]}}
+            { "name": { "value": "uno", "synonyms": ["1", "primera", "primero", "opción 1"] } },
+            { "name": { "value": "dos", "synonyms": ["2", "segunda", "segundo", "opción 2"] } },
+            { "name": { "value": "tres", "synonyms": ["3", "tercera", "tercero", "opción 3"] } }
           ]
         }
       ]
@@ -178,8 +178,7 @@
               }
             }
           ]
-        }
-        ,
+        },
         {
           "name": "ChooseOptionIntent",
           "confirmationRequired": false,
@@ -204,10 +203,9 @@
         "id": "Elicit.PseudonymIntent.pseudonym",
         "variations": [
           { "type": "PlainText", "value": "¿Cómo te llamas?" },
-          { "type": "PlainText", "value": "Dime tu nombre, por favor." }
+          { "type": "PlainText", "value": "Dime tu pseudónimo, por favor." }
         ]
-      }
-      ,
+      },
       {
         "id": "Elicit.ChooseOptionIntent.option",
         "variations": [
