@@ -1631,6 +1631,7 @@ async function handleAlexa(req, res) {
 
     console.log('alexa request received');
     console.log(JSON.stringify(body));
+    try { console.log('alexa headers:', JSON.stringify(req.headers)); } catch (e) {}
     if (!body || !body.request) {
       console.warn('Invalid Alexa request structure');
       res.writeHead(200, {'Content-Type':'application/json'});
@@ -1711,6 +1712,29 @@ async function handleAlexa(req, res) {
       if (punctuationIdx >= 120) return cut.slice(0, punctuationIdx + 1).trim();
       return `${cut.trim()}...`;
     }
+    function buildAlexaSceneSpeech(sceneText = '', options = [], extraTail = '', maxChars = MAX_ALEXA_TEXT_CHARS) {
+      const labels = ['uno', 'dos', 'tres'];
+      const optionLines = (options || []).slice(0, 3).map((o, i) => `${labels[i]}. ${o.option_text}`);
+      const tailText = String(extraTail || '').trim();
+      const reservedForOptions = optionLines.join('. ').length + (tailText ? tailText.length + 1 : 0) + 40;
+      const narrativeBudget = Math.max(180, maxChars - reservedForOptions);
+      const safeNarrative = trimAlexaText(sceneText, narrativeBudget);
+      let speech = safeNarrative;
+      if (optionLines.length > 0) {
+        speech += (speech ? ' ' : '') + optionLines.join('. ');
+      }
+      if (tailText) {
+        speech += (speech ? ' ' : '') + tailText;
+      }
+      return trimAlexaText(speech, maxChars);
+    }
+
+    function normalizeSceneIdFallback(sceneId) {
+      const raw = String(sceneId || '').trim();
+      if (!raw) return null;
+      const base = raw.replace(/[ab]$/i, '');
+      return base !== raw ? base : null;
+    }
 
     // Helpers for Alexa responses
     function alexaResponse(text, sessionAttributes = {}, shouldEndSession = false, isNarrative = true, repromptText = null) {
@@ -1774,6 +1798,7 @@ async function handleAlexa(req, res) {
     }
 
     const sessionAttrs = (body.session && body.session.attributes) ? body.session.attributes : {};
+    try { console.log('alexa request summary', { type: body.request && body.request.type ? body.request.type : null, intent: (body.request && body.request.intent && body.request.intent.name) ? body.request.intent.name : null, inputTranscript: body.request && body.request.inputTranscript ? body.request.inputTranscript : null, sessionAttrs }); } catch (e) {}
 
     if (body.request.type === 'SessionEndedRequest') {
       try {
@@ -2253,14 +2278,12 @@ async function handleAlexa(req, res) {
             const rawOpts = firstScene.options || [];
             const opts = rawOpts.slice(0, 3).map((o, idx) => ({ option_id: o.option_id, option_text: o.option_text, index: idx + 1, next_chapter_id: o.next_chapter_id || null, next_scene_id: o.next_scene_id || null }));
             // Build speech: scene text + enumerated options
-            let sceneSpeech = `${firstScene.text} `;
-            if (opts.length > 0) {
-              const labels = ['uno', 'dos', 'tres'];
-              sceneSpeech += opts.map((o, i) => `${labels[i]}. ${o.option_text}`).join('. ');
-              if (opts.length === 1) sceneSpeech += ' Di "uno" o "continuar" para elegir.';
-              else if (opts.length === 2) sceneSpeech += ' Di "uno" o "dos" para elegir.';
-              else sceneSpeech += ' Di "uno", "dos" o "tres" para elegir.';
-            }
+            const sceneTail = opts.length === 1
+              ? 'Di opción uno o continuar para elegir.'
+              : (opts.length === 2
+                ? 'Di opción uno u opción dos para elegir.'
+                : 'Di opción uno, opción dos u opción tres para elegir.');
+            const sceneSpeech = buildAlexaSceneSpeech(firstScene.text, opts, sceneTail, MAX_ALEXA_TEXT_CHARS);
             const sa2 = Object.assign({}, sa, { current_scene_id: firstScene.scene_id, current_options: opts });
             res.writeHead(200, {'Content-Type':'application/json'});
             return res.end(JSON.stringify(alexaResponse(sceneSpeech, sa2, false, true, noResponsePrompt)));
@@ -2295,7 +2318,7 @@ async function handleAlexa(req, res) {
         }
 
         const sceneRepromptText = opts.length > 0
-          ? 'Elige una opción. Di uno, dos o tres.'
+          ? 'Elige una opción. Di opción uno, opción dos u opción tres.'
           : noResponsePrompt;
         
         try { console.log('scene debug - inputTranscript:', inputTranscript || '(none)'); } catch (e) {}
@@ -2345,12 +2368,13 @@ async function handleAlexa(req, res) {
 
                     const nextChapterIdForSession = autoNextChapter ? autoNextChapter.chapter_id : sessionAttrs.chapter_id;
                     const saAuto = Object.assign({}, sessionAttrs, {
+                      stage: 'scene',
                       chapter_id: nextChapterIdForSession,
                       current_scene_id: autoNextScene.scene_id,
                       current_options: autoOpts
                     });
                     res.writeHead(200, {'Content-Type':'application/json'});
-                    const repromptAuto = autoOpts.length > 0 ? 'Elige una opción. Di uno, dos o tres.' : noResponsePrompt;
+                    const repromptAuto = autoOpts.length > 0 ? 'Elige una opción. Di opción uno, opción dos u opción tres.' : noResponsePrompt;
                     return res.end(JSON.stringify(alexaResponse(autoSpeech, saAuto, false, true, repromptAuto)));
                   }
                 }
@@ -2422,6 +2446,17 @@ async function handleAlexa(req, res) {
                 const resolved = await resolveOrGenerateNextScene(sessionAttrs.session_id || null, sessionAttrs.chapter_id, nextSceneId);
                 nextChapter = resolved.nextChapter;
                 nextScene = resolved.nextScene;
+                if (!nextScene) {
+                  const fallbackSceneId = normalizeSceneIdFallback(nextSceneId);
+                  if (fallbackSceneId) {
+                    const fallbackResolved = await resolveOrGenerateNextScene(sessionAttrs.session_id || null, sessionAttrs.chapter_id, fallbackSceneId);
+                    if (fallbackResolved && fallbackResolved.nextScene) {
+                      console.warn('scene fallback used for missing branch id', { requested: nextSceneId, fallback: fallbackSceneId });
+                      nextChapter = fallbackResolved.nextChapter;
+                      nextScene = fallbackResolved.nextScene;
+                    }
+                  }
+                }
               }
 
               const advanced = await advanceToPlayableScene(
@@ -2438,19 +2473,17 @@ async function handleAlexa(req, res) {
                 .map(s => String(s && s.text || '').trim())
                 .filter(Boolean);
 
-              let nextSpeech = '';
-              if (consequence) nextSpeech += `${consequence} `;
-              if (nextChapterId && nextChapter) nextSpeech += `Capítulo ${nextChapter.order || ''}: ${nextChapter.title}. `;
-              if (traversedTexts.length > 0) nextSpeech += `${traversedTexts.join(' ')} `;
-              if (nextOpts.length > 0) {
-                const labels = ['uno', 'dos', 'tres'];
-                nextSpeech += nextOpts.map((o, i) => `${labels[i]}. ${o.option_text}`).join('. ');
-              }
+              const nextSpeechBase = [
+                consequence || '',
+                nextChapterId && nextChapter ? `Capítulo ${nextChapter.order || ''}: ${nextChapter.title}.` : '',
+                traversedTexts.length > 0 ? traversedTexts.join(' ') : ''
+              ].filter(Boolean).join(' ');
+              const nextSpeech = buildAlexaSceneSpeech(nextSpeechBase, nextOpts, '', MAX_ALEXA_TEXT_CHARS);
 
               const chapterId = nextChapter ? nextChapter.chapter_id : sessionAttrs.chapter_id;
               const sa3 = Object.assign({}, sessionAttrs, { chapter_id: chapterId, stage: 'scene', current_scene_id: nextScene.scene_id, current_options: nextOpts, last_decision: chosenOpt.option_id });
               res.writeHead(200, {'Content-Type':'application/json'});
-              const reprompt = nextOpts.length > 0 ? 'Elige una opción. Di uno, dos o tres.' : noResponsePrompt;
+              const reprompt = nextOpts.length > 0 ? 'Elige una opción. Di opción uno, opción dos u opción tres.' : noResponsePrompt;
               return res.end(JSON.stringify(alexaResponse(nextSpeech, sa3, false, true, reprompt)));
             } else {
               const finalSpeech = consequence || 'Continuamos...';
@@ -2615,6 +2648,17 @@ async function handleAlexa(req, res) {
             const resolved = await resolveOrGenerateNextScene(sessionAttrs.session_id || null, sessionAttrs.chapter_id, nextSceneId);
             nextChapter = resolved.nextChapter;
             nextScene = resolved.nextScene;
+            if (!nextScene) {
+              const fallbackSceneId = normalizeSceneIdFallback(nextSceneId);
+              if (fallbackSceneId) {
+                const fallbackResolved = await resolveOrGenerateNextScene(sessionAttrs.session_id || null, sessionAttrs.chapter_id, fallbackSceneId);
+                if (fallbackResolved && fallbackResolved.nextScene) {
+                  console.warn('scene fallback used for missing branch id', { requested: nextSceneId, fallback: fallbackSceneId });
+                  nextChapter = fallbackResolved.nextChapter;
+                  nextScene = fallbackResolved.nextScene;
+                }
+              }
+            }
           } else if (nextChapterId) {
             // Inter-chapter navigation: move to first scene of next chapter
             nextChapter = findChapter(nextChapterId);
@@ -2721,13 +2765,14 @@ async function handleAlexa(req, res) {
               }
 
               const saNew = Object.assign({}, sessionAttrs, {
+                stage: 'scene',
                 chapter_id: nextAutoChapter.chapter_id,
                 current_scene_id: nextAutoScene.scene_id,
                 current_options: nextOpts,
                 last_decision: chosenOpt.option_id
               });
               res.writeHead(200, {'Content-Type':'application/json'});
-              const repromptNext = nextOpts.length > 0 ? 'Elige una opción. Di uno, dos o tres.' : noResponsePrompt;
+              const repromptNext = nextOpts.length > 0 ? 'Elige una opción. Di opción uno, opción dos u opción tres.' : noResponsePrompt;
               return res.end(JSON.stringify(alexaResponse(nextSpeech, saNew, false, true, repromptNext)));
             }
 
@@ -2766,7 +2811,7 @@ async function handleAlexa(req, res) {
           }
           
           const chapterId = nextChapter ? nextChapter.chapter_id : sessionAttrs.chapter_id;
-          const saNew = Object.assign({}, sessionAttrs, { current_scene_id: nextScene.scene_id, current_options: nextOpts, chapter_id: chapterId, last_decision: chosenOpt.option_id });
+          const saNew = Object.assign({}, sessionAttrs, { stage: 'scene', current_scene_id: nextScene.scene_id, current_options: nextOpts, chapter_id: chapterId, last_decision: chosenOpt.option_id });
           res.writeHead(200, {'Content-Type':'application/json'});
           return res.end(JSON.stringify(alexaResponse(nextSpeech, saNew, false, true, noResponsePrompt)));
         } catch (err) {

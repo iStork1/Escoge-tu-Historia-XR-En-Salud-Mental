@@ -18,7 +18,7 @@
               "option_text": "Leer la tarjeta con atención y curiosidad",
               "consequence": "Rosa lee la tarjeta despacio, dos veces. 'Jardín vecinal', dice. No promete nada, pero algo en ella se despierta un poco.",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s02a",
+              "next_scene_id": "c01-s02",
               "gds_mapping": [
                 {
                   "item": 2,
@@ -40,7 +40,7 @@
               "option_text": "Dejar la tarjeta para después y asomarse a la ventana",
               "consequence": "Rosa deja la tarjeta en la mesa y mira el barrio por la ventana. Los vecinos salen al trabajo. Todo transcurre como siempre.",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s02a",
+              "next_scene_id": "c01-s02",
               "gds_mapping": [
                 {
                   "item": 4,
@@ -62,7 +62,7 @@
               "option_text": "Guardar la tarjeta en el cajón sin leerla",
               "consequence": "Rosa guarda la tarjeta sin abrirla. El cajón se cierra. El piso sigue igual que ayer.",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s02b",
+              "next_scene_id": "c01-s02",
               "gds_mapping": [
                 {
                   "item": 3,
@@ -298,7 +298,7 @@
               "option_text": "Decidir que va el miércoles, sin más dudas",
               "consequence": "Rosa deja las semillas sobre la mesa, en un lugar visible. Mañana busca los guantes.",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s07a",
+              "next_scene_id": "c01-s07",
               "gds_mapping": [
                 {
                   "item": 2,
@@ -320,7 +320,7 @@
               "option_text": "Guardar las semillas y decidir mañana con calma",
               "consequence": "Rosa guarda las semillas con cuidado. No sabe si irá, pero tampoco las bota. Las deja ahí, como una posibilidad.",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s07a",
+              "next_scene_id": "c01-s07",
               "gds_mapping": [
                 {
                   "item": 6,
@@ -343,7 +343,7 @@
               "option_text": "Dejar las semillas y decirse que esto no es para ella",
               "consequence": "Rosa pone las semillas en el cajón con la tarjeta. Se dice que fue amable recibir a Don Hernando pero que el jardín es para otros.",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s07b",
+              "next_scene_id": "c01-s07",
               "gds_mapping": [
                 {
                   "item": 8,
@@ -542,7 +542,7 @@
               "option_text": "Llorar sin disculparse y agradecer a Don Hernando",
               "consequence": "Las lágrimas vienen solas. Don Hernando no dice nada. Le pone una mano en el hombro y espera. Rosa llora y luego respira.",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s11a",
+              "next_scene_id": "c01-s10",
               "gds_mapping": [
                 {
                   "item": 11,
@@ -565,7 +565,7 @@
               "option_text": "Sonreír y quedarse en silencio, sintiendo el momento",
               "consequence": "Rosa sonríe aunque tiene los ojos húmedos. No dice nada. Mira el bancal y siente que algo encaja en su lugar.",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s11a",
+              "next_scene_id": "c01-s10",
               "gds_mapping": [
                 {
                   "item": 1,
@@ -587,7 +587,7 @@
               "option_text": "Sentir culpa profunda por no haber venido antes",
               "consequence": "Rosa siente un peso en el pecho. 'Dos años perdidos. Dos años sin venir.' La revelación que debería traer paz trae en cambio reproche.",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s11b",
+              "next_scene_id": "c01-s10",
               "gds_mapping": [
                 {
                   "item": 12,
@@ -709,7 +709,7 @@
               "option_text": "Acercarse y presentarse, invitarla a su bancal",
               "consequence": "Rosa se levanta y camina hacia Doña Esther. 'Bienvenida. Yo también llegué así al principio. Venga, le muestro.'",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s14",
+              "next_scene_id": "c01-s12",
               "gds_mapping": [
                 {
                   "item": 7,
@@ -731,7 +731,7 @@
               "option_text": "Esperar a que alguien más del grupo la reciba",
               "consequence": "Rosa observa cómo Sofía se acerca a saludar a Doña Esther. Se dice que no era necesario que fuera ella.",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s14",
+              "next_scene_id": "c01-s12",
               "gds_mapping": [
                 {
                   "item": 6,
@@ -754,7 +754,7 @@
               "option_text": "Solo saludarla de lejos y seguir con su trabajo",
               "consequence": "Rosa levanta la mano en señal de saludo y vuelve a su bancal. Le parece que los demás siempre saben qué hacer mejor que ella.",
               "next_chapter_id": null,
-              "next_scene_id": "c01-s14",
+              "next_scene_id": "c01-s12",
               "gds_mapping": [
                 {
                   "item": 15,

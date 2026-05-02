@@ -37,7 +37,6 @@
             { "name": "option", "type": "OptionNumber" }
           ],
           "samples": [
-            "{option}",
             "opción {option}",
             "elijo {option}",
             "escojo la opción {option}",
