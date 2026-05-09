@@ -14,7 +14,9 @@
             "empezar la historia",
             "abre el capítulo {chapterNumber}",
             "quiero el capítulo {chapterName}",
-            "dame el capítulo {chapterNumber}"
+            "dame el capítulo {chapterNumber}",
+            "comencemos",
+            "quiero jugar"
           ]
         },
         {
@@ -28,7 +30,8 @@
             "mi nombre es {pseudonym}",
             "es {pseudonym}",
             "nombre {pseudonym}",
-            "llámame {pseudonym}"
+            "llámame {pseudonym}",
+            "me dicen {pseudonym}"
           ]
         },
         {
@@ -48,7 +51,9 @@
             "número {option}",
             "elige {option}",
             "escojo {option}",
-            "quiero {option}"
+            "quiero {option}",
+            "me voy con {option}",
+            "voy con la {option}"
           ]
         },
         {
@@ -110,7 +115,8 @@
           "samples": [
             "continuar",
             "reanudar",
-            "sigue"
+            "sigue",
+            "dale"
           ]
         },
         {
@@ -118,7 +124,8 @@
           "samples": [
             "repite",
             "otra vez por favor",
-            "puedes repetir eso"
+            "puedes repetir eso",
+            "no escuché bien"
           ]
         },
         {
@@ -126,7 +133,8 @@
           "samples": [
             "ayuda",
             "qué puedo decir",
-            "ayúdame"
+            "ayúdame",
+            "no sé qué hacer"
           ]
         },
         {
@@ -157,8 +165,29 @@
         },
         { "name": "AMAZON.YesIntent" },
         { "name": "AMAZON.NoIntent" },
-        { "name": "AMAZON.StopIntent" },
-        { "name": "AMAZON.CancelIntent" },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": [
+            "para",
+            "parar",
+            "quiero parar",
+            "detener",
+            "salir",
+            "quiero salir",
+            "terminar",
+            "quiero terminar",
+            "finalizar",
+            "adiós",
+            "chao"
+          ]
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": [
+            "cancelar",
+            "cancela"
+          ]
+        },
         { "name": "AMAZON.HelpIntent" },
         { "name": "AMAZON.FallbackIntent" },
         { "name": "AMAZON.RepeatIntent" }
@@ -217,7 +246,7 @@
         "id": "Elicit.PseudonymIntent.pseudonym",
         "variations": [
           { "type": "PlainText", "value": "¿Cómo te llamas?" },
-          { "type": "PlainText", "value": "Dime tu pseudónimo, por favor." }
+          { "type": "PlainText", "value": "Dime tu nombre, por favor." }
         ]
       },
       {

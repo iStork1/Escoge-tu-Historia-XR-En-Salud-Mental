@@ -1,0 +1,892 @@
+{
+  "chapters": [
+    {
+      "chapter_id": "c01",
+      "title": "La mogolla del martes",
+      "protagonist": "Guadalupe",
+      "protagonist_nickname": "Lupe",
+      "protagonist_gender": "female",
+      "protagonist_age": 68,
+      "setting": "Medellín, Colombia",
+      "order": 1,
+      "scenes": [
+        {
+          "scene_id": "c01-s01",
+          "title": "El olor de la mañana",
+          "hero_stage": "1_ordinary_world",
+          "type": "playable",
+          "order": 1,
+          "text": "Doña Lupe sale a tirar la basura y el olor la detiene en el andén: pan recién horneado, canela, algo caliente desde la esquina. La panadería del barrio lleva semanas con un letrero nuevo en el aparador. Lupe lleva la bolsa colgada en la muñeca y mira hacia el letrero sin terminar de leerlo.",
+          "options": [
+            {
+              "option_id": "c01-s01-o1",
+              "option_text": "Caminar hasta el letrero a leerlo",
+              "consequence": "Lupe cruza la calle. El letrero dice: 'Taller de cocina comunitaria, martes 10 am, Casa Comunal Aranjuez'. El olor a pan la envuelve.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s02",
+              "gds_mapping": [
+                { "item": 2, "weight": 0.20, "confidence": 0.85, "rationale": "curiosity_new_activity_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": -0.20, "confidence": 0.80, "rationale": "interest_initiation_protective" }
+              ]
+            },
+            {
+              "option_id": "c01-s01-o2",
+              "option_text": "Quedarse leyendo desde lejos",
+              "consequence": "Lupe no alcanza a leer bien desde el andén. Descifra 'martes' y 'cocina'. Tira la basura y vuelve a entrar. El olor se queda en el corredor.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s02",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.35, "confidence": 0.80, "rationale": "mild_inaction_boredom_signal" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s01-o3",
+              "option_text": "Ignorarlo y subir al apartamento",
+              "consequence": "Lupe sube sin mirar más. El apartamento huele a encerrado. Se sienta en el sillón y prende la tele. El olor a pan ya no llega.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s02",
+              "gds_mapping": [
+                { "item": 3, "weight": 0.70, "confidence": 0.90, "rationale": "empty_life_preference_for_closed_space" },
+                { "item": 9, "weight": 0.55, "confidence": 0.85, "rationale": "withdrawal_from_external_stimuli" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": 0.45, "confidence": 0.80, "rationale": "anhedonia_ignoring_pleasant_stimulus" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s02",
+          "title": "Rebeca en el mostrador",
+          "hero_stage": "2_call_to_adventure",
+          "type": "playable",
+          "order": 2,
+          "text": "Al día siguiente Lupe entra a la panadería a comprar una mogolla. Rebeca, la dueña, la atiende con delantal manchado de harina. '¿Vio el letrero, doña? El taller empieza en diez minutos aquí a la vuelta. Viene gente de su edad, está muy bueno.' Le dice mientras envuelve el pan.",
+          "options": [
+            {
+              "option_id": "c01-s02-o1",
+              "option_text": "Preguntar más detalles del taller",
+              "consequence": "Rebeca suelta el pan y habla con las manos: instructora joven, todo gratis, ya van doce personas. Lupe escucha y algo en su pecho se mueve.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s03",
+              "gds_mapping": [
+                { "item": 13, "weight": 0.15, "confidence": 0.85, "rationale": "energy_interest_in_information_inverse" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s02-o2",
+              "option_text": "Agradecer y decir que lo pensará",
+              "consequence": "Lupe toma su mogolla y asiente sin comprometerse. Rebeca le sonríe de todas formas. El pan está caliente todavía.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s03",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.30, "confidence": 0.75, "rationale": "indecision_mild_avoidance" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s02-o3",
+              "option_text": "Decir que no le interesan esas cosas",
+              "consequence": "Rebeca no insiste. Le da su cambio. Lupe sale con la mogolla en la mano, pero el sabor que anticipa ya no es el mismo.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s03",
+              "gds_mapping": [
+                { "item": 2, "weight": 0.65, "confidence": 0.85, "rationale": "withdrawal_from_activities_self_exclusion" },
+                { "item": 6, "weight": 0.50, "confidence": 0.80, "rationale": "happiness_absent_dismissal_of_pleasure" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": 0.40, "confidence": 0.80, "rationale": "anhedonia_active_rejection_of_activity" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s03",
+          "title": "La llamada sin contestar",
+          "hero_stage": "3_refusal_of_the_call",
+          "type": "playable",
+          "order": 3,
+          "text": "De vuelta en el apartamento, Lupe mira el celular. Sus hijos no han llamado en tres días. Podría llamarles ella para contarles lo del taller. O podría simplemente quedarse. La mogolla está sobre la mesa. El taller empieza en siete minutos.",
+          "options": [
+            {
+              "option_id": "c01-s03-o1",
+              "option_text": "Salir ya sin llamar a nadie",
+              "consequence": "Lupe agarra el bolso y las llaves. Cierra con dos vueltas. En la calle el sol le da en la cara y por un momento olvida que iba sola.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s04",
+              "gds_mapping": [
+                { "item": 5, "weight": 0.15, "confidence": 0.85, "rationale": "mood_action_initiative_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 4, "weight": -0.25, "confidence": 0.80, "rationale": "energy_to_act_without_external_validation" }
+              ]
+            },
+            {
+              "option_id": "c01-s03-o2",
+              "option_text": "Llamar a un hijo antes de decidir",
+              "consequence": "El celular repica cuatro veces. Buzón de voz. Lupe deja un mensaje corto y sale de todas formas, con el celular en el bolsillo.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s04",
+              "gds_mapping": [
+                { "item": 11, "weight": 0.25, "confidence": 0.80, "rationale": "need_for_external_support_mild_dependency" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s03-o3",
+              "option_text": "Quedarse esperando que llamen ellos",
+              "consequence": "Lupe se sienta junto al celular. Pasan diez minutos. Nadie llama. El taller ya empezó sin ella. La mogolla se enfría en la mesa.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s04",
+              "gds_mapping": [
+                { "item": 3, "weight": 0.65, "confidence": 0.85, "rationale": "empty_life_passive_waiting" },
+                { "item": 14, "weight": 0.55, "confidence": 0.80, "rationale": "memory_concern_passive_rumination" }
+              ],
+              "phq_mapping": [
+                { "item": 3, "weight": 0.40, "confidence": 0.80, "rationale": "sleep_and_inertia_pattern_signal" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s04",
+          "title": "La señora del delantal",
+          "hero_stage": "4_meeting_the_mentor",
+          "type": "playable",
+          "order": 4,
+          "text": "Frente a la Casa Comunal hay una señora de setenta y tantos, con delantal de flores y cara de no tener miedo a nada. Ve a Lupe dudar en el andén y le dice: 'Venga, no muerde. Yo tampoco conocía a nadie la primera vez.' Huele a vainilla desde adentro.",
+          "options": [
+            {
+              "option_id": "c01-s04-o1",
+              "option_text": "Entrar con ella presentándose",
+              "consequence": "La señora se llama Esperanza. Le aprieta el brazo al entrar. La sala huele a masa y a tinto. Hay sillas en círculo.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s05",
+              "gds_mapping": [
+                { "item": 11, "weight": 0.15, "confidence": 0.85, "rationale": "social_connection_positive_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 2, "weight": -0.25, "confidence": 0.80, "rationale": "hopeful_social_moment_protective" }
+              ]
+            },
+            {
+              "option_id": "c01-s04-o2",
+              "option_text": "Entrar pero sin responder mucho",
+              "consequence": "Lupe entra sin decir su nombre. Asiente con la cabeza. Esperanza no pregunta más. El tinto huele a casa de su madre.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s05",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.25, "confidence": 0.75, "rationale": "reserved_engagement_mild_withdrawal" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s04-o3",
+              "option_text": "Decirle que no, que ya se va",
+              "consequence": "Lupe da un paso atrás. 'Gracias, pero tengo pendientes.' Esperanza no insiste. Lupe camina de regreso sola, con el olor a vainilla siguiéndola.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s05",
+              "gds_mapping": [
+                { "item": 9, "weight": 0.65, "confidence": 0.85, "rationale": "helplessness_refusing_support" },
+                { "item": 7, "weight": 0.60, "confidence": 0.85, "rationale": "preference_for_isolation_over_group" }
+              ],
+              "phq_mapping": [
+                { "item": 6, "weight": 0.45, "confidence": 0.80, "rationale": "self_worth_avoidance_of_connection" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s05",
+          "title": "El umbral de la Casa Comunal",
+          "hero_stage": "5_crossing_threshold",
+          "type": "playable",
+          "order": 5,
+          "text": "Dentro, la instructora Valentina organiza las mesas con harina y tazones. Hay doce personas. Algunas se conocen, otras no. Valentina la ve entrar y le señala un lugar libre junto a una ventana. La silla está fría. El tazón ya tiene harina dentro.",
+          "options": [
+            {
+              "option_id": "c01-s05-o1",
+              "option_text": "Sentarse y presentarse a la vecina",
+              "consequence": "La vecina es Yolanda, ex-modista. Le estrecha la mano con fuerza. La harina en el tazón huele a domingo.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s06",
+              "gds_mapping": [
+                { "item": 5, "weight": 0.15, "confidence": 0.85, "rationale": "social_initiative_good_mood_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": -0.20, "confidence": 0.80, "rationale": "interest_and_engagement_protective" }
+              ]
+            },
+            {
+              "option_id": "c01-s05-o2",
+              "option_text": "Sentarse en silencio y esperar",
+              "consequence": "Lupe se sienta sin presentarse. Pone las manos sobre el tazón. El frío de la sala va desapareciendo poco a poco mientras llegan más personas.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s06",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.30, "confidence": 0.75, "rationale": "passive_participation_mild_detachment" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s05-o3",
+              "option_text": "Quedarse de pie sin sentarse",
+              "consequence": "Lupe no se sienta. Se queda cerca de la puerta. Valentina la mira pero no dice nada. El tazón espera vacío en la mesa.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s06",
+              "gds_mapping": [
+                { "item": 9, "weight": 0.60, "confidence": 0.85, "rationale": "helplessness_difficulty_committing" },
+                { "item": 3, "weight": 0.50, "confidence": 0.80, "rationale": "emptiness_not_belonging_signal" }
+              ],
+              "phq_mapping": [
+                { "item": 2, "weight": 0.40, "confidence": 0.80, "rationale": "depressed_mood_avoidance_of_participation" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s06",
+          "title": "Manos en la masa",
+          "hero_stage": "6_tests_allies_enemies",
+          "type": "playable",
+          "order": 6,
+          "text": "Valentina explica el proceso: mezclar, amasar diez minutos, reposar. Demuestra con manos expertas. La masa hace un sonido suave al golpear la mesa. Lupe mira el tazón frente a ella. Tiene harina, sal, levadura y agua tibia. 'Échenle ganas', dice Valentina.",
+          "options": [
+            {
+              "option_id": "c01-s06-o1",
+              "option_text": "Empezar a mezclar con entusiasmo",
+              "consequence": "Lupe hunde los dedos en la harina. La mezcla se pega al principio. El olor a levadura le recuerda la cocina de su abuela.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s07",
+              "gds_mapping": [
+                { "item": 13, "weight": 0.15, "confidence": 0.85, "rationale": "energy_engagement_activity_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 4, "weight": -0.25, "confidence": 0.80, "rationale": "physical_energy_protective" }
+              ]
+            },
+            {
+              "option_id": "c01-s06-o2",
+              "option_text": "Mezclar despacio siguiendo el ejemplo",
+              "consequence": "Lupe sigue los movimientos de Valentina, más lenta pero constante. La masa va tomando forma. Yolanda le dice que va bien.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s07",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.25, "confidence": 0.75, "rationale": "cautious_participation_mild_self_doubt" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s06-o3",
+              "option_text": "Dejar el tazón y decir que no puede",
+              "consequence": "Lupe aparta el tazón. 'No soy buena para esto.' Valentina la mira pero no la obliga. El tazón queda en el centro de la mesa, solo.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s07",
+              "gds_mapping": [
+                { "item": 14, "weight": 0.65, "confidence": 0.85, "rationale": "worthlessness_giving_up_self_limitation" },
+                { "item": 6, "weight": 0.55, "confidence": 0.85, "rationale": "happiness_absent_premature_withdrawal" }
+              ],
+              "phq_mapping": [
+                { "item": 4, "weight": 0.50, "confidence": 0.85, "rationale": "fatigue_low_energy_self_limitation" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s07",
+          "title": "La masa que no sube",
+          "hero_stage": "7_approach_inner_cave",
+          "type": "playable",
+          "order": 7,
+          "text": "Valentina revisa las masas del grupo. La de Lupe está densa, no esponjosa. 'Le faltó un poco más de agua', dice sin regañar. Yolanda ya tiene la suya perfecta. Lupe mira su masa como si le hubiera fallado a alguien.",
+          "options": [
+            {
+              "option_id": "c01-s07-o1",
+              "option_text": "Pedir a Valentina que le ayude a corregirla",
+              "consequence": "Valentina añade agua tibia y amasan juntas un momento. La masa empieza a responder. 'Ya ve, no era tan difícil.'",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s08",
+              "gds_mapping": [
+                { "item": 11, "weight": 0.15, "confidence": 0.85, "rationale": "help_seeking_positive_coping_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 6, "weight": -0.25, "confidence": 0.80, "rationale": "self_worth_recovery_with_support" }
+              ]
+            },
+            {
+              "option_id": "c01-s07-o2",
+              "option_text": "Seguir amasando sola para arreglarlo",
+              "consequence": "Lupe trabaja la masa con más fuerza. Los brazos le duelen un poco. La masa mejora algo. No es perfecta, pero es suya.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s08",
+              "gds_mapping": [
+                { "item": 13, "weight": 0.25, "confidence": 0.80, "rationale": "perseverance_mild_self_pressure" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s07-o3",
+              "option_text": "Dejar la masa y mirar hacia la ventana",
+              "consequence": "Lupe cruza los brazos y mira hacia afuera. La calle sigue igual. Piensa que quizá cocinar no es para ella tampoco. Yolanda no dice nada.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s08",
+              "gds_mapping": [
+                { "item": 3, "weight": 0.65, "confidence": 0.85, "rationale": "emptiness_sense_of_failure_withdrawal" },
+                { "item": 14, "weight": 0.55, "confidence": 0.80, "rationale": "memory_and_concentration_giving_up" }
+              ],
+              "phq_mapping": [
+                { "item": 6, "weight": 0.50, "confidence": 0.85, "rationale": "self_worth_failure_generalization" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s08",
+          "title": "La mogolla torcida",
+          "hero_stage": "8_ordeal_crisis",
+          "type": "playable",
+          "order": 8,
+          "text": "La mogolla de Lupe sale del horno torcida y pequeña. La de Yolanda parece de panadería. Valentina las pone a todas en una canasta y dice que cada una se lleva la suya. Alguien del grupo se ríe sin querer. Lupe mira su mogolla en la canasta.",
+          "options": [
+            {
+              "option_id": "c01-s08-o1",
+              "option_text": "Reírse también y tomarlo con humor",
+              "consequence": "'Es la mía, la conozco por la joroba', dice Lupe. El grupo ríe. Valentina le da la mogolla y ella la sostiene caliente entre las manos.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s09",
+              "gds_mapping": [
+                { "item": 6, "weight": 0.15, "confidence": 0.85, "rationale": "happiness_ability_to_laugh_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 2, "weight": -0.30, "confidence": 0.85, "rationale": "mood_resilience_humor_protective" }
+              ]
+            },
+            {
+              "option_id": "c01-s08-o2",
+              "option_text": "Tomar la mogolla sin decir nada",
+              "consequence": "Lupe recoge la mogolla en silencio. La envuelve en la servilleta de papel. Caliente en la mano, aunque torcida.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s09",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.30, "confidence": 0.75, "rationale": "passive_acceptance_mild_discomfort" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s08-o3",
+              "option_text": "Dejar la mogolla y levantarse a salir",
+              "consequence": "Lupe no la toca. Se levanta diciendo que tiene que irse. La mogolla queda en la canasta. Valentina la mira pero no llama.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s09",
+              "gds_mapping": [
+                { "item": 14, "weight": 0.75, "confidence": 0.90, "rationale": "worthlessness_abandonment_after_failure" },
+                { "item": 9, "weight": 0.60, "confidence": 0.85, "rationale": "helplessness_escape_response" }
+              ],
+              "phq_mapping": [
+                { "item": 6, "weight": 0.55, "confidence": 0.85, "rationale": "low_self_worth_failure_intolerance" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s09",
+          "title": "El camino a casa",
+          "hero_stage": "9_reward_resolution",
+          "type": "playable",
+          "order": 9,
+          "text": "Lupe camina de vuelta con la mogolla envuelta en la mano. La calle del mediodía tiene ruido de la galería y huele a cilantro. Valentina dijo que el próximo martes harán almojábanas. Lupe llega a la puerta de su edificio y busca las llaves en el bolso.",
+          "options": [
+            {
+              "option_id": "c01-s09-o1",
+              "option_text": "Anotar el martes siguiente en el celular",
+              "consequence": "Lupe saca el celular y pone un recordatorio: 'Taller almojábanas 10am'. La mogolla sigue caliente. Hay algo que ya es diferente.",
+              "next_chapter_id": null,
+              "next_scene_id": null,
+              "gds_mapping": [
+                { "item": 1, "weight": 0.15, "confidence": 0.85, "rationale": "life_satisfaction_future_planning_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": -0.35, "confidence": 0.85, "rationale": "anhedonia_reduction_planning_ahead" }
+              ]
+            },
+            {
+              "option_id": "c01-s09-o2",
+              "option_text": "Comer la mogolla antes de subir",
+              "consequence": "Lupe desenvuelve la mogolla en la puerta. Está buena, aunque torcida. Se la termina ahí parada. Sube con las manos vacías pero algo más ligeras.",
+              "next_chapter_id": null,
+              "next_scene_id": null,
+              "gds_mapping": [
+                { "item": 5, "weight": 0.20, "confidence": 0.80, "rationale": "present_pleasure_mild_satisfaction" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s09-o3",
+              "option_text": "Tirar la mogolla en el camino",
+              "consequence": "Lupe la deja en el suelo junto a la caneca. Sube al apartamento. No marca nada en el celular. El silencio de la sala la recibe igual que siempre.",
+              "next_chapter_id": null,
+              "next_scene_id": null,
+              "gds_mapping": [
+                { "item": 3, "weight": 0.75, "confidence": 0.90, "rationale": "empty_life_discarding_own_achievement" },
+                { "item": 7, "weight": 0.60, "confidence": 0.85, "rationale": "withdrawal_returning_to_isolation" }
+              ],
+              "phq_mapping": [
+                { "item": 2, "weight": 0.50, "confidence": 0.85, "rationale": "hopelessness_discarding_positive_experience" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "c02",
+      "title": "Las almojábanas del martes",
+      "protagonist": "Guadalupe",
+      "protagonist_nickname": "Lupe",
+      "protagonist_gender": "female",
+      "protagonist_age": 68,
+      "setting": "Medellín, Colombia",
+      "order": 2,
+      "scenes": [
+        {
+          "scene_id": "c02-s01",
+          "title": "El lunes antes del martes",
+          "hero_stage": "1_ordinary_world",
+          "type": "playable",
+          "order": 1,
+          "text": "Doña Lupe lleva el lunes sin saber bien si ir al taller el martes. La mogolla torcida que hizo la semana pasada está en el refrigerador, todavía envuelta en papel. Sus hijos no han llamado. El celular está en silencio sobre la mesa.",
+          "options": [
+            {
+              "option_id": "c02-s01-o1",
+              "option_text": "Llamar a Yolanda para ver si ella va",
+              "consequence": "Yolanda contesta al segundo repique. 'Claro que voy, doña Lupe, y usted también.' La voz de Yolanda tiene algo que mueve.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s02",
+              "gds_mapping": [
+                { "item": 11, "weight": 0.15, "confidence": 0.85, "rationale": "social_connection_seeking_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": -0.20, "confidence": 0.80, "rationale": "interest_social_initiative_protective" }
+              ]
+            },
+            {
+              "option_id": "c02-s01-o2",
+              "option_text": "Preparar la bolsa para ir sin llamar a nadie",
+              "consequence": "Lupe saca el bolso del clóset. Lo deja sobre la cama. Todavía no es un sí, pero tampoco un no.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s02",
+              "gds_mapping": [
+                { "item": 13, "weight": 0.15, "confidence": 0.85, "rationale": "energy_preparation_initiative_inverse" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s01-o3",
+              "option_text": "Decidir que ese taller no es para ella",
+              "consequence": "Lupe guarda el celular en el cajón. 'Para qué voy si no sirvo.' El refrigerador zumba. La mogolla sigue adentro.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s02",
+              "gds_mapping": [
+                { "item": 2, "weight": 0.65, "confidence": 0.85, "rationale": "withdrawal_self_exclusion_from_activity" },
+                { "item": 12, "weight": 0.55, "confidence": 0.80, "rationale": "worthlessness_preemptive_self_rejection" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": 0.45, "confidence": 0.80, "rationale": "anhedonia_active_dismissal_of_activity" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c02-s02",
+          "title": "La mogolla del desayuno",
+          "hero_stage": "2_call_to_adventure",
+          "type": "playable",
+          "order": 2,
+          "text": "El martes por la mañana Lupe calienta un tinto y saca la mogolla del refrigerador. La parte. Está buena, aunque torcida. El tinto huele a casa. En diez minutos Valentina empieza el taller a la vuelta.",
+          "options": [
+            {
+              "option_id": "c02-s02-o1",
+              "option_text": "Comerse la mogolla y salir de una",
+              "consequence": "Lupe mastica rápido. Se limpia las manos. Agarra el bolso. Afuera el sol de Medellín ya calienta el andén.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s03",
+              "gds_mapping": [
+                { "item": 5, "weight": 0.15, "confidence": 0.85, "rationale": "good_spirits_decisive_action_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 4, "weight": -0.25, "confidence": 0.80, "rationale": "energy_to_act_protective" }
+              ]
+            },
+            {
+              "option_id": "c02-s02-o2",
+              "option_text": "Comerse la mogolla y ver si hay tiempo",
+              "consequence": "Lupe come despacio. Mira el reloj. Quedan cinco minutos. Si sale corriendo llega.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s03",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.30, "confidence": 0.75, "rationale": "hesitation_mild_procrastination" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s02-o3",
+              "option_text": "Dejar la mogolla y quedarse viendo la tele",
+              "consequence": "Lupe deja la mogolla a medio comer. Prende la tele. Las noticias empiezan. El taller arranca sin ella.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s03",
+              "gds_mapping": [
+                { "item": 6, "weight": 0.60, "confidence": 0.85, "rationale": "happiness_absent_choosing_passive_activity" },
+                { "item": 3, "weight": 0.50, "confidence": 0.80, "rationale": "empty_life_passive_substitution" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": 0.45, "confidence": 0.80, "rationale": "anhedonia_avoidance_of_engagement" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c02-s03",
+          "title": "Rodrigo en el andén",
+          "hero_stage": "3_refusal_of_the_call",
+          "type": "playable",
+          "order": 3,
+          "text": "En el andén, Lupe se encuentra con Rodrigo, su hijo menor, que sale a trabajar. '¿Adónde va tan temprano, mamá?' Lupe le dice que al taller de cocina. Rodrigo asiente pero no pregunta más. Se va rápido.",
+          "options": [
+            {
+              "option_id": "c02-s03-o1",
+              "option_text": "Contarle lo que aprendió la semana pasada",
+              "consequence": "Lupe le cuenta de la mogolla. Rodrigo se detiene un segundo. 'Ah, qué bueno, mamá.' Algo en eso la empuja a seguir caminando.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s04",
+              "gds_mapping": [
+                { "item": 5, "weight": 0.15, "confidence": 0.85, "rationale": "good_spirits_sharing_with_family_inverse" },
+                { "item": 11, "weight": 0.15, "confidence": 0.80, "rationale": "social_connection_family_positive_inverse" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s03-o2",
+              "option_text": "Decirle solo que va a un taller y seguir",
+              "consequence": "Lupe hace un gesto con la mano. 'Un taller, nada.' Rodrigo se va. Lupe sigue sola hacia la Casa Comunal.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s04",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.25, "confidence": 0.75, "rationale": "emotional_reserve_mild_disconnection" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s03-o3",
+              "option_text": "Cambiar de ruta para que no la vea ir sola",
+              "consequence": "Lupe da la vuelta por la cuadra de atrás. Le da vergüenza que la vean sola a su edad. Llega cinco minutos tarde.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s04",
+              "gds_mapping": [
+                { "item": 15, "weight": 0.65, "confidence": 0.85, "rationale": "social_comparison_shame_avoidance" },
+                { "item": 7, "weight": 0.55, "confidence": 0.80, "rationale": "withdrawal_hiding_from_social_judgment" }
+              ],
+              "phq_mapping": [
+                { "item": 6, "weight": 0.45, "confidence": 0.80, "rationale": "self_worth_shame_about_solitude" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c02-s04",
+          "title": "Doña Esperanza de vuelta",
+          "hero_stage": "4_meeting_the_mentor",
+          "type": "playable",
+          "order": 4,
+          "text": "En la puerta de la Casa Comunal, Doña Esperanza la está esperando con un delantal limpio y cara de buenas noticias. 'Doña Lupe, hoy hacemos almojábanas. Traje queso costeño.' Lupe huele el queso desde donde está.",
+          "options": [
+            {
+              "option_id": "c02-s04-o1",
+              "option_text": "Entrar con ella preguntando de qué son las almojábanas",
+              "consequence": "Esperanza le explica caminando: masa de maíz, queso, huevo. 'Las mejores son las de mi mamá.' Lupe entra sin darse cuenta.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s05",
+              "gds_mapping": [
+                { "item": 2, "weight": 0.15, "confidence": 0.85, "rationale": "curiosity_new_knowledge_inverse" },
+                { "item": 11, "weight": 0.15, "confidence": 0.80, "rationale": "social_connection_with_mentor_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": -0.20, "confidence": 0.80, "rationale": "interest_initiation_protective" }
+              ]
+            },
+            {
+              "option_id": "c02-s04-o2",
+              "option_text": "Entrar despacio sin preguntar nada",
+              "consequence": "Lupe sigue a Esperanza sin decir nada. La sala huele a queso caliente. Yolanda ya está sentada adentro.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s05",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.25, "confidence": 0.75, "rationale": "passive_following_mild_detachment" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s04-o3",
+              "option_text": "Decir que no sabe si tiene tiempo y quedarse en la puerta",
+              "consequence": "Lupe se para en el umbral. 'No sé si puedo quedarme mucho.' Esperanza la mira. 'Entre, que ya está aquí.'",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s05",
+              "gds_mapping": [
+                { "item": 9, "weight": 0.60, "confidence": 0.85, "rationale": "helplessness_ambivalence_at_threshold" },
+                { "item": 7, "weight": 0.50, "confidence": 0.80, "rationale": "social_withdrawal_despite_presence" }
+              ],
+              "phq_mapping": [
+                { "item": 2, "weight": 0.40, "confidence": 0.80, "rationale": "depressed_mood_reluctance_to_commit" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c02-s05",
+          "title": "El taller lleno",
+          "hero_stage": "5_crossing_threshold",
+          "type": "playable",
+          "order": 5,
+          "text": "Hoy hay más gente que la semana pasada: quince personas. Valentina organiza a todos en mesas de tres. Lupe queda con Yolanda y con una señora nueva, Doña Carmen del piso cuatro, que llegó por recomendación de su médica.",
+          "options": [
+            {
+              "option_id": "c02-s05-o1",
+              "option_text": "Presentarse a Doña Carmen antes de que empiece",
+              "consequence": "Carmen le aprieta la mano. 'Mi médica me mandó aquí.' Lupe le dice que ella también llegó sin saber bien por qué. Las dos se ríen.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s06",
+              "gds_mapping": [
+                { "item": 5, "weight": 0.15, "confidence": 0.85, "rationale": "social_initiative_good_spirits_inverse" },
+                { "item": 11, "weight": 0.15, "confidence": 0.80, "rationale": "social_connection_new_person_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 2, "weight": -0.20, "confidence": 0.80, "rationale": "mood_social_warmth_protective" }
+              ]
+            },
+            {
+              "option_id": "c02-s05-o2",
+              "option_text": "Saludar a Yolanda y esperar que empiece",
+              "consequence": "Yolanda le guarda el puesto. Lupe se sienta. Carmen llega y saluda sola. Valentina empieza a hablar.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s06",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.25, "confidence": 0.75, "rationale": "passive_participation_mild_reserve" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s05-o3",
+              "option_text": "Quedarse en la silla sin hablar con nadie",
+              "consequence": "Lupe pone el bolso en las rodillas. Mira el tazón vacío. Yolanda la saluda y ella asiente. La sala llena de voces le parece lejana.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s06",
+              "gds_mapping": [
+                { "item": 7, "weight": 0.60, "confidence": 0.85, "rationale": "social_withdrawal_despite_proximity" },
+                { "item": 3, "weight": 0.50, "confidence": 0.80, "rationale": "emptiness_feeling_alone_in_group" }
+              ],
+              "phq_mapping": [
+                { "item": 2, "weight": 0.40, "confidence": 0.80, "rationale": "depressed_mood_social_disconnection" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c02-s06",
+          "title": "La masa de almojábana",
+          "hero_stage": "6_tests_allies_enemies",
+          "type": "playable",
+          "order": 6,
+          "text": "La almojábana lleva maíz molido, queso blanco, huevo y poca sal. Es diferente a la del pan. Valentina dice que la clave es no trabajar mucho la masa. Doña Carmen mezcla con velocidad. Yolanda ya tiene la suya lista. El tazón de Lupe tiene los ingredientes sin mezclar.",
+          "options": [
+            {
+              "option_id": "c02-s06-o1",
+              "option_text": "Mezclar con calma siguiendo lo que dijo Valentina",
+              "consequence": "Lupe mezcla con movimientos suaves. El queso se integra con la masa. Huele a algo que conoce pero no puede nombrar.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s07",
+              "gds_mapping": [
+                { "item": 13, "weight": 0.15, "confidence": 0.85, "rationale": "energy_engaged_activity_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 4, "weight": -0.25, "confidence": 0.80, "rationale": "physical_energy_applied_productive" }
+              ]
+            },
+            {
+              "option_id": "c02-s06-o2",
+              "option_text": "Mezclar rápido para alcanzar a las otras",
+              "consequence": "Lupe apura los movimientos. La masa queda un poco densa. Valentina le dice que no importa, que se arregla sola en el horno.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s07",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.30, "confidence": 0.75, "rationale": "anxiety_about_pace_mild_self_pressure" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s06-o3",
+              "option_text": "Pedirle a Yolanda que haga la suya también",
+              "consequence": "Yolanda mezcla sin quejas. Pero cuando termina mira a Lupe. 'Doña, la suya la tiene que hacer usted.' Lupe baja los ojos.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s07",
+              "gds_mapping": [
+                { "item": 14, "weight": 0.60, "confidence": 0.85, "rationale": "worthlessness_dependency_avoidance_of_task" },
+                { "item": 9, "weight": 0.50, "confidence": 0.80, "rationale": "helplessness_outsourcing_own_activity" }
+              ],
+              "phq_mapping": [
+                { "item": 4, "weight": 0.45, "confidence": 0.80, "rationale": "fatigue_low_motivation_avoidance" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c02-s07",
+          "title": "El comentario de Doña Carmen",
+          "hero_stage": "7_approach_inner_cave",
+          "type": "playable",
+          "order": 7,
+          "text": "Doña Carmen mira el tazón de Lupe y dice, sin mala intención: 'A la suya le falta más queso, ¿no ve que la mía quedó más amarilla?' Valentina no escuchó. Yolanda sí. La almojábana de Lupe ya está formada.",
+          "options": [
+            {
+              "option_id": "c02-s07-o1",
+              "option_text": "Decir que sí, que ya lo sabe, y seguir",
+              "consequence": "Lupe asiente y no cambia nada. Cuando salen del horno, la de ella también queda dorada. No tan amarilla, pero dorada.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s08",
+              "gds_mapping": [
+                { "item": 12, "weight": 0.15, "confidence": 0.85, "rationale": "self_worth_maintained_under_comment_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 6, "weight": -0.25, "confidence": 0.80, "rationale": "self_worth_resilience_protective" }
+              ]
+            },
+            {
+              "option_id": "c02-s07-o2",
+              "option_text": "Agradecer el comentario y no cambiar nada",
+              "consequence": "Lupe dice gracias sin mover un músculo. Carmen vuelve a su tazón. Yolanda le hace un gesto de 'tranquila'.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s08",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.25, "confidence": 0.75, "rationale": "passive_acceptance_mild_irritation" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s07-o3",
+              "option_text": "Deshacer la almojábana y empezar de nuevo",
+              "consequence": "Lupe aplasta la masa. La rehace. Carmen no lo esperaba. Valentina viene a ver. La almojábana nueva queda igual que la primera.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s08",
+              "gds_mapping": [
+                { "item": 14, "weight": 0.65, "confidence": 0.85, "rationale": "worthlessness_perfectionism_after_criticism" },
+                { "item": 9, "weight": 0.55, "confidence": 0.80, "rationale": "helplessness_excessive_response_to_comment" }
+              ],
+              "phq_mapping": [
+                { "item": 6, "weight": 0.50, "confidence": 0.85, "rationale": "self_worth_fragile_criticism_response" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c02-s08",
+          "title": "La almojábana que salió",
+          "hero_stage": "8_ordeal_crisis",
+          "type": "playable",
+          "order": 8,
+          "text": "Las almojábanas salen del horno: doradas, infladas, oliendo a queso caliente. La de Lupe no es la más grande, pero salió. Valentina la pone en la mano todavía caliente. Yolanda le da una palmadita en el brazo.",
+          "options": [
+            {
+              "option_id": "c02-s08-o1",
+              "option_text": "Morderla ahí mismo y decir que está rica",
+              "consequence": "'Está buena, ¿no?' dice Lupe. Yolanda asiente. Carmen también prueba la suya. Por un momento las tres comen en silencio y el silencio es bueno.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s09",
+              "gds_mapping": [
+                { "item": 6, "weight": 0.15, "confidence": 0.85, "rationale": "happiness_present_moment_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 2, "weight": -0.30, "confidence": 0.85, "rationale": "mood_present_pleasure_protective" }
+              ]
+            },
+            {
+              "option_id": "c02-s08-o2",
+              "option_text": "Envolverla para llevársela a su nieta",
+              "consequence": "Lupe pide una servilleta y envuelve la almojábana con cuidado. Paula, su nieta del piso de arriba, todavía no la ha probado.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s09",
+              "gds_mapping": [
+                { "item": 11, "weight": 0.15, "confidence": 0.85, "rationale": "social_connection_family_giving_inverse" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s08-o3",
+              "option_text": "Mirarla sin saber si está bien hecha",
+              "consequence": "Lupe la sostiene sin morderla. La examina. Yolanda le dice que está perfecta. Lupe no termina de creerle.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s09",
+              "gds_mapping": [
+                { "item": 14, "weight": 0.60, "confidence": 0.85, "rationale": "worthlessness_doubting_own_product" },
+                { "item": 12, "weight": 0.50, "confidence": 0.80, "rationale": "low_self_worth_unable_to_accept_success" }
+              ],
+              "phq_mapping": [
+                { "item": 6, "weight": 0.45, "confidence": 0.80, "rationale": "self_worth_fragile_despite_success" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c02-s09",
+          "title": "El camino de vuelta con almojábanas",
+          "hero_stage": "9_reward_resolution",
+          "type": "playable",
+          "order": 9,
+          "text": "Lupe sale de la Casa Comunal con dos almojábanas en un papel: una para ella, otra para Paula, su nieta del piso de arriba. La galería del barrio está abriendo. Doña Esperanza dijo que el próximo martes harán pandeyuca.",
+          "options": [
+            {
+              "option_id": "c02-s09-o1",
+              "option_text": "Subir directo al apartamento de Paula con la almojábana",
+              "consequence": "Paula abre la puerta en pijama. 'Abuela, ¿qué es eso?' Lupe le pone la almojábana en la mano. 'La hice yo.' Paula la muerde. 'Está rica.'",
+              "next_chapter_id": null,
+              "next_scene_id": null,
+              "gds_mapping": [
+                { "item": 1, "weight": 0.15, "confidence": 0.85, "rationale": "life_satisfaction_sharing_with_family_inverse" },
+                { "item": 11, "weight": 0.15, "confidence": 0.80, "rationale": "social_connection_family_warmth_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": -0.35, "confidence": 0.85, "rationale": "anhedonia_reduction_sharing_achievement" }
+              ]
+            },
+            {
+              "option_id": "c02-s09-o2",
+              "option_text": "Comer la suya en el andén antes de subir",
+              "consequence": "Lupe desenvuelve la almojábana en la puerta. Está tibia. La come de pie, mirando la calle. Está buena, y eso es suficiente.",
+              "next_chapter_id": null,
+              "next_scene_id": null,
+              "gds_mapping": [
+                { "item": 5, "weight": 0.20, "confidence": 0.80, "rationale": "present_pleasure_mild_satisfaction" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s09-o3",
+              "option_text": "Guardar las dos en el refrigerador sin decirle a nadie",
+              "consequence": "Lupe sube directamente. Mete las dos almojábanas en el refrigerador. Nadie sabe que las hizo ella. El apartamento recibe el mismo silencio.",
+              "next_chapter_id": null,
+              "next_scene_id": null,
+              "gds_mapping": [
+                { "item": 7, "weight": 0.65, "confidence": 0.85, "rationale": "withdrawal_hiding_achievement_from_family" },
+                { "item": 3, "weight": 0.55, "confidence": 0.80, "rationale": "empty_life_not_sharing_positive_experience" }
+              ],
+              "phq_mapping": [
+                { "item": 2, "weight": 0.50, "confidence": 0.85, "rationale": "hopelessness_concealing_positive_from_others" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,892 @@
+﻿{
+  "chapters": [
+    {
+      "chapter_id": "c01",
+      "title": "La carta del huerto",
+      "protagonist": "Mariana",
+      "protagonist_gender": "female",
+      "protagonist_age": 70,
+      "setting": "BogotÃ¡, Colombia",
+      "order": 1,
+      "scenes": [
+        {
+          "scene_id": "c01-s01",
+          "title": "El casillero de siempre",
+          "hero_stage": "1_ordinary_world",
+          "type": "playable",
+          "order": 1,
+          "text": "Concha baja las escaleras como cada maÃ±ana, con el bolso cruzado y las llaves en la mano. La porterÃ­a huele a cloro reciente. En el casillero, entre una factura y un volante de domicilios, hay un sobre verde con el sello de la AlcaldÃ­a Mayor. 'Proyecto Huerto Comunitario del Barrio', dice. Mariana lo sostiene un momento bajo la luz pÃ¡lida de la entrada.",
+          "options": [
+            {
+              "option_id": "c01-s01-o1",
+              "option_text": "Leer el folleto ahÃ­ mismo",
+              "consequence": "Concha se apoya en el casillero y lee cada lÃ­nea. Algo le cosquillea en el pecho, una sensaciÃ³n que no reconoce del todo.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s02",
+              "gds_mapping": [
+                { "item": 2, "weight": 0.20, "confidence": 0.85, "rationale": "openness_to_new_activities_inverse" },
+                { "item": 1, "weight": 0.15, "confidence": 0.80, "rationale": "mild_life_satisfaction_signal_inverse" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s01-o2",
+              "option_text": "Guardarlo en el bolso para luego",
+              "consequence": "Concha mete el sobre en el bolso sin abrirlo. Sube de nuevo. El sobre cruje levemente con cada paso.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s02",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.35, "confidence": 0.80, "rationale": "mild_avoidance_boredom_signal" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": 0.25, "confidence": 0.75, "rationale": "low_interest_new_activities" }
+              ]
+            },
+            {
+              "option_id": "c01-s01-o3",
+              "option_text": "Tirarlo a la caneca sin abrirlo",
+              "consequence": "El sobre cae sobre el volante descartado. Mariana sube sin mirar atrÃ¡s. La porterÃ­a vuelve a estar en silencio.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s02",
+              "gds_mapping": [
+                { "item": 3, "weight": 0.75, "confidence": 0.90, "rationale": "active_avoidance_empty_life_signal" },
+                { "item": 9, "weight": 0.65, "confidence": 0.85, "rationale": "preference_for_staying_home_withdrawal" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": 0.55, "confidence": 0.85, "rationale": "lack_of_interest_in_new_opportunities" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s02",
+          "title": "Maribel en el corredor",
+          "hero_stage": "2_call_to_adventure",
+          "type": "playable",
+          "order": 2,
+          "text": "En el corredor del tercer piso, Maribel sale con su perro. Sesenta y cuatro aÃ±os, voz de radio y siempre con prisa. 'Concha, Â¿viste lo del huerto? Yo voy el miÃ©rcoles. Â¿Te apuntas?' El perro olisquea los zapatos de Concha. Maribel espera, con la correa enredada en la muÃ±eca.",
+          "options": [
+            {
+              "option_id": "c01-s02-o1",
+              "option_text": "Decirle que sÃ­ con ganas",
+              "consequence": "Maribel da un golpe en el aire con el puÃ±o. 'Perfecto, quedamos en la porterÃ­a a las diez.' Mariana siente que acaba de comprometerse con algo real.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s03",
+              "gds_mapping": [
+                { "item": 7, "weight": 0.15, "confidence": 0.85, "rationale": "social_engagement_willingness_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 2, "weight": -0.20, "confidence": 0.80, "rationale": "positive_social_connection_protective" }
+              ]
+            },
+            {
+              "option_id": "c01-s02-o2",
+              "option_text": "Decir que lo pensarÃ¡",
+              "consequence": "Maribel asiente, sin insistir. El perro tira de la correa. 'TÃº misma, pero el sitio es bonito.' Se marchan escaleras abajo.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s03",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.30, "confidence": 0.80, "rationale": "indecision_mild_disengagement" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s02-o3",
+              "option_text": "Excusarse diciendo que tiene cosas",
+              "consequence": "Maribel no pregunta quÃ© cosas. El ascensor se cierra. Mariana se queda sola en el corredor, mirando la puerta de su apartamento.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s03",
+              "gds_mapping": [
+                { "item": 7, "weight": 0.70, "confidence": 0.90, "rationale": "social_withdrawal_preference_for_home" },
+                { "item": 9, "weight": 0.55, "confidence": 0.85, "rationale": "helplessness_avoidance_of_connection" }
+              ],
+              "phq_mapping": [
+                { "item": 2, "weight": 0.45, "confidence": 0.80, "rationale": "social_avoidance_mood_signal" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s03",
+          "title": "Excusas de martes",
+          "hero_stage": "3_refusal_of_the_call",
+          "type": "playable",
+          "order": 3,
+          "text": "El martes por la noche, Mariana prepara la lista del mercado en la mesa de la cocina. La bombilla parpadea una vez. El miÃ©rcoles se acerca y ella todavÃ­a no ha decidido. Anota 'lentejas' y se detiene. El bolÃ­grafo tamborilea en el mantel.",
+          "options": [
+            {
+              "option_id": "c01-s03-o1",
+              "option_text": "Preparar la ropa para ir maÃ±ana",
+              "consequence": "Concha saca la chaqueta beige del armario y la cuelga en la silla. Algo tan pequeÃ±o, pero siente que ya no puede echarse atrÃ¡s.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s04",
+              "gds_mapping": [
+                { "item": 2, "weight": 0.15, "confidence": 0.80, "rationale": "activity_initiation_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 4, "weight": -0.20, "confidence": 0.75, "rationale": "energy_to_plan_protective" }
+              ]
+            },
+            {
+              "option_id": "c01-s03-o2",
+              "option_text": "Seguir con la lista y ya verÃ¡",
+              "consequence": "Concha termina la lista: lentejas, aceite, pan. Apaga la luz. La decisiÃ³n queda suspendida como el parpadeo de la bombilla.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s04",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.35, "confidence": 0.80, "rationale": "procrastination_mild_boredom" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s03-o3",
+              "option_text": "Decidir que mejor otro dÃ­a",
+              "consequence": "Concha tacha mentalmente el miÃ©rcoles. Se dice que quizÃ¡ la semana que viene. La cocina queda en silencio, igual que siempre.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s04",
+              "gds_mapping": [
+                { "item": 3, "weight": 0.65, "confidence": 0.85, "rationale": "emptiness_avoidance_of_change" },
+                { "item": 12, "weight": 0.50, "confidence": 0.80, "rationale": "low_self_worth_not_deserving_participation" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": 0.40, "confidence": 0.80, "rationale": "anhedonia_postponing_pleasant_activities" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s04",
+          "title": "El bus de las diez",
+          "hero_stage": "4_meeting_the_mentor",
+          "type": "playable",
+          "order": 4,
+          "text": "El miÃ©rcoles Mariana estÃ¡ en el paradero. El aire estÃ¡ fresco, como siempre en BogotÃ¡. A su lado, una seÃ±ora con sandalias y una tula de fique le pregunta si va al huerto. 'Primera vez', le dice la seÃ±ora. 'Yo llevo tres semanas y ya tengo mis matas de tomate.' SonrÃ­e con todos los dientes.",
+          "options": [
+            {
+              "option_id": "c01-s04-o1",
+              "option_text": "Preguntarle cÃ³mo es el ambiente",
+              "consequence": "La seÃ±ora habla sin parar hasta que llega el bus. Mariana escucha y asiente, y sin darse cuenta ya estÃ¡ sonriendo tambiÃ©n.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s05",
+              "gds_mapping": [
+                { "item": 7, "weight": 0.15, "confidence": 0.85, "rationale": "social_initiative_inverse" },
+                { "item": 1, "weight": 0.15, "confidence": 0.80, "rationale": "life_satisfaction_moment_inverse" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s04-o2",
+              "option_text": "Responder cortÃ©s y mirar al frente",
+              "consequence": "Concha contesta con amabilidad pero no sigue el hilo. El bus llega. Se sientan separadas. El trayecto pasa en silencio.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s05",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.30, "confidence": 0.75, "rationale": "emotional_neutrality_mild_disengagement" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s04-o3",
+              "option_text": "Callarse y esperar el bus sola",
+              "consequence": "Concha no responde mÃ¡s allÃ¡ de un gesto. La seÃ±ora se gira hacia otro lado. El frÃ­o del paradero se nota mÃ¡s en los hombros.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s05",
+              "gds_mapping": [
+                { "item": 7, "weight": 0.65, "confidence": 0.85, "rationale": "social_withdrawal_avoidance_of_interaction" }
+              ],
+              "phq_mapping": [
+                { "item": 7, "weight": 0.40, "confidence": 0.80, "rationale": "concentration_and_social_withdrawal_signal" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s05",
+          "title": "La puerta del lote",
+          "hero_stage": "5_crossing_threshold",
+          "type": "playable",
+          "order": 5,
+          "text": "El lote tiene una reja metÃ¡lica pintada de verde. Dentro se escuchan voces y el ruido sordo de un azadÃ³n contra la tierra. Maribel ya estÃ¡ dentro y la saluda con la mano. La seÃ±ora de la tula empuja la reja sin dudar. Mariana se queda un segundo en el umbral.",
+          "options": [
+            {
+              "option_id": "c01-s05-o1",
+              "option_text": "Entrar directamente junto a Maribel",
+              "consequence": "La reja chirrÃ­a levemente al abrirse. La tierra hÃºmeda huele a despuÃ©s de la lluvia. Maribel le pone una mano en el hombro.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s06",
+              "gds_mapping": [
+                { "item": 2, "weight": 0.15, "confidence": 0.85, "rationale": "activity_engagement_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 4, "weight": -0.25, "confidence": 0.80, "rationale": "energy_to_act_protective" }
+              ]
+            },
+            {
+              "option_id": "c01-s05-o2",
+              "option_text": "Entrar despacio mirando alrededor",
+              "consequence": "Concha cruza la reja con cuidado. Ve surcos de tierra, materas improvisadas con latas, y gente de su edad con guantes de jardÃ­n.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s06",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.25, "confidence": 0.75, "rationale": "cautious_engagement_mild_hesitation" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s05-o3",
+              "option_text": "Quedarse fuera y decir que espera",
+              "consequence": "Concha dice que va a esperar un momento. La reja se cierra. Ella se queda en el andÃ©n, con el ruido del huerto al otro lado.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s06",
+              "gds_mapping": [
+                { "item": 9, "weight": 0.70, "confidence": 0.90, "rationale": "helplessness_inability_to_cross_threshold" },
+                { "item": 7, "weight": 0.60, "confidence": 0.85, "rationale": "preference_for_outside_social_isolation" }
+              ],
+              "phq_mapping": [
+                { "item": 2, "weight": 0.45, "confidence": 0.80, "rationale": "depressed_mood_social_avoidance" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s06",
+          "title": "Paco y el azadÃ³n",
+          "hero_stage": "6_tests_allies_enemies",
+          "type": "playable",
+          "order": 6,
+          "text": "Paco, el coordinador, tiene manos grandes y una gorra de visera. Le explica que cada persona tiene una parcela de metro y medio. 'La tuya estÃ¡ aquÃ­', dice, seÃ±alando un rectÃ¡ngulo de tierra oscura con una estaquilla roja. Le ofrece un azadÃ³n. Mariana lo recoge sin saber muy bien cÃ³mo agarrarlo.",
+          "options": [
+            {
+              "option_id": "c01-s06-o1",
+              "option_text": "Pedir que le enseÃ±e la tÃ©cnica",
+              "consequence": "Paco le muestra el movimiento del brazo, lento y firme. 'AsÃ­, sin forzar.' Mariana repite. La tierra cede con un sonido seco.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s07",
+              "gds_mapping": [
+                { "item": 2, "weight": 0.15, "confidence": 0.85, "rationale": "willingness_to_learn_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 4, "weight": -0.20, "confidence": 0.80, "rationale": "physical_engagement_protective" }
+              ]
+            },
+            {
+              "option_id": "c01-s06-o2",
+              "option_text": "Intentarlo sola observando a los demÃ¡s",
+              "consequence": "Concha mira cÃ³mo trabaja la seÃ±ora de la tula y lo imita. El azadÃ³n raspa mÃ¡s que muerde. Va despacio, pero va.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s07",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.30, "confidence": 0.75, "rationale": "independent_coping_mild_hesitation" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s06-o3",
+              "option_text": "Dejar el azadÃ³n diciendo que no puede",
+              "consequence": "Concha apoya el azadÃ³n en la estaquilla. 'No estoy acostumbrada a esto', dice. Paco asiente pero no insiste. Ella mira sus manos.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s07",
+              "gds_mapping": [
+                { "item": 12, "weight": 0.70, "confidence": 0.90, "rationale": "worthlessness_feeling_unable_to_participate" },
+                { "item": 9, "weight": 0.55, "confidence": 0.85, "rationale": "helplessness_giving_up_quickly" }
+              ],
+              "phq_mapping": [
+                { "item": 4, "weight": 0.50, "confidence": 0.85, "rationale": "fatigue_low_energy_avoidance" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s07",
+          "title": "La parcela vacÃ­a",
+          "hero_stage": "7_approach_inner_cave",
+          "type": "playable",
+          "order": 7,
+          "text": "Concha estÃ¡ sola frente a su parcela. La tierra estÃ¡ seca en la superficie pero oscura debajo. Paco le ha dicho que puede plantar lo que quiera. Un catÃ¡logo de semillas estÃ¡ apoyado en la estaquilla. Mariana lo hojea. Hay tomates, lechugas, cilantro. TambiÃ©n hay un apartado de flores.",
+          "options": [
+            {
+              "option_id": "c01-s07-o1",
+              "option_text": "Elegir algo que le guste comer",
+              "consequence": "Concha seÃ±ala las lechugas. 'Siempre tuve una en el balcÃ³n de mi madre.' La decisiÃ³n tiene un sabor conocido y reconfortante.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s08",
+              "gds_mapping": [
+                { "item": 1, "weight": 0.15, "confidence": 0.80, "rationale": "life_satisfaction_memory_connection_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": -0.20, "confidence": 0.80, "rationale": "interest_in_activity_protective" }
+              ]
+            },
+            {
+              "option_id": "c01-s07-o2",
+              "option_text": "Preguntar quÃ© crece mejor aquÃ­",
+              "consequence": "La seÃ±ora de la tula se acerca con opiniÃ³n propia: 'El cilantro no falla.' Mariana anota con el bolÃ­grafo que siempre lleva encima.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s08",
+              "gds_mapping": [
+                { "item": 7, "weight": 0.20, "confidence": 0.80, "rationale": "social_engagement_seeking_advice_inverse" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s07-o3",
+              "option_text": "Cerrar el catÃ¡logo sin decidir",
+              "consequence": "Concha cierra el catÃ¡logo. La parcela sigue vacÃ­a. Se dice que ya lo pensarÃ¡ en casa, pero algo en ella sabe que no lo pensarÃ¡.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s08",
+              "gds_mapping": [
+                { "item": 3, "weight": 0.60, "confidence": 0.85, "rationale": "emptiness_inability_to_project_into_future" },
+                { "item": 4, "weight": 0.50, "confidence": 0.80, "rationale": "boredom_apathy_indecision" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": 0.40, "confidence": 0.80, "rationale": "anhedonia_no_interest_in_choice" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s08",
+          "title": "El momento incÃ³modo",
+          "hero_stage": "8_ordeal_crisis",
+          "type": "playable",
+          "order": 8,
+          "text": "Un hombre mayor de otra parcela la mira trabajar y comenta en voz alta: 'Esta seÃ±ora no ha cogido un azadÃ³n en su vida, se nota.' Algunos no reaccionan. La seÃ±ora de la tula frunce el ceÃ±o. Mariana siente el calor en la cara. El azadÃ³n pesa de pronto el doble.",
+          "options": [
+            {
+              "option_id": "c01-s08-o1",
+              "option_text": "Responder con calma y seguir",
+              "consequence": "'Es mi primer dÃ­a', dice Mariana sin alzar la voz. Sigue moviendo el azadÃ³n. El hombre no vuelve a hablar. La tierra cede poco a poco.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s09",
+              "gds_mapping": [
+                { "item": 12, "weight": 0.15, "confidence": 0.85, "rationale": "self_worth_maintained_under_criticism_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 6, "weight": -0.25, "confidence": 0.80, "rationale": "self_worth_resilience_protective" }
+              ]
+            },
+            {
+              "option_id": "c01-s08-o2",
+              "option_text": "Ignorarlo y concentrarse en la tierra",
+              "consequence": "Concha clava la mirada en la parcela. Los hombros le duelen pero no para. El comentario se queda flotando, sin desaparecer del todo.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s09",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.30, "confidence": 0.75, "rationale": "passive_coping_mild_discomfort" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s08-o3",
+              "option_text": "Dejar el azadÃ³n y apartarse",
+              "consequence": "Concha apoya la herramienta y se aleja un poco. Las manos le tiemblan ligeramente. Mira el suelo. La vergÃ¼enza pesa mÃ¡s que el cansancio.",
+              "next_chapter_id": null,
+              "next_scene_id": "c01-s09",
+              "gds_mapping": [
+                { "item": 12, "weight": 0.75, "confidence": 0.90, "rationale": "worthlessness_shame_collapse_after_criticism" },
+                { "item": 9, "weight": 0.60, "confidence": 0.85, "rationale": "helplessness_triggered_by_social_rejection" }
+              ],
+              "phq_mapping": [
+                { "item": 6, "weight": 0.55, "confidence": 0.85, "rationale": "low_self_worth_shame_response" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c01-s09",
+          "title": "Al anochecer",
+          "hero_stage": "9_reward_resolution",
+          "type": "playable",
+          "order": 9,
+          "text": "Concha estÃ¡ en casa. Las manos le huelen a tierra aunque se las ha lavado dos veces. En la mesa hay una semilla que Paco le regalÃ³ al salir: un sobre pequeÃ±o con una etiqueta escrita a mano. 'Albahaca', dice. La bombilla ya no parpadea. Afuera empieza a oscurecer.",
+          "options": [
+            {
+              "option_id": "c01-s09-o1",
+              "option_text": "Buscar una matera para plantarla hoy",
+              "consequence": "Concha encuentra una matera vieja en el balcÃ³n. La llena de tierra del jardÃ­n y entierra la semilla con dos dedos. Algo ha empezado.",
+              "next_chapter_id": null,
+              "next_scene_id": null,
+              "gds_mapping": [
+                { "item": 1, "weight": 0.15, "confidence": 0.85, "rationale": "life_satisfaction_future_orientation_inverse" },
+                { "item": 2, "weight": 0.15, "confidence": 0.80, "rationale": "engagement_with_activity_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": -0.30, "confidence": 0.85, "rationale": "anhedonia_reduction_taking_action" }
+              ]
+            },
+            {
+              "option_id": "c01-s09-o2",
+              "option_text": "Dejar el sobre en la repisa y ver quÃ© pasa",
+              "consequence": "Concha pone el sobre junto al salero. Lo mirarÃ¡ maÃ±ana. No es un no, pero tampoco es un sÃ­ todavÃ­a.",
+              "next_chapter_id": null,
+              "next_scene_id": null,
+              "gds_mapping": [
+                { "item": 4, "weight": 0.30, "confidence": 0.75, "rationale": "ambivalence_mild_procrastination" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c01-s09-o3",
+              "option_text": "Tirarlo y decidir no volver",
+              "consequence": "El sobre cae en la caneca. Mariana apaga la luz de la cocina. MaÃ±ana serÃ¡ otro miÃ©rcoles igual. El olor a tierra se irÃ¡ solo.",
+              "next_chapter_id": null,
+              "next_scene_id": null,
+              "gds_mapping": [
+                { "item": 3, "weight": 0.80, "confidence": 0.90, "rationale": "empty_life_closing_door_on_opportunity" },
+                { "item": 7, "weight": 0.65, "confidence": 0.85, "rationale": "withdrawal_choosing_isolation" }
+              ],
+              "phq_mapping": [
+                { "item": 2, "weight": 0.50, "confidence": 0.85, "rationale": "hopelessness_giving_up_signal" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "c02",
+      "title": "La segunda visita",
+      "protagonist": "Mariana",
+      "protagonist_gender": "female",
+      "protagonist_age": 70,
+      "setting": "BogotÃ¡, Colombia",
+      "order": 2,
+      "scenes": [
+        {
+          "scene_id": "c02-s01",
+          "title": "El miÃ©rcoles de nuevo",
+          "hero_stage": "1_ordinary_world",
+          "type": "playable",
+          "order": 1,
+          "text": "Concha lleva la chaqueta beige lista desde el lunes. El miÃ©rcoles amaneciÃ³ nublado, como siempre en BogotÃ¡. El sobre de albahaca sigue en la repisa junto al salero. Son las nueve y cuarto. Si no sale ahora, el bus del barrio ya no pasa.",
+          "options": [
+            {
+              "option_id": "c02-s01-o1",
+              "option_text": "Salir de una vez sin revisar mÃ¡s",
+              "consequence": "Concha agarra el bolso, cierra la puerta y baja. En el corredor el frÃ­o huele a tierra mojada. Esta vez sabe adÃ³nde va.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s02",
+              "gds_mapping": [
+                { "item": 5, "weight": 0.15, "confidence": 0.85, "rationale": "good_spirits_action_initiative_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 4, "weight": -0.25, "confidence": 0.80, "rationale": "energy_to_act_protective" }
+              ]
+            },
+            {
+              "option_id": "c02-s01-o2",
+              "option_text": "Esperar a que escampe un poco",
+              "consequence": "Concha mira por la ventana. Las nubes no pasan. Espera diez minutos. Cuando sale, el paradero estÃ¡ lleno.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s02",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.30, "confidence": 0.80, "rationale": "procrastination_avoidance_mild" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s01-o3",
+              "option_text": "Quedarse porque el dÃ­a estÃ¡ muy gris",
+              "consequence": "Concha apoya la chaqueta en la silla. El miÃ©rcoles sigue igual afuera. El sobre de albahaca la mira desde la repisa.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s02",
+              "gds_mapping": [
+                { "item": 3, "weight": 0.65, "confidence": 0.85, "rationale": "empty_life_weather_as_excuse" },
+                { "item": 10, "weight": 0.50, "confidence": 0.80, "rationale": "feeling_older_world_feels_worse" }
+              ],
+              "phq_mapping": [
+                { "item": 3, "weight": 0.40, "confidence": 0.80, "rationale": "sleep_inertia_withdrawal_signal" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c02-s02",
+          "title": "Rosita en el paradero",
+          "hero_stage": "2_call_to_adventure",
+          "type": "playable",
+          "order": 2,
+          "text": "En el paradero de la carrera, Rosita ya estÃ¡ esperando con su tula de fique. La saluda antes de que Mariana llegue del todo. Trae un brote de lechuga envuelto en periÃ³dico. 'Mire, ya le saliÃ³ una hojita a la mÃ­a.' Rosita tiene energÃ­a de maÃ±anera.",
+          "options": [
+            {
+              "option_id": "c02-s02-o1",
+              "option_text": "Contarle que ella tambiÃ©n sembrÃ³ una semilla en casa",
+              "consequence": "'Â¿CuÃ¡l sembrÃ³?' Mariana saca el sobre de albahaca del bolsillo. Rosita lo mira con los ojos abiertos. 'Esa llega rÃ¡pido, espÃ©rese.'",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s03",
+              "gds_mapping": [
+                { "item": 11, "weight": 0.15, "confidence": 0.85, "rationale": "social_connection_sharing_experience_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": -0.20, "confidence": 0.80, "rationale": "interest_in_sharing_activity_protective" }
+              ]
+            },
+            {
+              "option_id": "c02-s02-o2",
+              "option_text": "Preguntar por el brote sin hablar del propio",
+              "consequence": "Concha mira el brote de cerca. 'QuÃ© bien le fue.' No menciona la semilla de su balcÃ³n. El bus llega antes de que diga mÃ¡s.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s03",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.25, "confidence": 0.75, "rationale": "emotional_reservation_mild_detachment" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s02-o3",
+              "option_text": "Decirle que no sabe si sirve para esto",
+              "consequence": "'No sÃ© si se me da a mÃ­.' Rosita la mira sin entender bien. El bus ya estÃ¡ doblando la esquina.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s03",
+              "gds_mapping": [
+                { "item": 12, "weight": 0.60, "confidence": 0.85, "rationale": "worthlessness_self_doubt_before_trying" }
+              ],
+              "phq_mapping": [
+                { "item": 6, "weight": 0.45, "confidence": 0.80, "rationale": "self_worth_preemptive_failure_signal" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c02-s03",
+          "title": "La tierra compactada",
+          "hero_stage": "3_refusal_of_the_call",
+          "type": "playable",
+          "order": 3,
+          "text": "Paco les explica que la semana sin lluvia dejÃ³ la tierra muy dura. 'Hay que aflojarla antes de sembrar, si no las semillas no pasan.' SeÃ±ala el azadÃ³n apoyado en la estaquilla roja de la parcela de Concha. Dos personas ya empezaron.",
+          "options": [
+            {
+              "option_id": "c02-s03-o1",
+              "option_text": "Agarrar el azadÃ³n y empezar de una",
+              "consequence": "Concha levanta el azadÃ³n antes de que Paco termine la frase. La tierra es mÃ¡s dura que la semana pasada, pero cede.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s04",
+              "gds_mapping": [
+                { "item": 13, "weight": 0.15, "confidence": 0.85, "rationale": "energy_initiative_active_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 4, "weight": -0.25, "confidence": 0.80, "rationale": "physical_energy_applied_protective" }
+              ]
+            },
+            {
+              "option_id": "c02-s03-o2",
+              "option_text": "Preguntar a Paco cuÃ¡nto hay que aflojar",
+              "consequence": "Paco le muestra el ancho: metro y medio de surcos. No es poco. Mariana coge el azadÃ³n despacio, calculando.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s04",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.25, "confidence": 0.75, "rationale": "cautious_approach_mild_hesitation" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s03-o3",
+              "option_text": "Decir que hoy solo puede mirar",
+              "consequence": "'Hoy no traje fuerzas para eso.' Paco asiente. Mariana se sienta en el banco de madera del borde. El azadÃ³n sigue apoyado en la estaquilla.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s04",
+              "gds_mapping": [
+                { "item": 9, "weight": 0.65, "confidence": 0.85, "rationale": "helplessness_avoidance_of_physical_task" },
+                { "item": 14, "weight": 0.50, "confidence": 0.80, "rationale": "memory_fatigue_excuse_withdrawal" }
+              ],
+              "phq_mapping": [
+                { "item": 4, "weight": 0.45, "confidence": 0.80, "rationale": "fatigue_low_energy_signal" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c02-s04",
+          "title": "CÃ³mo se hace el surco",
+          "hero_stage": "4_meeting_the_mentor",
+          "type": "playable",
+          "order": 4,
+          "text": "Rosita, que lleva tres semanas en el huerto, le muestra cÃ³mo usar el azadÃ³n al sesgo. 'AsÃ­ no se cansa el hombro.' La tierra oscura de BogotÃ¡ huele a lluvia de anoche. Paco los observa desde lejos. Mariana coge el azadÃ³n e intenta el movimiento.",
+          "options": [
+            {
+              "option_id": "c02-s04-o1",
+              "option_text": "Repetir el movimiento hasta que salga bien",
+              "consequence": "Cuatro intentos. El quinto surco queda recto. Rosita aplaude bajito. La tierra cede con un sonido seco que le gusta.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s05",
+              "gds_mapping": [
+                { "item": 2, "weight": 0.15, "confidence": 0.85, "rationale": "activity_engagement_learning_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 8, "weight": -0.20, "confidence": 0.80, "rationale": "psychomotor_engagement_productive" }
+              ]
+            },
+            {
+              "option_id": "c02-s04-o2",
+              "option_text": "Intentarlo una vez y esperar que Rosita haga el resto",
+              "consequence": "Concha hace un surco y se detiene. Rosita no pregunta por quÃ©. Sigue ella. Los dos surcos juntos llenan media parcela.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s05",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.35, "confidence": 0.80, "rationale": "passive_dependency_mild_disengagement" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s04-o3",
+              "option_text": "Dejarlo porque se le cansa el brazo rÃ¡pido",
+              "consequence": "Concha apoya el azadÃ³n. 'No aguanto mucho.' Rosita le dice que estÃ¡ bien. La parcela queda a medio aflojar.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s05",
+              "gds_mapping": [
+                { "item": 10, "weight": 0.55, "confidence": 0.85, "rationale": "feeling_older_physical_limitations_signal" },
+                { "item": 9, "weight": 0.45, "confidence": 0.80, "rationale": "helplessness_physical_limitation_excuse" }
+              ],
+              "phq_mapping": [
+                { "item": 3, "weight": 0.35, "confidence": 0.75, "rationale": "sleep_energy_fatigue_pattern" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c02-s05",
+          "title": "La semilla en la palma",
+          "hero_stage": "5_crossing_threshold",
+          "type": "playable",
+          "order": 5,
+          "text": "Paco le pone en la mano cinco semillas de cilantro. Son casi invisibles. El surco ya estÃ¡ listo, hÃºmedo y oscuro. Solo falta soltarlas. Rosita ya sembrÃ³ las suyas y las estÃ¡ tapando con cuidado, como si fueran algo frÃ¡gil.",
+          "options": [
+            {
+              "option_id": "c02-s05-o1",
+              "option_text": "Soltarlas una por una con cuidado",
+              "consequence": "Concha cuenta en voz baja: una, dos, tres, cuatro, cinco. Las tapa con dos dedos. El surco queda cerrado. Algo estÃ¡ sembrado.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s06",
+              "gds_mapping": [
+                { "item": 2, "weight": 0.15, "confidence": 0.85, "rationale": "engagement_precision_activity_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": -0.25, "confidence": 0.80, "rationale": "interest_in_task_protective" }
+              ]
+            },
+            {
+              "option_id": "c02-s05-o2",
+              "option_text": "Soltarlas de golpe y tapar rÃ¡pido",
+              "consequence": "Las semillas caen de una vez. Mariana tapa el surco con la palma. No es perfecto, pero Paco dice que estÃ¡ bien asÃ­.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s06",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.20, "confidence": 0.75, "rationale": "impatience_mild_avoidance_of_detail" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s05-o3",
+              "option_text": "Devolver las semillas diciendo que le da miedo",
+              "consequence": "'Â¿Y si no salen?' Paco le da el sobre de vuelta. Las semillas quedan en su bolsillo. La parcela no tiene nada sembrado todavÃ­a.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s06",
+              "gds_mapping": [
+                { "item": 15, "weight": 0.65, "confidence": 0.85, "rationale": "social_comparison_self_doubt_others_doing_better" },
+                { "item": 9, "weight": 0.55, "confidence": 0.80, "rationale": "helplessness_fear_of_failure" }
+              ],
+              "phq_mapping": [
+                { "item": 5, "weight": 0.45, "confidence": 0.80, "rationale": "psychomotor_hesitation_anxiety_signal" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c02-s06",
+          "title": "Don Hernando pasa de nuevo",
+          "hero_stage": "6_tests_allies_enemies",
+          "type": "playable",
+          "order": 6,
+          "text": "Don Hernando, el hombre que la semana pasada comentÃ³ que ella no sabÃ­a usar el azadÃ³n, pasa cerca de su parcela. La mira un momento. La tierra de Mariana ya tiene el surco sembrado. Don Hernando no dice nada, pero tampoco se va.",
+          "options": [
+            {
+              "option_id": "c02-s06-o1",
+              "option_text": "Seguir trabajando sin levantar la vista",
+              "consequence": "Concha clava los ojos en la tierra. Sus manos siguen. Don Hernando se aleja sin decir nada. El silencio sabe diferente a la semana pasada.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s07",
+              "gds_mapping": [
+                { "item": 6, "weight": 0.15, "confidence": 0.85, "rationale": "happiness_ability_to_stay_focused_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 6, "weight": -0.25, "confidence": 0.80, "rationale": "self_worth_maintained_under_scrutiny_protective" }
+              ]
+            },
+            {
+              "option_id": "c02-s06-o2",
+              "option_text": "Mirarle de frente cuando se acerca",
+              "consequence": "Don Hernando se detiene a dos metros. Mariana lo mira. Ã‰l asiente levemente y sigue. Rosita lo vio todo y hace un gesto de aprobaciÃ³n.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s07",
+              "gds_mapping": [
+                { "item": 12, "weight": 0.15, "confidence": 0.85, "rationale": "self_worth_assertion_inverse" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s06-o3",
+              "option_text": "Parar y decirle que sÃ­, que estÃ¡ aprendiendo",
+              "consequence": "Concha se detiene. 'SÃ­, seÃ±or, sigo siendo nueva.' Don Hernando encoge los hombros. Mariana siente el calor en la cara otra vez.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s07",
+              "gds_mapping": [
+                { "item": 14, "weight": 0.60, "confidence": 0.85, "rationale": "memory_shame_pattern_retrieval" },
+                { "item": 12, "weight": 0.55, "confidence": 0.80, "rationale": "worthlessness_apologetic_response" }
+              ],
+              "phq_mapping": [
+                { "item": 6, "weight": 0.50, "confidence": 0.85, "rationale": "self_worth_shame_public_response" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c02-s07",
+          "title": "La lluvia bogotana",
+          "hero_stage": "7_approach_inner_cave",
+          "type": "playable",
+          "order": 7,
+          "text": "A las once y media el cielo se cierra de golpe, como siempre en BogotÃ¡. Las primeras gotas caen sobre la tierra reciÃ©n sembrada. Paco grita que se metan bajo el tejado de plÃ¡stico del borde del lote. Rosita agarra su tula. Mariana se queda mirando el surco que acaba de tapar.",
+          "options": [
+            {
+              "option_id": "c02-s07-o1",
+              "option_text": "Correr al tejado pensando que el agua ayuda",
+              "consequence": "Concha cruza el lote en diez pasos. Bajo el tejado, el olor a tierra mojada es mÃ¡s fuerte. 'El aguacero siempre llega a tiempo', dice Rosita.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s08",
+              "gds_mapping": [
+                { "item": 5, "weight": 0.15, "confidence": 0.85, "rationale": "good_spirits_positive_reframing_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 4, "weight": -0.20, "confidence": 0.80, "rationale": "energy_to_act_positive_mindset" }
+              ]
+            },
+            {
+              "option_id": "c02-s07-o2",
+              "option_text": "Moverse despacio cubriendo la parcela primero",
+              "consequence": "Concha busca una hoja grande del montÃ³n que Paco tiene para ese fin. Tapa el surco antes de correr. La lluvia ya le moja los hombros.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s08",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.30, "confidence": 0.75, "rationale": "methodical_action_mild_slowness" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s07-o3",
+              "option_text": "Quedarse parada sin saber quÃ© hacer",
+              "consequence": "Las gotas son gordas y rÃ¡pidas. Mariana no se mueve. Paco la mira desde el tejado. Rosita viene a buscarla. 'Concha, venga.' La lluvia ya empapÃ³ el surco.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s08",
+              "gds_mapping": [
+                { "item": 9, "weight": 0.65, "confidence": 0.85, "rationale": "helplessness_freezing_under_pressure" },
+                { "item": 10, "weight": 0.55, "confidence": 0.80, "rationale": "feeling_older_unable_to_react" }
+              ],
+              "phq_mapping": [
+                { "item": 8, "weight": 0.40, "confidence": 0.80, "rationale": "psychomotor_slowing_under_stress" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c02-s08",
+          "title": "La videollamada de la noche",
+          "hero_stage": "8_ordeal_crisis",
+          "type": "playable",
+          "order": 8,
+          "text": "Esa noche el telÃ©fono suena: es LucÃ­a, su hija, desde MedellÃ­n. 'Â¿CÃ³mo estÃ¡, mami?' No llama desde hace casi un mes. Mariana tiene el sobre de albahaca en la mano cuando contesta. La luz de la cocina estÃ¡ encendida.",
+          "options": [
+            {
+              "option_id": "c02-s08-o1",
+              "option_text": "Contarle del huerto con entusiasmo",
+              "consequence": "Concha habla diez minutos. LucÃ­a pregunta cÃ³mo es el lote, quiÃ©n es Rosita, quÃ© sembrÃ³. 'Llevo tiempo sin oÃ­rle asÃ­, mami.' La cocina ya no parece tan silenciosa.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s09",
+              "gds_mapping": [
+                { "item": 11, "weight": 0.15, "confidence": 0.85, "rationale": "social_connection_family_warmth_inverse" },
+                { "item": 5, "weight": 0.15, "confidence": 0.80, "rationale": "good_spirits_sharing_positive_event" }
+              ],
+              "phq_mapping": [
+                { "item": 2, "weight": -0.30, "confidence": 0.85, "rationale": "mood_hopeful_connection_protective" }
+              ]
+            },
+            {
+              "option_id": "c02-s08-o2",
+              "option_text": "Decirle que bien, sin entrar en detalles",
+              "consequence": "Concha dice que estÃ¡ bien, que nada nuevo. LucÃ­a habla de sus hijos. La llamada dura cinco minutos. Cuando cuelga, el sobre de albahaca sigue en la mano.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s09",
+              "gds_mapping": [
+                { "item": 4, "weight": 0.30, "confidence": 0.75, "rationale": "emotional_reservation_family_connection" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s08-o3",
+              "option_text": "Decirle que igual que siempre y cambiar de tema",
+              "consequence": "'Igual, hija, igual.' LucÃ­a no pregunta mÃ¡s. Hablan de los nietos. Mariana cuelga primero. El sobre de albahaca estÃ¡ en la repisa otra vez.",
+              "next_chapter_id": null,
+              "next_scene_id": "c02-s09",
+              "gds_mapping": [
+                { "item": 3, "weight": 0.65, "confidence": 0.85, "rationale": "empty_life_concealing_from_family" },
+                { "item": 6, "weight": 0.55, "confidence": 0.80, "rationale": "happiness_absent_hiding_positive_from_daughter" }
+              ],
+              "phq_mapping": [
+                { "item": 2, "weight": 0.45, "confidence": 0.80, "rationale": "hopelessness_not_sharing_positive_events" }
+              ]
+            }
+          ]
+        },
+        {
+          "scene_id": "c02-s09",
+          "title": "El brote de la semana",
+          "hero_stage": "9_reward_resolution",
+          "type": "playable",
+          "order": 9,
+          "text": "Ocho dÃ­as despuÃ©s, Mariana revisa la matera del balcÃ³n donde sembrÃ³ la semilla de albahaca. Un brote fino y verde ha roto la tierra. PequeÃ±o, pero ahÃ­. El miÃ©rcoles del huerto es maÃ±ana.",
+          "options": [
+            {
+              "option_id": "c02-s09-o1",
+              "option_text": "Sacarle foto y mandÃ¡rsela a LucÃ­a",
+              "consequence": "La foto llega con un mensaje: 'Â¿Esto quÃ© es?' Mariana escribe: 'Albahaca. La sembrÃ© yo.' LucÃ­a manda tres corazones. Mariana pone el telÃ©fono en la mesa y sonrÃ­e.",
+              "next_chapter_id": null,
+              "next_scene_id": null,
+              "gds_mapping": [
+                { "item": 1, "weight": 0.15, "confidence": 0.85, "rationale": "life_satisfaction_sharing_growth_inverse" },
+                { "item": 11, "weight": 0.15, "confidence": 0.80, "rationale": "social_connection_family_sharing_inverse" }
+              ],
+              "phq_mapping": [
+                { "item": 1, "weight": -0.35, "confidence": 0.85, "rationale": "anhedonia_reduction_active_sharing" }
+              ]
+            },
+            {
+              "option_id": "c02-s09-o2",
+              "option_text": "Mirarlo un buen rato sin contarle a nadie",
+              "consequence": "Concha lo mira cinco minutos. El brote no cambia. Pero algo en ella sÃ­. Deja la matera en el sol y entra a preparar el tinto de la maÃ±ana.",
+              "next_chapter_id": null,
+              "next_scene_id": null,
+              "gds_mapping": [
+                { "item": 4, "weight": 0.25, "confidence": 0.75, "rationale": "private_satisfaction_mild_withholding" }
+              ],
+              "phq_mapping": []
+            },
+            {
+              "option_id": "c02-s09-o3",
+              "option_text": "No hacerle caso porque puede que se muera igual",
+              "consequence": "Concha tapa la matera con la mano. 'No se vaya a secar.' No le dice nada a nadie. Cierra la puerta del balcÃ³n. El brote queda solo con el frÃ­o bogotano.",
+              "next_chapter_id": null,
+              "next_scene_id": null,
+              "gds_mapping": [
+                { "item": 3, "weight": 0.70, "confidence": 0.85, "rationale": "empty_life_dismissing_own_achievement" },
+                { "item": 15, "weight": 0.55, "confidence": 0.80, "rationale": "pessimism_expecting_failure_social_comparison" }
+              ],
+              "phq_mapping": [
+                { "item": 2, "weight": 0.50, "confidence": 0.85, "rationale": "hopelessness_expecting_negative_outcome" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

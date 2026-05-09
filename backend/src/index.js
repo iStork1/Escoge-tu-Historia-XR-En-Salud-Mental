@@ -59,6 +59,40 @@ function clampWindow(arr, windowSize = PATH_WINDOW_SIZE) {
   return source.slice(-Math.max(1, Number(windowSize) || PATH_WINDOW_SIZE));
 }
 
+function getGeographicSetting(locale) {
+  const loc = String(locale || '').toLowerCase();
+  if (loc === 'es-es') {
+    return {
+      country: 'España',
+      city: 'un pueblo del norte de España',
+      neighborhood: 'casco viejo',
+      community_space: 'huerto comunitario',
+      plaza: 'plaza del pueblo',
+      cafe: 'bar del barrio',
+      drink: 'café con leche',
+      food: 'bocadillo',
+      nature: 'pinos, robles, lluvia atlántica',
+      architecture: 'casas de piedra, soportales, callejón empedrado',
+      expressions: 'venga, anda, madre mía, jolines',
+      setting_note: 'Ambientado en España. Usa topónimos, arquitectura, gastronomía y expresiones coloquiales españolas. Rosa vive en un barrio antiguo de pueblo o ciudad española.'
+    };
+  }
+  return {
+    country: 'Colombia',
+    city: 'una ciudad colombiana',
+    neighborhood: 'barrio popular',
+    community_space: 'jardín comunitario',
+    plaza: 'parque del barrio',
+    cafe: 'tienda de barrio',
+    drink: 'tinto',
+    food: 'arepa',
+    nature: 'buganvilias, heliconias, lluvia de las tres',
+    architecture: 'casas de ladrillo rojo, patios interiores, rejas coloniales',
+    expressions: 'listo, chévere, bacano, ay Dios mío',
+    setting_note: 'Ambientado en Colombia. Usa topónimos, arquitectura, gastronomía y expresiones coloquiales colombianas. Rosa vive en un barrio popular de ciudad colombiana.'
+  };
+}
+
 function normalizeUnitScore(value, fallback = null) {
   if (value === null || typeof value === 'undefined') return fallback;
   const num = Number(value);
@@ -1013,23 +1047,37 @@ const supabase = (createClient && process.env.SUPABASE_URL && process.env.SUPABA
   ? createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
   : makeNoopClient();
 
-// Load chapter content file
-let CHAPTERS = { chapters: [] };
-try {
-  const chaptersFileName = process.env.CHAPTERS_FILE || 'chapters.json';
-  const p = path.join(__dirname, '..', 'content', chaptersFileName);
-  if (fs.existsSync(p)) {
-    CHAPTERS = JSON.parse(fs.readFileSync(p, 'utf8'));
-    console.log(`Loaded chapters from ${chaptersFileName}:`, CHAPTERS.chapters.length);
-  } else {
-    console.warn(`${chaptersFileName} not found at`, p);
-  }
-} catch (e) {
-  console.warn(`Failed to load ${process.env.CHAPTERS_FILE || 'chapters.json'}`, e && e.message);
+// Latam story catalog (4 stories, c01-c14 each)
+const STORY_CATALOG = [
+  { id: 'mariana', file: 'story_mariana_huerto.json',  title: 'El huerto de Mariana',  protagonist: 'Mariana', description: 'Mariana descubre un huerto comunitario en Bogotá' },
+  { id: 'tatiana', file: 'story_tatiana_taller.json',  title: 'El taller de Tatiana',  protagonist: 'Tatiana', description: 'Tatiana aprende a hacer almojábanas en Medellín' },
+  { id: 'ernesto', file: 'story_ernesto_taller.json',  title: 'El taller de Ernesto',  protagonist: 'Ernesto', description: 'Ernesto trabaja madera en un taller de carpintería en Cali' },
+  { id: 'alberto', file: 'story_alberto_ajedrez.json', title: 'El ajedrez de Alberto', protagonist: 'Alberto', description: 'Alberto juega ajedrez en el Parque Nacional de Bogotá' },
+];
+
+const STORIES = {};
+for (const entry of STORY_CATALOG) {
+  try {
+    const p = path.join(__dirname, '..', 'content', 'latam', entry.file);
+    if (fs.existsSync(p)) {
+      const data = JSON.parse(fs.readFileSync(p, 'utf8'));
+      STORIES[entry.id] = { ...entry, chapters: data.chapters || [] };
+      console.log(`Loaded story ${entry.id}: ${STORIES[entry.id].chapters.length} chapters`);
+    } else { console.warn(`Story file not found: ${p}`); }
+  } catch (e) { console.warn(`Failed to load story ${entry.id}:`, e && e.message); }
 }
 
-function findChapter(chapter_id) {
-  return (CHAPTERS.chapters || []).find(c => c.chapter_id === chapter_id) || null;
+const DB_CHAPTER_CACHE = new Map();
+
+function findChapter(chapter_id, story_id = null) {
+  if (story_id && STORIES[story_id]) {
+    return (STORIES[story_id].chapters || []).find(c => c.chapter_id === chapter_id) || null;
+  }
+  for (const story of Object.values(STORIES)) {
+    const found = (story.chapters || []).find(c => c.chapter_id === chapter_id);
+    if (found) return found;
+  }
+  return DB_CHAPTER_CACHE.get(chapter_id) || null;
 }
 
 async function hydrateChapterFromDb(chapter_id) {
@@ -1085,10 +1133,7 @@ async function hydrateChapterFromDb(chapter_id) {
       }))
     };
 
-    if (!Array.isArray(CHAPTERS.chapters)) CHAPTERS.chapters = [];
-    const idx = CHAPTERS.chapters.findIndex(c => c.chapter_id === chapter_id);
-    if (idx >= 0) CHAPTERS.chapters[idx] = chapterObj;
-    else CHAPTERS.chapters.push(chapterObj);
+    DB_CHAPTER_CACHE.set(chapter_id, chapterObj);
 
     return chapterObj;
   } catch (e) {
@@ -1097,10 +1142,56 @@ async function hydrateChapterFromDb(chapter_id) {
   }
 }
 
-function findScene(chapter_id, scene_id) {
-  const ch = findChapter(chapter_id);
+function findScene(chapter_id, scene_id, story_id = null) {
+  const ch = findChapter(chapter_id, story_id);
   if (!ch) return null;
   return (ch.scenes || []).find(s => s.scene_id === scene_id) || null;
+}
+
+function getStoryMeta(story_id) {
+  return STORY_CATALOG.find(s => s.id === story_id) || null;
+}
+
+function getStorySelectionSpeech() {
+  return 'Tenemos cuatro historias. ' +
+    'Uno: Mariana descubre un huerto comunitario en Bogotá. ' +
+    'Dos: Tatiana aprende a hacer almojábanas en Medellín. ' +
+    'Tres: Ernesto trabaja madera en un taller de carpintería en Cali. ' +
+    'Cuatro: Alberto juega ajedrez en el Parque Nacional de Bogotá. ' +
+    '¿Cuál quieres escuchar? Di uno, dos, tres o cuatro.';
+}
+
+async function getUserStoryProgress(pseudonym) {
+  try {
+    const { data, error } = await supabase
+      .from('users')
+      .select('metadata')
+      .eq('pseudonym', pseudonym)
+      .maybeSingle();
+    if (error || !data) return null;
+    return (data.metadata && data.metadata.story_progress) || null;
+  } catch (e) { return null; }
+}
+
+async function saveUserStoryProgress(pseudonym, story_id, chapter_id, completed_story_id = null) {
+  if (!pseudonym) return;
+  try {
+    const { data: existing } = await supabase
+      .from('users').select('metadata').eq('pseudonym', pseudonym).maybeSingle();
+    const current = (existing && existing.metadata) || {};
+    const progress = (current.story_progress) || {};
+    const updated = {
+      ...current,
+      story_progress: {
+        current_story_id: story_id,
+        current_chapter_id: chapter_id,
+        stories_completed: completed_story_id
+          ? [...new Set([...(progress.stories_completed || []), completed_story_id])]
+          : (progress.stories_completed || [])
+      }
+    };
+    await supabase.from('users').update({ metadata: updated }).eq('pseudonym', pseudonym);
+  } catch (e) { console.warn('saveUserStoryProgress error', e && e.message); }
 }
 
 async function insertSceneWithSchemaFallback(sceneRow) {
@@ -1219,9 +1310,9 @@ function getSequentialSceneId(chapter_id, scene) {
   return `${chapter_id}-s${String(n + 1).padStart(2, '0')}`;
 }
 
-async function advanceToPlayableScene(session_id, chapter_id, initialScene, initialChapter = null, maxHops = 5) {
-  let nextChapter = initialChapter || (chapter_id ? findChapter(chapter_id) : null);
-  if (!nextChapter && chapter_id) {
+async function advanceToPlayableScene(session_id, chapter_id, initialScene, initialChapter = null, maxHops = 5, story_id = null) {
+  let nextChapter = initialChapter || (chapter_id ? findChapter(chapter_id, story_id) : null);
+  if (!nextChapter && chapter_id && !story_id) {
     nextChapter = await hydrateChapterFromDb(chapter_id);
   }
 
@@ -1245,7 +1336,7 @@ async function advanceToPlayableScene(session_id, chapter_id, initialScene, init
     const seqSceneId = getSequentialSceneId(chapterRef, nextScene);
     if (!seqSceneId || !chapterRef) break;
 
-    const resolved = await resolveOrGenerateNextScene(session_id || null, chapterRef, seqSceneId);
+    const resolved = await resolveOrGenerateNextScene(session_id || null, chapterRef, seqSceneId, { story_id });
     if (!resolved.nextScene) break;
     nextChapter = resolved.nextChapter || nextChapter;
     nextScene = resolved.nextScene;
@@ -1271,12 +1362,17 @@ async function resolveOrGenerateNextScene(session_id, chapter_id, nextSceneId, o
     ? [requestedSceneId]
     : [requestedSceneId, canonicalSceneId];
 
-  // 1) Try in-memory chapter first.
-  let nextChapter = findChapter(chapter_id);
+  // 1) Try in-memory chapter first (story-scoped if story_id provided).
+  let nextChapter = findChapter(chapter_id, options.story_id || null);
   let nextScene = (nextChapter && nextChapter.scenes)
     ? nextChapter.scenes.find(s => sceneIdCandidates.includes(String(s.scene_id || '')))
     : null;
   if (nextScene) return { nextChapter, nextScene };
+
+  // For latam JSON stories, skip DB hydration and LLM generation.
+  if (options.story_id && STORIES[options.story_id]) {
+    return { nextChapter: null, nextScene: null };
+  }
 
   // 2) Try DB hydration.
   nextChapter = await hydrateChapterFromDb(chapter_id);
@@ -1329,8 +1425,9 @@ function chapterNamespaceLooksValid(chapter) {
 
 async function ensureOptionsUpsert() {
   try {
+    const allChapters = Object.values(STORIES).flatMap(s => s.chapters || []);
     // PASS 1: Insert ALL chapters first (to satisfy FK from options.next_chapter_id)
-    for (const ch of (CHAPTERS.chapters || [])) {
+    for (const ch of allChapters) {
       try {
         const chapterRow = { chapter_id: ch.chapter_id, title: ch.title || null, order: ch.order || null };
         const { error: cerr } = await supabase.from('chapters').upsert([chapterRow], { onConflict: 'chapter_id' }).select();
@@ -1342,7 +1439,7 @@ async function ensureOptionsUpsert() {
     }
 
     // PASS 2: Insert ALL scenes (to satisfy FK from options.scene_id)
-    for (const ch of (CHAPTERS.chapters || [])) {
+    for (const ch of allChapters) {
       for (const sc of (ch.scenes || [])) {
         try {
           const sceneRow = {
@@ -1361,7 +1458,7 @@ async function ensureOptionsUpsert() {
     }
 
     // PASS 3: Insert ALL options (now all chapters and scenes exist for FKs)
-    for (const ch of (CHAPTERS.chapters || [])) {
+    for (const ch of allChapters) {
       for (const sc of (ch.scenes || [])) {
         for (const opt of (sc.options || [])) {
           const optRow = {
@@ -1386,7 +1483,7 @@ async function ensureOptionsUpsert() {
     }
 
     // PASS 4: Insert clinical mappings
-    for (const ch of (CHAPTERS.chapters || [])) {
+    for (const ch of allChapters) {
       for (const sc of (ch.scenes || [])) {
         for (const opt of (sc.options || [])) {
           const gdsMappings = opt.gds_mapping || [];
@@ -1798,6 +1895,8 @@ async function handleAlexa(req, res) {
     }
 
     const sessionAttrs = (body.session && body.session.attributes) ? body.session.attributes : {};
+    const requestLocale = String((body.request && body.request.locale) || sessionAttrs.locale || 'es-MX');
+    const geoSetting = getGeographicSetting(requestLocale);
     try { console.log('alexa request summary', { type: body.request && body.request.type ? body.request.type : null, intent: (body.request && body.request.intent && body.request.intent.name) ? body.request.intent.name : null, inputTranscript: body.request && body.request.inputTranscript ? body.request.inputTranscript : null, sessionAttrs }); } catch (e) {}
 
     if (body.request.type === 'SessionEndedRequest') {
@@ -1830,7 +1929,7 @@ async function handleAlexa(req, res) {
     // Flow states: 'login', 'confirm_pseudonym', 'consent', 'scene'
     if (body.request.type === 'LaunchRequest') {
       // Start mini-login flow
-      const sa = Object.assign({}, sessionAttrs, { stage: 'login' });
+      const sa = Object.assign({}, sessionAttrs, { stage: 'login', locale: requestLocale });
       const speech = 'Bienvenido a Escoge tu Historia. Para comenzar, dime tu pseudónimo.';
       const loginReprompt = 'Dime tu pseudónimo, por ejemplo Felipe.';
       res.writeHead(200, {'Content-Type':'application/json'});
@@ -1839,6 +1938,18 @@ async function handleAlexa(req, res) {
 
     if (body.request.type === 'IntentRequest') {
       const intentName = (body.request.intent && body.request.intent.name) || 'UnknownIntent';
+
+      // Stop / Cancel: always handle first, before any stage logic
+      if (intentName === 'AMAZON.StopIntent' || intentName === 'AMAZON.CancelIntent') {
+        const goodbyeSpeech = '¡Vuelve pronto! Aquí estaremos cuando quieras continuar tu historia.';
+        if (sessionAttrs.session_id) {
+          try {
+            await supabase.from('sessions').update({ ended_at: new Date().toISOString(), is_closed: true, abandonment_flag: false }).eq('session_id', sessionAttrs.session_id);
+          } catch (e) { console.warn('session close on stop error', e && e.message); }
+        }
+        res.writeHead(200, {'Content-Type':'application/json'});
+        return res.end(JSON.stringify(alexaResponse(goodbyeSpeech, {}, true)));
+      }
 
       // User provided pseudonym (expect slot named 'pseudonym')
       if (sessionAttrs.stage === 'login') {
@@ -2110,7 +2221,7 @@ async function handleAlexa(req, res) {
 
             console.log(`[📖 Reminder→Chapter] Starting chapter load: current=${sessionAttrs.chapter_id}, next=${nextChapterIdAuto}`);
 
-            let nextAutoChapter = nextChapterIdAuto ? findChapter(nextChapterIdAuto) : null;
+            let nextAutoChapter = nextChapterIdAuto ? findChapter(nextChapterIdAuto, sessionAttrs.story_id || null) : null;
             console.log(`[📖 Reminder→Chapter] After findChapter(): found=${!!nextAutoChapter}`);
             
             if (!nextAutoChapter && nextChapterIdAuto) {
@@ -2246,47 +2357,57 @@ async function handleAlexa(req, res) {
               if (userErr) console.warn('user upsert error (consent stage):', userErr);
             } catch (e) { console.warn('user upsert exception (consent stage)', e && e.message); }
 
-            // REMOVED: Daily limit check (allow infinite play for now)
-            // const today = new Date().toISOString().slice(0,10);
-            // let recent = null;
-            // try {
-            //   const { data: rdata, error: rerr } = await supabase.from('sessions').select('session_id, started_at').eq('pseudonym', pseudonym).order('started_at', { ascending: false }).limit(1).maybeSingle();
-            //   if (rerr) console.warn('recent session lookup error', rerr);
-            //   recent = rdata;
-            // } catch (e) { console.warn('recent session exception', e && e.message); }
-            // if (recent && recent.started_at) {
-            //   const recentDate = new Date(recent.started_at).toISOString().slice(0,10);
-            //   if (recentDate === today) {
-            //     res.writeHead(200, {'Content-Type':'application/json'});
-            //     return res.end(JSON.stringify(alexaResponse('Hoy ya has jugado un capítulo. Vuelve mañana para continuar con otro capítulo.', sessionAttrs, true)));
-            //   }
-            // }
-
-            const sessionPayload = { source: 'alexa', pseudonym, consent_given: true, chapter_id: 'c01' };
-            const persist = await processTelemetryPayload(sessionPayload, req.headers);
-            const session_id = persist.session_id;
-            const sa = Object.assign({}, sessionAttrs, { stage: 'scene', session_id, pseudonym, consent_given: true, chapter_id: 'c01' });
-
-            // Present first scene dynamically from content
-            const chapter = findChapter('c01');
-            const firstScene = (chapter && chapter.scenes && chapter.scenes[0]) ? chapter.scenes[0] : null;
-            if (!firstScene) {
-              res.writeHead(500, {'Content-Type':'application/json'});
-              return res.end(JSON.stringify(alexaResponse('No se encontró la escena inicial.', sessionAttrs, true)));
+            // Daily limit: 1 chapter per day per pseudonym. "felipe" is exempt (developer).
+            const isDeveloper = pseudonym && pseudonym.toLowerCase() === 'felipe';
+            if (!isDeveloper) {
+              const today = new Date().toISOString().slice(0, 10);
+              let recent = null;
+              try {
+                const { data: rdata, error: rerr } = await supabase
+                  .from('sessions')
+                  .select('session_id, started_at')
+                  .eq('pseudonym', pseudonym)
+                  .order('started_at', { ascending: false })
+                  .limit(1)
+                  .maybeSingle();
+                if (rerr) console.warn('recent session lookup error', rerr);
+                recent = rdata;
+              } catch (e) { console.warn('recent session exception', e && e.message); }
+              if (recent && recent.started_at) {
+                const recentDate = new Date(recent.started_at).toISOString().slice(0, 10);
+                if (recentDate === today) {
+                  res.writeHead(200, { 'Content-Type': 'application/json' });
+                  return res.end(JSON.stringify(alexaResponse(
+                    'Hoy ya has jugado un capítulo. Vuelve mañana para continuar con tu historia.',
+                    sessionAttrs,
+                    true
+                  )));
+                }
+              }
             }
-            // Present up to three numbered options (uno/dos/tres)
-            const rawOpts = firstScene.options || [];
-            const opts = rawOpts.slice(0, 3).map((o, idx) => ({ option_id: o.option_id, option_text: o.option_text, index: idx + 1, next_chapter_id: o.next_chapter_id || null, next_scene_id: o.next_scene_id || null }));
-            // Build speech: scene text + enumerated options
-            const sceneTail = opts.length === 1
-              ? 'Di opción uno o continuar para elegir.'
-              : (opts.length === 2
-                ? 'Di opción uno u opción dos para elegir.'
-                : 'Di opción uno, opción dos u opción tres para elegir.');
-            const sceneSpeech = buildAlexaSceneSpeech(firstScene.text, opts, sceneTail, MAX_ALEXA_TEXT_CHARS);
-            const sa2 = Object.assign({}, sa, { current_scene_id: firstScene.scene_id, current_options: opts });
-            res.writeHead(200, {'Content-Type':'application/json'});
-            return res.end(JSON.stringify(alexaResponse(sceneSpeech, sa2, false, true, noResponsePrompt)));
+
+            // Check if user has an active story to resume
+            const progress = await getUserStoryProgress(pseudonym);
+            if (progress && progress.current_story_id && STORIES[progress.current_story_id] && progress.current_chapter_id !== 'completed') {
+              const meta = getStoryMeta(progress.current_story_id);
+              const chNum = parseInt((progress.current_chapter_id || 'c01').substring(1)) || 1;
+              const sa = Object.assign({}, sessionAttrs, {
+                stage: 'story_continue_or_new',
+                pseudonym,
+                consent_given: true,
+                locale: requestLocale,
+                resume_story_id: progress.current_story_id,
+                resume_chapter_id: progress.current_chapter_id || 'c01'
+              });
+              const speech = `Bienvenido de nuevo. Estás en el capítulo ${chNum} de la historia de ${meta ? meta.protagonist : 'tu historia'}. ¿Quieres continuar, o empezar una historia diferente? Di continuar o nueva.`;
+              res.writeHead(200, {'Content-Type':'application/json'});
+              return res.end(JSON.stringify(alexaResponse(speech, sa, false, true, 'Di continuar o nueva.')));
+            } else {
+              // New user or completed all stories: go to story selection
+              const sa = Object.assign({}, sessionAttrs, { stage: 'story_select', pseudonym, consent_given: true, locale: requestLocale });
+              res.writeHead(200, {'Content-Type':'application/json'});
+              return res.end(JSON.stringify(alexaResponse(getStorySelectionSpeech(), sa, false, true, getStorySelectionSpeech())));
+            }
           } catch (err) {
             console.error('error creating session from consent', err);
             res.writeHead(500, {'Content-Type':'application/json'});
@@ -2303,11 +2424,126 @@ async function handleAlexa(req, res) {
         return res.end(JSON.stringify(alexaResponse('Por favor responde sí o no.', sessionAttrs, false, true, consentReprompt)));
       }
 
+      // Story selection: user picks one of the 4 available stories
+      if (sessionAttrs.stage === 'story_select') {
+        const ssInput = (body.request && body.request.inputTranscript) ? String(body.request.inputTranscript).toLowerCase().trim() : '';
+        const ssSlots = (body.request.intent && body.request.intent.slots) || {};
+        let ssNum = '';
+        const ssOptSlot = ssSlots.option;
+        if (ssOptSlot) {
+          if (ssOptSlot.value) {
+            ssNum = String(ssOptSlot.value).toLowerCase().trim();
+          } else if (ssOptSlot.resolutions && ssOptSlot.resolutions.resolutionsPerAuthority &&
+                     ssOptSlot.resolutions.resolutionsPerAuthority[0] &&
+                     ssOptSlot.resolutions.resolutionsPerAuthority[0].values &&
+                     ssOptSlot.resolutions.resolutionsPerAuthority[0].values[0]) {
+            ssNum = String(ssOptSlot.resolutions.resolutionsPerAuthority[0].values[0].value.name).toLowerCase().trim();
+          }
+        }
+        if (!ssNum && ssSlots.chapterNumber && ssSlots.chapterNumber.value) {
+          ssNum = String(ssSlots.chapterNumber.value).trim();
+        }
+        const storyMap = { '1': 'mariana', 'uno': 'mariana', '2': 'tatiana', 'dos': 'tatiana', '3': 'ernesto', 'tres': 'ernesto', '4': 'alberto', 'cuatro': 'alberto' };
+        let selectedStoryId = storyMap[ssNum] || storyMap[ssInput];
+        if (!selectedStoryId) {
+          for (const [key, val] of Object.entries(storyMap)) {
+            if (ssInput.includes(key)) { selectedStoryId = val; break; }
+          }
+        }
+        if (!selectedStoryId) {
+          res.writeHead(200, {'Content-Type':'application/json'});
+          return res.end(JSON.stringify(alexaResponse('No entendí tu elección. ' + getStorySelectionSpeech(), sessionAttrs, false, true, getStorySelectionSpeech())));
+        }
+        try {
+          const ssPseudonym = sessionAttrs.pseudonym;
+          const ssChapterId = 'c01';
+          const ssSessionPayload = { source: 'alexa', pseudonym: ssPseudonym, consent_given: true, chapter_id: ssChapterId, metadata: { locale: requestLocale, story_id: selectedStoryId } };
+          const ssPersist = await processTelemetryPayload(ssSessionPayload, req.headers);
+          const ssSessionId = ssPersist.session_id;
+          await saveUserStoryProgress(ssPseudonym, selectedStoryId, ssChapterId);
+          const ssChapter = findChapter(ssChapterId, selectedStoryId);
+          const ssFirstScene = ssChapter && ssChapter.scenes && ssChapter.scenes[0] ? ssChapter.scenes[0] : null;
+          if (!ssFirstScene) {
+            res.writeHead(500, {'Content-Type':'application/json'});
+            return res.end(JSON.stringify(alexaResponse('No se encontró la escena inicial.', sessionAttrs, true)));
+          }
+          const ssRawOpts = ssFirstScene.options || [];
+          const ssOpts = ssRawOpts.slice(0, 3).map((o, idx) => ({ option_id: o.option_id, option_text: o.option_text, index: idx + 1, next_chapter_id: o.next_chapter_id || null, next_scene_id: o.next_scene_id || null }));
+          const ssTail = ssOpts.length === 1 ? 'Di opción uno para elegir.' : ssOpts.length === 2 ? 'Di opción uno u opción dos para elegir.' : 'Di opción uno, opción dos u opción tres para elegir.';
+          const ssMeta = getStoryMeta(selectedStoryId);
+          const ssIntro = ssMeta ? `Comenzamos la historia de ${ssMeta.protagonist}. ` : '';
+          const ssSpeech = buildAlexaSceneSpeech(ssIntro + ssFirstScene.text, ssOpts, ssTail, MAX_ALEXA_TEXT_CHARS);
+          const saSS = Object.assign({}, sessionAttrs, { stage: 'scene', session_id: ssSessionId, pseudonym: ssPseudonym, consent_given: true, chapter_id: ssChapterId, story_id: selectedStoryId, locale: requestLocale, current_scene_id: ssFirstScene.scene_id, current_options: ssOpts });
+          res.writeHead(200, {'Content-Type':'application/json'});
+          return res.end(JSON.stringify(alexaResponse(ssSpeech, saSS, false, true, noResponsePrompt)));
+        } catch (err) {
+          console.error('error starting story from story_select', err);
+          res.writeHead(500, {'Content-Type':'application/json'});
+          return res.end(JSON.stringify(alexaResponse('Hubo un error al iniciar la historia.', sessionAttrs, true)));
+        }
+      }
+
+      // Returning user: continue current story or pick a new one
+      if (sessionAttrs.stage === 'story_continue_or_new') {
+        const scInput = (body.request && body.request.inputTranscript) ? String(body.request.inputTranscript).toLowerCase().trim() : '';
+        const scIntentNorm = String((body.request.intent && body.request.intent.name) || '').toLowerCase();
+        const isContinue = intentName === 'ResumeIntent' || scIntentNorm.endsWith('yesintent') || scInput === 'continuar' || scInput.includes('continuar') || scInput === 'sí' || scInput === 'si';
+        const isNewStory = intentName === 'NuevaHistoriaIntent' || scIntentNorm.endsWith('nointent') || scInput === 'nueva' || scInput.includes('nueva') || scInput === 'no';
+
+        if (isContinue) {
+          try {
+            const scPseudonym = sessionAttrs.pseudonym;
+            const scStoryId = sessionAttrs.resume_story_id;
+            const scChapterId = sessionAttrs.resume_chapter_id || 'c01';
+            const scSessionPayload = { source: 'alexa', pseudonym: scPseudonym, consent_given: true, chapter_id: scChapterId, metadata: { locale: requestLocale, story_id: scStoryId } };
+            const scPersist = await processTelemetryPayload(scSessionPayload, req.headers);
+            const scSessionId = scPersist.session_id;
+            await saveUserStoryProgress(scPseudonym, scStoryId, scChapterId);
+            const scChapter = findChapter(scChapterId, scStoryId);
+            const scFirstScene = scChapter && scChapter.scenes && scChapter.scenes[0] ? scChapter.scenes[0] : null;
+            if (!scFirstScene) {
+              res.writeHead(500, {'Content-Type':'application/json'});
+              return res.end(JSON.stringify(alexaResponse('No se encontró la escena.', sessionAttrs, true)));
+            }
+            const scRawOpts = scFirstScene.options || [];
+            const scOpts = scRawOpts.slice(0, 3).map((o, idx) => ({ option_id: o.option_id, option_text: o.option_text, index: idx + 1, next_chapter_id: o.next_chapter_id || null, next_scene_id: o.next_scene_id || null }));
+            const scTail = scOpts.length === 1 ? 'Di opción uno para elegir.' : scOpts.length === 2 ? 'Di opción uno u opción dos para elegir.' : 'Di opción uno, opción dos u opción tres para elegir.';
+            const scSpeech = buildAlexaSceneSpeech(scFirstScene.text, scOpts, scTail, MAX_ALEXA_TEXT_CHARS);
+            const saSC = Object.assign({}, sessionAttrs, { stage: 'scene', session_id: scSessionId, pseudonym: scPseudonym, consent_given: true, chapter_id: scChapterId, story_id: scStoryId, locale: requestLocale, current_scene_id: scFirstScene.scene_id, current_options: scOpts });
+            res.writeHead(200, {'Content-Type':'application/json'});
+            return res.end(JSON.stringify(alexaResponse(scSpeech, saSC, false, true, noResponsePrompt)));
+          } catch (err) {
+            console.error('error resuming story from story_continue_or_new', err);
+            res.writeHead(500, {'Content-Type':'application/json'});
+            return res.end(JSON.stringify(alexaResponse('Hubo un error al retomar la historia.', sessionAttrs, true)));
+          }
+        }
+        if (isNewStory) {
+          const saNewStory = Object.assign({}, sessionAttrs, { stage: 'story_select' });
+          res.writeHead(200, {'Content-Type':'application/json'});
+          return res.end(JSON.stringify(alexaResponse(getStorySelectionSpeech(), saNewStory, false, true, getStorySelectionSpeech())));
+        }
+        res.writeHead(200, {'Content-Type':'application/json'});
+        return res.end(JSON.stringify(alexaResponse('Por favor di continuar para seguir tu historia, o nueva para elegir una diferente.', sessionAttrs, false, true, 'Di continuar o nueva.')));
+      }
+
       // Scene interaction: expect an intent that selects an option (we accept any intent name as option)
       if (sessionAttrs.stage === 'scene') {
         const slots = (body.request.intent && body.request.intent.slots) || {};
-        const inputTranscript = (body.request && body.request.inputTranscript) ? String(body.request.inputTranscript).toLowerCase().trim() : null;
         const opts = sessionAttrs.current_options || [];
+
+        // Guard: if StartChapterIntent fired (AMAZON.NUMBER slot captured a bare digit),
+        // rewrite inputTranscript so the option-matching logic picks it up correctly.
+        if (intentName === 'StartChapterIntent') {
+          const chapNum = slots.chapterNumber && slots.chapterNumber.value ? String(slots.chapterNumber.value).trim() : null;
+          if (chapNum && /^[123]$/.test(chapNum)) {
+            const wordMap = { '1': 'uno', '2': 'dos', '3': 'tres' };
+            try { console.log('scene: StartChapterIntent intercepted in scene stage, chapterNumber=', chapNum); } catch (e) {}
+            body.request.inputTranscript = wordMap[chapNum];
+          }
+        }
+
+        const inputTranscript = (body.request && body.request.inputTranscript) ? String(body.request.inputTranscript).toLowerCase().trim() : null;
         const intentNorm = String(intentName || '').toLowerCase();
         const isYes = intentName === 'AMAZON.YesIntent' || intentNorm.endsWith('yesintent');
         const isNo = intentName === 'AMAZON.NoIntent' || intentNorm.endsWith('nointent');
@@ -2328,8 +2564,8 @@ async function handleAlexa(req, res) {
         // Auto-continue when session is positioned at a narrated scene (no options available).
         if (opts.length === 0 && sessionAttrs.current_scene_id && sessionAttrs.chapter_id) {
           try {
-            let chapterRef = findChapter(sessionAttrs.chapter_id);
-            if (!chapterRef) chapterRef = await hydrateChapterFromDb(sessionAttrs.chapter_id);
+            let chapterRef = findChapter(sessionAttrs.chapter_id, sessionAttrs.story_id || null);
+            if (!chapterRef && !sessionAttrs.story_id) chapterRef = await hydrateChapterFromDb(sessionAttrs.chapter_id);
             const currentScene = (chapterRef && chapterRef.scenes)
               ? chapterRef.scenes.find(s => s.scene_id === sessionAttrs.current_scene_id)
               : null;
@@ -2341,7 +2577,7 @@ async function handleAlexa(req, res) {
                   sessionAttrs.session_id || null,
                   sessionAttrs.chapter_id,
                   seqSceneId,
-                  { allowGeneration: false }
+                  { allowGeneration: false, story_id: sessionAttrs.story_id || null }
                 );
                 if (resolved && resolved.nextScene) {
                   const advanced = await advanceToPlayableScene(
@@ -2349,7 +2585,8 @@ async function handleAlexa(req, res) {
                     sessionAttrs.chapter_id,
                     resolved.nextScene,
                     resolved.nextChapter,
-                    5
+                    5,
+                    sessionAttrs.story_id || null
                   );
                   const autoNextScene = advanced.nextScene;
                   const autoNextChapter = advanced.nextChapter;
@@ -2417,39 +2654,39 @@ async function handleAlexa(req, res) {
             try {
               const curChapterId = sessionAttrs.chapter_id || null;
               const curSceneId = sessionAttrs.current_scene_id || null;
-              const ch = curChapterId ? findChapter(curChapterId) : null;
+              const ch = curChapterId ? findChapter(curChapterId, sessionAttrs.story_id || null) : null;
               const sc = (ch && ch.scenes) ? ch.scenes.find(s => s.scene_id === curSceneId) : null;
               if (sc && sc.options) {
                 const optDef = sc.options.find(o => o.option_id === chosenOpt.option_id);
                 if (optDef) consequence = optDef.consequence || null;
               }
             } catch (e) { console.warn('consequence lookup error', e && e.message); }
-            
+
             // Determine navigation: next_scene_id (intra-chapter) or next_chapter_id (inter-chapter)
             const nextSceneId = chosenOpt.next_scene_id || null;
             const nextChapterId = chosenOpt.next_chapter_id || null;
-            
+
             let nextScene = null;
             let nextChapter = null;
             if (nextSceneId) {
-              const ch = findChapter(sessionAttrs.chapter_id);
+              const ch = findChapter(sessionAttrs.chapter_id, sessionAttrs.story_id || null);
               nextScene = (ch && ch.scenes) ? ch.scenes.find(s => s.scene_id === nextSceneId) : null;
             }
             if (!nextScene && nextChapterId) {
-              nextChapter = findChapter(nextChapterId);
+              nextChapter = findChapter(nextChapterId, sessionAttrs.story_id || null);
               nextScene = (nextChapter && nextChapter.scenes && nextChapter.scenes[0]) ? nextChapter.scenes[0] : null;
             }
-            
+
             if (nextScene) {
               if (nextSceneId) {
                 // Intra-chapter navigation: resolve next scene or generate on-demand.
-                const resolved = await resolveOrGenerateNextScene(sessionAttrs.session_id || null, sessionAttrs.chapter_id, nextSceneId);
+                const resolved = await resolveOrGenerateNextScene(sessionAttrs.session_id || null, sessionAttrs.chapter_id, nextSceneId, { story_id: sessionAttrs.story_id || null });
                 nextChapter = resolved.nextChapter;
                 nextScene = resolved.nextScene;
                 if (!nextScene) {
                   const fallbackSceneId = normalizeSceneIdFallback(nextSceneId);
                   if (fallbackSceneId) {
-                    const fallbackResolved = await resolveOrGenerateNextScene(sessionAttrs.session_id || null, sessionAttrs.chapter_id, fallbackSceneId);
+                    const fallbackResolved = await resolveOrGenerateNextScene(sessionAttrs.session_id || null, sessionAttrs.chapter_id, fallbackSceneId, { story_id: sessionAttrs.story_id || null });
                     if (fallbackResolved && fallbackResolved.nextScene) {
                       console.warn('scene fallback used for missing branch id', { requested: nextSceneId, fallback: fallbackSceneId });
                       nextChapter = fallbackResolved.nextChapter;
@@ -2464,7 +2701,8 @@ async function handleAlexa(req, res) {
                 (nextChapter && nextChapter.chapter_id) || sessionAttrs.chapter_id,
                 nextScene,
                 nextChapter,
-                5
+                5,
+                sessionAttrs.story_id || null
               );
               nextChapter = advanced.nextChapter;
               nextScene = advanced.nextScene;
@@ -2628,30 +2866,30 @@ async function handleAlexa(req, res) {
           try {
             const curChapterId = sessionAttrs.chapter_id || null;
             const curSceneId = sessionAttrs.current_scene_id || null;
-            const ch = curChapterId ? findChapter(curChapterId) : null;
+            const ch = curChapterId ? findChapter(curChapterId, sessionAttrs.story_id || null) : null;
             const sc = (ch && ch.scenes) ? ch.scenes.find(s => s.scene_id === curSceneId) : null;
             if (sc && sc.options) {
               const optDef = sc.options.find(o => o.option_id === chosenOpt.option_id);
               if (optDef) consequence = optDef.consequence || null;
             }
           } catch (e) { console.warn('consequence lookup error', e && e.message); }
-          
+
           // Determine navigation: next_scene_id (intra-chapter) or next_chapter_id (inter-chapter)
           const nextSceneId = chosenOpt.next_scene_id || null;
           const nextChapterId = chosenOpt.next_chapter_id || null;
-          
+
           let nextScene = null;
           let nextChapter = null;
-          
+
           if (nextSceneId) {
             // Intra-chapter navigation: resolve next scene or generate on-demand.
-            const resolved = await resolveOrGenerateNextScene(sessionAttrs.session_id || null, sessionAttrs.chapter_id, nextSceneId);
+            const resolved = await resolveOrGenerateNextScene(sessionAttrs.session_id || null, sessionAttrs.chapter_id, nextSceneId, { story_id: sessionAttrs.story_id || null });
             nextChapter = resolved.nextChapter;
             nextScene = resolved.nextScene;
             if (!nextScene) {
               const fallbackSceneId = normalizeSceneIdFallback(nextSceneId);
               if (fallbackSceneId) {
-                const fallbackResolved = await resolveOrGenerateNextScene(sessionAttrs.session_id || null, sessionAttrs.chapter_id, fallbackSceneId);
+                const fallbackResolved = await resolveOrGenerateNextScene(sessionAttrs.session_id || null, sessionAttrs.chapter_id, fallbackSceneId, { story_id: sessionAttrs.story_id || null });
                 if (fallbackResolved && fallbackResolved.nextScene) {
                   console.warn('scene fallback used for missing branch id', { requested: nextSceneId, fallback: fallbackSceneId });
                   nextChapter = fallbackResolved.nextChapter;
@@ -2661,7 +2899,7 @@ async function handleAlexa(req, res) {
             }
           } else if (nextChapterId) {
             // Inter-chapter navigation: move to first scene of next chapter
-            nextChapter = findChapter(nextChapterId);
+            nextChapter = findChapter(nextChapterId, sessionAttrs.story_id || null);
             if (nextChapter && nextChapter.scenes && nextChapter.scenes.length > 0) {
               nextScene = nextChapter.scenes[0];
             }
@@ -2683,9 +2921,9 @@ async function handleAlexa(req, res) {
 
             let nextAutoChapter = null;
             if (AUTO_CONTINUE_NEXT_CHAPTER) {
-              nextAutoChapter = nextChapterIdAuto ? findChapter(nextChapterIdAuto) : null;
+              nextAutoChapter = nextChapterIdAuto ? findChapter(nextChapterIdAuto, sessionAttrs.story_id || null) : null;
               console.log('🔍 First lookup (findChapter):', nextAutoChapter ? 'FOUND in memory' : 'not found');
-              if (!nextAutoChapter && nextChapterIdAuto) {
+              if (!nextAutoChapter && nextChapterIdAuto && !sessionAttrs.story_id) {
                 nextAutoChapter = await hydrateChapterFromDb(nextChapterIdAuto);
                 console.log('🔍 Second lookup (hydrateChapterFromDb):', nextAutoChapter ? 'FOUND in DB' : 'not found');
               }
@@ -2727,6 +2965,24 @@ async function handleAlexa(req, res) {
               }
             }
 
+            // End-of-latam-story: c14 completed, no next chapter exists
+            if (sessionAttrs.story_id && STORIES[sessionAttrs.story_id] && !nextAutoChapter) {
+              const curChapterNum = parseInt((curChapterId || 'c01').substring(1)) || 0;
+              const storyChapters = STORIES[sessionAttrs.story_id].chapters || [];
+              const maxChapterNum = storyChapters.reduce((max, c) => {
+                const n = parseInt((c.chapter_id || 'c01').substring(1)) || 0;
+                return n > max ? n : max;
+              }, 0);
+              if (curChapterNum >= maxChapterNum) {
+                const endMeta = getStoryMeta(sessionAttrs.story_id);
+                await saveUserStoryProgress(sessionAttrs.pseudonym || null, sessionAttrs.story_id, 'completed', sessionAttrs.story_id);
+                const completionSpeech = `${speech} ¡Felicidades! Has completado la historia de ${endMeta ? endMeta.protagonist : 'esta historia'}. ¿Quieres comenzar una nueva historia? Di uno, dos, tres o cuatro para elegir.`;
+                const saEnd = Object.assign({}, sessionAttrs, { stage: 'story_select', last_decision: chosenOpt.option_id });
+                res.writeHead(200, {'Content-Type':'application/json'});
+                return res.end(JSON.stringify(alexaResponse(completionSpeech, saEnd, false, true, getStorySelectionSpeech())));
+              }
+            }
+
             if (AUTO_CONTINUE_NEXT_CHAPTER && nextAutoChapter && nextAutoChapter.scenes && nextAutoChapter.scenes.length > 0) {
               console.log('✅ AUTO-CONTINUING TO NEXT CHAPTER:', { fromChapter: curChapterId, toChapter: nextAutoChapter.chapter_id, toScene: nextAutoChapter.scenes[0].scene_id });
               const seedNextScene = nextAutoChapter.scenes[0];
@@ -2735,7 +2991,8 @@ async function handleAlexa(req, res) {
                 nextAutoChapter.chapter_id,
                 seedNextScene,
                 nextAutoChapter,
-                5
+                5,
+                sessionAttrs.story_id || null
               );
               const nextAutoScene = advancedNext.nextScene || seedNextScene;
               const nextOpts = (advancedNext.nextOpts && advancedNext.nextOpts.length > 0)
@@ -2745,6 +3002,8 @@ async function handleAlexa(req, res) {
                 (advancedNext.traversedScenes || []).map(s => String((s && s.text) || '').trim()),
                 2
               );
+
+              await saveUserStoryProgress(sessionAttrs.pseudonym || null, sessionAttrs.story_id || null, nextAutoChapter.chapter_id);
 
               let nextSpeech = `${speech} `;
               if (nextAutoChapter.order && nextAutoChapter.title) {
@@ -2789,7 +3048,8 @@ async function handleAlexa(req, res) {
             (nextChapter && nextChapter.chapter_id) || sessionAttrs.chapter_id,
             nextScene,
             nextChapter,
-            5
+            5,
+            sessionAttrs.story_id || null
           );
           nextChapter = advanced.nextChapter;
           nextScene = advanced.nextScene;
@@ -2916,7 +3176,9 @@ async function processTelemetryPayload(payload, headers) {
             : derivedSessionLength,
           consent_given: consentGiven,
           privacy_mode: p.privacy_mode || existingSession?.privacy_mode || 'anonymous',
-          abandonment_flag: (typeof p.abandonment_flag === 'boolean') ? p.abandonment_flag : !!existingSession?.abandonment_flag,
+          abandonment_flag: (existingSession?.is_closed && !existingSession?.abandonment_flag)
+            ? false
+            : ((typeof p.abandonment_flag === 'boolean') ? p.abandonment_flag : !!existingSession?.abandonment_flag),
           chapter_id: p.chapter_id || existingSession?.chapter_id || null,
           metadata: (p.metadata && typeof p.metadata === 'object')
             ? p.metadata
@@ -3050,6 +3312,24 @@ async function processTelemetryPayload(payload, headers) {
 
         if (decisionRows.length > 0) {
           console.log('decisionRows to insert:', decisionRows);
+            // Ensure referenced chapters exist to satisfy FK constraint on decisions.chapter_id
+            const chapterIds = Array.from(new Set(decisionRows.map(r => r.chapter_id).filter(Boolean)));
+            for (const cid of chapterIds) {
+              try {
+                const { data: existingCh, error: chExistErr } = await supabase.from('chapters').select('chapter_id').eq('chapter_id', cid).maybeSingle();
+                if (chExistErr) console.warn('chapter lookup error', chExistErr);
+                if (!existingCh) {
+                  const chOrder = parseInt(String(cid).replace('c', ''), 10) || null;
+                  const { error: chInsErr } = await supabase.from('chapters').upsert(
+                    [{ chapter_id: cid, title: `Capítulo ${chOrder || ''}`.trim(), order: chOrder }],
+                    { onConflict: 'chapter_id' }
+                  ).select();
+                  if (chInsErr) console.warn('failed to upsert chapter', cid, chInsErr);
+                  else console.log('upserted missing chapter:', cid);
+                }
+              } catch (e) { console.warn('chapter ensure error', cid, e && e.message); }
+            }
+
             // Ensure referenced scenes exist to satisfy foreign key constraints.
             const sceneIds = Array.from(new Set(decisionRows.map(r => r.scene_id).filter(Boolean)));
             for (const sid of sceneIds) {
@@ -3070,6 +3350,27 @@ async function processTelemetryPayload(payload, headers) {
                 }
               } catch (e) {
                 console.warn('scene ensure error', sid, e && e.message);
+              }
+            }
+
+            // Ensure referenced options exist to satisfy foreign key constraints.
+            // NOTE: use upsertOptionsWithSchemaFallback — direct upsert with phq_mapping fails
+            // because phq_mapping is not a column (it lives in options.metadata->'phq_mapping').
+            const optionIds = Array.from(new Set(decisionRows.map(r => r.option_id).filter(Boolean)));
+            for (const oid of optionIds) {
+              try {
+                const { data: existing, error: existErr } = await supabase.from('options').select('option_id').eq('option_id', oid).maybeSingle();
+                if (existErr) console.warn('option lookup error', existErr);
+                if (!existing) {
+                  try {
+                    await upsertOptionsWithSchemaFallback([{ option_id: oid, option_text: oid, consequence: null, gds_mapping: [] }]);
+                    console.log('upserted missing option:', oid);
+                  } catch (insertOptionErr) {
+                    console.warn('failed to upsert option', oid, insertOptionErr && insertOptionErr.message ? insertOptionErr.message : insertOptionErr);
+                  }
+                }
+              } catch (e) {
+                console.warn('option ensure error', oid, e && e.message);
               }
             }
 
@@ -3198,166 +3499,6 @@ async function processTelemetryPayload(payload, headers) {
 
         return { ok: true, session_id, decisions_inserted: decisionRows.length, clinical_mappings_inserted: clinicalRows.length };
       }
-
-// Handle POST /admin/sync-chapters: sync chapters.json → database
-async function handleSyncChapters(req, res) {
-  try {
-    // Load chapters from file
-    const chaptersFileName = process.env.CHAPTERS_FILE || 'chapters.json';
-    const p = path.join(__dirname, '..', 'content', chaptersFileName);
-    if (!fs.existsSync(p)) {
-      res.writeHead(404, { 'Content-Type': 'application/json' });
-      return res.end(JSON.stringify({ error: `${chaptersFileName} not found` }));
-    }
-    const chaptersData = JSON.parse(fs.readFileSync(p, 'utf8'));
-    if (!chaptersData.chapters || !Array.isArray(chaptersData.chapters)) {
-      res.writeHead(400, { 'Content-Type': 'application/json' });
-      return res.end(JSON.stringify({ error: `invalid ${chaptersFileName} format: chapters array required` }));
-    }
-
-    let chaptersUpserted = 0;
-    let scenesUpserted = 0;
-    let optionsUpserted = 0;
-    let clinicalMappingsInserted = 0;
-
-    // Upsert chapters, scenes, options, and clinical_mappings
-    for (const chapter of chaptersData.chapters) {
-      if (!chapter.chapter_id) {
-        console.warn('skipping chapter without chapter_id');
-        continue;
-      }
-
-      // Upsert chapter
-      const chapterRow = {
-        chapter_id: chapter.chapter_id,
-        title: chapter.title || null,
-        order: chapter.order || null,
-        metadata: chapter.metadata || null
-      };
-      const { error: chErr } = await supabase.from('chapters').upsert([chapterRow], { onConflict: 'chapter_id' });
-      if (chErr) {
-        console.warn('chapter upsert error', chErr);
-      } else {
-        chaptersUpserted++;
-      }
-
-      // Upsert scenes
-      const scenes = chapter.scenes || [];
-      for (const scene of scenes) {
-        if (!scene.scene_id) {
-          console.warn('skipping scene without scene_id');
-          continue;
-        }
-
-        const sceneRow = {
-          scene_id: scene.scene_id,
-          chapter_id: chapter.chapter_id,
-          title: scene.title || null,
-          order: scene.order || null,
-          metadata: (scene.metadata && typeof scene.metadata === 'object') ? scene.metadata : {}
-        };
-        const { error: sErr } = await supabase.from('scenes').upsert([sceneRow], { onConflict: 'scene_id' });
-        if (sErr) {
-          console.warn('scene upsert error', sErr);
-        } else {
-          scenesUpserted++;
-        }
-
-        // Upsert options and their clinical mappings
-        const options = scene.options || [];
-        console.log(`Processing ${options.length} options for scene ${scene.scene_id}`);
-        for (const option of options) {
-          if (!option.option_id) {
-            console.warn('skipping option without option_id');
-            continue;
-          }
-
-          const optionRow = {
-            option_id: option.option_id,
-            scene_id: scene.scene_id,
-            option_text: option.option_text || null,
-            consequence: option.consequence || null,
-            next_chapter_id: option.next_chapter_id || null,
-            next_scene_id: option.next_scene_id || null,
-            gds_mapping: option.gds_mapping || null,
-            metadata: option.metadata || null
-          };
-          console.log(`Upserting option: ${option.option_id}`);
-          try {
-            await upsertOptionsWithSchemaFallback([optionRow]);
-            optionsUpserted++;
-            console.log(`ensured option: ${option.option_id}`);
-          } catch (oErr) {
-            console.error('option upsert error for', option.option_id, ':', oErr);
-          }
-
-          // Create clinical_mappings for GDS items
-          const gdsMappings = option.gds_mapping || [];
-          console.log(`Processing ${gdsMappings.length} GDS mappings for option ${option.option_id}`);
-          for (const gdsMap of gdsMappings) {
-            const cmRow = {
-              option_id: option.option_id,
-              scale: 'GDS',
-              item: gdsMap.item || null,
-              weight: gdsMap.weight || null,
-              confidence: gdsMap.confidence || null,
-              primary_construct: gdsMap.rationale || null,
-              rationale: gdsMap.rationale || null,
-              mapping_source: 'designer',
-              source_confidence: gdsMap.confidence || null,
-              validated: true
-            };
-            const { error: cmErr } = await supabase.from('clinical_mappings').upsert([cmRow], { onConflict: 'option_id,scale,item' }).select();
-            if (cmErr) {
-              console.error('clinical_mappings (GDS) upsert error:', cmErr);
-            } else {
-              clinicalMappingsInserted++;
-              console.log(`✅ Upserted GDS mapping: item ${gdsMap.item} for option ${option.option_id}`);
-            }
-          }
-
-          // Create clinical_mappings for PHQ items
-          const phqMappings = option.phq_mapping || [];
-          console.log(`Processing ${phqMappings.length} PHQ mappings for option ${option.option_id}`);
-          for (const phqMap of phqMappings) {
-            const cmRow = {
-              option_id: option.option_id,
-              scale: 'PHQ',
-              item: phqMap.item || null,
-              weight: phqMap.weight || null,
-              confidence: phqMap.confidence || null,
-              primary_construct: phqMap.rationale || null,
-              rationale: phqMap.rationale || null,
-              mapping_source: 'designer',
-              source_confidence: phqMap.confidence || null,
-              validated: true
-            };
-            const { error: cmErr } = await supabase.from('clinical_mappings').upsert([cmRow], { onConflict: 'option_id,scale,item' }).select();
-            if (cmErr) {
-              console.error('clinical_mappings (PHQ) upsert error:', cmErr);
-            } else {
-              clinicalMappingsInserted++;
-              console.log(`✅ Upserted PHQ mapping: item ${phqMap.item} for option ${option.option_id}`);
-            }
-          }
-        }
-      }
-    }
-
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    return res.end(JSON.stringify({
-      ok: true,
-      chapters_upserted: chaptersUpserted,
-      scenes_upserted: scenesUpserted,
-      options_upserted: optionsUpserted,
-      clinical_mappings_inserted: clinicalMappingsInserted
-    }));
-  } catch (err) {
-    console.error('sync-chapters error', err);
-    res.writeHead(500, { 'Content-Type': 'application/json' });
-    return res.end(JSON.stringify({ error: err && err.message ? err.message : String(err) }));
-  }
-}
 
 // ============= SPRINT 2a: Session Closure & Summary Endpoints =============
 
@@ -3924,6 +4065,9 @@ async function generateNextSceneForSession(session_id, chapter_id, scene_order) 
     .single();
   if (sessErr || !session) throw new Error('Session not found');
 
+  const sessionLocale = String((session.metadata && session.metadata.locale) || 'es-MX');
+  const sessionGeoSetting = getGeographicSetting(sessionLocale);
+
   // 🔍 STEP 2: Load decision history for continuity
   const { data: decisions, error: decErr } = await supabase
     .from('decisions')
@@ -4102,7 +4246,8 @@ async function generateNextSceneForSession(session_id, chapter_id, scene_order) 
     clinical_flags: clinicalFlags,
     is_convergence_node: isConvergenceNode,
     recent_scene_snippets: recentSceneTexts,
-    recent_option_texts: recentOptionTexts
+    recent_option_texts: recentOptionTexts,
+    geographic_setting: sessionGeoSetting
   };
 
   const scenePrompt = prompts.buildSceneGenerationPrompt(sceneContext);
@@ -5717,7 +5862,8 @@ async function handleArcPlanGenerate(req, res) {
           previous_watch_constructs,
           constructos,
           allow_phq9_item9_policy,
-          model
+          model,
+          locale: arcPlanLocale
         } = payload;
 
         if (!arc_id || !week_number || !arc_theme || !title || !Array.isArray(chapter_id_range) || chapter_id_range.length !== 2) {
@@ -5748,7 +5894,8 @@ async function handleArcPlanGenerate(req, res) {
           previous_emotional_state_end: effectivePrevEmotional,
           previous_watch_constructs: effectivePrevWatch,
           constructos: Array.isArray(constructos) ? constructos : [],
-          allow_phq9_item9_policy: allow_phq9_item9_policy || 'no en ningun dia'
+          allow_phq9_item9_policy: allow_phq9_item9_policy || 'no en ningun dia',
+          geographic_setting: getGeographicSetting(arcPlanLocale || 'es-MX')
         });
 
         const settings = prompts.getArcWorkflowModelSettings();
@@ -5874,7 +6021,8 @@ async function handleArcDayGenerate(req, res) {
           force_regenerate,
           force_reset_narrative,
           user_skip_velocity,
-          user_rating
+          user_rating,
+          locale: arcDayLocale
         } = payload;
 
         if (!arc_id || !arc_day) {
@@ -6058,6 +6206,7 @@ async function handleArcDayGenerate(req, res) {
           }
         });
 
+        const arcDayGeoSetting = getGeographicSetting(arcDayLocale || 'es-MX');
         let effectiveIntensity = narrative_intensity || 'medium';
         let p = prompts.buildArcDayGenerationPrompt({
           arcArchitecture,
@@ -6070,7 +6219,8 @@ async function handleArcDayGenerate(req, res) {
           continuity_state: continuityState,
           generation_mode: effectiveMode,
           narrative_intensity: effectiveIntensity,
-          critical_node: criticalNode
+          critical_node: criticalNode,
+          geographic_setting: arcDayGeoSetting
         });
 
         let promptInputTokens = estimateTokensFromText(p.prompt);
@@ -6097,7 +6247,8 @@ async function handleArcDayGenerate(req, res) {
             continuity_state: continuityState,
             generation_mode: effectiveMode,
             narrative_intensity: effectiveIntensity,
-            critical_node: criticalNode
+            critical_node: criticalNode,
+            geographic_setting: arcDayGeoSetting
           });
           promptInputTokens = estimateTokensFromText(p.prompt);
         }
@@ -6129,7 +6280,8 @@ async function handleArcDayGenerate(req, res) {
             continuity_state: continuityState,
             generation_mode: 'mini_chapter',
             narrative_intensity: 'low',
-            critical_node: criticalNode
+            critical_node: criticalNode,
+            geographic_setting: arcDayGeoSetting
           });
           llmResponse = await llmClient.callLLM(llmModel, fallbackPrompt.prompt, runtimeGeneratorSettings);
           generated = llmResponse && llmResponse.response ? extractJsonObject(llmResponse.response) : null;
@@ -7334,8 +7486,7 @@ const server = http.createServer(async (req, res) => {
     if (req.method === 'POST' && url === '/telemetry') return await handleTelemetry(req, res);
     if (req.method === 'POST' && url === '/identify') return await handleIdentify(req, res);
     if (req.method === 'POST' && url === '/alexa') return await handleAlexa(req, res);
-    if (req.method === 'POST' && url === '/admin/sync-chapters') return await handleSyncChapters(req, res);
-    if (req.method === 'PUT' && url.startsWith('/sessions/') && url.endsWith('/close')) return await handleSessionClose(req, res);
+if (req.method === 'PUT' && url.startsWith('/sessions/') && url.endsWith('/close')) return await handleSessionClose(req, res);
     if (req.method === 'GET' && url.startsWith('/sessions/') && url.endsWith('/summary')) return await handleSessionSummary(req, res);
     // SPRINT 2c: LLM Mapping endpoints
     if (req.method === 'POST' && url.startsWith('/decisions/') && url.includes('/compute-mapping') && url.endsWith('/compare')) return await handleComputeMappingCompare(req, res);
@@ -7356,6 +7507,16 @@ const server = http.createServer(async (req, res) => {
     if (req.method === 'GET' && url === '/admin/review-queue') return await handleReviewQueue(req, res);
     if (req.method === 'POST' && url === '/admin/review-actions') return await handleReviewAction(req, res);
     if (req.method === 'GET' && url === '/admin/clinical-reports') return await handleClinicalReports(req, res);
+    if (req.method === 'POST' && url === '/admin/sync-content') {
+      try {
+        await ensureOptionsUpsert();
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        return res.end(JSON.stringify({ ok: true, message: 'Content sync complete' }));
+      } catch (e) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        return res.end(JSON.stringify({ ok: false, error: e && e.message }));
+      }
+    }
     if (req.method === 'GET' && url === '/debug/narrative-state') return await handleNarrativeDebugState(req, res);
     if (req.method === 'GET' && url === '/admin/llm-health') return await handleLLMHealth(req, res);
     if (req.method === 'GET' && (url === '/' || url === '/health')) {

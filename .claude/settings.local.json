@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-Content *)",
+      "Bash(awk '{print $9, $5}')",
+      "Bash(powershell -Command \"\\(Get-Content story_concha_huerto.json -Raw\\) -replace '\\\\\"protagonist\\\\\": \\\\\"Concha\\\\\"', '\\\\\"protagonist\\\\\": \\\\\"Mariana\\\\\"' -replace '\\\\\"Concha\\\\\"', '\\\\\"Mariana\\\\\"' -replace ' Concha ', ' Mariana ' -replace ',Concha,', ',Mariana,' -replace '^Concha ', 'Mariana ' | Set-Content story_concha_huerto.json -Encoding UTF8\")",
+      "PowerShell(Move-Item *)",
+      "PowerShell(\\(Get-Content \"C:\\\\Users\\\\Sebastian\\\\Desktop\\\\Escoge-tu-Historia-XR-En-Salud-Mental\\\\backend\\\\content\\\\story_mariana_c06_c14.json\" | Measure-Object -Line\\).Lines)",
+      "PowerShell($content = Get-Content \"C:\\\\Users\\\\Sebastian\\\\Desktop\\\\Escoge-tu-Historia-XR-En-Salud-Mental\\\\backend\\\\content\\\\story_mariana_c06_c14.json\" -Raw; $json = $content | ConvertFrom-Json; Write-Host \"Chapters:\" $json.chapters.Count; $json.chapters | ForEach-Object { Write-Host $_.chapter_id $_.title })",
+      "Bash(node *)",
+      "Bash(del *)",
+      "PowerShell(claude doctor *)",
+      "Bash(Get-ChildItem *)",
+      "Bash(powershell *)",
+      "Bash(dir \"C:\\\\Users\\\\Sebastian\\\\Desktop\\\\Escoge-tu-Historia-XR-En-Salud-Mental\\\\backend\\\\content\" /B /S)",
+      "Bash(findstr /i \".json\")"
+    ]
+  }
+}

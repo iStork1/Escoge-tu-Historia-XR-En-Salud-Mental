@@ -170,7 +170,8 @@ function buildSceneGenerationPrompt(sceneContext = {}) {
     is_convergence_node = false,
     character_name = 'protagonist',
     recent_scene_snippets = [],
-    recent_option_texts = []
+    recent_option_texts = [],
+    geographic_setting = null
   } = sceneContext;
 
   const targetSceneOrder = Number(current_scene_order) + 1;
@@ -221,6 +222,17 @@ REGLA DE ORO: Narrativa concreta, sensorial, emotiva. Muestra en lugar de contar
 - Flags clínicos: ${clinical_flags.length ? `[${clinical_flags.join(', ')}]` : 'ninguno'}${antiRepetitionContext}${recentOptionsContext}
 
 **Personaje:** ${character_name} (adulto mayor en transición emocional)
+
+## AMBIENTACIÓN GEOGRÁFICA (OBLIGATORIA)
+${geographic_setting
+  ? `${geographic_setting.setting_note}
+- País: ${geographic_setting.country} | Entorno: ${geographic_setting.neighborhood}
+- Espacio comunitario: ${geographic_setting.community_space} | Plaza/parque: ${geographic_setting.plaza}
+- Café/tienda: ${geographic_setting.cafe} | Bebida típica: ${geographic_setting.drink} | Comida: ${geographic_setting.food}
+- Arquitectura: ${geographic_setting.architecture}
+- Naturaleza: ${geographic_setting.nature}
+- Expresiones coloquiales: ${geographic_setting.expressions}`
+  : 'Ambientación genérica en habla hispana. Usa detalles locales verosímiles.'}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -678,10 +690,16 @@ function buildArcArchitectPrompt(config = {}) {
     previous_emotional_state_end = null,
     previous_watch_constructs = [],
     constructos = [],
-    allow_phq9_item9_policy = 'no en ningun dia'
+    allow_phq9_item9_policy = 'no en ningun dia',
+    geographic_setting = null
   } = config;
 
+  const geoNote = geographic_setting
+    ? `Ambientacion: ${geographic_setting.country}. ${geographic_setting.setting_note} Espacio comunitario clave: ${geographic_setting.community_space}.`
+    : 'Ambientacion generica hispanohablante.';
+
   const system = `Rol: ARQ semanal de "Escoge Tu Historia XR".
+Ambientacion geografica: ${geoNote}
 Salida: SOLO JSON valido (sin markdown, sin texto extra).
 No escribas narrativa ni escenas; solo arquitectura.
 Reglas:
@@ -751,7 +769,8 @@ function buildArcDayGenerationPrompt(config = {}) {
     continuity_state = null,
     narrative_intensity = 'medium',
     generation_mode = 'scene_by_scene',
-    critical_node = null
+    critical_node = null,
+    geographic_setting = null
   } = config;
 
   const dayContext = buildArcDayPromptContext(arcArchitecture, arc_day);
@@ -764,7 +783,12 @@ function buildArcDayGenerationPrompt(config = {}) {
     current_goal: 'social_activation'
   };
 
+  const geoNoteDay = geographic_setting
+    ? `Ambientacion: ${geographic_setting.country}. ${geographic_setting.setting_note} Espacio comunitario: ${geographic_setting.community_space}. Expresiones: ${geographic_setting.expressions}.`
+    : 'Ambientacion generica hispanohablante.';
+
   const system = `Rol: GEN diario de "Escoge Tu Historia XR" (65+).
+Ambientacion geografica: ${geoNoteDay}
 Salida: SOLO JSON valido.
 Objetivo: costo bajo y alta coherencia.
 Modo default: scene-by-scene (1 escena + 3 opciones).
