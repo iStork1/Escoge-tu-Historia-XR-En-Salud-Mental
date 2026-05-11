@@ -1026,18 +1026,61 @@ if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
 
 // Provide a noop supabase client for local development when real credentials are missing
 function makeNoopClient() {
+  const createQueryBuilder = () => {
+    const builder = {
+      select: function () { return this; },
+      in: function () { return this; },
+      eq: function () { return this; },
+      update: function () { return this; },
+      match: function () { return this; },
+      neq: function () { return this; },
+      gt: function () { return this; },
+      lt: function () { return this; },
+      gte: function () { return this; },
+      lte: function () { return this; },
+      like: function () { return this; },
+      contains: function () { return this; },
+      is: function () { return this; },
+      filter: function () { return this; },
+      order: function () { return this; },
+      limit: function () { return this; },
+      range: function () { return this; },
+      single: async function () { return { data: null, error: null }; },
+      maybeSingle: async function () { return { data: null, error: null }; },
+      // Proper Promise .then(onFulfilled, onRejected) implementation
+      then: function (onFulfilled, onRejected) {
+        try {
+          const result = { data: null, error: null };
+          return Promise.resolve(onFulfilled ? onFulfilled(result) : result);
+        } catch (err) {
+          return Promise.reject(onRejected ? onRejected(err) : err);
+        }
+      },
+      catch: function (onRejected) {
+        return Promise.reject(onRejected ? onRejected(new Error('noop')) : new Error('noop'));
+      }
+    };
+    return builder;
+  };
+
   return {
     from: (table) => {
-      const builder = {
-        table,
-        _payload: null,
-        select: function () { return this; },
-        eq: function () { return this; },
-        maybeSingle: async function () { return { data: null, error: null }; },
-        single: async function () { return { data: null, error: null }; },
-        insert: async function (payload) { console.log('[noop] insert into', table, payload); return { data: null, error: null }; },
-        upsert: function (payload) { this._payload = payload; return { select: () => ({ single: async () => ({ data: payload, error: null }) }) }; }
+      const builder = createQueryBuilder();
+      builder.table = table;
+      builder._payload = null;
+      builder.insert = async function (payload) {
+        console.log('[noop] insert into', table, payload);
+        return { data: null, error: null };
       };
+      builder.upsert = function (payload, options) {
+        this._payload = payload;
+        return {
+          select: () => ({
+            single: async () => ({ data: payload, error: null })
+          })
+        };
+      };
+      builder.delete = function () { return this; };
       return builder;
     }
   };
@@ -2458,26 +2501,71 @@ async function handleAlexa(req, res) {
           const ssPseudonym = sessionAttrs.pseudonym;
           const ssChapterId = 'c01';
           const ssSessionPayload = { source: 'alexa', pseudonym: ssPseudonym, consent_given: true, chapter_id: ssChapterId, metadata: { locale: requestLocale, story_id: selectedStoryId } };
-          const ssPersist = await processTelemetryPayload(ssSessionPayload, req.headers);
-          const ssSessionId = ssPersist.session_id;
-          await saveUserStoryProgress(ssPseudonym, selectedStoryId, ssChapterId);
+          console.log('📖 story_select: starting story', selectedStoryId, 'payload:', ssSessionPayload);
+          
+          let ssPersist = null;
+          try {
+            console.log('📖 calling processTelemetryPayload...');
+            ssPersist = await processTelemetryPayload(ssSessionPayload, req.headers);
+            console.log('📖 processTelemetryPayload returned:', ssPersist);
+          } catch (persistErr) {
+            console.error('❌ processTelemetryPayload error:', persistErr);
+            // Generate a session ID anyway in mock mode
+            ssPersist = { ok: true, session_id: uuidv4(), decisions_inserted: 0 };
+            console.log('⚠️  Using fallback session_id:', ssPersist.session_id);
+          }
+          
+          const ssSessionId = (ssPersist && ssPersist.session_id) ? ssPersist.session_id : uuidv4();
+          console.log('✅ session_id assigned:', ssSessionId);
+          
+          try {
+            console.log('📖 calling saveUserStoryProgress...');
+            await saveUserStoryProgress(ssPseudonym, selectedStoryId, ssChapterId);
+            console.log('✅ saveUserStoryProgress completed');
+          } catch (saveErr) {
+            console.warn('⚠️  saveUserStoryProgress warning:', saveErr && saveErr.message ? saveErr.message : String(saveErr));
+          }
+          
+          console.log('📖 calling findChapter for', ssChapterId, selectedStoryId);
           const ssChapter = findChapter(ssChapterId, selectedStoryId);
+          console.log('📖 found chapter:', ssChapter ? `${ssChapter.chapter_id} with ${ssChapter.scenes ? ssChapter.scenes.length : 0} scenes` : 'NOT FOUND');
+          
+          if (!ssChapter) {
+            console.error('❌ Chapter not found!');
+            res.writeHead(500, {'Content-Type':'application/json'});
+            return res.end(JSON.stringify(alexaResponse('No se encontró el capítulo inicial.', sessionAttrs, true)));
+          }
+          
           const ssFirstScene = ssChapter && ssChapter.scenes && ssChapter.scenes[0] ? ssChapter.scenes[0] : null;
           if (!ssFirstScene) {
+            console.error('❌ No first scene found in chapter');
             res.writeHead(500, {'Content-Type':'application/json'});
             return res.end(JSON.stringify(alexaResponse('No se encontró la escena inicial.', sessionAttrs, true)));
           }
+          
+          console.log('📖 building options from scene...');
           const ssRawOpts = ssFirstScene.options || [];
           const ssOpts = ssRawOpts.slice(0, 3).map((o, idx) => ({ option_id: o.option_id, option_text: o.option_text, index: idx + 1, next_chapter_id: o.next_chapter_id || null, next_scene_id: o.next_scene_id || null }));
+          console.log('📖 built', ssOpts.length, 'options');
+          
           const ssTail = ssOpts.length === 1 ? 'Di opción uno para elegir.' : ssOpts.length === 2 ? 'Di opción uno u opción dos para elegir.' : 'Di opción uno, opción dos u opción tres para elegir.';
+          
+          console.log('📖 getting story meta...');
           const ssMeta = getStoryMeta(selectedStoryId);
+          console.log('📖 story meta:', ssMeta);
+          
           const ssIntro = ssMeta ? `Comenzamos la historia de ${ssMeta.protagonist}. ` : '';
+          console.log('📖 building scene speech...');
           const ssSpeech = buildAlexaSceneSpeech(ssIntro + ssFirstScene.text, ssOpts, ssTail, MAX_ALEXA_TEXT_CHARS);
+          console.log('📖 speech length:', ssSpeech.length);
+          
           const saSS = Object.assign({}, sessionAttrs, { stage: 'scene', session_id: ssSessionId, pseudonym: ssPseudonym, consent_given: true, chapter_id: ssChapterId, story_id: selectedStoryId, locale: requestLocale, current_scene_id: ssFirstScene.scene_id, current_options: ssOpts });
+          
+          console.log('✅ story_select complete - sending response with', ssOpts.length, 'options');
           res.writeHead(200, {'Content-Type':'application/json'});
           return res.end(JSON.stringify(alexaResponse(ssSpeech, saSS, false, true, noResponsePrompt)));
         } catch (err) {
-          console.error('error starting story from story_select', err);
+          console.error('❌ error starting story from story_select', err);
           res.writeHead(500, {'Content-Type':'application/json'});
           return res.end(JSON.stringify(alexaResponse('Hubo un error al iniciar la historia.', sessionAttrs, true)));
         }
@@ -2638,22 +2726,30 @@ async function handleAlexa(req, res) {
           try { console.log('scene: only 1 option available, auto-selecting'); } catch (e) {}
           // Jump directly to processing that single option
           const chosenOpt = opts[0];
-          const session_id = sessionAttrs.session_id || null;
+          const session_id = sessionAttrs.session_id || uuidv4();
+          const current_scene_id = sessionAttrs.current_scene_id || 'unknown';
           const decisionPayload = {
             session_id,
             source: 'alexa',
             pseudonym: sessionAttrs.pseudonym || null,
             chapter_id: sessionAttrs.chapter_id || null,
-            decisions: [ { timestamp: new Date().toISOString(), scene_id: sessionAttrs.current_scene_id || null, option_id: chosenOpt.option_id, option_text: chosenOpt.option_text } ]
+            decisions: [ { 
+              timestamp: new Date().toISOString(), 
+              scene_id: current_scene_id, 
+              option_id: chosenOpt.option_id, 
+              option_text: chosenOpt.option_text 
+            } ]
           };
           try {
+            console.log('scene: processing auto-selected option:', chosenOpt.option_id);
             const persist = await processTelemetryPayload(decisionPayload, req.headers);
+            console.log('scene: telemetry persisted for auto-selected option');
             
             // Look up consequence text from content for fluid narration between scenes
             let consequence = null;
             try {
               const curChapterId = sessionAttrs.chapter_id || null;
-              const curSceneId = sessionAttrs.current_scene_id || null;
+              const curSceneId = current_scene_id;
               const ch = curChapterId ? findChapter(curChapterId, sessionAttrs.story_id || null) : null;
               const sc = (ch && ch.scenes) ? ch.scenes.find(s => s.scene_id === curSceneId) : null;
               if (sc && sc.options) {
@@ -2850,22 +2946,30 @@ async function handleAlexa(req, res) {
         } catch (e) { console.warn('duplicate decision check error', e && e.message); }
 
         // Persist decision with option_id and option_text
-        const session_id = sessionAttrs.session_id || null;
+        const session_id = sessionAttrs.session_id || uuidv4();
+        const current_scene_id = sessionAttrs.current_scene_id || 'unknown';
         const decisionPayload = {
           session_id,
           source: 'alexa',
           pseudonym: sessionAttrs.pseudonym || null,
           chapter_id: sessionAttrs.chapter_id || null,
-          decisions: [ { timestamp: new Date().toISOString(), scene_id: sessionAttrs.current_scene_id || null, option_id: chosenOpt.option_id, option_text: chosenOpt.option_text } ]
+          decisions: [ { 
+            timestamp: new Date().toISOString(), 
+            scene_id: current_scene_id, 
+            option_id: chosenOpt.option_id, 
+            option_text: chosenOpt.option_text 
+          } ]
         };
         try {
+          console.log('scene: processing selected option:', chosenOpt.option_id, 'from scene:', current_scene_id);
           const persist = await processTelemetryPayload(decisionPayload, req.headers);
+          console.log('scene: decision persisted successfully');
           
           // Look up consequence text from content for fluid narration between scenes
           let consequence = null;
           try {
             const curChapterId = sessionAttrs.chapter_id || null;
-            const curSceneId = sessionAttrs.current_scene_id || null;
+            const curSceneId = current_scene_id;
             const ch = curChapterId ? findChapter(curChapterId, sessionAttrs.story_id || null) : null;
             const sc = (ch && ch.scenes) ? ch.scenes.find(s => s.scene_id === curSceneId) : null;
             if (sc && sc.options) {

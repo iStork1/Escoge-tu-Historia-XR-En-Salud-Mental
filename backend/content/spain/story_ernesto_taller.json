@@ -11,7 +11,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Ernesto lleva veinte minutos caminando sin rumbo por la Calle 5 del barrio del Ensanche. Desde que murió Carmen, las mañanas se le hacen largas. Pasa frente a un local que antes era una ferretería. La puerta está abierta. Dentro suena algo parecido a una lijadora. Un cartel escrito a mano dice: 'Taller de reparación comunitaria. Jueves y viernes, 10 a 13 h. Entrada libre.'",
+          "text": "Ernesto lleva veinte minutos caminando sin rumbo por la calle Còrsega del barrio del Ensanche. Desde que murió Carmen, las mañanas se le hacen largas. Pasa frente a un local que antes era una ferretería. La puerta está abierta. Dentro suena algo parecido a una lijadora. Un cartel escrito a mano dice: 'Taller comunitario de reparación. Jueves y viernes, 10 a 13 h. Entrada libre.'",
           "options": [
             {
               "option_id": "c01-s01-o1",
@@ -89,7 +89,7 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "El viento trae olor a serrín desde el local. Ernesto se para en seco. Su padre tenía un pequeño taller en el barrio de El Peñón, madera y barniz, manos siempre manchadas. Hacía treinta años que no olía eso. La lijadora vuelve a sonar. El olor es exactamente el mismo.",
+          "text": "El viento trae olor a serrín desde el local. Ernesto se para en seco. Su padre tenía un pequeño taller en el barrio de Sants, madera y barniz, manos siempre manchadas. Hacía treinta años que no olía eso. La lijadora vuelve a sonar. El olor es exactamente el mismo.",
           "options": [
             {
               "option_id": "c01-s02-o1",
@@ -167,7 +167,7 @@
           "hero_stage": "3_refusal_of_the_call",
           "type": "playable",
           "order": 3,
-          "text": "El encargado del taller, Don Manuel, sale a tomar el fresco y lo ve parado. 'Don, ¿usted es plomero o carpintero? Tiene cara de saber lo que es una llave inglesa.' Ernesto no esperaba que nadie le hablara. Don Manuel tiene un delantal azul y las manos como mapas.",
+          "text": "El encargado del taller, Don Manuel, sale a tomar el fresco y lo ve parado. 'Don, ¿usted es fontanero o carpintero? Tiene cara de saber lo que es una llave inglesa.' Ernesto no esperaba que nadie le hablara. Don Manuel tiene un delantal azul y las manos como mapas.",
           "options": [
             {
               "option_id": "c01-s03-o1",
@@ -1516,7 +1516,7 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Un hombre que Ernesto no conoce entra al taller con paso decidido. Lleva una caja de herramientas oxidada. Don Manuel lo presenta: es Aurelio, jubilado de una fábrica textil, 65 años, recién llegado al barrio del Ensanche. Aurelio mira el taller, mira los bancos, y se dirige directo al banco del rincón izquierdo.",
+          "text": "Un hombre que Ernesto no conoce entra al taller con paso decidido. Lleva una caja de herramientas oxidada. Don Manuel lo presenta: es Aurelio, jubilado de una fábrica textil, 65 años, recién llegado al barrio del Ensanche. Aurelio mira el taller, observa los bancos, y se dirige directo al banco del rincón izquierdo.",
           "options": [
             {
               "option_id": "c03-s02-o1",
@@ -1990,7 +1990,7 @@
           "hero_stage": "8_ordeal_crisis",
           "type": "playable",
           "order": 8,
-          "text": "Aurelio autobúsca un formón y no lo encuentra en su caja. Se dirige al banco de Ernesto sin pedir permiso y toma uno de los formones de la caja comunitaria que está al lado. Ernesto lo ve. Esa caja la ordenó él mismo la semana pasada. El taller entero parece detenerse en ese segundo.",
+          "text": "Aurelio busca un formón y no lo encuentra en su caja. Se dirige al banco de Ernesto sin pedir permiso y toma uno de los formones de la caja comunitaria que está al lado. Ernesto lo ve. Esa caja la ordenó él mismo la semana pasada. El taller entero parece detenerse en ese segundo.",
           "options": [
             {
               "option_id": "c03-s08-o1",
@@ -3035,7 +3035,7 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 3,
-          "text": "Don Rodrigo se acerca con una lija de grano fino en la mano. Sin preámbulos le pregunta: '¿La va a terminar, don Ernesto?' La pregunta queda flotando en el olor a serrín del taller. Afuera pasa un autobús MIO con un arranque fuerte de motor.",
+          "text": "Don Rodrigo se acerca con una lija de grano fino en la mano. Sin preámbulos le pregunta: '¿La va a terminar, don Ernesto?' La pregunta queda flotando en el olor a serrín del taller. Afuera pasa un autobús con un arranque fuerte de motor.",
           "options": [
             {
               "option_id": "c05-s03-o1",
@@ -3449,7 +3449,7 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 4,
-          "text": "Al final de la jornada, Ernesto tiene que decidir qué hace con la foto. El taller está cerrando. Don Rodrigo recoge sus herramientas en silencio. El sol de Barcelona entra oblicuo por la puerta y deja una franja dorada sobre el piso de cemento.",
+          "text": "Al final de la jornada, Ernesto tiene que decidir qué hace con la foto. El taller está cerrando. Don Rodrigo recoge sus herramientas en silencio. El sol de la tarde entra oblicuo por la puerta y deja una franja dorada sobre el suelo de cemento.",
           "options": [
             {
               "option_id": "c06-s04-o1",
@@ -3746,7 +3746,7 @@
           "hero_stage": "8_the_road_back",
           "type": "playable",
           "order": 4,
-          "text": "Al cerrar el taller, Aurelio recoge sus herramientas cerca de Ernesto. Sin mirarlo directamente, dice: 'La semana pasada me contaron que usted le enseñó al muchacho. Eso está bien.' El autobús MIO pasa afuera. El sol empieza a bajar detrás de los edificios del barrio.",
+          "text": "Al cerrar el taller, Aurelio recoge sus herramientas cerca de Ernesto. Sin mirarlo directamente, dice: 'La semana pasada me contaron que usted le enseñó al muchacho. Eso está bien.' Un autobús pasa afuera. El sol empieza a bajar detrás de los edificios del barrio.",
           "options": [
             {
               "option_id": "c07-s04-o1",

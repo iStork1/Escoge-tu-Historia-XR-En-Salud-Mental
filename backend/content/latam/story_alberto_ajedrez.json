@@ -7,16 +7,16 @@
       "scenes": [
         {
           "scene_id": "c01-s01",
-          "title": "La caminata sin destino",
+          "title": "El andén de la Séptima",
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Don Alberto sale a caminar a las nueve de la mañana, como cada día desde que se jubiló. Desde la ventana, su esposa Elena le dice que lleve el celular. Él asiente sin contestar. La Carrera Séptima está fresca todavía. Lleva un año sin saber bien para qué levantarse.",
+          "text": "En el andén de la Carrera Séptima, Alberto aprieta las llaves en el puño. El frío de las ocho y media le raspa los nudillos. De la esquina llega olor a pan de bono horneado. Un bus azul pasa rugiendo y el viento le empuja el abrigo, recordándole los treinta años que caminó hacia la oficina. Hoy es un martes vacío y los autos siguen su ruta habitual. La subida a Chapinero y la bajada al centro se abren frente a él.",
           "options": [
             {
               "option_id": "c01-s01-o1",
-              "option_text": "Caminar hacia el Parque Nacional",
-              "consequence": "Alberto toma la avenida. Los puestos de empanadas están abriendo. El parque se ve verde desde la esquina. Sus pies deciden antes que él.",
+              "option_text": "Bajar por la Séptima hacia el Parque Nacional",
+              "consequence": "Alberto avanza hacia el norte y sus zapatos golpean el asfalto mojado. El viento le afloja la tensión en los hombros al alejarse de su edificio. Un vendedor de tintos le cede el paso junto a las rejas del parque.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s02",
               "gds_mapping": [
@@ -38,8 +38,8 @@
             },
             {
               "option_id": "c01-s01-o2",
-              "option_text": "Dar vueltas por la misma manzana",
-              "consequence": "Alberto camina por el perímetro de la manzana tres veces. El mismo tendero lo mira las tres. Al final vuelve a casa.",
+              "option_text": "Dar tres vueltas a la manzana",
+              "consequence": "Alberto rodea la cuadra pisando las mismas baldosas de siempre. Una de las piedras rotas cruje, devolviéndole de golpe el peso de no tener a dónde ir. El tendero de la esquina lo observa en silencio mientras pasa un trapo por el mostrador.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s02",
               "gds_mapping": [
@@ -61,8 +61,8 @@
             },
             {
               "option_id": "c01-s01-o3",
-              "option_text": "Regresar a casa antes de llegar lejos",
-              "consequence": "Alberto da media vuelta a los cinco minutos. Elena no pregunta por qué. Se sienta en el sillón frente a las noticias. Son las nueve y veinte.",
+              "option_text": "Subir de vuelta al apartamento",
+              "consequence": "Alberto gira sobre sus talones y regresa por las escaleras con pasos pesados. La llave de bronce entra helada en la cerradura, sellando su encierro matutino. Desde la sala, Elena le sube el volumen al televisor sin preguntar quién entró.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s02",
               "gds_mapping": [
@@ -92,16 +92,16 @@
         },
         {
           "scene_id": "c01-s02",
-          "title": "El tablero bajo el árbol",
+          "title": "Mesa de concreto, tablero pintado",
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Bajo un árbol grande en el Parque Nacional hay una mesa de concreto con un tablero de ajedrez pintado. Cuatro hombres juegan dos partidas. Uno lleva chaleco de cuadros. Otro tiene un termo de café. Se escucha el golpe de las piezas y alguna risa baja. Alberto se detiene a distancia.",
+          "text": "En el sendero de piedra, Alberto frena a diez metros de la mesa de concreto. El aire de Chapinero huele a asfalto mojado. Cuatro hombres concentrados clavan piezas de plástico en la roca y el ruido seco hace eco en los pinos. El pasto le moja la suela de los zapatos mientras él espera el valor para acercarse al tablero.",
           "options": [
             {
               "option_id": "c01-s02-o1",
-              "option_text": "Acercarse a ver la partida",
-              "consequence": "Alberto se acerca despacio. Las piezas son de plástico pesado. Uno de los jugadores está en una posición que Alberto sabe cómo resolver.",
+              "option_text": "Cruzar el pasto y acercarse al tablero",
+              "consequence": "Alberto avanza dejando huellas oscuras en el césped. Las piezas de plástico pesado raspan contra el tablero gastado al llegar a la mesa. El del chaleco cuadros lo mira y mueve su rey exponiéndolo sin intención.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s03",
               "gds_mapping": [
@@ -116,8 +116,8 @@
             },
             {
               "option_id": "c01-s02-o2",
-              "option_text": "Observarlos desde lejos sin acercarse",
-              "consequence": "Alberto mira sin moverse. Un par de minutos. Las piezas se mueven, el café sale del termo. Siente que no pertenece ahí.",
+              "option_text": "Observar desde el sendero sin cruzar",
+              "consequence": "Alberto clava los zapatos en el asfalto. El café del termo suelta un hilo de vapor hacia el cielo opaco. Los jugadores no levantan la vista y él comprende que nadie lo invitará a existir.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s03",
               "gds_mapping": [
@@ -132,8 +132,8 @@
             },
             {
               "option_id": "c01-s02-o3",
-              "option_text": "Seguir caminando sin detenerse",
-              "consequence": "Alberto pasa de largo. El golpe de las piezas se va apagando. El parque tiene otras bancas, ninguna con algo que ver.",
+              "option_text": "Seguir caminando sin frenar",
+              "consequence": "Alberto pasa de largo sin mirar atrás. El sonido de los peones chocando se pierde bajo el tráfico de la avenida. El sendero lo arrastra hacia la calle sin promesas.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s03",
               "gds_mapping": [
@@ -163,16 +163,16 @@
         },
         {
           "scene_id": "c01-s03",
-          "title": "Don Sergio lo reconoce",
+          "title": "Sergio Ramírez, chaleco a cuadros",
           "hero_stage": "3_refusal_of_the_call",
           "type": "playable",
           "order": 3,
-          "text": "Uno del chaleco de cuadros lo mira. Es Sergio Ramírez, contador como él, jubilado hace dos años. '¡Alberto! ¿Cuánto tiempo! Venga, venga.' Le hace señas. Alberto no recuerda la àºltima vez que alguien lo llamó en la calle.",
+          "text": "Junto a la mesa, el hombre del chaleco de cuadros voltea hacia el sendero. Es Sergio, otro contador jubilado. Abre los brazos en un gesto amplio que ahuyenta una paloma gris. El termo azul exhala aroma a café tostado. Alberto se queda paralizado a medio paso, dudando si Sergio le habla a él o al vacío del parque.",
           "options": [
             {
               "option_id": "c01-s03-o1",
-              "option_text": "Saludarlo y acercarse a la mesa",
-              "consequence": "Alberto cruza el pasto y le da la mano a Sergio. La mesa huele a café y a tierra hàºmeda. Los otros dos lo saludan también.",
+              "option_text": "Cruzar el pasto y estrecharle la mano",
+              "consequence": "Alberto avanza y estrecha la mano de Sergio. La palma áspera de su colega huele a tierra y tinto de greca. Los demás asienten, aceptando su presencia sin suspender la jugada.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s04",
               "gds_mapping": [
@@ -194,8 +194,8 @@
             },
             {
               "option_id": "c01-s03-o2",
-              "option_text": "Saludarlo desde donde está",
-              "consequence": "Alberto levanta la mano sin cruzar. Sergio hace un gesto de 'venga' otra vez. Alberto no se mueve. Sergio no insiste.",
+              "option_text": "Saludar con la mano desde el sendero",
+              "consequence": "Alberto levanta la mano desde una distancia segura. Sergio devuelve el gesto y el viento agita su chaleco. Alberto no da el paso y Sergio aparta los ojos para clavar la mirada en un alfil.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s04",
               "gds_mapping": [
@@ -210,8 +210,8 @@
             },
             {
               "option_id": "c01-s03-o3",
-              "option_text": "Hacer que no lo vio y seguir",
-              "consequence": "Alberto mira hacia otro lado y camina. Sabe que Sergio lo vio, pero prefiere no saber si él también lo supo. La banca al fondo está vacía.",
+              "option_text": "Mirar hacia los pinos y seguir caminando",
+              "consequence": "Alberto clava la mirada en un pino y apresura el paso. Sabe que Sergio lo observaba, pero el peso del saco en sus hombros lo obliga a huir. Llega a una banca vacía, escapando de los conocidos.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s04",
               "gds_mapping": [
@@ -241,16 +241,16 @@
         },
         {
           "scene_id": "c01-s04",
-          "title": "El orgullo del contador",
+          "title": "Félix pregunta si juega",
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 4,
-          "text": "Sergio le presenta a los otros dos: Félix, ex-maestro de escuela, y Toño, que vendía seguros. Félix le pregunta si juega. Alberto jugaba de joven, pero hace quince años que no toca un tablero. 'Un poco', dice. Félix asiente: 'Entonces juega conmigo, que Toño ya me ganó tres veces esta semana.'",
+          "text": "En la banca adyacente, Sergio presenta al ex-maestro Félix y a Toño, el de seguros. Alberto acaricia la cabeza de un peón húmedo y siente el plástico resbaloso en la yema. Desde el otro tablero resuena la caída brusca de una reina blanca. Félix levanta una ceja y ofrece la silla libre: '¿Juega desde hace mucho?' le pregunta, dejándole un silencio denso para llenar.",
           "options": [
             {
               "option_id": "c01-s04-o1",
-              "option_text": "Aceptar y aclarar que está oxidado",
-              "consequence": "'Acepto pero llevo años sin jugar.' Félix sonríe: 'Igual que yo.' Le ofrece asiento en la banca junto al tablero.",
+              "option_text": "Aceptar y avisar que lleva años sin jugar",
+              "consequence": "Alberto toma asiento anunciando su falta de práctica reciente. Félix forma una media sonrisa, confesando que también lleva años oxidado. Tira las blancas al centro con un rasguño sonoro, invitándolo a empezar.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s05",
               "gds_mapping": [
@@ -272,8 +272,8 @@
             },
             {
               "option_id": "c01-s04-o2",
-              "option_text": "Decir que prefiere ver primero",
-              "consequence": "Alberto se sienta en la orilla. Ve terminar la partida de Sergio. Le lleva cinco minutos. Félix lo sigue mirando.",
+              "option_text": "Pedir ver una partida antes de jugar",
+              "consequence": "Alberto se desploma en la orilla de la roca. Promete mirar una ronda antes de tocar las piezas, pero sus dedos tiemblan un poco. Félix lo escruta un microsegundo antes de ordenar pacientemente su fila negra.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s05",
               "gds_mapping": [
@@ -288,8 +288,8 @@
             },
             {
               "option_id": "c01-s04-o3",
-              "option_text": "Decir que él no juega con aficionados",
-              "consequence": "Silencio. Toño levanta una ceja. Sergio ríe para no incomodarse. Alberto lo dice en broma pero no suena a broma.",
+              "option_text": "Decir que no juega con aficionados",
+              "consequence": "Alberto suelta una risa ácida negándose a jugar con aficionados. La burla tensa el ambiente y el plástico del tablero parece congelarse. Sergio tose fuerte, disimulando la barrera de humo helado que acaba de levantarse.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s05",
               "gds_mapping": [
@@ -319,16 +319,16 @@
         },
         {
           "scene_id": "c01-s05",
-          "title": "Las fichas en la mano",
+          "title": "Blancas en el tablero de piedra",
           "hero_stage": "5_crossing_threshold",
           "type": "playable",
           "order": 5,
-          "text": "Félix coloca las piezas. Alberto recibe las blancas. El plástico es frío. El tablero pintado en la piedra tiene un cuadro desportillado en el centro. Alberto tiene el primer movimiento. El parque sigue alrededor: niños, palomas, el olor al café del termo.",
+          "text": "Dentro del Parque Nacional, Alberto controla las blancas. El plástico helado le muerde los dedos; el tablero es de piedra astillada en el centro. Atrás, los gritos rápidos de dos niños rasgan el aire pesado de las diez, mientras ráfagas con olor a hojas secas le llenan la garganta. Su pulgar acaricia el borde del peón, sopesando su primera jugada en veinte años.",
           "options": [
             {
               "option_id": "c01-s05-o1",
-              "option_text": "Abrir con el peón del rey, como siempre",
-              "consequence": "La mano va sola. El peón ocupa e4. Félix asiente y contesta rápido. El parque de pronto parece más pequeño.",
+              "option_text": "Mover el peón del rey a e4",
+              "consequence": "Alberto apoya el Peón Rey con fuerza al centro de la losa rota. El chasquido suena a orden en medio del parque. Una paloma alza el vuelo asustada y alguien del grupo murmura aprobación.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s06",
               "gds_mapping": [
@@ -350,8 +350,8 @@
             },
             {
               "option_id": "c01-s05-o2",
-              "option_text": "Pensar dos minutos antes de mover",
-              "consequence": "Alberto estudia el tablero. Félix espera sin apurar. Sergio toma café. El primer movimiento lleva carga de quince años.",
+              "option_text": "Estudiar el tablero dos minutos completos",
+              "consequence": "Acomoda el Peón Dama pidiendo perdón por su lentitud. Sergio le acaricia el brazo con la manga tibia. Félix mueve al instante como si llevara días esperándolo.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s06",
               "gds_mapping": [
@@ -366,8 +366,8 @@
             },
             {
               "option_id": "c01-s05-o3",
-              "option_text": "Decir que mejor otro día y levantarse",
-              "consequence": "Alberto deja las blancas en el tablero. 'Hoy no estoy en forma.' Félix no dice nada. Alberto cruza el parque hacia la salida.",
+              "option_text": "Levantarse y dejar las blancas sobre el tablero",
+              "consequence": "Suspira fuerte alegando dolor de cabeza por la luz del día. Suelta la pieza del caballo con desgano y casi la tumba. Félix mueve un peón negro sin gastar saliva, ignorando su queja.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s06",
               "gds_mapping": [
@@ -397,16 +397,16 @@
         },
         {
           "scene_id": "c01-s06",
-          "title": "El primer movimiento",
+          "title": "El alfil expuesto en la octava",
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 6,
-          "text": "La partida lleva ocho jugadas. Alberto comete un error: deja su alfil expuesto. Félix lo toma sin comentar. Toño lo ve y levanta las cejas. Alberto lo nota. En la empresa siempre fue el que no cometía errores. La siguiente jugada tiene que ser mejor.",
+          "text": "En la banca de concreto frente a Félix, con ocho jugadas encima, Alberto ve su alfil expuesto. Félix lo toma sin comentario y la pieza golpea la piedra una sola vez. El olor del café tibio sigue saliendo del termo. La roca fría le sostiene la muñeca mientras él acomoda su reloj. Toño levanta las cejas. Alberto respira y busca la jugada que arregle el descuido.",
           "options": [
             {
               "option_id": "c01-s06-o1",
-              "option_text": "Reconocer el error y reorganizar",
-              "consequence": "'Ahí me fui.' Alberto acomoda las piezas que le quedan y busca una nueva diagonal. Félix asiente: 'Así se juega.'",
+              "option_text": "Reconocer el error en voz alta",
+              "consequence": "'Ahí me fui.' Alberto empuja el caballo hacia una diagonal nueva con los dedos firmes. Félix asiente una vez: 'Así se juega.' Toño vuelve la vista a su propio tablero.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s07",
               "gds_mapping": [
@@ -428,8 +428,8 @@
             },
             {
               "option_id": "c01-s06-o2",
-              "option_text": "Callarse y seguir jugando sin decir nada",
-              "consequence": "Alberto mueve sin comentar. La cara no le cambia. Sergio toma otro sorbo de café. El tablero sigue su lógica.",
+              "option_text": "Mover la siguiente pieza sin decir nada",
+              "consequence": "Alberto mueve sin comentar. La cara no le cambia. Sergio le da un sorbo al termo. El tablero sigue su lógica sin necesitar explicaciones.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s07",
               "gds_mapping": [
@@ -444,8 +444,8 @@
             },
             {
               "option_id": "c01-s06-o3",
-              "option_text": "Decir que el tablero está mal y eso lo distrajo",
-              "consequence": "Alberto señala el cuadro desportillado. 'Con este tablero cualquiera falla.' Silencio. Toño mira hacia otro lado.",
+              "option_text": "Culpar al tablero desportillado por el error",
+              "consequence": "Alberto señala el cuadro roto en el centro. 'Con este tablero cualquiera se confunde.' Silencio. Toño gira la cabeza hacia los pinos. Félix espera el siguiente movimiento.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s07",
               "gds_mapping": [
@@ -475,16 +475,16 @@
         },
         {
           "scene_id": "c01-s07",
-          "title": "El silencio incómodo",
+          "title": "El parque que no presiona",
           "hero_stage": "7_approach_inner_cave",
           "type": "playable",
           "order": 7,
-          "text": "Félix tarda en responder una jugada. El silencio se alarga. Alberto siente que todos esperan que fracase. Nadie lo está mirando, pero él lo siente igual. Sergio está en su propio tablero. Toño mira el celular. Nadie lo presiona. El problema está dentro.",
+          "text": "En la banca de concreto, Alberto mira el tablero mientras Félix tarda en mover. El goteo de un eucalipto cae sobre la tierra y marca el silencio. Huele a pasto húmedo. La torre se siente áspera contra sus dedos. Sergio está en su propia partida y Toño deja el celular boca abajo en la rodilla. Alberto sostiene la pieza en el aire, esperando el lugar donde dejarla.",
           "options": [
             {
               "option_id": "c01-s07-o1",
-              "option_text": "Concentrarse solo en el tablero",
-              "consequence": "Alberto calla la voz de la cabeza y mira las piezas. Hay una jugada con la torre que no había visto. La hace sin avisar.",
+              "option_text": "Fijar los ojos en el tablero y callar la voz",
+              "consequence": "Alberto baja la vista a las casillas. Hay una diagonal con la torre que no había visto. La pieza cae en su lugar sin aviso. Félix inclina la cabeza hacia el tablero y estudia la posición.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s08",
               "gds_mapping": [
@@ -506,8 +506,8 @@
             },
             {
               "option_id": "c01-s07-o2",
-              "option_text": "Decir algo para romper el silencio",
-              "consequence": "'¿Siempre tardan así?' dice Alberto. Sergio ríe. Félix levanta la vista: 'Solo cuando hay buena posición.' El silencio ya no pesa igual.",
+              "option_text": "Preguntar algo para romper el silencio",
+              "consequence": "'¿Siempre tardan así?' Alberto lo dice mirando a Sergio. Sergio ríe corto. Félix levanta la vista: 'Solo cuando hay buena posición.' El aire del parque pasa entre los tres.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s08",
               "gds_mapping": [
@@ -522,8 +522,8 @@
             },
             {
               "option_id": "c01-s07-o3",
-              "option_text": "Revisar el celular fingiendo una llamada",
-              "consequence": "Alberto saca el celular y finge leer algo. Félix espera sin decir nada. Alberto sabe que todos saben. El tablero sigue ahí.",
+              "option_text": "Sacar el celular y fingir leer algo",
+              "consequence": "Alberto saca el celular y baja la pantalla como si hubiera un mensaje. Félix espera sin decir nada. La torre sigue en la mano de Alberto, sobre la piedra fría de la mesa.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s08",
               "gds_mapping": [
@@ -553,16 +553,16 @@
         },
         {
           "scene_id": "c01-s08",
-          "title": "El jaque inesperado",
+          "title": "El caballo anuncia jaque",
           "hero_stage": "8_ordeal_crisis",
           "type": "playable",
           "order": 8,
-          "text": "Félix mueve el caballo. Jaque. Alberto no lo vio venir. Tiene tres opciones de escape, dos de ellas malas. La tercera lo deja mal posicionado pero con posibilidades. Toño se acerca a ver. Sergio ya no mira su tablero. El parque sigue igual, pero el momento no.",
+          "text": "Inclinado sobre el tablero del Parque Nacional, Alberto escucha el golpe seco del caballo de Félix. Jaque. El frío de la banca se le sube por la espalda. Toño se arrima y apoya los codos en la mesa; el plástico le raspa la manga. Huele a café ya bajito en el termo. Hay tres salidas en la mente de Alberto y ninguna suena fácil.",
           "options": [
             {
               "option_id": "c01-s08-o1",
-              "option_text": "Tomar la opción difícil y seguir jugando",
-              "consequence": "Alberto mueve el rey a la casilla más incómoda. 'Mal que por bien no venga.' Félix no esperaba esa respuesta. La partida sigue.",
+              "option_text": "Mover el rey a la casilla más incómoda",
+              "consequence": "Alberto empuja el rey hacia la casilla más difícil. Sus dedos se quedan sobre la pieza un segundo. Félix inclina la cabeza: no esperaba eso. La partida sigue abierta.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s09",
               "gds_mapping": [
@@ -584,8 +584,8 @@
             },
             {
               "option_id": "c01-s08-o2",
-              "option_text": "Rendirse y decir que fue buena partida",
-              "consequence": "Alberto tumba su rey. 'Bien jugado.' Félix extiende la mano. No hay vergà¼enza en la cara de Alberto, o al menos eso intenta.",
+              "option_text": "Tumbar el rey y reconocer la derrota",
+              "consequence": "Alberto inclina el rey sobre la piedra. 'Bien jugado.' Félix extiende la mano por encima de las piezas. La cara de Alberto no muestra nada, o al menos eso intenta.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s09",
               "gds_mapping": [
@@ -600,8 +600,8 @@
             },
             {
               "option_id": "c01-s08-o3",
-              "option_text": "Decir que el sol le molesta en los ojos y parar",
-              "consequence": "Alberto se levanta. 'Con este sol no se puede.' Recoge las blancas del tablero él mismo. Toño mira a Sergio. El café del termo ya está frío.",
+              "option_text": "Pararse y culpar el sol por distraerlo",
+              "consequence": "Alberto empuja la silla y se para. 'Con este sol no se puede.' Empieza a recoger las blancas del tablero sin que nadie se lo haya pedido. Toño mira a Sergio. El café del termo ya está frío.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s09",
               "gds_mapping": [
@@ -631,16 +631,16 @@
         },
         {
           "scene_id": "c01-s09",
-          "title": "La revancha",
+          "title": "El próximo viernes, a las nueve",
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 9,
-          "text": "La partida terminó. Félix recoge las piezas. Sergio propone que el viernes que viene se junten de nuevo. 'Y usted viene', le dice a Alberto. No es una pregunta. El termo ya no tiene café. El parque empieza a llenarse de niños. Alberto tiene el celular en el bolsillo sin haber contestado.",
+          "text": "En la mesa del parque, la partida ya terminó y Félix recoge las piezas una por una. Se oyen los pasos de un grupo de niños que entra del colegio. El aire trae olor a pasto mezclado con café frío. Alberto guarda el celular en el bolsillo y siente la tela del saco pesada en la nuca. Sergio dice que el viernes se repite a las nueve y lo mira como si la respuesta ya existiera.",
           "options": [
             {
               "option_id": "c01-s09-o1",
-              "option_text": "Decir que sí y preguntar a qué hora",
-              "consequence": "'A las nueve, como hoy.' Alberto guarda el nàºmero de Sergio. Camina de regreso con algo distinto en la cabeza que no sabe nombrar.",
+              "option_text": "Confirmar que viene y preguntar la hora",
+              "consequence": "'A las nueve, como hoy.' Alberto guarda el número de Sergio en el celular. Camina de regreso por la Séptima con algo distinto en la cabeza que no tiene nombre todavía.",
               "next_chapter_id": "c02",
               "next_scene_id": null,
               "gds_mapping": [
@@ -669,7 +669,7 @@
             {
               "option_id": "c01-s09-o2",
               "option_text": "Decir que ya verá si puede",
-              "consequence": "Sergio asiente sin insistir. Alberto se va sin intercambiar nàºmero. Quizá el viernes, quizá no. Él mismo no sabe todavía.",
+              "consequence": "Sergio asiente sin insistir. Alberto se va sin dejar su número. Quizá el viernes, quizá no. Él mismo no sabe todavía.",
               "next_chapter_id": "c02",
               "next_scene_id": null,
               "gds_mapping": [
@@ -2204,7 +2204,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Buscando una factura vieja, Alberto encuentra en el fondo del closet un libro de ajedrez con pasta azul: «Aperturas del Ajedrez Moderno», edición de 1987. Tiene su nombre escrito a lápiz en la primera página. No recuerda haberlo comprado. Elena lo ve desde la puerta del cuarto.",
+          "text": "Buscando una factura vieja, Alberto encuentra en el fondo del closet un libro de ajedrez con pasta azul: «Aperturas del Ajedrez Moderno», edición de 1987. Tiene su nombre escrito a lápiz en la primera página. No recuerda haberlo comprado. Elena lo ve desde la puerta del cuarto. El apartamento está quieto. Su nombre escrito a lápiz en la primera página del libro es su propia letra de cuando tenía treinta años.",
           "options": [
             {
               "option_id": "c04-s01-o1",
@@ -2459,7 +2459,7 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 4,
-          "text": "Elena trae más tinto sin que Alberto lo pida. Se sienta a su lado y mira el libro. «¿Es difícil?», pregunta. Es la primera vez en semanas que ella le pregunta algo sobre lo que él está haciendo. Alberto nota que ella está mirando los diagramas con curiosidad genuina.",
+          "text": "Elena trae más tinto sin que Alberto lo pida. Se sienta a su lado y mira el libro. «¿Es difícil?», pregunta. Es la primera vez en semanas que ella le pregunta algo sobre lo que él está haciendo. Alberto nota que ella está mirando los diagramas con curiosidad genuina. Elena se sienta a su lado. El gesto es pequeño pero llena el silencio que había entre los dos.",
           "options": [
             {
               "option_id": "c04-s04-o1",
@@ -2714,7 +2714,7 @@
           "hero_stage": "7_approach_inner_cave",
           "type": "playable",
           "order": 7,
-          "text": "En la cena, Elena pregunta: «¿Va a jugar el viernes?». Alberto responde que sí. Ella dice: «Ya se le nota diferente cuando llega del parque». Alberto no sabe bien qué significa «diferente» para ella. Termina el arroz y piensa en eso.",
+          "text": "En la cena, Elena pregunta: «¿Va a jugar el viernes?». Alberto responde que sí. Ella dice: «Ya se le nota diferente cuando llega del parque». Alberto no sabe bien qué significa «diferente» para ella. Termina el arroz y piensa en eso. En la cena, el arroz está tibio. Alberto piensa en lo que Elena dijo: 'Ya se le nota diferente cuando llega del parque'.",
           "options": [
             {
               "option_id": "c04-s07-o1",
@@ -2799,7 +2799,7 @@
           "hero_stage": "8_ordeal_crisis",
           "type": "playable",
           "order": 8,
-          "text": "Son las diez de la noche. Elena ya duerme. Alberto está en la mesa del comedor con el cuaderno y el libro de ajedrez. La luz sobre la mesa crea un círculo pequeño. Tiene que decidir si memorizar la variante del Gambito de Dama ahora o esperar al día siguiente.",
+          "text": "Son las diez de la noche. Elena ya duerme. Alberto está en la mesa del comedor con el cuaderno y el libro de ajedrez. La luz sobre la mesa crea un círculo pequeño. Tiene que decidir si memorizar la variante del Gambito de Dama ahora o esperar al día siguiente. Son las diez de la noche. Elena ya duerme. La luz sobre la mesa crea un círculo pequeño de concentración.",
           "options": [
             {
               "option_id": "c04-s08-o1",
@@ -2981,7 +2981,7 @@
             {
               "option_id": "c05-s01-o1",
               "option_text": "Saludar a todos con energía y sentarse",
-              "consequence": "Alberto saluda a Félix y a Toño, coloca su tablero con cuidado y pide un tinto al vendedor ambulante. La mañana comienza bien.",
+              "consequence": "Alberto saluda a Félix y a Toño, coloca su tablero con cuidado y pide un tinto al vendedor ambulante. La mañana comienza bien. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s02",
               "gds_mapping": [
@@ -2997,7 +2997,7 @@
             {
               "option_id": "c05-s01-o2",
               "option_text": "Sentarse en silencio y preparar las piezas",
-              "consequence": "Alberto acomoda las piezas en silencio, con la concentración de quien sabe que el día puede cambiar en cualquier momento.",
+              "consequence": "Alberto acomoda las piezas en silencio, con la concentración de quien sabe que el día puede cambiar en cualquier momento. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s02",
               "gds_mapping": [
@@ -3013,7 +3013,7 @@
             {
               "option_id": "c05-s01-o3",
               "option_text": "Dudar si quedarse o irse de una vez",
-              "consequence": "Alberto mira las mesas y siente algo raro en el pecho, como si esta mañana trajera algo que no quería encontrar. Pero se queda.",
+              "consequence": "Alberto mira las mesas y siente algo raro en el pecho, como si esta mañana trajera algo que no quería encontrar. Pero se queda. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s02",
               "gds_mapping": [
@@ -3041,7 +3041,7 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Don Jairo Espitia aparece caminando por el sendero principal con paso de quien no pide permiso. Es un hombre corpulento, con saco de paño y cara de inspector. Se para frente a la mesa de Alberto y mira el tablero como si calculara el precio de algo que no vale gran cosa.",
+          "text": "Don Jairo Espitia aparece caminando por el sendero principal con paso de quien no pide permiso. Es un hombre corpulento, con saco de paño y cara de inspector. Se para frente a la mesa de Alberto y mira el tablero como si calculara el precio de algo que no vale gran cosa. Un olor a tierra fría sube desde las baldosas. El ruido distante del tráfico envuelve el lugar, y el roce constante de su chaqueta de paño le recuerda los años acumulados en la oficina.",
           "options": [
             {
               "option_id": "c05-s02-o1",
@@ -3062,7 +3062,7 @@
             {
               "option_id": "c05-s02-o2",
               "option_text": "Saludarlo con cortesía y esperar",
-              "consequence": "Alberto levanta la cabeza y dice buenas. Don Jairo responde con un gruñido y sigue mirando el tablero como si Alberto no estuviera sentado detrás de él.",
+              "consequence": "Alberto levanta la cabeza y dice buenas. Don Jairo responde con un gruñido y sigue mirando el tablero como si Alberto no estuviera sentado detrás de él. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s03",
               "gds_mapping": [
@@ -3078,7 +3078,7 @@
             {
               "option_id": "c05-s02-o3",
               "option_text": "Bajar la mirada y acomodar las piezas",
-              "consequence": "Alberto baja la vista y empieza a mover las piezas sin razón. Siente que la presencia de ese hombre ocupa más espacio del que merece.",
+              "consequence": "Alberto baja la vista y empieza a mover las piezas sin razón. Siente que la presencia de ese hombre ocupa más espacio del que merece. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s03",
               "gds_mapping": [
@@ -3106,12 +3106,12 @@
           "hero_stage": "3_refusal_of_the_call",
           "type": "playable",
           "order": 3,
-          "text": "Don Jairo señala el tablero de Alberto con un dedo grueso y dice, en voz bastante alta para que todos escuchen: «Eso no es ajedrez, eso es dominó para ciegos. ¿Usted sabe siquiera qué es una apertura siciliana?» Toño suelta una carcajada nerviosa. Sergio aprieta la mandíbula.",
+          "text": "Don Jairo señala el tablero de Alberto con un dedo grueso y dice, en voz bastante alta para que todos escuchen: «Eso no es ajedrez, eso es dominó para ciegos. ¿Usted sabe siquiera qué es una apertura siciliana?» Toño suelta una carcajada nerviosa. Sergio aprieta la mandíbula. Un olor a tierra fría sube desde las baldosas. El ruido distante del tráfico envuelve el lugar, y el roce constante de su chaqueta de paño le recuerda los años acumulados en la oficina.",
           "options": [
             {
               "option_id": "c05-s03-o1",
               "option_text": "Responderle con calma y firmeza",
-              "consequence": "Alberto dice que sí conoce la siciliana, y que si Don Jairo quiere demostrar algo, tiene un tablero disponible ahora mismo. Hay aplausos discretos.",
+              "consequence": "Alberto dice que sí conoce la siciliana, y que si Don Jairo quiere demostrar algo, tiene un tablero disponible ahora mismo. Hay aplausos discretos. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s04",
               "gds_mapping": [
@@ -3127,7 +3127,7 @@
             {
               "option_id": "c05-s03-o2",
               "option_text": "Sonreír sin decir nada y esperar",
-              "consequence": "Alberto sonríe apenas, como si la pregunta no lo alcanzara. Pero sus manos sí lo saben: las tiene apretadas debajo de la mesa.",
+              "consequence": "Alberto sonríe apenas, como si la pregunta no lo alcanzara. Pero sus manos sí lo saben: las tiene apretadas debajo de la mesa. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s04",
               "gds_mapping": [
@@ -3184,7 +3184,7 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 4,
-          "text": "Don Jairo se sienta al otro lado del tablero de Alberto sin que nadie lo invite. Saca su reloj de ajedrez, lo pone en la mesa con un golpe seco, y dice: «Juguemos el sábado, en este mismo parque, a las diez. Que quede claro quién sabe jugar y quién solo viene a pasar el rato.» Sergio pone una mano en el hombro de Alberto.",
+          "text": "Don Jairo se sienta al otro lado del tablero de Alberto sin que nadie lo invite. Saca su reloj de ajedrez, lo pone en la mesa con un golpe seco, y dice: «Juguemos el sábado, en este mismo parque, a las diez. Que quede claro quién sabe jugar y quién solo viene a pasar el rato.» Sergio pone una mano en el hombro de Alberto. Un olor a tierra fría sube desde las baldosas. El ruido distante del tráfico envuelve el lugar, y el roce constante de su chaqueta de paño le recuerda los años acumulados en la oficina.",
           "options": [
             {
               "option_id": "c05-s04-o1",
@@ -3361,7 +3361,7 @@
             {
               "option_id": "c06-s01-o2",
               "option_text": "Saludar y preguntar si puede hablar",
-              "consequence": "Félix hace un gesto con la mano que significa sí sin desperdiciar palabras. Alberto jala una silla de otra mesa y la pone frente a él.",
+              "consequence": "Félix hace un gesto con la mano que significa sí sin desperdiciar palabras. Alberto jala una silla de otra mesa y la pone frente a él. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s02",
               "gds_mapping": [
@@ -3377,7 +3377,7 @@
             {
               "option_id": "c06-s01-o3",
               "option_text": "Dar vueltas por el parque y evitar a Félix",
-              "consequence": "Alberto camina tres veces alrededor de la fuente antes de acercarse. Siente que pedir consejo es admitir que lo afectó más de lo que debería.",
+              "consequence": "Alberto camina tres veces alrededor de la fuente antes de acercarse. Siente que pedir consejo es admitir que lo afectó más de lo que debería. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s02",
               "gds_mapping": [
@@ -3404,12 +3404,12 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Félix mira el tablero vacío que Alberto puso sobre la mesa y pregunta despacio: «¿Usted juega ajedrez para ganar o para algo más?» No espera respuesta inmediata. Sorbe su panela. Un gorrión aterriza en el borde del tablero y se va.",
+          "text": "Félix mira el tablero vacío que Alberto puso sobre la mesa y pregunta despacio: «¿Usted juega ajedrez para ganar o para algo más?» No espera respuesta inmediata. Sorbe su panela. Un gorrión aterriza en el borde del tablero y se va. Un olor a tierra fría sube desde las baldosas. El ruido distante del tráfico envuelve el lugar, y el roce constante de su chaqueta de paño le recuerda los años acumulados en la oficina.",
           "options": [
             {
               "option_id": "c06-s02-o1",
               "option_text": "Decir que juega por el placer del juego",
-              "consequence": "Alberto dice que le gusta el juego en sí, la forma en que cada pieza tiene su lógica. Félix asiente como si eso fuera suficiente.",
+              "consequence": "Alberto dice que le gusta el juego en sí, la forma en que cada pieza tiene su lógica. Félix asiente como si eso fuera suficiente. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s03",
               "gds_mapping": [
@@ -3469,7 +3469,7 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 3,
-          "text": "Félix habla despacio, mirando los edificios del fondo: «El ajedrez no cambia a nadie que no quiera cambiar. Don Jairo gana partidas y sigue siendo Don Jairo. Usted puede perder todas y seguir siendo mejor persona. Eso es lo que no cabe en un tablero.» Se queda callado. El reloj del parque marca las nueve y diez.",
+          "text": "Félix habla despacio, mirando los edificios del fondo: «El ajedrez no cambia a nadie que no quiera cambiar. Don Jairo gana partidas y sigue siendo Don Jairo. Usted puede perder todas y seguir siendo mejor persona. Eso es lo que no cabe en un tablero.» Se queda callado. El reloj del parque marca las nueve y diez. Un olor a tierra fría sube desde las baldosas. El ruido distante del tráfico envuelve el lugar, y el roce constante de su chaqueta de paño le recuerda los años acumulados en la oficina.",
           "options": [
             {
               "option_id": "c06-s03-o1",
@@ -3513,7 +3513,7 @@
             {
               "option_id": "c06-s03-o3",
               "option_text": "Decir que no puede perder, que sería humillante",
-              "consequence": "Alberto dice en voz baja que no puede quedar mal otra vez delante de todos. Félix lo mira durante unos segundos y luego mira el tablero.",
+              "consequence": "Alberto dice en voz baja que no puede quedar mal otra vez delante de todos. Félix lo mira durante unos segundos y luego mira el tablero. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s04",
               "gds_mapping": [
@@ -3547,12 +3547,12 @@
           "hero_stage": "5_crossing_the_threshold",
           "type": "playable",
           "order": 4,
-          "text": "Sergio llega a las diez con un termo de café. Trae noticias: ha investigado a Don Jairo. Jugó en torneos regionales hace veinte años, pero ya no practica con regularidad. «No es tan fiero el león», dice Sergio, y sirve café en el tapón del termo.",
+          "text": "Sergio llega a las diez con un termo de café. Trae noticias: ha investigado a Don Jairo. Jugó en torneos regionales hace veinte años, pero ya no practica con regularidad. «No es tan fiero el león», dice Sergio, y sirve café en el tapón del termo. Un olor a tierra fría sube desde las baldosas. El ruido distante del tráfico envuelve el lugar, y el roce constante de su chaqueta de paño le recuerda los años acumulados en la oficina.",
           "options": [
             {
               "option_id": "c06-s04-o1",
               "option_text": "Proponer a Sergio practicar juntos toda la semana",
-              "consequence": "Alberto y Sergio acuerdan verse cada mañana hasta el sábado. Alberto saca el libro del bolso â€” lo trajo desde ayer.",
+              "consequence": "Alberto y Sergio acuerdan verse cada mañana hasta el sábado. Alberto saca el libro del bolso â€” lo trajo desde ayer. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s05",
               "gds_mapping": [
@@ -3574,7 +3574,7 @@
             {
               "option_id": "c06-s04-o2",
               "option_text": "Agradecerle pero preferir estudiar solo en casa",
-              "consequence": "Alberto dice que necesita estudiar solo primero, organizar sus ideas. Sergio dice que bien, pero que llame si necesita algo.",
+              "consequence": "Alberto dice que necesita estudiar solo primero, organizar sus ideas. Sergio dice que bien, pero que llame si necesita algo. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s05",
               "gds_mapping": [
@@ -3631,12 +3631,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "El jueves en la tarde Alberto está estudiando la apertura española en el libro cuando su celular vibra. Es Elena: «ya voy hacia el parque, ¿en cuál mesa está?» Alberto mira el mensaje dos veces. Elena nunca viene sola.",
+          "text": "El jueves en la tarde Alberto está estudiando la apertura española en el libro cuando su celular vibra. Es Elena: «ya voy hacia el parque, ¿en cuál mesa está?» Alberto mira el mensaje dos veces. Elena nunca viene sola. Un olor a tierra fría sube desde las baldosas. El ruido distante del tráfico envuelve el lugar, y el roce constante de su chaqueta de paño le recuerda los años acumulados en la oficina.",
           "options": [
             {
               "option_id": "c07-s01-o1",
               "option_text": "Responder con alegría y acomodar la silla",
-              "consequence": "Alberto le responde rápido y llama al vendedor para que traiga dos tintos. Siente algo ligero en el pecho que no había sentido en días.",
+              "consequence": "Alberto le responde rápido y llama al vendedor para que traiga dos tintos. Siente algo ligero en el pecho que no había sentido en días. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c07-s02",
               "gds_mapping": [
@@ -3767,7 +3767,7 @@
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 3,
-          "text": "Llega Toño y propone una partida casual. Alberto acepta. Elena se recorre al borde de la silla y observa. Alberto empieza a ver el tablero diferente â€” cada movimiento lo ve también desde los ojos de Elena. Sus manos se mueven con más cuidado.",
+          "text": "Llega Toño y propone una partida casual. Alberto acepta. Elena se recorre al borde de la silla y observa. Alberto empieza a ver el tablero diferente â€” cada movimiento lo ve también desde los ojos de Elena. Sus manos se mueven con más cuidado. Un olor a tierra fría sube desde las baldosas. El ruido distante del tráfico envuelve el lugar, y el roce constante de su chaqueta de paño le recuerda los años acumulados en la oficina.",
           "options": [
             {
               "option_id": "c07-s03-o1",
@@ -3839,7 +3839,7 @@
           "hero_stage": "8_the_road_back",
           "type": "playable",
           "order": 4,
-          "text": "A las cuatro la luz del parque cambia y Elena dice que hay que ir. Caminan juntos por la Carrera Séptima. Alberto lleva su libro bajo el brazo. Los buses del SITP pasan cargados. Elena le aprieta el brazo sin decir nada.",
+          "text": "A las cuatro la luz del parque cambia y Elena dice que hay que ir. Caminan juntos por la Carrera Séptima. Alberto lleva su libro bajo el brazo. Los buses del SITP pasan cargados. Elena le aprieta el brazo sin decir nada. Un olor a tierra fría sube desde las baldosas. El ruido distante del tráfico envuelve el lugar, y el roce constante de su chaqueta de paño le recuerda los años acumulados en la oficina.",
           "options": [
             {
               "option_id": "c07-s04-o1",
@@ -3954,7 +3954,7 @@
             {
               "option_id": "c08-s01-o3",
               "option_text": "Ir pero sintiendo que va a perder",
-              "consequence": "Alberto camina hacia el parque convencido de que el resultado ya está escrito. Cada paso es más pesado que el anterior.",
+              "consequence": "Alberto camina hacia el parque convencido de que el resultado ya está escrito. Cada paso es más pesado que el anterior. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c08-s02",
               "gds_mapping": [
@@ -3988,7 +3988,7 @@
           "hero_stage": "7_the_ordeal",
           "type": "playable",
           "order": 2,
-          "text": "La partida dura cuarenta y dos minutos. Don Jairo juega rápido y sin mirar a Alberto â€” mira el tablero como si fuera un problema matemático ya resuelto. Alberto pierde material desde el movimiento quince. Intenta una defensa en el movimiento treinta pero ya es tarde. Don Jairo dice jaque mate en voz alta. Hay silencio.",
+          "text": "La partida dura cuarenta y dos minutos. Don Jairo juega rápido y sin mirar a Alberto â€” mira el tablero como si fuera un problema matemático ya resuelto. Alberto pierde material desde el movimiento quince. Intenta una defensa en el movimiento treinta pero ya es tarde. Don Jairo dice jaque mate en voz alta. Hay silencio. Un olor a tierra fría sube desde las baldosas. El ruido distante del tráfico envuelve el lugar, y el roce constante de su chaqueta de paño le recuerda los años acumulados en la oficina.",
           "options": [
             {
               "option_id": "c08-s02-o1",
@@ -4137,7 +4137,7 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 4,
-          "text": "De vuelta al apartamento Alberto abre el libro en la mesa. Busca el movimiento donde todo se rompió. Lo encuentra: era un gambito de dama y él respondió mal. Está marcado en el libro con lápiz viejo, de cuando era joven. Alguien â€” él mismo â€” ya lo sabía.",
+          "text": "De vuelta al apartamento Alberto abre el libro en la mesa. Busca el movimiento donde todo se rompió. Lo encuentra: era un gambito de dama y él respondió mal. Está marcado en el libro con lápiz viejo, de cuando era joven. Alguien â€” él mismo â€” ya lo sabía. Un olor a tierra fría sube desde las baldosas. El ruido distante del tráfico envuelve el lugar, y el roce constante de su chaqueta de paño le recuerda los años acumulados en la oficina.",
           "options": [
             {
               "option_id": "c08-s04-o1",
@@ -4228,12 +4228,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "El lunes siguiente Toño llega agitado al parque con un papel doblado en la mano. Es un volante: «Club de Ajedrez Chapinero â€” clases y torneos internos â€” martes y jueves 3 pm â€” Cra 13 con Calle 58». Toño lo pone sobre el tablero como si fuera una noticia urgente.",
+          "text": "El lunes siguiente Toño llega agitado al parque con un papel doblado en la mano. Es un volante: «Club de Ajedrez Chapinero â€” clases y torneos internos â€” martes y jueves 3 pm â€” Cra 13 con Calle 58». Toño lo pone sobre el tablero como si fuera una noticia urgente. Un olor a tierra fría sube desde las baldosas. El ruido distante del tráfico envuelve el lugar, y el roce constante de su chaqueta de paño le recuerda los años acumulados en la oficina.",
           "options": [
             {
               "option_id": "c09-s01-o1",
               "option_text": "Tomar el volante con interés inmediato",
-              "consequence": "Alberto toma el papel, lo lee dos veces y lo dobla con cuidado para guardarlo en el bolso. Pregunta si alguien sabe quién lo dirige.",
+              "consequence": "Alberto toma el papel, lo lee dos veces y lo dobla con cuidado para guardarlo en el bolso. Pregunta si alguien sabe quién lo dirige. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s02",
               "gds_mapping": [
@@ -4265,7 +4265,7 @@
             {
               "option_id": "c09-s01-o3",
               "option_text": "Decir que para qué si ya perdió contra Don Jairo",
-              "consequence": "Alberto dice que eso ya lo intentó y ya vio cómo le fue. Toño dice que un club es diferente, pero Alberto ya está mirando hacia otro lado.",
+              "consequence": "Alberto dice que eso ya lo intentó y ya vio cómo le fue. Toño dice que un club es diferente, pero Alberto ya está mirando hacia otro lado. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s02",
               "gds_mapping": [
@@ -4299,12 +4299,12 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 2,
-          "text": "Sergio dice que él fue al club una vez, hace dos años, y que el nivel es serio pero no inalcanzable. Dice que tienen un maestro que da clases los martes, un exjugador de la liga departamental. Alberto escucha esto más de lo que escuchó a Félix.",
+          "text": "Sergio dice que él fue al club una vez, hace dos años, y que el nivel es serio pero no inalcanzable. Dice que tienen un maestro que da clases los martes, un exjugador de la liga departamental. Alberto escucha esto más de lo que escuchó a Félix. Un olor a tierra fría sube desde las baldosas. El ruido distante del tráfico envuelve el lugar, y el roce constante de su chaqueta de paño le recuerda los años acumulados en la oficina.",
           "options": [
             {
               "option_id": "c09-s02-o1",
               "option_text": "Preguntar más detalles sobre el maestro",
-              "consequence": "Alberto hace preguntas concretas: cuántos años tiene el maestro, qué aperturas enseña, cómo son los torneos internos. Sergio se alegra de que pregunte tanto.",
+              "consequence": "Alberto hace preguntas concretas: cuántos años tiene el maestro, qué aperturas enseña, cómo son los torneos internos. Sergio se alegra de que pregunte tanto. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s03",
               "gds_mapping": [
@@ -4320,7 +4320,7 @@
             {
               "option_id": "c09-s02-o2",
               "option_text": "Escuchar pero decir que lo pensará esta semana",
-              "consequence": "Alberto escucha todo y dice que necesita pensarlo. Sergio dice bien, pero que no tarde mucho porque las clases empiezan el martes.",
+              "consequence": "Alberto escucha todo y dice que necesita pensarlo. Sergio dice bien, pero que no tarde mucho porque las clases empiezan el martes. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s03",
               "gds_mapping": [
@@ -4336,7 +4336,7 @@
             {
               "option_id": "c09-s02-o3",
               "option_text": "Decir que el parque le funciona bien así",
-              "consequence": "Alberto dice que él ya tiene su rutina aquí y que no necesita formalidades. Sergio lo mira de reojo pero no insiste.",
+              "consequence": "Alberto dice que él ya tiene su rutina aquí y que no necesita formalidades. Sergio lo mira de reojo pero no insiste. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s03",
               "gds_mapping": [
@@ -4435,7 +4435,7 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 4,
-          "text": "La clase dura una hora. El maestro, un hombre de unos cincuenta con lentes y voz tranquila, explica el gambito de dama en la pizarra. Alberto reconoce la posición â€” es exactamente donde perdió contra Don Jairo. Algo encaja.",
+          "text": "La clase dura una hora. El maestro, un hombre de unos cincuenta con lentes y voz tranquila, explica el gambito de dama en la pizarra. Alberto reconoce la posición â€” es exactamente donde perdió contra Don Jairo. Algo encaja. Un olor a tierra fría sube desde las baldosas. El ruido distante del tráfico envuelve el lugar, y el roce constante de su chaqueta de paño le recuerda los años acumulados en la oficina.",
           "options": [
             {
               "option_id": "c09-s04-o1",
@@ -4462,7 +4462,7 @@
             {
               "option_id": "c09-s04-o2",
               "option_text": "Decir que lo piensa antes de inscribirse",
-              "consequence": "Alberto recoge sus cosas, agradece y dice que volverá la semana próxima. El maestro dice que está bien, que la puerta está abierta.",
+              "consequence": "Alberto recoge sus cosas, agradece y dice que volverá la semana próxima. El maestro dice que está bien, que la puerta está abierta. El viento frío mueve débilmente las ramas de los árboles cercanos. Alberto contiene la respiración por un segundo, sintiendo el momento.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s05",
               "gds_mapping": [
@@ -4524,7 +4524,7 @@
             {
               "option_id": "c10-s01-o1",
               "option_text": "Ir directo a la biblioteca después del desayuno",
-              "consequence": "Alberto sale a las nueve con el libro viejo bajo el brazo, como si quisiera que los dos libros se conocieran. Camina por la Séptima con paso firme.",
+              "consequence": "Alberto sale a las nueve con el libro viejo bajo el brazo, como si quisiera que los dos libros se conocieran. Camina por la Séptima con paso firme. El aire pesado del salón parece detenerse un instante. Alberto aprieta los puños en silencio, reconociendo el peso de su decisión.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s02",
               "gds_mapping": [
@@ -4540,7 +4540,7 @@
             {
               "option_id": "c10-s01-o2",
               "option_text": "Ir pero sin muchas expectativas de encontrarlo",
-              "consequence": "Alberto sale a las diez, seguro de que el libro no va a estar. Pero va de todas formas, porque la mañana no tiene otro plan.",
+              "consequence": "Alberto sale a las diez, seguro de que el libro no va a estar. Pero va de todas formas, porque la mañana no tiene otro plan. El aire pesado del salón parece detenerse un instante. Alberto aprieta los puños en silencio, reconociendo el peso de su decisión.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s02",
               "gds_mapping": [
@@ -4627,7 +4627,7 @@
             {
               "option_id": "c10-s02-o3",
               "option_text": "Sentarse sin buscar, solo estar en el silencio",
-              "consequence": "Alberto se sienta en una silla junto a la ventana y mira la calle. El silencio de la biblioteca le pesa de una manera que no esperaba.",
+              "consequence": "Alberto se sienta en una silla junto a la ventana y mira la calle. El silencio de la biblioteca le pesa de una manera que no esperaba. El aire pesado del salón parece detenerse un instante. Alberto aprieta los puños en silencio, reconociendo el peso de su decisión.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s03",
               "gds_mapping": [
@@ -4661,7 +4661,7 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 3,
-          "text": "La mujer de los anteojos grandes lo mira cuando pasa cerca de su mesa. Tiene un tablero de ajedrez plegable al lado del libro que lee. Alberto lo ve y se detiene. Ella dice, sin levantar la vista del libro: «¿Usted también juega?»",
+          "text": "La mujer de los anteojos grandes lo mira cuando pasa cerca de su mesa. Tiene un tablero de ajedrez plegable al lado del libro que lee. Alberto lo ve y se detiene. Ella dice, sin levantar la vista del libro: «¿Usted también juega?» El ambiente huele a café oscuro y a encierro antiguo. Un zumbido constante de la calle vibra en los vidrios, mientras sus manos sienten la textura rugosa del tablero que lo empuja al presente.",
           "options": [
             {
               "option_id": "c10-s03-o1",
@@ -4698,7 +4698,7 @@
             {
               "option_id": "c10-s03-o3",
               "option_text": "Decir que no mucho y seguir caminando",
-              "consequence": "Alberto dice que no sabe mucho del juego y sigue hacia los estantes. La oportunidad queda en la silla vacía de la mesa de Amparo.",
+              "consequence": "Alberto dice que no sabe mucho del juego y sigue hacia los estantes. La oportunidad queda en la silla vacía de la mesa de Amparo. El aire pesado del salón parece detenerse un instante. Alberto aprieta los puños en silencio, reconociendo el peso de su decisión.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s04",
               "gds_mapping": [
@@ -4732,7 +4732,7 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 4,
-          "text": "El bibliotecario regresa con un libro diferente pero más completo: «Estrategia y táctica del ajedrez moderno», edición de 1994. Alberto lo hojea de pie. Tiene ejercicios con soluciones al final. El libro de 1987 que tiene en casa es el tomo uno. Este es el tomo dos.",
+          "text": "El bibliotecario regresa con un libro diferente pero más completo: «Estrategia y táctica del ajedrez moderno», edición de 1994. Alberto lo hojea de pie. Tiene ejercicios con soluciones al final. El libro de 1987 que tiene en casa es el tomo uno. Este es el tomo dos. El ambiente huele a café oscuro y a encierro antiguo. Un zumbido constante de la calle vibra en los vidrios, mientras sus manos sienten la textura rugosa del tablero que lo empuja al presente.",
           "options": [
             {
               "option_id": "c10-s04-o1",
@@ -4816,12 +4816,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "En la clase del martes el maestro del club saca una hoja y la pega en la pizarra: «III Torneo Interbarrial de Ajedrez â€” Categoría Mayores de 60 â€” Sábado 15 de noviembre â€” Club Chapinero». Alberto lo lee desde su silla. Son cuatro rondas de treinta minutos cada una.",
+          "text": "En la clase del martes el maestro del club saca una hoja y la pega en la pizarra: «III Torneo Interbarrial de Ajedrez â€” Categoría Mayores de 60 â€” Sábado 15 de noviembre â€” Club Chapinero». Alberto lo lee desde su silla. Son cuatro rondas de treinta minutos cada una. El ambiente huele a café oscuro y a encierro antiguo. Un zumbido constante de la calle vibra en los vidrios, mientras sus manos sienten la textura rugosa del tablero que lo empuja al presente.",
           "options": [
             {
               "option_id": "c11-s01-o1",
               "option_text": "Acercarse a la pizarra a leerlo más de cerca",
-              "consequence": "Alberto se levanta y lee cada línea. El maestro lo ve y dice: usted debería inscribirse, don Alberto, tiene nivel para esto.",
+              "consequence": "Alberto se levanta y lee cada línea. El maestro lo ve y dice: usted debería inscribirse, don Alberto, tiene nivel para esto. El aire pesado del salón parece detenerse un instante. Alberto aprieta los puños en silencio, reconociendo el peso de su decisión.",
               "next_chapter_id": null,
               "next_scene_id": "c11-s02",
               "gds_mapping": [
@@ -4837,7 +4837,7 @@
             {
               "option_id": "c11-s01-o2",
               "option_text": "Leerlo desde lejos y seguir con la clase",
-              "consequence": "Alberto lee el letrero desde su silla, frunce el ceño y vuelve al tablero. El maestro no dice nada todavía.",
+              "consequence": "Alberto lee el letrero desde su silla, frunce el ceño y vuelve al tablero. El maestro no dice nada todavía. El aire pesado del salón parece detenerse un instante. Alberto aprieta los puños en silencio, reconociendo el peso de su decisión.",
               "next_chapter_id": null,
               "next_scene_id": "c11-s02",
               "gds_mapping": [
@@ -4881,7 +4881,7 @@
           "hero_stage": "3_refusal_of_the_call",
           "type": "playable",
           "order": 2,
-          "text": "De regreso a casa Alberto piensa en el torneo. Piensa también en la derrota contra Don Jairo. Piensa que tiene sesenta y siete años. Piensa que el libro nuevo tiene ejercicios que todavía no ha resuelto. La neblina de Chapinero lo acompaña hasta la portería.",
+          "text": "De regreso a casa Alberto piensa en el torneo. Piensa también en la derrota contra Don Jairo. Piensa que tiene sesenta y siete años. Piensa que el libro nuevo tiene ejercicios que todavía no ha resuelto. La neblina de Chapinero lo acompaña hasta la portería. El ambiente huele a café oscuro y a encierro antiguo. Un zumbido constante de la calle vibra en los vidrios, mientras sus manos sienten la textura rugosa del tablero que lo empuja al presente.",
           "options": [
             {
               "option_id": "c11-s02-o1",
@@ -4959,7 +4959,7 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 3,
-          "text": "El jueves el maestro llama a Alberto por su nombre al inicio de la clase. Le dice que ha visto su progreso en las àºltimas semanas. Que el torneo de categoría mayores es el espacio exacto para alguien en su nivel. Que no es para ganar â€” es para saber dónde está uno.",
+          "text": "El jueves el maestro llama a Alberto por su nombre al inicio de la clase. Le dice que ha visto su progreso en las àºltimas semanas. Que el torneo de categoría mayores es el espacio exacto para alguien en su nivel. Que no es para ganar â€” es para saber dónde está uno. El ambiente huele a café oscuro y a encierro antiguo. Un zumbido constante de la calle vibra en los vidrios, mientras sus manos sienten la textura rugosa del tablero que lo empuja al presente.",
           "options": [
             {
               "option_id": "c11-s03-o1",
@@ -4986,7 +4986,7 @@
             {
               "option_id": "c11-s03-o2",
               "option_text": "Decirle que lo pensará hasta el viernes",
-              "consequence": "Alberto dice que necesita un día más. El maestro dice que bien, pero que el plazo cierra el viernes a las cinco.",
+              "consequence": "Alberto dice que necesita un día más. El maestro dice que bien, pero que el plazo cierra el viernes a las cinco. El aire pesado del salón parece detenerse un instante. Alberto aprieta los puños en silencio, reconociendo el peso de su decisión.",
               "next_chapter_id": null,
               "next_scene_id": "c11-s04",
               "gds_mapping": [
@@ -5036,12 +5036,12 @@
           "hero_stage": "5_crossing_the_threshold",
           "type": "playable",
           "order": 4,
-          "text": "El viernes Alberto llega al club antes de las cinco. La mujer de la inscripción tiene el formulario listo. Nàºmero de cédula, nombre, categoría: mayores de 60. Alberto escribe despacio con el bolígrafo que le prestan.",
+          "text": "El viernes Alberto llega al club antes de las cinco. La mujer de la inscripción tiene el formulario listo. Nàºmero de cédula, nombre, categoría: mayores de 60. Alberto escribe despacio con el bolígrafo que le prestan. El ambiente huele a café oscuro y a encierro antiguo. Un zumbido constante de la calle vibra en los vidrios, mientras sus manos sienten la textura rugosa del tablero que lo empuja al presente.",
           "options": [
             {
               "option_id": "c11-s04-o1",
               "option_text": "Firmar con decisión y agradecer al maestro",
-              "consequence": "Alberto firma, entrega el formulario y busca al maestro para darle las gracias. El maestro dice: nos vemos el sábado quince.",
+              "consequence": "Alberto firma, entrega el formulario y busca al maestro para darle las gracias. El maestro dice: nos vemos el sábado quince. El aire pesado del salón parece detenerse un instante. Alberto aprieta los puños en silencio, reconociendo el peso de su decisión.",
               "next_chapter_id": null,
               "next_scene_id": "c11-s05",
               "gds_mapping": [
@@ -5114,7 +5114,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Alberto se despierta a las seis y media. Elena tiene el desayuno listo sin que se lo pidiera: huevos revueltos y pan tostado con mantequilla. Le dice que se ve bien. Alberto se mira las manos sobre la mesa. Son las mismas manos que escribieron cuentas durante treinta y dos años.",
+          "text": "Alberto se despierta a las seis y media. Elena tiene el desayuno listo sin que se lo pidiera: huevos revueltos y pan tostado con mantequilla. Le dice que se ve bien. Alberto se mira las manos sobre la mesa. Son las mismas manos que escribieron cuentas durante treinta y dos años. El ambiente huele a café oscuro y a encierro antiguo. Un zumbido constante de la calle vibra en los vidrios, mientras sus manos sienten la textura rugosa del tablero que lo empuja al presente.",
           "options": [
             {
               "option_id": "c12-s01-o1",
@@ -5192,12 +5192,12 @@
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 2,
-          "text": "El salón del club tiene doce tableros dispuestos en tres filas. Hay veinte participantes, todos mayores de sesenta, con distintos niveles de nervio en la cara. Alberto reconoce a dos del parque y a tres del club. Los relojes de ajedrez están sincronizados. El árbitro lee las reglas en voz alta.",
+          "text": "El salón del club tiene doce tableros dispuestos en tres filas. Hay veinte participantes, todos mayores de sesenta, con distintos niveles de nervio en la cara. Alberto reconoce a dos del parque y a tres del club. Los relojes de ajedrez están sincronizados. El árbitro lee las reglas en voz alta. El ambiente huele a café oscuro y a encierro antiguo. Un zumbido constante de la calle vibra en los vidrios, mientras sus manos sienten la textura rugosa del tablero que lo empuja al presente.",
           "options": [
             {
               "option_id": "c12-s02-o1",
               "option_text": "Saludar a los conocidos y sentarse confiado",
-              "consequence": "Alberto saluda con la cabeza a los del parque. Se sienta y acomoda su silla con la misma calma con que llega a la oficina â€” o llegaba.",
+              "consequence": "Alberto saluda con la cabeza a los del parque. Se sienta y acomoda su silla con la misma calma con que llega a la oficina â€” o llegaba. El aire pesado del salón parece detenerse un instante. Alberto aprieta los puños en silencio, reconociendo el peso de su decisión.",
               "next_chapter_id": null,
               "next_scene_id": "c12-s03",
               "gds_mapping": [
@@ -5229,7 +5229,7 @@
             {
               "option_id": "c12-s02-o3",
               "option_text": "Pensar que todos son mejores que él",
-              "consequence": "Alberto mira a los demás participantes y los imagina todos más preparados. Cada reloj en la mesa de otro le parece más profesional que el suyo.",
+              "consequence": "Alberto mira a los demás participantes y los imagina todos más preparados. Cada reloj en la mesa de otro le parece más profesional que el suyo. El aire pesado del salón parece detenerse un instante. Alberto aprieta los puños en silencio, reconociendo el peso de su decisión.",
               "next_chapter_id": null,
               "next_scene_id": "c12-s03",
               "gds_mapping": [
@@ -5263,7 +5263,7 @@
           "hero_stage": "7_the_ordeal",
           "type": "playable",
           "order": 3,
-          "text": "Alberto juega cuatro rondas. Gana la primera por un error del rival. Pierde la segunda sin entender bien el final. Empata la tercera después de cuarenta y cinco movimientos que lo dejan agotado. En la cuarta ronda su mano tiembla al poner el caballo.",
+          "text": "Alberto juega cuatro rondas. Gana la primera por un error del rival. Pierde la segunda sin entender bien el final. Empata la tercera después de cuarenta y cinco movimientos que lo dejan agotado. En la cuarta ronda su mano tiembla al poner el caballo. El ambiente huele a café oscuro y a encierro antiguo. Un zumbido constante de la calle vibra en los vidrios, mientras sus manos sienten la textura rugosa del tablero que lo empuja al presente.",
           "options": [
             {
               "option_id": "c12-s03-o1",
@@ -5341,7 +5341,7 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 4,
-          "text": "Los resultados se pegan en la pizarra. Alberto quedó octavo de doce. Un punto y medio sobre cuatro posibles. El maestro lo encuentra en la puerta y le dice: octavo es una posición honesta para alguien que empezó hace tres meses.",
+          "text": "Los resultados se pegan en la pizarra. Alberto quedó octavo de doce. Un punto y medio sobre cuatro posibles. El maestro lo encuentra en la puerta y le dice: octavo es una posición honesta para alguien que empezó hace tres meses. El ambiente huele a café oscuro y a encierro antiguo. Un zumbido constante de la calle vibra en los vidrios, mientras sus manos sienten la textura rugosa del tablero que lo empuja al presente.",
           "options": [
             {
               "option_id": "c12-s04-o1",
@@ -5368,7 +5368,7 @@
             {
               "option_id": "c12-s04-o2",
               "option_text": "Decir que estuvo bien pero quedarse pensando en los errores",
-              "consequence": "Alberto dice que bien, y lo dice creyéndolo a medias. El camino a casa lo pasa reviviendo la segunda ronda.",
+              "consequence": "Alberto dice que bien, y lo dice creyéndolo a medias. El camino a casa lo pasa reviviendo la segunda ronda. El aire pesado del salón parece detenerse un instante. Alberto aprieta los puños en silencio, reconociendo el peso de su decisión.",
               "next_chapter_id": null,
               "next_scene_id": "c12-s05",
               "gds_mapping": [
@@ -5432,7 +5432,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Tres semanas después del torneo, un martes, Don Jairo aparece otra vez en el parque. Se sienta en la mesa de al lado. Ve a Alberto con el libro nuevo del club y lo mira. Dice, sin que nadie le preguntara: «Con libros no se aprende a jugar. Se aprende perdiendo.» Toño mira el cielo.",
+          "text": "Tres semanas después del torneo, un martes, Don Jairo aparece otra vez en el parque. Se sienta en la mesa de al lado. Ve a Alberto con el libro nuevo del club y lo mira. Dice, sin que nadie le preguntara: «Con libros no se aprende a jugar. Se aprende perdiendo.» Toño mira el cielo. El ambiente huele a café oscuro y a encierro antiguo. Un zumbido constante de la calle vibra en los vidrios, mientras sus manos sienten la textura rugosa del tablero que lo empuja al presente.",
           "options": [
             {
               "option_id": "c13-s01-o1",
@@ -5503,7 +5503,7 @@
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 2,
-          "text": "Don Jairo arrastra una silla y la pone frente a Alberto. Sin reloj esta vez. Dice: «Una partida amistosa. Aquí, ahora. A ver qué aprendió.» El grupo se acerca. Félix deja su banco y se para detrás de Alberto. Sergio cruza los brazos.",
+          "text": "Don Jairo arrastra una silla y la pone frente a Alberto. Sin reloj esta vez. Dice: «Una partida amistosa. Aquí, ahora. A ver qué aprendió.» El grupo se acerca. Félix deja su banco y se para detrás de Alberto. Sergio cruza los brazos. El ambiente huele a café oscuro y a encierro antiguo. Un zumbido constante de la calle vibra en los vidrios, mientras sus manos sienten la textura rugosa del tablero que lo empuja al presente.",
           "options": [
             {
               "option_id": "c13-s02-o1",
@@ -5574,7 +5574,7 @@
           "hero_stage": "7_the_ordeal",
           "type": "playable",
           "order": 3,
-          "text": "La partida es diferente a la del mes anterior. Alberto reconoce las amenazas antes que antes. En el movimiento veinte tiene una posición sólida. Don Jairo tarda más en mover. En el movimiento veintiocho Alberto sacrifica una torre. El grupo contiene el aliento.",
+          "text": "La partida es diferente a la del mes anterior. Alberto reconoce las amenazas antes que antes. En el movimiento veinte tiene una posición sólida. Don Jairo tarda más en mover. En el movimiento veintiocho Alberto sacrifica una torre. El grupo contiene el aliento. El ambiente huele a café oscuro y a encierro antiguo. Un zumbido constante de la calle vibra en los vidrios, mientras sus manos sienten la textura rugosa del tablero que lo empuja al presente.",
           "options": [
             {
               "option_id": "c13-s03-o1",
@@ -5682,7 +5682,7 @@
             {
               "option_id": "c13-s04-o3",
               "option_text": "Preguntarse si ese reconocimiento vale algo de verdad",
-              "consequence": "Alberto escucha las dos palabras de Don Jairo y se pregunta si en realidad significan algo, o si el otro solo lo dice por protocolo. La duda le roba la mitad del momento.",
+              "consequence": "Alberto escucha las dos palabras de Don Jairo y se pregunta si en realidad significan algo, o si el otro solo lo dice por protocolo. La duda le roba la mitad del momento. El aire pesado del salón parece detenerse un instante. Alberto aprieta los puños en silencio, reconociendo el peso de su decisión.",
               "next_chapter_id": null,
               "next_scene_id": "c13-s05",
               "gds_mapping": [
@@ -5744,7 +5744,7 @@
             {
               "option_id": "c14-s01-o2",
               "option_text": "Ir pensando en la partida de hoy",
-              "consequence": "Alberto camina pensando en una variante del gambito de dama que quiere probar. El parque aparece sin que se dé cuenta de haber llegado.",
+              "consequence": "Alberto camina pensando en una variante del gambito de dama que quiere probar. El parque aparece sin que se dé cuenta de haber llegado. El aire pesado del salón parece detenerse un instante. Alberto aprieta los puños en silencio, reconociendo el peso de su decisión.",
               "next_chapter_id": null,
               "next_scene_id": "c14-s02",
               "gds_mapping": [
@@ -5781,7 +5781,7 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "El Parque Nacional está diferente en diciembre: hay más gente, más niños corriendo entre los jacarandas, y los tableros de ajedrez ya no están solos. Sergio ya llegó. Félix también. Toño está contando un chiste que nadie terminará de escuchar porque Sergio ya se está riendo.",
+          "text": "El Parque Nacional está diferente en diciembre: hay más gente, más niños corriendo entre los jacarandas, y los tableros de ajedrez ya no están solos. Sergio ya llegó. Félix también. Toño está contando un chiste que nadie terminará de escuchar porque Sergio ya se está riendo. El ambiente huele a café oscuro y a encierro antiguo. Un zumbido constante de la calle vibra en los vidrios, mientras sus manos sienten la textura rugosa del tablero que lo empuja al presente.",
           "options": [
             {
               "option_id": "c14-s02-o1",
@@ -5845,7 +5845,7 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 3,
-          "text": "Félix se sienta frente a Alberto. No dice nada. Acomoda las piezas blancas en su lado con cuidado, como si colocara cada una en el àºnico lugar del mundo donde cabe. Alberto hace lo mismo con las negras. El reloj no está. Esta partida no tiene tiempo.",
+          "text": "Félix se sienta frente a Alberto. No dice nada. Acomoda las piezas blancas en su lado con cuidado, como si colocara cada una en el àºnico lugar del mundo donde cabe. Alberto hace lo mismo con las negras. El reloj no está. Esta partida no tiene tiempo. El ambiente huele a café oscuro y a encierro antiguo. Un zumbido constante de la calle vibra en los vidrios, mientras sus manos sienten la textura rugosa del tablero que lo empuja al presente.",
           "options": [
             {
               "option_id": "c14-s03-o1",
@@ -5882,7 +5882,7 @@
             {
               "option_id": "c14-s03-o3",
               "option_text": "Jugar distraído pensando en cosas del pasado",
-              "consequence": "Alberto mueve las piezas pero su mente está en la oficina de contabilidad, en los años que se fueron, en lo que no hizo. Félix lo mira y espera.",
+              "consequence": "Alberto mueve las piezas pero su mente está en la oficina de contabilidad, en los años que se fueron, en lo que no hizo. Félix lo mira y espera. El aire pesado del salón parece detenerse un instante. Alberto aprieta los puños en silencio, reconociendo el peso de su decisión.",
               "next_chapter_id": null,
               "next_scene_id": "c14-s04",
               "gds_mapping": [
@@ -5914,7 +5914,7 @@
             {
               "option_id": "c14-s04-o1",
               "option_text": "Reconocer en voz alta que el juego le cambió algo",
-              "consequence": "Alberto le dice a Félix: este juego me devolvió algo que no sabía que había perdido. Félix dice que él ya lo sabía desde el primer día que lo vio llegar.",
+              "consequence": "Alberto le dice a Félix: este juego me devolvió algo que no sabía que había perdido. Félix dice que él ya lo sabía desde el primer día que lo vio llegar. El aire pesado del salón parece detenerse un instante. Alberto aprieta los puños en silencio, reconociendo el peso de su decisión.",
               "next_chapter_id": null,
               "next_scene_id": "c14-s05",
               "gds_mapping": [

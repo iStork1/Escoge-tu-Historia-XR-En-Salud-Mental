@@ -7,16 +7,16 @@
       "scenes": [
         {
           "scene_id": "c01-s01",
-          "title": "El olor de la mañana",
+          "title": "El olor del martes",
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Doña Tatiana sale a tirar la basura y el olor la detiene en el andén: pan recién horneado, canela, algo caliente desde la esquina. La panadería del barrio lleva semanas con un letrero nuevo en el aparador. Tatiana lleva la bolsa colgada en la muñeca y mira hacia el letrero sin terminar de leerlo.",
+          "text": "Tatiana está en el andén de su edificio con una bolsa de basura colgada en la muñeca. El horno de la Casa Comunal zumba desde la esquina. Huele a almojábana recién horneada y a canela. La corteza cruje cuando alguien adentro rompe un pan. Tatiana no tira la bolsa todavía. Hay un letrero nuevo pegado en la ventana de la Casa Comunal. No lo termina de leer desde donde está.",
           "options": [
             {
               "option_id": "c01-s01-o1",
-              "option_text": "Caminar hasta el letrero a leerlo",
-              "consequence": "Tatiana cruza la calle. El letrero dice: 'Taller de cocina comunitaria, martes 10 am, Casa Comunal Aranjuez'. El olor a pan la envuelve.",
+              "option_text": "Cruzar a leer el letrero",
+              "consequence": "Tatiana cruza el andén con la bolsa todavía en la mano. El letrero dice: 'Taller de panadería comunitaria, martes 10 am'. El horno zumba detrás de la puerta.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s02",
               "gds_mapping": [
@@ -38,8 +38,8 @@
             },
             {
               "option_id": "c01-s01-o2",
-              "option_text": "Quedarse leyendo desde lejos",
-              "consequence": "Tatiana no alcanza a leer bien desde el andén. Descifra 'martes' y 'cocina'. Tira la basura y vuelve a entrar. El olor se queda en el corredor.",
+              "option_text": "Descifrar el letrero desde el andén",
+              "consequence": "Tatiana entrecierra los ojos. Alcanza a leer 'martes' y algo que parece 'panadería'. Tira la bolsa en la caneca y sube. El olor a almojábana se le pega en la ropa.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s02",
               "gds_mapping": [
@@ -54,8 +54,8 @@
             },
             {
               "option_id": "c01-s01-o3",
-              "option_text": "Ignorarlo y subir al apartamento",
-              "consequence": "Tatiana sube sin mirar más. El apartamento huele a encerrado. Se sienta en el sillón y prende la tele. El olor a pan ya no llega.",
+              "option_text": "Subir sin mirar el letrero",
+              "consequence": "Tatiana da la espalda y entra al edificio. El apartamento huele a encerrado y a ropa guardada. Prende la tele. El zumbido del horno no llega hasta allá.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s02",
               "gds_mapping": [
@@ -85,16 +85,16 @@
         },
         {
           "scene_id": "c01-s02",
-          "title": "Rebeca en el mostrador",
+          "title": "La panadería de Rebeca",
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Al día siguiente Tatiana entra a la panadería a comprar una mogolla. Rebeca, la dueña, la atiende con delantal manchado de harina. '¿Vio el letrero, doña? El taller empieza en diez minutos aquí a la vuelta. Viene gente de su edad, está muy bueno.' Le dice mientras envuelve el pan.",
+          "text": "Tatiana está en el mostrador de la panadería con una moneda en la mano. El vidrio de la vitrina tiene huellas de dedos y huele a pandebono recién sacado. Rebeca, la dueña, le envuelve una mogolla con papel periódico manchado de grasa. '¿Vio el letrero, doña? El taller empieza en diez minutos. Viene gente de su edad, está muy bueno.' La mogolla calienta la palma de Tatiana a través del papel.",
           "options": [
             {
               "option_id": "c01-s02-o1",
-              "option_text": "Preguntar más detalles del taller",
-              "consequence": "Rebeca suelta el pan y habla con las manos: instructora joven, todo gratis, ya van doce personas. Tatiana escucha y algo en su pecho se mueve.",
+              "option_text": "Pedir detalles del taller",
+              "consequence": "Rebeca apoya los codos en el mostrador y habla con las manos: instructora joven, todo gratis, ya van doce personas. Tatiana escucha sin soltar la mogolla. Algo se mueve despacio en su pecho.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s03",
               "gds_mapping": [
@@ -109,8 +109,8 @@
             },
             {
               "option_id": "c01-s02-o2",
-              "option_text": "Agradecer y decir que lo pensará",
-              "consequence": "Tatiana toma su mogolla y asiente sin comprometerse. Rebeca le sonríe de todas formas. El pan está caliente todavía.",
+              "option_text": "Agradecer sin comprometerse",
+              "consequence": "Tatiana toma la mogolla y asiente despacio. 'Lo miro a ver.' Rebeca le sonríe sin insistir. El pan todavía calienta a través del papel.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s03",
               "gds_mapping": [
@@ -125,8 +125,8 @@
             },
             {
               "option_id": "c01-s02-o3",
-              "option_text": "Decir que no le interesan esas cosas",
-              "consequence": "Rebeca no insiste. Le da su cambio. Tatiana sale con la mogolla en la mano, pero el sabor que anticipa ya no es el mismo.",
+              "option_text": "Rechazar el taller en seco",
+              "consequence": "Tatiana sacude la cabeza. 'No es para mí eso.' Rebeca no insiste y le da el cambio sin decir más. Tatiana sale con la mogolla. El pandebono de la vitrina la mira desde atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s03",
               "gds_mapping": [
@@ -156,16 +156,16 @@
         },
         {
           "scene_id": "c01-s03",
-          "title": "La llamada sin contestar",
+          "title": "El celular sobre la mesa",
           "hero_stage": "3_refusal_of_the_call",
           "type": "playable",
           "order": 3,
-          "text": "De vuelta en el apartamento, Tatiana mira el celular. Sus hijos no han llamado en tres días. Podría llamarles ella para contarles lo del taller. O podría simplemente quedarse. La mogolla está sobre la mesa. El taller empieza en siete minutos.",
+          "text": "Tatiana está de pie en la cocina del apartamento con la mogolla sin abrir sobre la mesa. El celular brilla con la pantalla encendida. Rodrigo no ha llamado en tres días. Podría marcarle para contarle lo del taller. O podría quedarse. El reloj sobre el lavaplatos marca las 9:53. El taller empieza en siete minutos.",
           "options": [
             {
               "option_id": "c01-s03-o1",
-              "option_text": "Salir ya sin llamar a nadie",
-              "consequence": "Tatiana agarra el bolso y las llaves. Cierra con dos vueltas. En la calle el sol le da en la cara y por un momento olvida que iba sola.",
+              "option_text": "Salir directamente sin llamar",
+              "consequence": "Tatiana agarra el bolso y las llaves en un solo movimiento. Cierra con doble vuelta. En el andén el sol le pega en la cara. Por un momento no piensa en Rodrigo.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s04",
               "gds_mapping": [
@@ -187,8 +187,8 @@
             },
             {
               "option_id": "c01-s03-o2",
-              "option_text": "Llamar a un hijo antes de decidir",
-              "consequence": "El celular repica cuatro veces. Buzón de voz. Tatiana deja un mensaje corto y sale de todas formas, con el celular en el bolsillo.",
+              "option_text": "Marcarle a Rodrigo primero",
+              "consequence": "El celular repica cuatro veces y cae al buzón. Tatiana deja un mensaje de veinte segundos y cuelga. Sale de todas formas, con el celular guardado en el bolso.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s04",
               "gds_mapping": [
@@ -203,8 +203,8 @@
             },
             {
               "option_id": "c01-s03-o3",
-              "option_text": "Quedarse esperando que llamen ellos",
-              "consequence": "Tatiana se sienta junto al celular. Pasan diez minutos. Nadie llama. El taller ya empezó sin ella. La mogolla se enfría en la mesa.",
+              "option_text": "Esperar sentada a que llamen ellos",
+              "consequence": "Tatiana se sienta al lado del celular con las manos sobre las piernas. Pasan diez minutos. La pantalla no se enciende. El taller ya empezó. La mogolla se enfría sobre la mesa.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s04",
               "gds_mapping": [
@@ -234,16 +234,16 @@
         },
         {
           "scene_id": "c01-s04",
-          "title": "La señora del delantal",
+          "title": "Doña Esperanza en la puerta",
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 4,
-          "text": "Frente a la Casa Comunal hay una señora de setenta y tantos, con delantal de flores y cara de no tener miedo a nada. Ve a Tatiana dudar en el andén y le dice: 'Venga, no muerde. Yo tampoco conocía a nadie la primera vez.' Huele a vainilla desde adentro.",
+          "text": "Tatiana está parada en el andén frente a la Casa Comunal con el bolso apretado contra el cuerpo. La puerta está abierta. Una señora de setenta y tantos años, con delantal de flores amarillas y azules, la mira desde el umbral. Desde adentro llega un olor suave a vainilla y a masa cruda. La señora hace un gesto con la mano. 'Venga, no muerde. Yo tampoco conocía a nadie la primera vez.'",
           "options": [
             {
               "option_id": "c01-s04-o1",
-              "option_text": "Entrar con ella presentándose",
-              "consequence": "La señora se llama Esperanza. Le aprieta el brazo al entrar. La sala huele a masa y a tinto. Hay sillas en círculo.",
+              "option_text": "Entrar y presentarse de una vez",
+              "consequence": "Tatiana da un paso adentro y dice su nombre. La señora se llama Esperanza y le aprieta el brazo con la mano seca. La sala huele a masa y a tinto recién colado. Las sillas están en círculo.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s05",
               "gds_mapping": [
@@ -265,8 +265,8 @@
             },
             {
               "option_id": "c01-s04-o2",
-              "option_text": "Entrar pero sin responder mucho",
-              "consequence": "Tatiana entra sin decir su nombre. Asiente con la cabeza. Esperanza no pregunta más. El tinto huele a casa de su madre.",
+              "option_text": "Entrar callada sin presentarse",
+              "consequence": "Tatiana entra con la cabeza baja y asiente sin decir su nombre. Esperanza no insiste. El tinto sobre la mesita huele a la casa de su madre en Itagüí.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s05",
               "gds_mapping": [
@@ -281,8 +281,8 @@
             },
             {
               "option_id": "c01-s04-o3",
-              "option_text": "Decirle que no, que ya se va",
-              "consequence": "Tatiana da un paso atrás. 'Gracias, pero tengo pendientes.' Esperanza no insiste. Tatiana camina de regreso sola, con el olor a vainilla siguiéndola.",
+              "option_text": "Dar un paso atrás y retirarse",
+              "consequence": "Tatiana retrocede un paso. 'Gracias, tengo pendientes.' Esperanza asiente sin decir nada más. Tatiana cruza el andén de regreso. El olor a vainilla la sigue media cuadra.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s05",
               "gds_mapping": [
@@ -312,16 +312,16 @@
         },
         {
           "scene_id": "c01-s05",
-          "title": "El umbral de la Casa Comunal",
+          "title": "La silla junto a la ventana",
           "hero_stage": "5_crossing_threshold",
           "type": "playable",
           "order": 5,
-          "text": "Dentro, la instructora Valentina organiza las mesas con harina y tazones. Hay doce personas. Algunas se conocen, otras no. Valentina la ve entrar y le señala un lugar libre junto a una ventana. La silla está fría. El tazón ya tiene harina dentro.",
+          "text": "Tatiana entra a la sala de la Casa Comunal. Las mesas están cubiertas de harina y el piso cruje bajo los zapatos. Valentina, la instructora, distribuye tazones con movimientos rápidos y seguros. Hay doce personas. Algunas se saludan, otras miran el tazón. Valentina señala una silla libre junto a la ventana sin dejar de repartir. La silla está fría. El tazón de Tatiana ya tiene harina adentro.",
           "options": [
             {
               "option_id": "c01-s05-o1",
-              "option_text": "Sentarse y presentarse a la vecina",
-              "consequence": "La vecina es Yolanda, ex-modista. Le estrecha la mano con fuerza. La harina en el tazón huele a domingo.",
+              "option_text": "Sentarse y hablarle a la vecina",
+              "consequence": "Tatiana se sienta y le tiende la mano a la señora del lado. Es Yolanda, exmodista. El apretón es firme y seco. La harina en el tazón huele a domingo de mercado.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s06",
               "gds_mapping": [
@@ -343,8 +343,8 @@
             },
             {
               "option_id": "c01-s05-o2",
-              "option_text": "Sentarse en silencio y esperar",
-              "consequence": "Tatiana se sienta sin presentarse. Pone las manos sobre el tazón. El frío de la sala va desapareciendo poco a poco mientras llegan más personas.",
+              "option_text": "Sentarse en silencio a esperar",
+              "consequence": "Tatiana se sienta sin presentarse. Apoya las palmas sobre el tazón frío. El murmullo de las otras personas llena la sala despacio, como agua.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s06",
               "gds_mapping": [
@@ -359,8 +359,8 @@
             },
             {
               "option_id": "c01-s05-o3",
-              "option_text": "Quedarse de pie sin sentarse",
-              "consequence": "Tatiana no se sienta. Se queda cerca de la puerta. Valentina la mira pero no dice nada. El tazón espera vacío en la mesa.",
+              "option_text": "Quedarse parada cerca a la puerta",
+              "consequence": "Tatiana no se sienta. Se apoya en el marco de la puerta con el bolso cruzado. Valentina la mira un instante y sigue repartiendo. El tazón junto a la ventana espera con la harina adentro.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s06",
               "gds_mapping": [
@@ -394,12 +394,12 @@
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 6,
-          "text": "Valentina explica el proceso: mezclar, amasar diez minutos, reposar. Demuestra con manos expertas. La masa hace un sonido suave al golpear la mesa. Tatiana mira el tazón frente a ella. Tiene harina, sal, levadura y agua tibia. 'Échenle ganas', dice Valentina.",
+          "text": "Tatiana está sentada frente al tazón con las manos sobre las piernas. Valentina demuestra: mezclar, amasar diez minutos, reposar. Cada vez que la masa golpea la mesa hace un sonido sordo y húmedo. El tazón de Tatiana tiene harina, sal, levadura y agua tibia. El agua deja vapor en la superficie. 'Échenle ganas', dice Valentina, y el grupo empieza.",
           "options": [
             {
               "option_id": "c01-s06-o1",
-              "option_text": "Empezar a mezclar con entusiasmo",
-              "consequence": "Tatiana hunde los dedos en la harina. La mezcla se pega al principio. El olor a levadura le recuerda la cocina de su abuela.",
+              "option_text": "Hundir los dedos y empezar fuerte",
+              "consequence": "Tatiana mete las manos hasta el fondo del tazón. La mezcla se pega entre los dedos y jala. El olor a levadura es espeso y cálido, como la cocina de su abuela en Rionegro.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s07",
               "gds_mapping": [
@@ -421,8 +421,8 @@
             },
             {
               "option_id": "c01-s06-o2",
-              "option_text": "Mezclar despacio siguiendo el ejemplo",
-              "consequence": "Tatiana sigue los movimientos de Valentina, más lenta pero constante. La masa va tomando forma. Yolanda le dice que va bien.",
+              "option_text": "Seguir el ejemplo paso a paso",
+              "consequence": "Tatiana imita los movimientos de Valentina, más lenta pero sin parar. La masa va cediendo de a poco. Yolanda la mira de reojo y asiente.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s07",
               "gds_mapping": [
@@ -437,8 +437,8 @@
             },
             {
               "option_id": "c01-s06-o3",
-              "option_text": "Dejar el tazón y decir que no puede",
-              "consequence": "Tatiana aparta el tazón. 'No soy buena para esto.' Valentina la mira pero no la obliga. El tazón queda en el centro de la mesa, solo.",
+              "option_text": "Apartar el tazón y rendirse",
+              "consequence": "Tatiana empuja el tazón hacia el centro de la mesa. 'No soy buena para esto.' Valentina la mira sin decir nada. El tazón queda solo con la mezcla sin trabajar.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s07",
               "gds_mapping": [
@@ -472,12 +472,12 @@
           "hero_stage": "7_approach_inner_cave",
           "type": "playable",
           "order": 7,
-          "text": "Valentina revisa las masas del grupo. La de Tatiana está densa, no esponjosa. 'Le faltó un poco más de agua', dice sin regañar. Yolanda ya tiene la suya perfecta. Tatiana mira su masa como si le hubiera fallado a alguien.",
+          "text": "Tatiana tiene la masa frente a ella en la mesa enharinada. Valentina pasa revisando una por una. Pellizca la de Tatiana y frunce el ceño apenas. 'Le faltó un poco más de agua.' No regaña, pero Tatiana ya lo oyó. Yolanda, al lado, tiene la suya redonda y suave. Tatiana mira su masa sin tocarla.",
           "options": [
             {
               "option_id": "c01-s07-o1",
-              "option_text": "Pedir a Valentina que le ayude a corregirla",
-              "consequence": "Valentina añade agua tibia y amasan juntas un momento. La masa empieza a responder. 'Ya ve, no era tan difícil.'",
+              "option_text": "Pedirle ayuda a Valentina",
+              "consequence": "Tatiana levanta la mano. Valentina se acerca, vierte un chorrito de agua tibia y amasan juntas. La masa cede y se vuelve elástica. 'Ya ve, no era tan difícil', dice Valentina sin soltarla.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s08",
               "gds_mapping": [
@@ -713,12 +713,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Doña Tatiana lleva el lunes sin saber bien si ir al taller el martes. La mogolla torcida que hizo la semana pasada está en el refrigerador, todavía envuelta en papel. Sus hijos no han llamado. El celular está en silencio sobre la mesa.",
+          "text": "Tatiana está en la cocina del apartamento de Aranjuez el lunes por la mañana sin saber bien si ir al taller el martes. La mogolla torcida que hizo la semana pasada está en el refrigerador, todavía envuelta en papel manchado de grasa. El refrigerador zumba. Sus hijos no han llamado. El celular está en silencio sobre la mesa y la pantalla lleva horas apagada.",
           "options": [
             {
               "option_id": "c02-s01-o1",
               "option_text": "Llamar a Yolanda para ver si ella va",
-              "consequence": "Yolanda contesta al segundo repique. 'Claro que voy, doña Tatiana, y usted también.' La voz de Yolanda tiene algo que mueve.",
+              "consequence": "Yolanda contesta al segundo repique con esa voz rápida y cálida de siempre. 'Claro que voy, doña Tatiana, y usted también.' La voz tiene algo que mueve. Tatiana cierra el refrigerador sin haber tomado nada.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s02",
               "gds_mapping": [
@@ -741,7 +741,7 @@
             {
               "option_id": "c02-s01-o2",
               "option_text": "Preparar la bolsa para ir sin llamar a nadie",
-              "consequence": "Tatiana saca el bolso del clóset. Lo deja sobre la cama. Todavía no es un sí, pero tampoco un no.",
+              "consequence": "Tatiana saca el bolso del clóset y lo deja sobre la cama sin abrirlo. Todavía no es un sí, pero tampoco es un no. El bolso queda ahí toda la tarde mientras ella camina entre cuartos sin hacer nada en particular.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s02",
               "gds_mapping": [
@@ -757,7 +757,7 @@
             {
               "option_id": "c02-s01-o3",
               "option_text": "Decidir que ese taller no es para ella",
-              "consequence": "Tatiana guarda el celular en el cajón. 'Para qué voy si no sirvo.' El refrigerador zumba. La mogolla sigue adentro.",
+              "consequence": "Tatiana guarda el celular en el cajón y lo cierra con cuidado. 'Para qué voy si no sirvo.' El refrigerador zumba solo. La mogolla torcida sigue adentro envuelta en el papel manchado de grasa.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s02",
               "gds_mapping": [
@@ -791,12 +791,12 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "El martes por la mañana Tatiana calienta un tinto y saca la mogolla del refrigerador. La parte. Está buena, aunque torcida. El tinto huele a casa. En diez minutos Valentina empieza el taller a la vuelta.",
+          "text": "El martes por la mañana Tatiana está en la cocina del apartamento calentando un tinto. Saca la mogolla del refrigerador y la parte con los dedos. Está buena, aunque torcida y fría. El tinto huele a casa, a madrugadas de antes. En diez minutos Valentina empieza el taller a la vuelta. El reloj sobre el fogón marca las 9:51.",
           "options": [
             {
               "option_id": "c02-s02-o1",
               "option_text": "Comerse la mogolla y salir de una",
-              "consequence": "Tatiana mastica rápido. Se limpia las manos. Agarra el bolso. Afuera el sol de Medellín ya calienta el andén.",
+              "consequence": "Tatiana mastica rápido y se limpia las manos en el trapo de cocina. Agarra el bolso del gancho detrás de la puerta. Afuera el sol de Medellín ya calienta el andén y el olor a horno de la Casa Comunal llega desde la esquina.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s03",
               "gds_mapping": [
@@ -819,7 +819,7 @@
             {
               "option_id": "c02-s02-o2",
               "option_text": "Comerse la mogolla y ver si hay tiempo",
-              "consequence": "Tatiana come despacio. Mira el reloj. Quedan cinco minutos. Si sale corriendo llega.",
+              "consequence": "Tatiana come despacio y mira el reloj en el microondas. Quedan cinco minutos. Si sale corriendo llega. La mogolla se le termina antes de que decida levantarse.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s03",
               "gds_mapping": [
@@ -835,7 +835,7 @@
             {
               "option_id": "c02-s02-o3",
               "option_text": "Dejar la mogolla y quedarse viendo la tele",
-              "consequence": "Tatiana deja la mogolla a medio comer. Prende la tele. Las noticias empiezan. El taller arranca sin ella.",
+              "consequence": "Tatiana deja la mogolla a medio comer sobre el mantel. Prende la tele y el noticiero llena el apartamento de voces. El taller arranca sin ella a la vuelta. El olor a pandebono de la panadería llega igual desde la calle.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s03",
               "gds_mapping": [
@@ -869,12 +869,12 @@
           "hero_stage": "3_refusal_of_the_call",
           "type": "playable",
           "order": 3,
-          "text": "En el andén, Tatiana se encuentra con Rodrigo, su hijo menor, que sale a trabajar. '¿Adónde va tan temprano, mamá?' Tatiana le dice que al taller de cocina. Rodrigo asiente pero no pregunta más. Se va rápido.",
+          "text": "En el andén del edificio de Aranjuez, Tatiana se cruza con Rodrigo, su hijo menor, que sale a trabajar con la maleta al hombro. '¿Adónde va tan temprano, mamá?' Le huele a desodorante nuevo y prisa. Tatiana le dice que al taller de cocina. Rodrigo asiente con la cabeza pero no pregunta más. Se va rápido hacia el paradero del SITP.",
           "options": [
             {
               "option_id": "c02-s03-o1",
               "option_text": "Contarle lo que aprendió la semana pasada",
-              "consequence": "Tatiana le cuenta de la mogolla. Rodrigo se detiene un segundo. 'Ah, qué bueno, mamá.' Algo en eso la empuja a seguir caminando.",
+              "consequence": "Tatiana le cuenta de la mogolla torcida que hizo ella sola. Rodrigo se detiene un segundo con la maleta en el hombro. 'Ah, qué bueno, mamá.' Algo en eso la empuja a seguir caminando con paso más firme hacia el taller.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s04",
               "gds_mapping": [
@@ -896,7 +896,7 @@
             {
               "option_id": "c02-s03-o2",
               "option_text": "Decirle solo que va a un taller y seguir",
-              "consequence": "Tatiana hace un gesto con la mano. 'Un taller, nada.' Rodrigo se va. Tatiana sigue sola hacia la Casa Comunal.",
+              "consequence": "Tatiana hace un gesto con la mano. 'Un taller, nada.' Rodrigo asiente y se va al paradero del SITP sin voltear. Tatiana sigue sola hacia la Casa Comunal con el bolso cruzado y el andén vacío delante.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s04",
               "gds_mapping": [
@@ -912,7 +912,7 @@
             {
               "option_id": "c02-s03-o3",
               "option_text": "Cambiar de ruta para que no la vea ir sola",
-              "consequence": "Tatiana da la vuelta por la cuadra de atrás. Le da vergà¼enza que la vean sola a su edad. Llega cinco minutos tarde.",
+              "consequence": "Tatiana da la vuelta por la cuadra de atrás. Le da vergüenza que la vean sola a su edad. Llega cinco minutos tarde con los zapatos mojados del charco de la esquina.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s04",
               "gds_mapping": [
@@ -996,7 +996,7 @@
             {
               "option_id": "c02-s04-o3",
               "option_text": "Decir que no sabe si tiene tiempo y quedarse en la puerta",
-              "consequence": "Tatiana se para en el umbral. 'No sé si puedo quedarme mucho.' Esperanza la mira. 'Entre, que ya está aquí.'",
+              "consequence": "Tatiana se para en el umbral con el bolso cruzado. 'No sé si puedo quedarme mucho.' Esperanza la mira con calma, sin apurar. 'Entre, que ya está aquí.' El olor a queso caliente llega desde adentro.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s05",
               "gds_mapping": [
@@ -1030,7 +1030,7 @@
           "hero_stage": "5_crossing_threshold",
           "type": "playable",
           "order": 5,
-          "text": "Hoy hay más gente que la semana pasada: quince personas. Valentina organiza a todos en mesas de tres. Tatiana queda con Yolanda y con una señora nueva, Doña Carmen, que llegó por recomendación de su médica.",
+          "text": "En el salón de la Casa Comunal de Aranjuez hay hoy más gente que la semana pasada: quince personas. El salón huele a quesillo y a madera caliente. Valentina organiza a todos en mesas de tres con movimientos rápidos. Tatiana queda junto a Yolanda y a una señora nueva, Doña Carmen, que llegó por recomendación de su médica y tiene el delantal doblado con pliegues perfectos.",
           "options": [
             {
               "option_id": "c02-s05-o1",
@@ -1064,7 +1064,7 @@
             {
               "option_id": "c02-s05-o2",
               "option_text": "Saludar a Yolanda y esperar que empiece",
-              "consequence": "Yolanda le guarda el puesto. Tatiana se sienta. Carmen llega y saluda sola. Valentina empieza a hablar.",
+              "consequence": "Yolanda le guarda el puesto con el bolso encima. Tatiana se sienta sin prisa. Carmen llega un minuto después y saluda al grupo sola. Valentina empieza a hablar y el olor a queso costeño recién abierto llena el salón.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s06",
               "gds_mapping": [
@@ -1080,7 +1080,7 @@
             {
               "option_id": "c02-s05-o3",
               "option_text": "Quedarse en la silla sin hablar con nadie",
-              "consequence": "Tatiana pone el bolso en las rodillas. Mira el tazón vacío. Yolanda la saluda y ella asiente. La sala llena de voces le parece lejana.",
+              "consequence": "Tatiana pone el bolso en las rodillas y no lo suelta. Mira el tazón vacío sobre la mesa. Yolanda la saluda y ella asiente despacio. Las voces del salón llegan como desde otro cuarto.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s06",
               "gds_mapping": [
@@ -1114,12 +1114,12 @@
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 6,
-          "text": "La almojábana lleva maíz molido, queso blanco, huevo y poca sal. Es diferente a la del pan. Valentina dice que la clave es no trabajar mucho la masa. Doña Carmen mezcla con velocidad. Yolanda ya tiene la suya lista. El tazón de Tatiana tiene los ingredientes sin mezclar.",
+          "text": "Sobre las mesas de la Casa Comunal, la almojábana lleva maíz molido, queso blanco, huevo y poca sal. Huele diferente al pan: más húmedo, más lácteo. Valentina dice que la clave es no trabajar mucho la masa o queda gomosa. Doña Carmen ya mezcla con velocidad y precisión. Yolanda también tiene la suya lista. El tazón de Tatiana tiene los ingredientes sin tocar todavía.",
           "options": [
             {
               "option_id": "c02-s06-o1",
               "option_text": "Mezclar con calma siguiendo lo que dijo Valentina",
-              "consequence": "Tatiana mezcla con movimientos suaves. El queso se integra con la masa. Huele a algo que conoce pero no puede nombrar.",
+              "consequence": "Tatiana mezcla con movimientos suaves y circulares. El queso se integra con la masa maíz y va perdiendo grumos. Huele a algo que conoce pero no puede nombrar: algo de cocina antigua, de casa ajena que era familiar.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s07",
               "gds_mapping": [
@@ -1142,7 +1142,7 @@
             {
               "option_id": "c02-s06-o2",
               "option_text": "Mezclar rápido para alcanzar a las otras",
-              "consequence": "Tatiana apura los movimientos. La masa queda un poco densa. Valentina le dice que no importa, que se arregla sola en el horno.",
+              "consequence": "Tatiana apura los movimientos y la masa queda un poco densa, sin la textura suave que vio en la de Doña Carmen. Valentina le dice que no importa, que el horno lo arregla solo. El queso costeño ya no huele igual cuando está sobre-mezclado.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s07",
               "gds_mapping": [
@@ -1158,7 +1158,7 @@
             {
               "option_id": "c02-s06-o3",
               "option_text": "Pedirle a Yolanda que haga la suya también",
-              "consequence": "Yolanda mezcla sin quejas. Pero cuando termina mira a Tatiana. 'Doña, la suya la tiene que hacer usted.' Tatiana baja los ojos.",
+              "consequence": "Yolanda mezcla sin quejas pero cuando termina mira a Tatiana de frente. 'Doña, la suya la tiene que hacer usted.' Tatiana baja los ojos al tazón vacío. El queso sin mezclar brilla frío sobre el maíz.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s07",
               "gds_mapping": [
@@ -1192,12 +1192,12 @@
           "hero_stage": "7_approach_inner_cave",
           "type": "playable",
           "order": 7,
-          "text": "Doña Carmen mira el tazón de Tatiana y dice, sin mala intención: 'A la suya le falta más queso, ¿no ve que la mía quedó más amarilla?' Valentina no escuchó. Yolanda sí. La almojábana de Tatiana ya está formada.",
+          "text": "En el taller de la Casa Comunal de Aranjuez, Doña Carmen mira el tazón de Tatiana y dice, sin mala intención pero con esa voz que no admite réplica: 'A la suya le falta más queso, ¿no ve que la mía quedó más amarilla?' Valentina no escuchó. Yolanda sí. El queso costeño huele agrio y cálido sobre la mesa. La almojábana de Tatiana ya está formada.",
           "options": [
             {
               "option_id": "c02-s07-o1",
               "option_text": "Decir que sí, que ya lo sabe, y seguir",
-              "consequence": "Tatiana asiente y no cambia nada. Cuando salen del horno, la de ella también queda dorada. No tan amarilla, pero dorada.",
+              "consequence": "Tatiana asiente sin cambiar nada en el tazón. Cuando salen del horno, la de ella también queda dorada: no tan amarilla como la de Carmen, pero dorada y con la corteza intacta. Huele igual de bien.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s08",
               "gds_mapping": [
@@ -1220,7 +1220,7 @@
             {
               "option_id": "c02-s07-o2",
               "option_text": "Agradecer el comentario y no cambiar nada",
-              "consequence": "Tatiana dice gracias sin mover un màºsculo. Carmen vuelve a su tazón. Yolanda le hace un gesto de 'tranquila'.",
+              "consequence": "Tatiana dice gracias sin mover un músculo. Carmen vuelve a su tazón. Yolanda le hace un gesto de 'tranquila' y le acerca el tazón con un toque suave en el brazo.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s08",
               "gds_mapping": [
@@ -1236,7 +1236,7 @@
             {
               "option_id": "c02-s07-o3",
               "option_text": "Deshacer la almojábana y empezar de nuevo",
-              "consequence": "Tatiana aplasta la masa. La rehace. Carmen no lo esperaba. Valentina viene a ver. La almojábana nueva queda igual que la primera.",
+              "consequence": "Tatiana aplasta la masa con la palma y la rehace desde cero. Carmen no lo esperaba y deja de medir el queso un segundo. Valentina se acerca a ver. La almojábana nueva queda igual que la primera: el queso costeño huele igual, amarillo y firme.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s08",
               "gds_mapping": [
@@ -1270,12 +1270,12 @@
           "hero_stage": "8_ordeal_crisis",
           "type": "playable",
           "order": 8,
-          "text": "Las almojábanas salen del horno: doradas, infladas, oliendo a queso caliente. La de Tatiana no es la más grande, pero salió. Valentina la pone en la mano todavía caliente. Yolanda le da una palmadita en el brazo.",
+          "text": "Las almojábanas salen del horno de la Casa Comunal: doradas, infladas, oliendo a queso derretido y a maíz tostado. La de Tatiana no es la más grande ni la más pareja, pero salió. Valentina la pone en su mano todavía caliente, casi quema. Yolanda le da una palmadita en el brazo y la mira de frente.",
           "options": [
             {
               "option_id": "c02-s08-o1",
               "option_text": "Morderla ahí mismo y decir que está rica",
-              "consequence": "'Está buena, ¿no?' dice Tatiana. Yolanda asiente. Carmen también prueba la suya. Por un momento las tres comen en silencio y el silencio es bueno.",
+              "consequence": "'Está buena, ¿no?' dice Tatiana con la almojábana a medio morder. Yolanda asiente. Carmen también prueba la suya en silencio. Por un momento las tres comen sin decir nada y el olor a queso caliente es suficiente conversación.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s09",
               "gds_mapping": [
@@ -1298,7 +1298,7 @@
             {
               "option_id": "c02-s08-o2",
               "option_text": "Envolverla para llevársela a su nieta",
-              "consequence": "Tatiana pide una servilleta y envuelve la almojábana con cuidado. Paula, su nieta del piso de arriba, todavía no la ha probado.",
+              "consequence": "Tatiana pide una servilleta y envuelve la almojábana con cuidado, con los bordes bien doblados. Paula, su nieta del piso de arriba, todavía no la ha probado. La almojábana caliente le humea entre las manos mientras baja las escaleras.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s09",
               "gds_mapping": [
@@ -1314,7 +1314,7 @@
             {
               "option_id": "c02-s08-o3",
               "option_text": "Mirarla sin saber si está bien hecha",
-              "consequence": "Tatiana la sostiene sin morderla. La examina. Yolanda le dice que está perfecta. Tatiana no termina de creerle.",
+              "consequence": "Tatiana la sostiene sin morderla y la examina por todos lados. Yolanda le dice que está perfecta. Tatiana no termina de creerle. La almojábana se va enfriando en la mano mientras ella duda.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s09",
               "gds_mapping": [
@@ -1348,12 +1348,12 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 9,
-          "text": "Tatiana sale de la Casa Comunal con dos almojábanas en un papel: una para ella, otra para Paula, su nieta del piso de arriba. La galería del barrio está abriendo. Doña Esperanza dijo que el próximo martes harán pandeyuca.",
+          "text": "Tatiana sale de la Casa Comunal de Aranjuez con dos almojábanas envueltas en papel de cocina grasoso: una para ella, otra para Paula, su nieta del piso de arriba. El calor de las almojábanas le calienta la palma a través del papel. La galería del barrio está abriendo y huele a cilantro y plátano maduro. Doña Esperanza dijo que el próximo martes harán pandeyuca.",
           "options": [
             {
               "option_id": "c02-s09-o1",
               "option_text": "Subir directo al apartamento de Paula con la almojábana",
-              "consequence": "Paula abre la puerta en pijama. 'Abuela, ¿qué es eso?' Tatiana le pone la almojábana en la mano. 'La hice yo.' Paula la muerde. 'Está rica.'",
+              "consequence": "Paula abre la puerta en pijama con ojos entrecerrados. 'Abuela, ¿qué es eso?' Tatiana le pone la almojábana tibia en la mano. 'La hice yo.' Paula la muerde sin esperar. 'Está rica.' El olor a queso caliente se cuela por el corredor del piso.",
               "next_chapter_id": "c03",
               "next_scene_id": null,
               "gds_mapping": [
@@ -1382,7 +1382,7 @@
             {
               "option_id": "c02-s09-o2",
               "option_text": "Comer la suya en el andén antes de subir",
-              "consequence": "Tatiana desenvuelve la almojábana en la puerta. Está tibia. La come de pie, mirando la calle. Está buena, y eso es suficiente.",
+              "consequence": "Tatiana desenvuelve la almojábana en la puerta del edificio. Está tibia y suave. La come de pie, mirando la calle de Aranjuez que empieza a moverse. Está buena. Y eso, hoy, es suficiente.",
               "next_chapter_id": "c03",
               "next_scene_id": null,
               "gds_mapping": [
@@ -1398,7 +1398,7 @@
             {
               "option_id": "c02-s09-o3",
               "option_text": "Guardar las dos en el refrigerador sin decirle a nadie",
-              "consequence": "Tatiana sube directamente. Mete las dos almojábanas en el refrigerador. Nadie sabe que las hizo ella. El apartamento recibe el mismo silencio.",
+              "consequence": "Tatiana sube directamente sin parar en el piso de Paula. Mete las dos almojábanas en el refrigerador. Nadie sabe que las hizo ella. El apartamento recibe el mismo silencio de siempre y el olor a queso se enfría solo.",
               "next_chapter_id": "c03",
               "next_scene_id": null,
               "gds_mapping": [
@@ -1439,12 +1439,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "El jueves llega con viento frío desde el cerro. Tatiana se amarra el delantal antes de salir del apartamento. Sabe que hoy es buñuelos y que el aceite caliente le da cierto respeto. Desde niña no le gustaba freír. Le parece peligroso. Pero lleva los guantes de cocina en el bolso, por si acaso.",
+          "text": "El jueves llega con viento frío bajando desde el cerro de Aranjuez. Tatiana está en el apartamento amarrándose el delantal antes de salir. El olor a gas del fogón apagado le llena la nariz. Sabe que hoy es buñuelos y que el aceite caliente le da cierto respeto. Desde niña no le gustaba freír: el chisporroteo, el vapor en la cara. Pero lleva los guantes de cocina en el bolso, por si acaso.",
           "options": [
             {
               "option_id": "c03-s01-o1",
               "option_text": "Salir puntual con los guantes listos",
-              "consequence": "Tatiana llega antes que nadie al taller. Organiza su puesto, pone los guantes sobre la mesa. Valentina la saluda con una sonrisa. El aceite todavía no está puesto.",
+              "consequence": "Tatiana llega antes que nadie al taller de la Casa Comunal. Organiza su puesto, pone los guantes de cocina sobre la mesa y alisa el delantal. Valentina la saluda con una sonrisa desde el fogón. El aceite todavía no está puesto y el silencio del salón vacío huele a madera y a horno frío.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s02",
               "gds_mapping": [
@@ -1467,7 +1467,7 @@
             {
               "option_id": "c03-s01-o2",
               "option_text": "Salir pero llegar cinco minutos tarde",
-              "consequence": "Tatiana pierde el bus SITP en el paradero. Llega cuando ya están calentando el aceite. Valentina le dice que no se preocupe, que apenas empiezan.",
+              "consequence": "Tatiana pierde el bus SITP en el paradero por un minuto. Llega al taller cuando ya están calentando el aceite y el chisporroteo se oye desde la puerta. Valentina le dice que no se preocupe, que apenas empiezan, y le señala su puesto.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s02",
               "gds_mapping": [
@@ -1483,7 +1483,7 @@
             {
               "option_id": "c03-s01-o3",
               "option_text": "Quedarse diez minutos más en casa, dudar",
-              "consequence": "Tatiana se sienta en el sillón con el bolso puesto. El miedo al aceite la paraliza un momento. Llega tarde y entra con pena por la puerta.",
+              "consequence": "Tatiana se sienta en el sillón con el bolso todavía puesto, los guantes de cocina entre las manos. El miedo al aceite la paraliza. Llega tarde al taller y entra despacio por la puerta mientras el chisporroteo de la olla llena el salón.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s02",
               "gds_mapping": [
@@ -1516,7 +1516,7 @@
             {
               "option_id": "c03-s02-o1",
               "option_text": "Preguntar cuánta agua es exactamente",
-              "consequence": "Doña Esperanza sonríe: 'Una gotita del dedo, no más.' Tatiana anota en su libreta. Yolanda también está apuntando. Se miran y se ríen.",
+              "consequence": "Doña Esperanza sonríe con pausa: 'Una gotita del dedo, no más.' Tatiana saca una libreta del bolso y anota. Yolanda también está apuntando con el lápiz entre los dientes. Se miran y se ríen. El aceite en el fogón empieza a brillar.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s03",
               "gds_mapping": [
@@ -1539,7 +1539,7 @@
             {
               "option_id": "c03-s02-o2",
               "option_text": "Escuchar sin preguntar, memorizar sola",
-              "consequence": "Tatiana guarda silencio pero repite el truco mentalmente tres veces. 'Gota de agua. Chisporroteo. Listo.' Se siente capaz de recordarlo.",
+              "consequence": "Tatiana guarda silencio pero repite el truco mentalmente tres veces: 'Gota de agua. Chisporroteo. Listo.' No anota nada. El truco le queda grabado entre el ruido suave del aceite calentando en el fogón.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s03",
               "gds_mapping": [
@@ -1554,8 +1554,8 @@
             },
             {
               "option_id": "c03-s02-o3",
-              "option_text": "Pensar que nunca va a poder hacerlo",
-              "consequence": "Tatiana mira el aceite y siente que el truco es para otras personas, no para ella. Se cruza de brazos y espera que alguien más lo haga primero.",
+              "option_text": "Cruzar los brazos y dejar que otra haga la prueba",
+              "consequence": "Tatiana mira el aceite y cruza los brazos. El truco le parece para otras, no para ella. Espera quieta mientras el olor a grasa caliente le llena la nariz.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s03",
               "gds_mapping": [
@@ -1588,7 +1588,7 @@
             {
               "option_id": "c03-s03-o1",
               "option_text": "Pedirle consejo a Yolanda sin pena",
-              "consequence": "Yolanda le muestra cómo girar la masa con la palma, no con los dedos. Tatiana lo intenta y sale una bolita. Las dos se ríen. 'Listo', dice Tatiana.",
+              "consequence": "Yolanda le pone la mano encima de la suya y le muestra cómo girar la masa con la palma, no con los dedos. Tatiana lo intenta y sale una bolita irregular pero cerrada. Las dos se ríen. 'Listo', dice Tatiana, y la bolita huele a queso costeño y a almidón crudo.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s04",
               "gds_mapping": [
@@ -1666,7 +1666,7 @@
             {
               "option_id": "c03-s04-o1",
               "option_text": "Agradecer el apoyo y volver a intentar",
-              "consequence": "Tatiana toma la masa otra vez. Doña Esperanza le corrige el giro de muñeca. Esta vez la bolita sale redonda. 'Esa es', dice la mentora.",
+              "consequence": "Tatiana toma la masa otra vez con las dos manos. Doña Esperanza le ajusta el giro de muñeca con un toque suave. Esta vez la bolita sale redonda y pareja. 'Esa es', dice la mentora, y el queso rallado huele más fuerte ahora que está bien integrado.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s05",
               "gds_mapping": [
@@ -1689,7 +1689,7 @@
             {
               "option_id": "c03-s04-o2",
               "option_text": "Reírse pero quedarse con la duda",
-              "consequence": "Tatiana agradece la historia pero por dentro sigue pensando que Doña Esperanza es más hábil que ella. Vuelve a la masa con precaución.",
+              "consequence": "Tatiana agradece la historia pero por dentro sigue pensando que Doña Esperanza es más hábil que ella. Vuelve a la masa con precaución. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s05",
               "gds_mapping": [
@@ -1704,8 +1704,8 @@
             },
             {
               "option_id": "c03-s04-o3",
-              "option_text": "Sonreír pero sentir que el apoyo es pena",
-              "consequence": "Tatiana interpreta el gesto de Doña Esperanza como lástima. 'Me están ayudando porque me ven mal', piensa. Se pone rígida y trabaja sola.",
+              "option_text": "Agradecer con frialdad y ponerse rígida",
+              "consequence": "Tatiana dice gracias con voz plana y da la espalda. Interpreta el gesto de Doña Esperanza como lástima. Trabaja sola desde entonces, los hombros tensos sobre la masa.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s05",
               "gds_mapping": [
@@ -1744,7 +1744,7 @@
             {
               "option_id": "c03-s05-o1",
               "option_text": "Hacer la prueba de la gota ella misma",
-              "consequence": "Tatiana moja el dedo en agua y lo deja caer sobre el aceite. Chisporrotea fuerte. 'Listo', anuncia en voz alta. El grupo la mira. Valentina asiente.",
+              "consequence": "Tatiana moja el dedo en agua y lo deja caer sobre el aceite caliente. Chisporrotea fuerte y el vapor le sube a la cara. 'Listo', anuncia en voz clara. El grupo la mira. Valentina asiente desde el fondo del salón.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s06",
               "gds_mapping": [
@@ -1783,7 +1783,7 @@
             {
               "option_id": "c03-s05-o3",
               "option_text": "Decir que prefiere que Valentina lo haga",
-              "consequence": "Tatiana le pasa el plato a Valentina. 'Usted lo hace mejor', dice. Valentina echa los buñuelos de Tatiana. Tatiana mira sin participar en ese paso.",
+              "consequence": "Tatiana le pasa el plato a Valentina. 'Usted lo hace mejor', dice en voz baja. Valentina echa los buñuelos sin comentar. Tatiana mira desde atrás sin tocar nada: el chisporroteo del aceite suena a otro lado del mostrador.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s06",
               "gds_mapping": [
@@ -1822,7 +1822,7 @@
             {
               "option_id": "c03-s06-o1",
               "option_text": "Esperar con paciencia sin tocarlo",
-              "consequence": "Tatiana cuenta mentalmente hasta treinta. El buñuelo gira solo, se dora parejo. Valentina le dice que ya puede sacarlo. Está perfecto.",
+              "consequence": "Tatiana cuenta mentalmente hasta treinta sin mover la cuchara. El buñuelo gira solo en el aceite y se dora parejo. Valentina le dice que ya puede sacarlo. Lo levanta con la espumadera y el queso fundido gotea un segundo antes de posarse en el papel absorbente.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s07",
               "gds_mapping": [
@@ -1845,7 +1845,7 @@
             {
               "option_id": "c03-s06-o2",
               "option_text": "Tocarlo una vez con la cuchara",
-              "consequence": "Tatiana le da un empujoncito suave. El buñuelo se mueve pero queda un lado más dorado que el otro. Valentina sonríe: 'Igual está rico, Tatiana.'",
+              "consequence": "Tatiana le da un empujoncito suave con la cuchara y el aceite chisporrotea. El buñuelo se mueve pero queda un lado más dorado que el otro. Valentina lo saca y sonríe: 'Igual está rico, Tatiana.' El olor a queso frito llena el espacio entre las dos.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s07",
               "gds_mapping": [
@@ -1895,7 +1895,7 @@
           "hero_stage": "7_approach_inner_cave",
           "type": "playable",
           "order": 7,
-          "text": "El taller huele a buñuelo. Yolanda dice que ese olor le recuerda los diciembres de su infancia. Doña Esperanza asiente: 'El buñuelo es navidad en Medellín, siempre.' Tatiana tiene cuatro buñuelos en el papel absorbente frente a ella. No son perfectos pero están dorados. Mira el plato sin decir nada todavía.",
+          "text": "El taller de la Casa Comunal huele a buñuelo: grasa caliente, queso, y esa nota dulce del almidón en el aceite. Yolanda dice que ese olor le recuerda los diciembres de su infancia. Doña Esperanza asiente: 'El buñuelo es navidad en Medellín, siempre.' Tatiana tiene cuatro buñuelos en el papel absorbente frente a ella. No son perfectos pero están dorados y la superficie cruje al presionarlos. Mira el plato sin decir nada todavía.",
           "options": [
             {
               "option_id": "c03-s07-o1",
@@ -1923,7 +1923,7 @@
             {
               "option_id": "c03-s07-o2",
               "option_text": "Escuchar los recuerdos ajenos en silencio",
-              "consequence": "Tatiana sonríe mientras Yolanda y Doña Esperanza comparten sus historias. No dice nada pero el olor le trae imágenes de su propia cocina de antes.",
+              "consequence": "Tatiana sonríe mientras Yolanda y Doña Esperanza comparten sus historias. No dice nada pero el olor le trae imágenes de su propia cocina de antes. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s08",
               "gds_mapping": [
@@ -1938,8 +1938,8 @@
             },
             {
               "option_id": "c03-s07-o3",
-              "option_text": "Pensar que ese diciembre ya no regresa",
-              "consequence": "El olor trae una tristeza que Tatiana no esperaba. 'Eso era antes', piensa. Mira el plato y siente que los buñuelos de hoy no alcanzan a reemplazar lo que había.",
+              "option_text": "Mirar el plato con los ojos secos y callados",
+              "consequence": "El olor aprieta algo en el pecho de Tatiana. 'Eso era antes', piensa, y el buñuelo en la mano pesa más de lo que debería. Los buenos recuerdos a veces duelen igual que los malos.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s08",
               "gds_mapping": [
@@ -1973,12 +1973,12 @@
           "hero_stage": "8_ordeal_crisis",
           "type": "playable",
           "order": 8,
-          "text": "Valentina invita a todo el grupo a probar. Tatiana parte un buñuelo por la mitad. Por dentro está esponjoso y huele a queso caliente. Lo prueba. Está bueno. Muy bueno. Doña Esperanza la mira y le pregunta directamente: '¿Qué tal quedaron los suyos, Tatiana?' El grupo espera la respuesta.",
+          "text": "Valentina invita al grupo a probar. Tatiana parte un buñuelo por la mitad con los dedos: por dentro está esponjoso, caliente, con el queso todavía fundido. El olor le llega a la cara como vapor. Lo prueba. Está bueno. Muy bueno. Doña Esperanza la mira desde el otro lado de la mesa y le pregunta directamente: '¿Qué tal quedaron los suyos, Tatiana?' El grupo espera.",
           "options": [
             {
               "option_id": "c03-s08-o1",
               "option_text": "Decir con orgullo que quedaron buenos",
-              "consequence": "Tatiana levanta la cabeza: 'Quedaron buenos, sí señora. Prueben.' Pasa el plato. El grupo come y asiente. Doña Esperanza le guiña el ojo.",
+              "consequence": "Tatiana levanta la cabeza y alza el plato: 'Quedaron buenos, sí señora. Prueben.' El grupo toma uno cada quien. Mascan en silencio un segundo. Doña Esperanza le guiña el ojo desde el otro lado. El olor a queso tostado permanece en el salón.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s09",
               "gds_mapping": [
@@ -2001,7 +2001,7 @@
             {
               "option_id": "c03-s08-o2",
               "option_text": "Decir que están bien pero con modestia",
-              "consequence": "'Pues para ser la primera vez no están tan mal', dice Tatiana. El grupo se ríe. Yolanda toma uno y dice que están ricos. Tatiana acepta el elogio a medias.",
+              "consequence": "'Pues para ser la primera vez no están tan mal', dice Tatiana con una sonrisa de lado. El grupo se ríe. Yolanda toma uno y dice que están ricos. Tatiana acepta el elogio a medias y mira el plato en vez de mirar a las otras.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s09",
               "gds_mapping": [
@@ -2056,7 +2056,7 @@
             {
               "option_id": "c03-s09-o1",
               "option_text": "Guardar los dos para llevarle a Paula",
-              "consequence": "Tatiana los mete en el bolso con cuidado. Sube al apartamento, los envuelve en papel de cocina y los deja en la nevera con una nota: 'Para Paula. Los hice yo.'",
+              "consequence": "Tatiana los mete en el bolso con cuidado, uno sobre otro envueltos en servilleta. Sube al apartamento, los envuelve en papel de cocina y los deja en la nevera con una nota doblada: 'Para Paula. Los hice yo.' El refrigerador zumba y el apartamento huele a buñuelo.",
               "next_chapter_id": "c04",
               "next_scene_id": null,
               "gds_mapping": [
@@ -2085,7 +2085,7 @@
             {
               "option_id": "c03-s09-o2",
               "option_text": "Comer uno en el andén y guardar el otro",
-              "consequence": "Tatiana muerde el buñuelo en la puerta de la Casa Comunal. Está tibio. Sabe a queso y a tarde de jueves. Guarda el otro en el bolso para la noche.",
+              "consequence": "Tatiana muerde el buñuelo en la puerta de la Casa Comunal antes de que se enfríe. Está tibio y se deshace un poco. Sabe a queso y a tarde de jueves. Guarda el otro en el bolso envuelto en servilleta para después de la cena.",
               "next_chapter_id": "c04",
               "next_scene_id": null,
               "gds_mapping": [
@@ -2108,7 +2108,7 @@
             {
               "option_id": "c03-s09-o3",
               "option_text": "Guardar los dos en la nevera sin comerlos",
-              "consequence": "Tatiana sube sin probar ninguno. Los mete en la nevera. Sabe que hizo algo hoy pero no siente que merezca celebrarlo todavía. La tarde entra fría.",
+              "consequence": "Tatiana sube sin probar ninguno. Los mete en la nevera y cierra la puerta. Sabe que hizo algo hoy pero las manos no encuentran con qué celebrarlo. La tarde entra fría por la ventana y el apartamento huele a nada en particular.",
               "next_chapter_id": "c04",
               "next_scene_id": null,
               "gds_mapping": [
@@ -2149,7 +2149,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "El martes siguiente Tatiana llega al taller y encuentra una silla ocupada que antes estaba vacía. Una señora de cabello blanco corto, muy derecha, tiene puesto un delantal de cuadros que no es del taller. Habla con Valentina con la familiaridad de quien ya conoce el espacio. Yolanda le susurra a Tatiana: 'Es Doña Carmen. Llegó hoy.'",
+          "text": "El martes siguiente Tatiana llega al taller de la Casa Comunal de Aranjuez y encuentra una silla ocupada que antes estaba vacía. Una señora de cabello blanco corto, muy derecha, tiene puesto un delantal de cuadros propios que huele a lavanda y a ropa planchada. Habla con Valentina con la familiaridad de quien ya conoce el espacio. La harina sobre la mesa todavía no está repartida. Yolanda le susurra a Tatiana: 'Es Doña Carmen. Llegó hoy.'",
           "options": [
             {
               "option_id": "c04-s01-o1",
@@ -2192,8 +2192,8 @@
             },
             {
               "option_id": "c04-s01-o3",
-              "option_text": "Sentir que la nueva persona va a cambiar todo",
-              "consequence": "Tatiana mira a Doña Carmen y piensa que el taller ya no va a ser igual. Se sienta lejos, cruza los brazos. 'Ojalá no cambie la dinámica', piensa.",
+              "option_text": "Alejarse a sentarse lejos sin saludar",
+              "consequence": "Tatiana mira a Doña Carmen y se sienta lejos, con el bolso en el regazo. El taller huele igual que siempre pero algo en el aire se siente diferente. Cruza los brazos sobre el pecho.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s02",
               "gds_mapping": [
@@ -2227,7 +2227,7 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Valentina empieza la sesión. Doña Carmen saca un cuaderno con notas de recetas escritas a mano. 'Yo tenía una confección en Laureles', explica, 'pero la panadería siempre fue mi hobby. Vine porque se me acabaron los pretextos para no hacerlo.' El grupo sonríe. Tatiana escucha. La mujer tiene seguridad de sobra.",
+          "text": "Valentina empieza la sesión en la Casa Comunal. Doña Carmen saca un cuaderno forrado en cuero con notas de recetas escritas a mano, letra apretada y ordenada. 'Yo tenía una confección en Laureles', explica con voz firme, 'pero la panadería siempre fue mi hobby. Vine porque se me acabaron los pretextos para no hacerlo.' El grupo sonríe. Tatiana escucha con las manos sobre el tazón frío. La mujer tiene seguridad de sobra.",
           "options": [
             {
               "option_id": "c04-s02-o1",
@@ -2270,8 +2270,8 @@
             },
             {
               "option_id": "c04-s02-o3",
-              "option_text": "Sentir que su llegada opaca las del resto",
-              "consequence": "Tatiana piensa que Doña Carmen acapara toda la atención del grupo con su historia. 'Yo no tengo historias tan importantes', se dice. Se encoge en la silla.",
+              "option_text": "Encoger los hombros y bajar la vista",
+              "consequence": "Tatiana deja que el grupo reaccione y se encoge en la silla. 'Yo no tengo historias tan importantes', se dice en silencio. El cuaderno de recetas de Doña Carmen brilla sobre la mesa.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s03",
               "gds_mapping": [
@@ -2333,7 +2333,7 @@
             {
               "option_id": "c04-s03-o2",
               "option_text": "Callarse y seguir la receta de Valentina",
-              "consequence": "Tatiana baja la cabeza y amasa sin decir nada. Siente que debería haber hablado pero le ganó la prudencia. Valentina continàºa con su receta original.",
+              "consequence": "Tatiana baja la cabeza y amasa sin decir nada. Siente que debería haber hablado pero le ganó la prudencia. Valentina continúa con su receta original y el olor a queso costeño llena el salón.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s04",
               "gds_mapping": [
@@ -2383,7 +2383,7 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 4,
-          "text": "Yolanda le acerca el tazón de masa a Tatiana y le dice en voz baja: 'No le pare bolas, mi amor. Ella apenas llega.' Tatiana siente el calor del gesto. Yolanda ha estado desde el primer día. Hay algo tranquilizador en eso. Doña Carmen, al otro lado de la mesa, mide el queso con precisión de ingeniera.",
+          "text": "Yolanda le acerca el tazón de masa a Tatiana y le dice en voz baja, con ese tono rápido y cálido de siempre: 'No le pare bolas, mi amor. Ella apenas llega.' El tazón está tibio al tacto. Yolanda ha estado desde el primer día y eso pesa. Doña Carmen, al otro lado de la mesa, mide el queso costeño con precisión de ingeniera, sin alzar la vista.",
           "options": [
             {
               "option_id": "c04-s04-o1",
@@ -2411,7 +2411,7 @@
             {
               "option_id": "c04-s04-o2",
               "option_text": "Agradecer pero seguir pensando en Carmen",
-              "consequence": "Tatiana asiente pero sigue mirando de reojo a Doña Carmen. No puede dejar de notar cómo mide, cómo corrige, cómo habla como si siempre hubiera estado.",
+              "consequence": "Tatiana asiente pero sigue mirando de reojo a Doña Carmen. No puede dejar de notar cómo mide, cómo corrige, cómo habla como si siempre hubiera estado. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s05",
               "gds_mapping": [
@@ -2426,8 +2426,8 @@
             },
             {
               "option_id": "c04-s04-o3",
-              "option_text": "Sentirse sola aunque Yolanda esté ahí",
-              "consequence": "Tatiana sonríe a Yolanda pero por dentro piensa que nadie entiende realmente lo que siente. El taller ya no se siente del mismo modo desde que llegó Carmen.",
+              "option_text": "Asentir a Yolanda pero mirarse las manos",
+              "consequence": "Tatiana asiente a Yolanda y baja los ojos a la masa. Las voces del taller llegan amortiguadas. El olor a queso costeño ya no le parece tan familiar desde que llegó Carmen.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s05",
               "gds_mapping": [
@@ -2461,7 +2461,7 @@
           "hero_stage": "5_crossing_threshold",
           "type": "playable",
           "order": 5,
-          "text": "Las dos versiones de almojábana salen del horno al mismo tiempo. La versión de Doña Carmen huele diferente, más láctea. Valentina invita a todos a probar las dos. El silencio mientras el grupo decide es incómodo. Tatiana sostiene una almojábana en cada mano. Tiene que elegir cuál le parece mejor.",
+          "text": "Las dos versiones de almojábana salen del horno de la Casa Comunal al mismo tiempo. La de Doña Carmen huele diferente: más láctea, más intensa, como si tuviera el doble de queso. Valentina invita a todos a probar las dos sin decir cuál es cuál. El silencio mientras el grupo decide es incómodo como el silencio antes de un regaño. Tatiana sostiene una almojábana en cada mano y el calor le empuja los dedos hacia arriba.",
           "options": [
             {
               "option_id": "c04-s05-o1",
@@ -2539,7 +2539,7 @@
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 6,
-          "text": "Valentina toma la palabra con tacto: 'Cada receta tiene su historia y su lugar. Aquí no hay una sola manera de hacer las cosas bien.' Doña Carmen asiente formalmente. Tatiana siente que Valentina está cuidando el espacio para todas. Pero la tensión en la mesa no ha desaparecido del todo.",
+          "text": "Valentina toma la palabra con la calma directiva que tiene cuando el grupo necesita orden: 'Cada receta tiene su historia y su lugar. Aquí no hay una sola manera de hacer las cosas bien.' Doña Carmen asiente con la cabeza erguida. Tatiana escucha y baja los hombros un centímetro. Pero la tensión en la mesa todavía huele a queso agrio.",
           "options": [
             {
               "option_id": "c04-s06-o1",
@@ -2582,8 +2582,8 @@
             },
             {
               "option_id": "c04-s06-o3",
-              "option_text": "Pensar que Valentina solo lo dijo por pena",
-              "consequence": "Tatiana interpreta la intervención de Valentina como un intento de evitar el conflicto, no como una verdad. 'Está siendo diplomática nada más', piensa, y no se convence.",
+              "option_text": "Amasar en silencio sin creerle a Valentina",
+              "consequence": "Tatiana vuelve a la masa con la mandíbula apretada. 'Está siendo diplomática nada más', piensa. El queso se integra lento entre los dedos mientras el salón sigue hablando.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s07",
               "gds_mapping": [
@@ -2617,7 +2617,7 @@
           "hero_stage": "7_approach_inner_cave",
           "type": "playable",
           "order": 7,
-          "text": "Valentina pone el tinto en la mesa: una olla pequeña de peltre con tazas de colores. El grupo hace una pausa. Doña Carmen acepta el tinto sin azàºcar, Yolanda con dos cucharadas. Tatiana sostiene su taza y mira la mesa. Ahora que no hay masa en las manos, no sabe bien dónde ponerse.",
+          "text": "Valentina pone el tinto en la mesa: una olla pequeña de peltre con tazas de colores. El grupo hace una pausa. Doña Carmen acepta el tinto sin azúcar, Yolanda con dos cucharadas. Tatiana sostiene su taza y mira la mesa. Ahora que no hay masa en las manos, no sabe bien dónde ponerse.",
           "options": [
             {
               "option_id": "c04-s07-o1",
@@ -2695,7 +2695,7 @@
           "hero_stage": "8_ordeal_crisis",
           "type": "playable",
           "order": 8,
-          "text": "Al reanudar, Doña Carmen le pregunta a Tatiana directamente: '¿Usted cuánto lleva viniendo al taller?' Tatiana responde: 'Desde el primer día.' Carmen asiente: 'Entonces usted sabe más que yo aquí. Enséñeme cómo Valentina prefiere que doblen la masa.' Es un giro que Tatiana no esperaba.",
+          "text": "Al reanudar, Doña Carmen le pregunta a Tatiana directamente con voz más baja que antes: '¿Usted cuánto lleva viniendo al taller?' Tatiana responde sin apartar los ojos de la masa: 'Desde el primer día.' Carmen asiente y apoya los codos sobre la mesa: 'Entonces usted sabe más que yo aquí. Enséñeme cómo Valentina prefiere que doblen la masa.' Es un giro que Tatiana no esperaba y el olor a queso sigue entre las dos.",
           "options": [
             {
               "option_id": "c04-s08-o1",
@@ -2723,7 +2723,7 @@
             {
               "option_id": "c04-s08-o2",
               "option_text": "Explicarle pero con distancia todavía",
-              "consequence": "Tatiana le indica los pasos desde su propio puesto, sin acercarse. Carmen observa y lo intenta. El momento es àºtil pero frío. No hay calor aàºn entre ellas.",
+              "consequence": "Tatiana le indica los pasos desde su propio puesto, sin acercarse. Carmen observa y lo intenta. El momento es útil pero frío: las manos de las dos trabajan la masa sin que ninguna cruce los dos metros que las separan.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s09",
               "gds_mapping": [
@@ -2739,7 +2739,7 @@
             {
               "option_id": "c04-s08-o3",
               "option_text": "Decirle que Valentina se lo explica mejor",
-              "consequence": "Tatiana desvía la pregunta: 'Pregàºntele a Valentina, ella explica mejor.' Doña Carmen asiente sin insistir. La ocasión de conectar pasa sin tomarse.",
+              "consequence": "Tatiana desvía la pregunta: 'Pregúntele a Valentina, ella explica mejor.' Doña Carmen asiente sin insistir. La ocasión de conectar pasa sin tomarse, y el sonido del amasado llena el silencio que quedó.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s09",
               "gds_mapping": [
@@ -2773,7 +2773,7 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 9,
-          "text": "Al final de la sesión, Doña Carmen pone dos almojábanas de su versión frente a Tatiana sin decir nada. Tatiana mira el gesto. Podría ser una paz, podría ser una declaración de superioridad. El taller está recogiendo. Yolanda le hace un gesto con los ojos: 'Cómasela.'",
+          "text": "Al final de la sesión en la Casa Comunal, Doña Carmen pone dos almojábanas de su versión frente a Tatiana sin decir nada. El queso todavía humea un poco. Tatiana mira el gesto sin tocarlo: podría ser una paz, podría ser una declaración de superioridad disfrazada. El taller está recogiendo y las sillas raspan el piso. Yolanda le hace un gesto con los ojos desde el otro lado: 'Cómasela.'",
           "options": [
             {
               "option_id": "c04-s09-o1",
@@ -2858,12 +2858,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Tatiana camina hacia la Casa Comunal un martes con viento suave. El celular le vibra en el bolsillo del saco. Mira la pantalla: es Rodrigo, su hijo en Bogotá. Lleva dos semanas sin llamar. El paradero del bus SITP está a media cuadra. Tiene tiempo pero no mucho.",
+          "text": "Tatiana camina por el andén hacia la Casa Comunal un martes con viento suave bajando desde el cerro. El celular le vibra en el bolsillo del saco y le calienta la palma a través de la tela. Mira la pantalla: es Rodrigo, su hijo en Bogotá. Lleva dos semanas sin llamar. El paradero del bus SITP está a media cuadra. El número de Rodrigo parpadea en la pantalla. El letrero dice: 'Taller de panadería comunitaria, martes 10 am'. El horno zumba detrás de la puerta.",
           "options": [
             {
               "option_id": "c05-s01-o1",
               "option_text": "Contestar de inmediato con alegría",
-              "consequence": "'¡Rodrigo, mi amor!' Tatiana se detiene en el andén. Su voz cambia al instante, se calienta. El bus puede esperar. No ha oído esa voz en semanas.",
+              "consequence": "'¡Rodrigo, mi amor!' Tatiana se detiene en pleno andén. Su voz cambia al instante: se calienta, se suaviza. El bus puede esperar. No ha oído esa voz en semanas y el celular le pesa menos en la mano.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s02",
               "gds_mapping": [
@@ -2886,7 +2886,7 @@
             {
               "option_id": "c05-s01-o2",
               "option_text": "Contestar pero caminar al tiempo",
-              "consequence": "Tatiana contesta mientras sigue andando. 'Rodrigo, espérame un momento que voy llegando al bus.' Sigue caminando, el teléfono entre el hombro y la oreja.",
+              "consequence": "Tatiana contesta mientras sigue andando. 'Rodrigo, espérame un momento que voy llegando al bus.' Rodrigo espera al otro lado con esa paciencia corta que tiene en día de trabajo. El celular le calienta la mejilla y el ruido del andén entra a la llamada.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s02",
               "gds_mapping": [
@@ -2902,7 +2902,7 @@
             {
               "option_id": "c05-s01-o3",
               "option_text": "Dejar que suene y llamar después del taller",
-              "consequence": "Tatiana guarda el celular. 'Ahora no puedo.' El bus llega al paradero. Sube. El celular deja de vibrar. Una pequeña punzada le queda en el pecho.",
+              "consequence": "Tatiana guarda el celular sin contestar. El bus llega al paradero y ella sube sin mirar la pantalla. El celular deja de vibrar entre las manos y ese silencio repentino es más pesado que el ruido del motor.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s02",
               "gds_mapping": [
@@ -2941,7 +2941,7 @@
             {
               "option_id": "c05-s02-o1",
               "option_text": "Contarle todo desde el principio",
-              "consequence": "'Rodrigo, metí al taller de panadería de la Casa Comunal. He aprendido almojábanas, buñuelos.' Rodrigo la interrumpe: '¿Panadería? ¡Qué bien, mamá!' Su sorpresa es genuina.",
+              "consequence": "'Rodrigo, metí al taller de panadería de la Casa Comunal. Llevo dos meses, he aprendido almojábanas, buñuelos, pandeyuca.' Rodrigo la interrumpe: '¿Panadería? ¡Qué bien, mamá!' La sorpresa en su voz suena real, no de compromiso, y a Tatiana le calienta la cara.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s03",
               "gds_mapping": [
@@ -2964,7 +2964,7 @@
             {
               "option_id": "c05-s02-o2",
               "option_text": "Contarle algo pero no todo",
-              "consequence": "'Pues bien, aquí metí a un tallercito en el barrio.' Rodrigo dice que qué bueno. Tatiana no menciona los buñuelos ni a Yolanda. Guarda lo más importante para ella sola.",
+              "consequence": "'Pues bien, aquí metí a un tallercito en el barrio.' Rodrigo dice que qué bueno y sigue con su tema. Tatiana no menciona los buñuelos ni a Yolanda ni el cuaderno de la abuela Carmenza: guarda lo más importante para ella sola, donde no se desgaste.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s03",
               "gds_mapping": [
@@ -2980,7 +2980,7 @@
             {
               "option_id": "c05-s02-o3",
               "option_text": "Decir solo que está bien y preguntar por él",
-              "consequence": "'Bien, Rodrigo, aquí. ¿Y usted cómo está?' Desvía la conversación. Rodrigo habla del trabajo, de Bogotá. Tatiana escucha pero no cuenta nada de su vida nueva.",
+              "consequence": "'Bien, Rodrigo, aquí. ¿Y usted cómo está?' Rodrigo habla del trabajo, de Bogotá, de un cliente difícil. Tatiana escucha con el celular apretado en la mano pero no cuenta nada del taller, nada de Yolanda, nada del pandeyuca que todavía huele en el bolso.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s03",
               "gds_mapping": [
@@ -3019,7 +3019,7 @@
             {
               "option_id": "c05-s03-o1",
               "option_text": "Decirle que lo espera con una almojábana lista",
-              "consequence": "'Venga, Rodrigo, que yo le tengo almojábana hecha aquí.' Rodrigo se ríe. 'A ver, mamá.' Tatiana siente que tiene algo concreto que ofrecerle a su hijo.",
+              "consequence": "'Venga, Rodrigo, que yo le tengo almojábana hecha el día que llegue.' Rodrigo se ríe: 'A ver, mamá, a ver.' Tatiana envuelve el pandeyuca del bolso en una servilleta como si ya le estuviera guardando algo al muchacho.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s04",
               "gds_mapping": [
@@ -3042,7 +3042,7 @@
             {
               "option_id": "c05-s03-o2",
               "option_text": "Decir que está bien pero no emocionarse mucho",
-              "consequence": "'Qué bueno, Rodrigo. Me avisa.' Tatiana guarda la emoción. Ya ha escuchado 'quizás' antes y luego no se concretó nada. No quiere ilusionarse de más.",
+              "consequence": "'Qué bueno, Rodrigo. Me avisa.' Tatiana dobla la emoción hacia adentro como se dobla la masa: con presión. Ya ha escuchado 'quizás' otras veces y después nada llegó, y el apartamento se quedó con el olor a comida que nadie probó.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s04",
               "gds_mapping": [
@@ -3057,8 +3057,8 @@
             },
             {
               "option_id": "c05-s03-o3",
-              "option_text": "Pensar que seguramente no va a venir",
-              "consequence": "Tatiana dice que qué bueno pero piensa: 'Ya veremos.' Le ha pasado antes. 'Quizás' de Rodrigo a veces no llega. Trata de no darle importancia.",
+              "option_text": "Responder 'qué bueno' y guardar la emoción",
+              "consequence": "Tatiana dice 'qué bueno' con voz plana y mete el celular al bolso. 'Quizás' de Rodrigo a veces es solo una palabra bonita que él necesita decir. Camina mirando el andén y el bus del SITP pasa sin que ella lo vea.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s04",
               "gds_mapping": [
@@ -3097,7 +3097,7 @@
             {
               "option_id": "c05-s04-o1",
               "option_text": "Contarle la llamada con detalles y emoción",
-              "consequence": "Tatiana le cuenta todo: la voz de Rodrigo, las reuniones del área metro, la promesa vaga. Doña Esperanza la escucha entera. 'Eso es una bendición', le dice.",
+              "consequence": "Tatiana le cuenta todo: la voz de Rodrigo, las reuniones del área metro, el 'quizás' que suena más a promesa. Doña Esperanza la escucha entera sin apresurarla. 'Eso es una bendición', le dice al final, y el olor a masa en el delantal de Tatiana se mezcla con el de los almidones del taller.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s05",
               "gds_mapping": [
@@ -3120,7 +3120,7 @@
             {
               "option_id": "c05-s04-o2",
               "option_text": "Contarle solo que llamó, sin el detalle",
-              "consequence": "'Llamó Rodrigo', dice Tatiana mientras se pone el delantal. Doña Esperanza asiente: 'Qué bien.' No hay más conversación. Tatiana guarda el resto.",
+              "consequence": "'Llamó Rodrigo', dice Tatiana mientras se ata el delantal por detrás. Doña Esperanza asiente: 'Qué bien.' No hay más conversación. Tatiana pone las manos en la masa y el tacto frío del quesillo la ancla de vuelta al taller.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s05",
               "gds_mapping": [
@@ -3136,7 +3136,7 @@
             {
               "option_id": "c05-s04-o3",
               "option_text": "No mencionar la llamada para no jinxearlo",
-              "consequence": "Tatiana no dice nada sobre Rodrigo. Tiene superstición de contar cosas antes de que pasen. Si lo menciona y no viene, va a quedar en ridículo. Silencio.",
+              "consequence": "Tatiana no dice nada sobre Rodrigo: nombrar las cosas antes de que pasen es tentar al mal camino. Pone las manos en la masa y amasa con más fuerza de la necesaria. El quesillo frío se quiebra entre los dedos.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s05",
               "gds_mapping": [
@@ -3170,12 +3170,12 @@
           "hero_stage": "5_crossing_threshold",
           "type": "playable",
           "order": 5,
-          "text": "La sesión del día es pandeyuca: un pan de almidón y queso, más simple que la almojábana. Tatiana amasa pero su cabeza sigue con Rodrigo. Piensa: si él viene, ¿lo va a traer al taller? ¿Le va a mostrar lo que ha aprendido? La masa le queda bien sin que ella preste mucha atención.",
+          "text": "La sesión del día en la Casa Comunal es pandeyuca: un pan de almidón y queso, más elástico que la almojábana, menos complejo. Tatiana hunde los dedos en la masa pero su cabeza sigue en Bogotá con Rodrigo. ¿Lo va a traer al taller? ¿Le va a mostrar lo que ha aprendido? La masa cede suave entre los dedos, casi sin resistencia. Le queda bien sin que ella preste mucha atención.",
           "options": [
             {
               "option_id": "c05-s05-o1",
               "option_text": "Imaginar que le muestra el taller a Rodrigo",
-              "consequence": "Tatiana sonríe mientras amasa. Se imagina a Rodrigo en ese mismo puesto, mirando las manos de ella moverse con soltura. La idea le da energía a los dedos.",
+              "consequence": "Tatiana dobla la masa hacia adentro y la imagen viene sola: Rodrigo en ese mismo puesto, mirando las manos de ella moverse con soltura. La fantasía le da fuerza a los dedos y el pandeyuca queda más elástico que ningún otro del día. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s06",
               "gds_mapping": [
@@ -3198,7 +3198,7 @@
             {
               "option_id": "c05-s05-o2",
               "option_text": "Concentrarse en el pandeyuca y dejar de pensar",
-              "consequence": "Tatiana decide poner la mente en la masa. Siente el almidón entre los dedos, diferente al de la almojábana. Se ancla en el taller. Rodrigo puede esperar.",
+              "consequence": "Tatiana hunde los dedos en el pandeyuca hasta que el almidón le resiste diferente al de la almojábana: más pegajoso, más elástico. Valentina asiente desde el otro lado del mesón. Rodrigo puede esperar; esta masa, no.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s06",
               "gds_mapping": [
@@ -3213,8 +3213,8 @@
             },
             {
               "option_id": "c05-s05-o3",
-              "option_text": "Preocuparse porque quizás no viene",
-              "consequence": "La duda le nubla la sesión. ¿Y si dice que viene y al final no puede? El pandeyuca le queda bien pero Tatiana no lo nota. Está en otro lugar.",
+              "option_text": "Quedarse con el estómago apretado pensando en el 'quizás'",
+              "consequence": "Los dedos de Tatiana amasan solos mientras la cabeza sigue en Bogotá: ¿y si dice que viene y al final no puede? El pandeyuca le queda parejo, dorado, perfecto, y ella no lo nota. Valentina se lo dice y Tatiana asiente sin oír. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s06",
               "gds_mapping": [
@@ -3253,7 +3253,7 @@
             {
               "option_id": "c05-s06-o1",
               "option_text": "Contarle de la posible visita de Rodrigo",
-              "consequence": "Tatiana le cuenta que Rodrigo quizás viene el mes que viene. Yolanda dice: '¡Qué bueno! Que lo traiga al taller.' Las dos se ríen. El horno huele bien.",
+              "consequence": "Tatiana le cuenta que Rodrigo quizás viene el mes que viene. Yolanda dice: '¡Qué bueno! Que lo traiga al taller, que amase un pandeyuca.' Las dos se ríen y el horno abre con ese golpe de calor dulce que huele a queso y maíz tostado.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s07",
               "gds_mapping": [
@@ -3276,7 +3276,7 @@
             {
               "option_id": "c05-s06-o2",
               "option_text": "Hablar de Rodrigo en general sin mencionar la visita",
-              "consequence": "Tatiana habla de Rodrigo: trabaja en finanzas, vive en Chapinero. No menciona la posible visita. Guarda eso para cuando sea más seguro.",
+              "consequence": "Tatiana habla de Rodrigo con la voz plana que usa para los temas que no quiere profundizar: trabaja en finanzas, vive en Chapinero. No menciona la posible visita porque nombrarla es darle forma y lo que tiene forma puede romperse. Voltea a revisar el pandeyuca en el horno.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s07",
               "gds_mapping": [
@@ -3292,7 +3292,7 @@
             {
               "option_id": "c05-s06-o3",
               "option_text": "Decir solo que tiene un hijo y cambiar el tema",
-              "consequence": "Tatiana dice 'sí, un hijo' y voltea a revisar el pandeyuca en el horno. No quiere hablar de Rodrigo acá. Ese tema se siente privado, demasiado propio.",
+              "consequence": "Tatiana dice 'sí, un hijo' y abre el horno con ese pretexto. El calor le llega a la cara y lo usa para no dar más explicaciones. Ese tema es suyo, del cajón del apartamento, no del mesón de la Casa Comunal.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s07",
               "gds_mapping": [
@@ -3326,12 +3326,12 @@
           "hero_stage": "7_approach_inner_cave",
           "type": "playable",
           "order": 7,
-          "text": "El pandeyuca de Tatiana sale dorado, esponjoso, con esa corteza fina que lo hace crujir al apretarlo. Doña Esperanza dice que es el mejor del día. Tatiana lo mira y piensa: si Rodrigo viniera y probara esto, ¿qué diría? Hace años que no comen juntos algo que ella haya hecho con sus manos desde cero.",
+          "text": "El pandeyuca de Tatiana sale del horno dorado, esponjoso, con esa corteza fina que cruje al apretarlo con los dedos. Doña Esperanza lo levanta, lo huele y dice que es el mejor del día. Tatiana lo mira y el olor a almidón tostado le trae algo: si Rodrigo probara esto, ¿qué diría? Hace años que no comen juntos algo que ella haya hecho con sus manos desde cero.",
           "options": [
             {
               "option_id": "c05-s07-o1",
               "option_text": "Guardar el pandeyuca para cuando Rodrigo llegue",
-              "consequence": "Tatiana lo envuelve en servilleta. 'Este lo guardo para mi hijo.' Yolanda dice que se va a poner duro para entonces. Tatiana sonríe: 'Hago otro.' Es un plan.",
+              "consequence": "Tatiana envuelve el pandeyuca en dos servilletas y lo pone aparte. 'Este lo guardo para mi hijo.' Yolanda dice que se va a poner duro para entonces. 'Hago otro el día que llegue', dice Tatiana, y el olor a almidón tostado le queda en los dedos todo el camino a casa.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s08",
               "gds_mapping": [
@@ -3354,7 +3354,7 @@
             {
               "option_id": "c05-s07-o2",
               "option_text": "Comerlo ahí con el grupo",
-              "consequence": "Tatiana parte el pandeyuca en cuatro y lo comparte. El grupo lo come tibio. Doña Esperanza dice que sabe a los de antes. Ese 'antes' les llega a todas.",
+              "consequence": "Tatiana parte el pandeyuca con los dedos en cuatro trozos desiguales y los pasa en la servilleta. El grupo lo come tibio, con ese almidón suave que se pega en el paladar. Doña Esperanza dice que sabe a los de antes, y ese 'antes' flota un momento en el salón antes de que el ruido del taller lo tape.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s08",
               "gds_mapping": [
@@ -3369,8 +3369,8 @@
             },
             {
               "option_id": "c05-s07-o3",
-              "option_text": "Pensar que Rodrigo no va a llegar de todas formas",
-              "consequence": "Tatiana mira el pandeyuca y la ilusión se aplana. 'Para qué guardarlo.' Lo come sola en silencio. El sabor está bueno pero la cabeza no está con él.",
+              "option_text": "Comer el pandeyuca sola sin guardarlo para nadie",
+              "consequence": "Tatiana mira el pandeyuca dorado y la ilusión cae plana. 'Para qué guardarlo si no hay certeza de nada.' Lo muerde de pie junto al horno ya apagado, la espalda en la pared. El sabor de almidón y queso está bueno pero los dientes mastican solos, sin registrar nada.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s08",
               "gds_mapping": [
@@ -3404,12 +3404,12 @@
           "hero_stage": "8_ordeal_crisis",
           "type": "playable",
           "order": 8,
-          "text": "Al salir del taller, el celular vibra otra vez. Un mensaje de texto de Rodrigo: 'Mamá, confirmé las reuniones. El 17 voy para Medellín. Dos días.' El 17 es en tres semanas. Tatiana lee el mensaje dos veces parada en el andén. Yolanda pasa a su lado y le pregunta si todo está bien.",
+          "text": "Al salir de la Casa Comunal, el celular vibra en el bolso con ese zumbido corto de los mensajes de texto. Rodrigo: 'Mamá, confirmé las reuniones. El 17 voy para Medellín. Dos días.' El 17 es en tres semanas. Tatiana lee el mensaje dos veces parada en el andén, con el pandeyuca todavía tibio en la bolsa. Yolanda pasa a su lado y le pregunta si todo está bien.",
           "options": [
             {
               "option_id": "c05-s08-o1",
               "option_text": "Mostrarle el mensaje a Yolanda con emoción",
-              "consequence": "Tatiana le muestra la pantalla: '¡Viene, Yolanda, viene el 17!' Yolanda la abraza. Doña Esperanza, que pasa detrás, alcanza a oír y sonríe. El andén se siente más grande.",
+              "consequence": "Tatiana le pone la pantalla delante: '¡Viene, Yolanda, viene el 17!' Yolanda la abraza con las dos manos todavía enharinadas. Doña Esperanza, que pasa detrás, alcanza a oír y sonríe sin detenerse, y el andén de Aranjuez se siente más ancho que de costumbre. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s09",
               "gds_mapping": [
@@ -3432,7 +3432,7 @@
             {
               "option_id": "c05-s08-o2",
               "option_text": "Guardar el celular y procesar sola",
-              "consequence": "Tatiana mete el celular al bolso. Le dice a Yolanda que está bien, que es un mensaje de familia. Camina a su paradero. Necesita llegar a casa a asimilarlo sola.",
+              "consequence": "Tatiana mete el celular al bolso y le dice a Yolanda que es un mensaje de familia, que está bien. Camina a su paradero con el pandeyuca tibio en la bolsa de tela. Necesita llegar al apartamento, sentarse en el sillón y dejar que la noticia ocupe espacio despacio.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s09",
               "gds_mapping": [
@@ -3448,7 +3448,7 @@
             {
               "option_id": "c05-s08-o3",
               "option_text": "Responder el mensaje con solo un 'ok'",
-              "consequence": "Tatiana teclea 'ok' y lo envía. Le cuesta mostrar emoción incluso a través del celular. Rodrigo no va a saber lo que le movió ese mensaje. Guarda el teléfono.",
+              "consequence": "Tatiana teclea 'ok' y pulsa enviar. Los dedos no le obedecen para decir otra cosa. Rodrigo va a leer esas dos letras y no va a saber que a Tatiana le temblaron las manos al recibirlo. Guarda el celular en el bolso y sigue andando.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s09",
               "gds_mapping": [
@@ -3482,12 +3482,12 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 9,
-          "text": "Esa noche Tatiana está sentada en su sillón con el apartamento más callado que de costumbre. El 17 está marcado en el calendario de cocina que cuelga en la nevera. Tres semanas. Tiene tiempo de hacer almojábanas perfectas, buñuelos, pandeyuca. Tiene un plan. Lo que no sabe es qué hacer con tanta espera.",
+          "text": "Esa noche Tatiana está en el sillón del apartamento de Aranjuez con el televisor apagado y el apartamento más callado que de costumbre. El 17 está marcado en el calendario de cocina que cuelga en la nevera con un imán de girasol. Tres semanas. Tiene tiempo de hacer almojábanas perfectas, buñuelos, pandeyuca. Tiene un plan. Lo que no sabe es qué hacer con tanta espera, con el silencio que llena cada cuarto.",
           "options": [
             {
               "option_id": "c05-s09-o1",
               "option_text": "Anotar en el cuaderno lo que va a preparar",
-              "consequence": "Tatiana abre el cuaderno de recetas y escribe: 'Para el 17: almojábana, buñuelo, pandeyuca.' Subraya el pandeyuca. Tiene un propósito concreto para las próximas semanas.",
+              "consequence": "Tatiana abre el cuaderno de recetas y escribe con lápiz: 'Para el 17: almojábana, buñuelo, pandeyuca.' Subraya el pandeyuca dos veces. El grafito raspa suave en el papel y el apartamento callado de Aranjuez deja de pesar tanto.",
               "next_chapter_id": "c06",
               "next_scene_id": null,
               "gds_mapping": [
@@ -3516,7 +3516,7 @@
             {
               "option_id": "c05-s09-o2",
               "option_text": "Ver televisión y dejar el plan para después",
-              "consequence": "Tatiana prende la tele. Pone el noticiero. No piensa en el 17, aunque el calendario está ahí. El plan puede esperar hasta mañana. Esta noche solo quiere descansar.",
+              "consequence": "Tatiana prende el televisor y pone el noticiero. El plan puede esperar hasta mañana. Las zapatillas quedan tiradas debajo del sillón y el calendario del 17 cuelga en la nevera sin que ella lo mire esta noche.",
               "next_chapter_id": "c06",
               "next_scene_id": null,
               "gds_mapping": [
@@ -3531,8 +3531,8 @@
             },
             {
               "option_id": "c05-s09-o3",
-              "option_text": "Quedarse quieta pensando que tres semanas es mucho tiempo",
-              "consequence": "Tatiana mira el 17 en el calendario y siente que está lejos. Demasiado lejos. Se pregunta si algo puede cambiar antes de que llegue. La espera se vuelve pesada.",
+              "option_text": "Quedarse inmóvil mirando el 17 en el calendario",
+              "consequence": "Tatiana se queda mirando el 17 rodeado con el marcador rojo. Demasiado lejos. El silencio del apartamento llena cada cuarto como agua. El sillón cruje cuando por fin se levanta para apagar la luz de la cocina.",
               "next_chapter_id": "c06",
               "next_scene_id": null,
               "gds_mapping": [
@@ -3573,12 +3573,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Tatiana llega al apartamento con el teléfono todavía en la mano. Rodrigo llamó para avisar que viene el sábado con Paula. Hace cuatro meses que no los ve. El apartamento huele a encerrado, la cama sin tender, los manteles que no ha sacado desde diciembre.",
+          "text": "Tatiana llega al apartamento de Aranjuez con el teléfono todavía en la mano y el corazón acelerado. Rodrigo llamó para avisar que viene el sábado con Paula. Hace cuatro meses que no los ve. El apartamento huele a encerrado y a ropa que lleva días doblada sin lavarse. La cama sin tender, los manteles que no ha sacado desde diciembre. La luz de la tarde entra amarilla por la ventana. Doña Margarita enseña cómo medir la sal. Su mano es una cuchara exacta.",
           "options": [
             {
               "option_id": "c06-s01-o1",
               "option_text": "Abrir ventanas y planear la semana",
-              "consequence": "Tatiana abre la ventana y entra el aire fresco de las lomas de Aranjuez. Saca un papel y anota: limpiar, comprar quesillo, practicar las almojábanas del domingo.",
+              "consequence": "Tatiana abre la ventana de par en par y el aire fresco de las lomas de Aranjuez barre el olor a encerrado. Saca un papel y anota en la cocina: limpiar, comprar quesillo de Barbosa, practicar las almojábanas del domingo. El bolígrafo araña el papel y la lista ya se siente real.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s02",
               "gds_mapping": [
@@ -3600,8 +3600,8 @@
             },
             {
               "option_id": "c06-s01-o2",
-              "option_text": "Sentarse a recordar la àºltima visita",
-              "consequence": "Tatiana se sienta en el sillón. La àºltima visita fue en enero, salieron a comer cerca del Parque Aranjuez y Rodrigo estuvo pendiente del celular toda la tarde.",
+              "option_text": "Sentarse a recordar la última visita",
+              "consequence": "Tatiana se sienta en el sillón con las manos en el regazo. La última visita fue en enero: salieron a comer cerca del Parque Aranjuez y Rodrigo estuvo pendiente del celular toda la tarde. El sillón todavía guarda el olor de ese día, a cuero viejo y a comida de restaurante que no supo a nada.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s02",
               "gds_mapping": [
@@ -3617,7 +3617,7 @@
             {
               "option_id": "c06-s01-o3",
               "option_text": "Dejar todo como está, total es la familia",
-              "consequence": "Tatiana deja el bolso sobre la silla y prende el televisor. Para qué ordenar si Rodrigo ya la conoce así. El apartamento sigue igual que siempre.",
+              "consequence": "Tatiana tira el bolso sobre la silla y prende el televisor. Para qué ordenar si Rodrigo ya la conoce así. El mantel amarillento sigue en la mesa y el cuarto de huéspedes huele a sábanas que llevan meses dobladas sin que nadie las use.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s02",
               "gds_mapping": [
@@ -3651,12 +3651,12 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Tatiana está en la cocina con el paquete de harina de maíz sobre el mesón. En el taller aprendió a medir el quesillo con la palma, no con taza. Podría preparar almojábanas para cuando lleguen Rodrigo y Paula, o simplemente comprar pandeyuca en la panadería del barrio.",
+          "text": "Tatiana está de pie en la cocina con el paquete de harina de maíz abierto sobre el mesón. El quesillo está en el refrigerador, frío al tacto. En el taller aprendió a medirlo con la palma de la mano, no con taza. Podría preparar almojábanas para cuando lleguen Rodrigo y Paula el sábado, o simplemente comprar pandeyuca en la panadería del barrio y ahorrarse el esfuerzo.",
           "options": [
             {
               "option_id": "c06-s02-o1",
               "option_text": "Practicar la receta del taller hoy mismo",
-              "consequence": "Tatiana enciende el horno y se pone el delantal. El olor de la masa caliente llena la cocina pequeña. Prueba tres proporciones de quesillo hasta que la textura queda esponjosa.",
+              "consequence": "Tatiana enciende el horno y se ata el delantal de cuadros. El olor a quesillo derritiéndose llena la cocina pequeña del apartamento. Prueba tres proporciones hasta que la textura queda esponjosa y la corteza cruje al presionarla con el pulgar.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s03",
               "gds_mapping": [
@@ -3672,7 +3672,7 @@
             {
               "option_id": "c06-s02-o2",
               "option_text": "Planear hacerlas el mismo sábado",
-              "consequence": "Tatiana anota los ingredientes en una servilleta y los guarda bajo un imán en la nevera. La preparará el sábado con más calma, cuando ya esté Rodrigo para ayudar.",
+              "consequence": "Tatiana anota los ingredientes en una servilleta de papel y la pega en la nevera bajo el imán de girasol. La preparará el sábado con Rodrigo de testigo. La servilleta queda torcida pero bien visible desde el mesón.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s03",
               "gds_mapping": [
@@ -3688,7 +3688,7 @@
             {
               "option_id": "c06-s02-o3",
               "option_text": "Comprar pandeyuca en la panadería",
-              "consequence": "Tatiana guarda la harina en el gabinete. Para qué esforzarse si igual van a quedar bien con lo de la panadería. Baja al andén con el bolso.",
+              "consequence": "Tatiana cierra el paquete de harina y lo vuelve al gabinete. Para qué esforzarse si la panadería de la esquina tiene buen pandeyuca. Baja al andén con el bolso y el quesillo se queda frío y sin usar en el refrigerador.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s03",
               "gds_mapping": [
@@ -3716,12 +3716,12 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 3,
-          "text": "Al día siguiente en el taller, Tatiana le cuenta a Yolanda sobre la visita de Rodrigo. Yolanda escucha con las manos enharinadas, asintiendo despacio. 'Tatiana, usted debería mostrarle a ese muchacho lo que hace aquí. Que vea lo contenta que está.' Hay ternura en su voz.",
+          "text": "Al día siguiente en el taller de la Casa Comunal, Tatiana le cuenta a Yolanda sobre la visita de Rodrigo. Yolanda escucha con las manos enharinadas hasta las muñecas, asintiendo despacio sin dejar de amasar. Huele a maíz y a queso caliente. 'Tatiana, usted debería mostrarle a ese muchacho lo que hace aquí. Que vea lo contenta que está.' Hay ternura en su voz rápida de exmodista.",
           "options": [
             {
               "option_id": "c06-s03-o1",
               "option_text": "Invitar a Rodrigo y Paula al taller",
-              "consequence": "A Tatiana se le ilumina la cara. Le va a proponer a Rodrigo que vengan el martes al taller, que conozcan a Valentina y prueben las almojábanas recién salidas del horno.",
+              "consequence": "Tatiana ya lo ve: Rodrigo y Paula en la puerta del taller, el olor a quesillo caliente recibiéndolos. Le va a proponer que vengan el martes, que conozcan a Valentina, que pongan las manos en la masa. Eso sí es mostrarle algo que valga.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s04",
               "gds_mapping": [
@@ -3737,7 +3737,7 @@
             {
               "option_id": "c06-s03-o2",
               "option_text": "Agradecerle el consejo pero dudar",
-              "consequence": "Tatiana sonríe y dice que quizás sí. No sabe si a Rodrigo le va a gustar. Es un hombre muy ocupado y el taller puede parecerle poca cosa.",
+              "consequence": "Tatiana sonríe y dice que quizás sí. Rodrigo es un hombre de reuniones y pantallas y el taller puede parecerle cosa de señoras sin oficio. Las manos de Tatiana se hunden un poco más en la masa mientras lo piensa.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s04",
               "gds_mapping": [
@@ -3787,12 +3787,12 @@
           "hero_stage": "5_crossing_the_threshold",
           "type": "playable",
           "order": 4,
-          "text": "El viernes por la noche Tatiana revisa el apartamento. El mantel del comedor tiene una mancha vieja que no sale. La cama del cuarto de huéspedes huele a encerrado. Rodrigo y Paula llegan mañana a las diez. Afuera la lluvia fina de Medellín golpea el vidrio.",
+          "text": "El viernes por la noche Tatiana revisa el apartamento de Aranjuez con un trapo en la mano. El mantel del comedor tiene una mancha amarilla vieja que no sale aunque frote. La cama del cuarto de huéspedes huele a encerrado y a sábanas guardadas. Rodrigo y Paula llegan mañana a las diez. Afuera la lluvia fina de Medellín golpea el vidrio y hace un ruido constante sobre el andén.",
           "options": [
             {
               "option_id": "c06-s04-o1",
               "option_text": "Limpiar hasta tarde con energía",
-              "consequence": "Tatiana frota el mantel, cambia las sábanas y pone veladora en el cuarto. A las once de la noche el apartamento huele a lavanda y la cocina brilla.",
+              "consequence": "Tatiana frota el mantel, cambia las sábanas y pone veladora en el cuarto. A las once de la noche el apartamento huele a lavanda y la cocina brilla. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s05",
               "gds_mapping": [
@@ -3865,12 +3865,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "El timbre suena a las diez en punto. Tatiana abre la puerta y Paula entra corriendo a abrazarla antes que Rodrigo. El muchacho viene con maleta de viaje aunque solo es un día. Trae cara de cansancio de Bogotá y huele a avión.",
+          "text": "El timbre suena a las diez en punto en el apartamento de Aranjuez. Tatiana abre la puerta y Paula entra corriendo a abrazarla antes que Rodrigo: huele a chicle de menta y a champú de coco. El muchacho viene detrás con maleta de ruedas aunque solo es para dos días. Trae cara de cansancio bogotano y huele a avión y a perfume de aeropuerto. Tatiana amasa con los nudillos como le mostró Margarita. La masa cede bajo el ritmo.",
           "options": [
             {
               "option_id": "c07-s01-o1",
               "option_text": "Abrazar a los dos y entrar a la cocina",
-              "consequence": "Tatiana los abraza juntos y los lleva directo a la cocina donde las almojábanas están tibias en la bandeja. Paula grita de emoción cuando las huele.",
+              "consequence": "Tatiana los abraza juntos y los lleva directo a la cocina donde las almojábanas están tibias en la bandeja. Paula grita de emoción cuando las huele. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c07-s02",
               "gds_mapping": [
@@ -3886,7 +3886,7 @@
             {
               "option_id": "c07-s01-o2",
               "option_text": "Dejarlos pasar y preguntar por el viaje",
-              "consequence": "Rodrigo entra contando del tráfico en el aeropuerto. Tatiana escucha de pie en la sala, con las manos juntas sobre el delantal que todavía trae puesto.",
+              "consequence": "Rodrigo entra contando del tráfico en el aeropuerto. Tatiana escucha de pie en la sala, con las manos juntas sobre el delantal que todavía trae puesto. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c07-s02",
               "gds_mapping": [
@@ -3930,12 +3930,12 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Paula muerde la primera almojábana y dice que está buenísima. Rodrigo la prueba, mastica despacio. 'Mamá, ¿usted se la pasa en esa panadería ahora?' Tatiana nota algo en la pregunta, como si fuera pregunta pero también otra cosa.",
+          "text": "Paula muerde la primera almojábana y dice que está buenísima con la boca llena. Rodrigo la prueba, mastica despacio y mira el techo un momento. 'Mamá, ¿usted se la pasa en esa panadería ahora?' Tatiana nota algo en la pregunta: el tono tiene cuidado, pero también algo que no termina de nombrarse.",
           "options": [
             {
               "option_id": "c07-s02-o1",
               "option_text": "Contarle todo del taller con orgullo",
-              "consequence": "Tatiana habla de Yolanda, de Valentina, de Doña Esperanza, del horno de leña que tienen en la Casa Comunal. Rodrigo la escucha y su cara se relaja un poco.",
+              "consequence": "Tatiana habla de Yolanda, de Valentina, de Doña Esperanza, del horno de leña que tienen en la Casa Comunal. Rodrigo la escucha y su cara se relaja un poco. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c07-s03",
               "gds_mapping": [
@@ -4001,7 +4001,7 @@
           "hero_stage": "3_refusal_of_the_call",
           "type": "playable",
           "order": 3,
-          "text": "Después del almuerzo Rodrigo cierra el televisor y habla en serio. 'Mamá, Paula y yo estuvimos pensando. Usted sola aquí en Medellín... hay un apartamento bueno cerca de nosotros en Bogotá.' Tatiana siente el corazón apretarse. Esto es lo que temía.",
+          "text": "Después del almuerzo Rodrigo apaga el televisor y se sienta derecho frente a Tatiana con las manos sobre las rodillas. 'Mamá, Paula y yo estuvimos pensando. Usted sola aquí en Medellín... hay un apartamento bueno cerca de nosotros en Bogotá.' El ventilador de la sala sigue girando. Tatiana pone las manos sobre la mesa y las mira un momento antes de levantar los ojos.",
           "options": [
             {
               "option_id": "c07-s03-o1",
@@ -4072,7 +4072,7 @@
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 4,
-          "text": "Paula jala a Tatiana a la cocina con el pretexto de lavar las tazas. Cuando están solas le dice en voz baja: 'Abuela, papá solo se preocupa. Pero yo creo que usted está bien aquí.' La niña tiene los ojos de Rodrigo pero la voz suave.",
+          "text": "Paula jala a Tatiana a la cocina con el pretexto de lavar las tazas. El agua fría suena en el lavaplatos. Cuando están solas le dice en voz baja, con esa voz suave que no heredó de Rodrigo: 'Abuela, papá solo se preocupa. Pero yo creo que usted está bien aquí.' Las tazas de tinto manchadas quedan entre las dos sobre el mesón.",
           "options": [
             {
               "option_id": "c07-s04-o1",
@@ -4143,7 +4143,7 @@
           "hero_stage": "8_the_road_back",
           "type": "playable",
           "order": 5,
-          "text": "Tatiana los acompaña al paradero del bus del metro. Rodrigo tiene la maleta en el hombro. Paula camina al lado de Tatiana agarrándola del brazo. Antes de que llegue el bus, Rodrigo le pregunta: '¿Entonces mamá, qué me dice?'",
+          "text": "Tatiana los acompaña al paradero del metro de Aranjuez. Rodrigo lleva la maleta en el hombro y el celular en la mano libre. Paula camina al lado de Tatiana agarrándola del brazo con las dos manos, como cuando era niña. El paradero huele a diesel y a pan de la panadería de la esquina. Antes de que llegue el bus, Rodrigo se voltea: '¿Entonces mamá, qué me dice?'",
           "options": [
             {
               "option_id": "c07-s05-o1",
@@ -4221,12 +4221,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "El taller del martes huele a horno encendido desde la puerta. Tatiana llega puntual con su delantal plisado de cuadros. Doña Carmen ya está acomodada en el mejor puesto junto al mesón de trabajo, la bolsa de herramientas propia sobre la mesa.",
+          "text": "El taller del martes en la Casa Comunal huele a horno encendido y a harina desde la puerta. Tatiana llega puntual con su delantal plisado de cuadros azules y blancos. Doña Carmen ya está acomodada en el mejor puesto junto al mesón de trabajo, con su bolsa de herramientas propia sobre la mesa y el cuaderno de recetas abierto en la página correcta.",
           "options": [
             {
               "option_id": "c08-s01-o1",
               "option_text": "Saludar a todos y buscar buen lugar",
-              "consequence": "Tatiana saluda de mesa en mesa y encuentra un espacio junto a Yolanda. El horno zumba y el ambiente es cálido y ruidoso como siempre.",
+              "consequence": "Tatiana saluda de mesa en mesa y encuentra un espacio junto a Yolanda. El horno zumba y el ambiente es cálido y ruidoso como siempre. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c08-s02",
               "gds_mapping": [
@@ -4242,7 +4242,7 @@
             {
               "option_id": "c08-s01-o2",
               "option_text": "Saludar solo a Yolanda y sentarse",
-              "consequence": "Tatiana saluda a Yolanda con un beso y se sienta sin recorrer el salón. La sesión empieza pronto de todas formas.",
+              "consequence": "Tatiana saluda a Yolanda con un beso y se sienta sin recorrer el salón. La sesión empieza pronto de todas formas. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c08-s02",
               "gds_mapping": [
@@ -4313,7 +4313,7 @@
             {
               "option_id": "c08-s02-o2",
               "option_text": "Decir que hay varias maneras de hacerlo",
-              "consequence": "Tatiana sonríe y dice que cada familia tiene su forma. Valentina aprovecha para hablar de variaciones regionales y la tensión baja.",
+              "consequence": "Tatiana sonríe y dice que cada familia tiene su forma. Valentina aprovecha para hablar de variaciones regionales y la tensión baja. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c08-s03",
               "gds_mapping": [
@@ -4363,7 +4363,7 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 3,
-          "text": "Doña Esperanza, que ha estado callada al otro lado del mesón, prueba una almojábana que Tatiana terminó antes. Cierra los ojos un momento. 'Esta masa tiene sabor de casa. De verdad.' Lo dice sin alzar mucho la voz pero todas lo oyen.",
+          "text": "Doña Esperanza, que ha estado callada al otro lado del mesón de la Casa Comunal, toma una almojábana que Tatiana terminó antes y la parte por la mitad. Cierra los ojos un momento. El vapor le sube a la cara. 'Esta masa tiene sabor de casa. De verdad.' Lo dice sin alzar mucho la voz, pausada, pero en el salón se hace silencio.",
           "options": [
             {
               "option_id": "c08-s03-o1",
@@ -4384,7 +4384,7 @@
             {
               "option_id": "c08-s03-o2",
               "option_text": "Agradecer pero decir que fue suerte",
-              "consequence": "Tatiana dice que salieron bien por el quesillo fresco de esta mañana, no por su técnica. Doña Esperanza la mira un momento sin responder.",
+              "consequence": "Tatiana dice que salieron bien por el quesillo fresco de esta mañana, no por su técnica. Doña Esperanza la mira un momento sin responder. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c08-s04",
               "gds_mapping": [
@@ -4434,7 +4434,7 @@
           "hero_stage": "7_the_ordeal",
           "type": "playable",
           "order": 4,
-          "text": "Al finalizar la sesión, Doña Carmen se acerca a Tatiana mientras empaca el delantal. 'No era mi intención ofenderla, doña. Solo quería aportar.' Hay algo sincero en su cara, aunque también algo que todavía duele.",
+          "text": "Al finalizar la sesión en la Casa Comunal, Doña Carmen se acerca a Tatiana mientras empaca el delantal. Habla con la voz más baja que de costumbre, sin el tono cortante de siempre: 'No era mi intención ofenderla, doña. Solo quería aportar.' Tiene las manos cruzadas sobre el pecho y el cuaderno de recetas bajo el brazo. Hay algo sincero en su cara, aunque también algo que todavía duele.",
           "options": [
             {
               "option_id": "c08-s04-o1",
@@ -4512,7 +4512,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Yolanda y Tatiana llegan temprano al martes y se quedan en la cafetería de la esquina antes de entrar. El café llega en pocillo pequeño con un pedazo de mogolla. Yolanda tiene las manos en la taza pero no ha tomado.",
+          "text": "Yolanda y Tatiana llegan temprano al taller del martes y se quedan en la cafetería de la esquina de Aranjuez antes de entrar. El café llega en pocillo pequeño con un pedazo de mogolla que huele a aceite tibio. El ruido del barrio entra por la puerta abierta. Yolanda tiene las manos rodeando la taza pero no ha tomado un sorbo. Las vecinas empiezan a pedir que les enseñe. Tatiana no esperaba eso.",
           "options": [
             {
               "option_id": "c09-s01-o1",
@@ -4533,7 +4533,7 @@
             {
               "option_id": "c09-s01-o2",
               "option_text": "Hablar del taller para animarla",
-              "consequence": "Tatiana empieza a hablar de la sesión de hoy, del tipo de harina nueva que trajo Valentina. Yolanda escucha pero sigue callada.",
+              "consequence": "Tatiana empieza a hablar de la sesión de hoy, del tipo de harina nueva que trajo Valentina. Yolanda escucha pero sigue callada. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s02",
               "gds_mapping": [
@@ -4583,12 +4583,12 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Durante el receso Yolanda lleva a Tatiana al corredor. Con voz baja le cuenta: su hijo mayor lleva dos meses sin llamarla. Dejó de saber si está bien. 'Es que a veces pienso que les sobro, doña Tatiana.' Las manos de Yolanda se aprietan sobre el mandil.",
+          "text": "Durante el receso Yolanda lleva a Tatiana al corredor de la Casa Comunal, lejos del ruido del salón. El corredor huele a pintura vieja y a patio. Con voz baja le cuenta: su hijo mayor lleva dos meses sin llamarla, dejó de saber si está bien. 'Es que a veces pienso que les sobro, doña Tatiana.' Las manos de Yolanda se aprietan sobre el mandil hasta que los nudillos se ponen blancos.",
           "options": [
             {
               "option_id": "c09-s02-o1",
               "option_text": "Decirle que no les sobra, que ella vale mucho",
-              "consequence": "Tatiana la mira a los ojos y le dice que la conoce hace meses y que es de las personas más generosas del taller. Yolanda parpadea despacio.",
+              "consequence": "Tatiana la mira a los ojos y le dice que la conoce hace meses y que es de las personas más generosas del taller. Yolanda parpadea despacio. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s03",
               "gds_mapping": [
@@ -4604,7 +4604,7 @@
             {
               "option_id": "c09-s02-o2",
               "option_text": "Contarle que ella también lo siente a veces",
-              "consequence": "Tatiana dice con honestidad que ella también lo pensó cuando Rodrigo no llamaba. Yolanda la mira y algo entre las dos se reconoce.",
+              "consequence": "Tatiana dice con honestidad que ella también lo pensó cuando Rodrigo no llamaba. Yolanda la mira y algo entre las dos se reconoce. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s03",
               "gds_mapping": [
@@ -4655,7 +4655,7 @@
           "hero_stage": "5_crossing_the_threshold",
           "type": "playable",
           "order": 3,
-          "text": "Al final del taller Tatiana piensa en lo que le dijo Yolanda. Hay algo que podría hacer: invitarla a tomar el café de los jueves que Tatiana hace en su apartamento, o ayudarla a llamar al hijo esta semana.",
+          "text": "Al final del taller de la Casa Comunal, mientras recogen los tazones con olor a queso costeño, Tatiana piensa en lo que le dijo Yolanda. Hay algo concreto que podría hacer: invitarla al café de los jueves en su apartamento de Aranjuez, con pandeyuca y la tarde entera disponible. O acompañarla a llamar al hijo esta semana para que no tenga que hacer la llamada sola.",
           "options": [
             {
               "option_id": "c09-s03-o1",
@@ -4676,7 +4676,7 @@
             {
               "option_id": "c09-s03-o2",
               "option_text": "Ofrecerle acompañarla a hacer la llamada",
-              "consequence": "Tatiana dice que si quiere pueden ir a un paradero tranquilo y llamar al hijo juntas, para que no se sienta tan sola al hacerlo.",
+              "consequence": "Tatiana dice que si quiere pueden ir a un paradero tranquilo y llamar al hijo juntas, para que no se sienta tan sola al hacerlo. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s04",
               "gds_mapping": [
@@ -4726,7 +4726,7 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 4,
-          "text": "Tatiana toma el bus del metro de regreso. El vagón va medio vacío a las cuatro de la tarde. Piensa en lo de Yolanda. Piensa también en ella misma, en que saber escuchar es una cosa que aprendió de la vida.",
+          "text": "Tatiana toma el metro de regreso hacia Aranjuez. El vagón va medio vacío a las cuatro de la tarde y huele a cuero de los asientos tibios. Las lomas de Medellín pasan verdes por la ventana. Piensa en lo de Yolanda. Piensa también en ella misma, en que saber escuchar es una de esas cosas que la vida le enseñó sin pedirle permiso.",
           "options": [
             {
               "option_id": "c09-s04-o1",
@@ -4804,7 +4804,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Tatiana encuentra en el cajón del comedor un cuaderno de tapas moradas. Las letras son de su abuela Carmenza, que murió hace doce años. Hay una página con manchas amarillas de quesillo: 'Almojábanas del domingo, receta de siempre.' El olor del papel viejo es como un abrazo.",
+          "text": "Tatiana está en el comedor del apartamento de Aranjuez cuando encuentra en el cajón un cuaderno de tapas moradas con las esquinas gastadas. Las letras son de su abuela Carmenza, que murió hace doce años en Rionegro. Hay una página con manchas amarillas de quesillo derramado: 'Almojábanas del domingo, receta de siempre.' El papel viejo huele a polvo y a cocina de tierra.",
           "options": [
             {
               "option_id": "c10-s01-o1",
@@ -4875,7 +4875,7 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "La receta de la abuela pide quesillo de Barbosa, que no venden en el supermercado del barrio. En la plaza de Aranjuez puede haber, o puede preguntar a Valentina si sabe de dónde conseguirlo. El horno de la cocina ya empieza a tomar temperatura.",
+          "text": "La receta de la abuela pide quesillo de Barbosa, ese que es más firme y más salado que el de supermercado. En la plaza de Aranjuez puede haber, o puede preguntar a Valentina si sabe de dónde conseguirlo. El horno de la cocina ya zumba y empieza a tomar temperatura. El cuaderno de Carmenza está abierto sobre el mesón, manchado y espléndido.",
           "options": [
             {
               "option_id": "c10-s02-o1",
@@ -4896,7 +4896,7 @@
             {
               "option_id": "c10-s02-o2",
               "option_text": "Llamar a Valentina para preguntar",
-              "consequence": "Valentina le dice que hay un mercado campesino los sábados en Robledo. Le pasa la dirección por WhatsApp.",
+              "consequence": "Valentina le dice que hay un mercado campesino los sábados en Robledo. Le pasa la dirección por WhatsApp. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s03",
               "gds_mapping": [
@@ -4940,12 +4940,12 @@
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 3,
-          "text": "La cocina huele como la de la abuela Carmenza: quesillo derritiéndose, panela disolviéndose en la masa tibia. El primer lote sale del horno con color dorado. Tatiana muerde una y cierra los ojos. No es exactamente igual pero algo de aquel domingo regresa.",
+          "text": "La cocina del apartamento huele como la de la abuela Carmenza en Rionegro: quesillo derritiéndose lento, panela disolviéndose en la masa tibia, ese vapor dulce que se pega en la ropa. El primer lote sale del horno con color dorado parejo. Tatiana parte una almojábana con los dedos y cierra los ojos. No es exactamente igual, pero algo de aquel domingo de antes regresa en el vapor.",
           "options": [
             {
               "option_id": "c10-s03-o1",
               "option_text": "Anotar en el cuaderno lo que ajustó",
-              "consequence": "Tatiana saca el cuaderno de la abuela y agrega una nota al margen: 'menos panela, quesillo bien frío'. Es la primera vez que escribe en ese cuaderno.",
+              "consequence": "Tatiana saca el cuaderno de la abuela y agrega una nota al margen: 'menos panela, quesillo bien frío'. Es la primera vez que escribe en ese cuaderno. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s04",
               "gds_mapping": [
@@ -4961,7 +4961,7 @@
             {
               "option_id": "c10-s03-o2",
               "option_text": "Comer una almojábana y quedarse pensando",
-              "consequence": "Tatiana se queda de pie junto al horno, masticando despacio. Piensa en la abuela, en la cocina de tierra, en que el tiempo pasa rápido.",
+              "consequence": "Tatiana se queda de pie junto al horno, masticando despacio. Piensa en la abuela, en la cocina de tierra, en que el tiempo pasa rápido. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s04",
               "gds_mapping": [
@@ -5011,7 +5011,7 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 4,
-          "text": "Tatiana lleva al taller del jueves una bolsa con las almojábanas de la receta de la abuela. Le tiende una a Yolanda sin decir nada. Yolanda la prueba y le pregunta de dónde es esa receta. Tatiana tiene el cuaderno en el bolso.",
+          "text": "Tatiana llega al taller del jueves en la Casa Comunal con una bolsa de tela con las almojábanas de la receta de la abuela, todavía tibias. Le tiende una a Yolanda sin decir nada. Yolanda la prueba despacio, con cuidado, como si fuera frágil. 'Doña Tatiana, ¿de dónde es esta receta?' El cuaderno de Carmenza pesa en el bolso.",
           "options": [
             {
               "option_id": "c10-s04-o1",
@@ -5032,7 +5032,7 @@
             {
               "option_id": "c10-s04-o2",
               "option_text": "Decir que es receta de la familia sin más",
-              "consequence": "Tatiana dice que es de su abuela y guarda el cuaderno en el bolso. Yolanda come otra almojábana y asiente.",
+              "consequence": "Tatiana dice que es de su abuela y guarda el cuaderno en el bolso. Yolanda come otra almojábana y asiente. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s05",
               "gds_mapping": [
@@ -5089,7 +5089,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Paula llegó sola en el bus interurbano. Rodrigo la mandó a pasar una semana con la abuela. Tatiana la espera en el paradero con un paraguas aunque no llueve. Paula baja con una maleta rosada y le da un abrazo que huele a shampoo de fresa.",
+          "text": "Paula llegó sola en el bus interurbano desde Bogotá. Rodrigo la mandó a pasar una semana con la abuela. Tatiana la espera en el paradero del barrio Aranjuez con un paraguas aunque no llueve, y el corazón acelerado sin saber bien por qué. Paula baja por las escaleras del bus con una maleta rosada con ruedas y le da un abrazo que huele a champú de fresa y a viaje. El taller crece. Hay seis mujeres aprendiendo. El horno trabaja doble turno.",
           "options": [
             {
               "option_id": "c11-s01-o1",
@@ -5160,7 +5160,7 @@
           "hero_stage": "3_refusal_of_the_call",
           "type": "playable",
           "order": 2,
-          "text": "En el taller Paula está de pie junto a Tatiana frente al mesón enharinado. Valentina le explica la técnica básica. Doña Carmen la mira de reojo. Paula pone las manos en la masa con cara de concentración total, la lengua entre los dientes.",
+          "text": "En el taller de la Casa Comunal, Paula está de pie junto a Tatiana frente al mesón enharinado. La harina le blanquea los nudillos apenas los apoya. Valentina le explica la técnica básica con la paciencia directiva de siempre. Doña Carmen la mira de reojo desde su puesto. Paula hunde las manos en la masa con la lengua entre los dientes y cara de concentración total.",
           "options": [
             {
               "option_id": "c11-s02-o1",
@@ -5225,12 +5225,12 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 3,
-          "text": "Doña Esperanza llama a Paula y le muestra cómo dar la vuelta al pan antes de hornear. Luego le dice: 'Su abuela tiene buenas manos. ¿Le ha enseñado mucho?' Paula la mira y luego mira a Tatiana esperando que responda ella.",
+          "text": "Doña Esperanza llama a Paula con su voz pausada y le muestra cómo dar la vuelta al pan antes de meterlo al horno: un movimiento suave, sin apretar. Luego la mira a los ojos y le pregunta: 'Su abuela tiene buenas manos, ¿le ha enseñado mucho?' Paula sonríe y voltea a mirar a Tatiana, esperando que responda ella. El olor a masa cruda flota entre las tres.",
           "options": [
             {
               "option_id": "c11-s03-o1",
               "option_text": "Decir que todavía hay mucho por enseñarle",
-              "consequence": "Tatiana sonríe y dice que apenas empiezan. Paula le toma el brazo emocionada y pide que le enseñe la receta de la abuela Carmenza.",
+              "consequence": "Tatiana sonríe y dice que apenas empiezan. Paula le toma el brazo emocionada y pide que le enseñe la receta de la abuela Carmenza. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c11-s04",
               "gds_mapping": [
@@ -5296,7 +5296,7 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 4,
-          "text": "El horno suena. Las primeras almojábanas de Paula salen torcidas pero bien cocidas. Paula las lleva en un plato de cartón y dice que quiere mandárselas a su papá en una foto. Le pide a Tatiana que salga con ella en la foto.",
+          "text": "El horno de la Casa Comunal suena y Paula corre a ver. Las primeras almojábanas de Paula salen torcidas pero doradas y bien cocidas, con esa corteza ligera. Paula las lleva en un plato de cartón con cuidado, como si fueran frágiles, y dice que quiere mandárselas a su papá en una foto. Le jala el brazo a Tatiana: que salga con ella.",
           "options": [
             {
               "option_id": "c11-s04-o1",
@@ -5374,7 +5374,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Valentina llega al taller del martes con una hoja en la mano. La Casa Comunal de Aranjuez fue invitada al festival del barrio Manrique. Hay una muestra de panadería artesanal. 'Necesito voluntarias para representar al taller', dice, y mira a todas.",
+          "text": "Valentina llega al taller del martes de la Casa Comunal de Aranjuez con una hoja impresa en la mano y cara de tener algo importante. La Casa Comunal fue invitada al festival del barrio Manrique: hay una muestra de panadería artesanal con puestos en el parque. El salón huele a horno recién apagado. 'Necesito voluntarias para representar al taller', dice Valentina, y mira a todas despacio.",
           "options": [
             {
               "option_id": "c12-s01-o1",
@@ -5445,7 +5445,7 @@
           "hero_stage": "5_crossing_the_threshold",
           "type": "playable",
           "order": 2,
-          "text": "El viernes por la noche Tatiana tiene la cocina enharinada. Mañana es el festival. Hizo dos lotes de prueba: el primero quedó duro, el segundo quedó perfecto. Quedan dos horas antes de dormirse.",
+          "text": "El viernes por la noche la cocina del apartamento de Aranjuez tiene harina en el mesón y en el suelo. Mañana es el festival de Manrique. Tatiana hizo dos lotes de prueba: el primero quedó duro, el segundo quedó perfecto y todavía huele a queso y a maíz tostado. Quedan dos horas antes de dormirse y las manos le duelen un poco de amasar.",
           "options": [
             {
               "option_id": "c12-s02-o1",
@@ -5482,7 +5482,7 @@
             {
               "option_id": "c12-s02-o3",
               "option_text": "Quedarse despierta preocupada por el concurso",
-              "consequence": "Tatiana se acuesta pero no duerme. Da vueltas pensando en que va a quedar mal, en que Carmen la va a criticar, en que nadie va a probar sus almojábanas.",
+              "consequence": "Tatiana se acuesta pero no duerme. Da vueltas pensando en que va a quedar mal, en que Carmen la va a criticar, en que nadie va a probar sus almojábanas. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c12-s03",
               "gds_mapping": [
@@ -5510,7 +5510,7 @@
           "hero_stage": "7_the_ordeal",
           "type": "playable",
           "order": 3,
-          "text": "El festival es en el parque de Manrique, con carpa verde y olor a fritanga desde la entrada. El puesto de la Casa Comunal está entre el de las conservas del barrio Popular y el de los panes de La Floresta. La gente pasa y mira. Tatiana tiene las almojábanas en la bandeja.",
+          "text": "El festival es en el parque de Manrique, con carpa verde y olor a fritanga y aguapanela desde la entrada. El puesto de la Casa Comunal de Aranjuez está entre el de las conservas del barrio Popular y el de los panes de La Floresta. El ruido de la gente llena el parque. Tatiana tiene las almojábanas en la bandeja con una servilleta doblada debajo y las manos en el mandil.",
           "options": [
             {
               "option_id": "c12-s03-o1",
@@ -5581,7 +5581,7 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 4,
-          "text": "Al final del festival el puesto de la Casa Comunal queda con la bandeja vacía. No hay premio formal, pero una señora mayor de Manrique se acerca a Tatiana y le pide la receta. Valentina le toma una foto al puesto limpio y la pone en el grupo de WhatsApp del taller.",
+          "text": "Al final del festival de Manrique el puesto de la Casa Comunal queda con la bandeja vacía y manchas de queso en el mantel. No hay premio formal, pero una señora mayor del barrio Manrique se acerca a Tatiana y le pide la receta. Valentina le toma una foto al puesto recogido con el celular y la sube al grupo de WhatsApp del taller. El parque huele todavía a fritanga y a tarde de sábado.",
           "options": [
             {
               "option_id": "c12-s04-o1",
@@ -5659,12 +5659,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Al terminar el taller del martes siguiente, Valentina le pide a Tatiana que se quede un momento. La sala huele a horno apagado y a quesillo. Las demás van saliendo de a poco. Valentina tiene cara de algo importante.",
+          "text": "Al terminar el taller del martes en la Casa Comunal de Aranjuez, Valentina le pide a Tatiana que se quede un momento. La sala huele a horno apagado y a quesillo frío. Las sillas raspan el piso mientras las demás van saliendo de a poco. Valentina tiene cara de algo importante y cierra el cuaderno antes de hablar.",
           "options": [
             {
               "option_id": "c13-s01-o1",
               "option_text": "Quedarse con curiosidad y atención",
-              "consequence": "Tatiana se queda en su silla con las manos sobre la mesa. Siente algo parecido a los nervios de primer día en el taller, pero diferente.",
+              "consequence": "Tatiana se queda en su silla con las manos sobre la mesa. Siente algo parecido a los nervios de primer día en el taller, pero diferente. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c13-s02",
               "gds_mapping": [
@@ -5730,12 +5730,12 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Valentina le explica: el taller va a abrir un segundo grupo los jueves por la tarde, para personas nuevas del barrio. Necesita una instructora auxiliar. 'Usted tiene algo que yo no tengo, doña Tatiana: sabe lo que es aprender esto de grande. Las nuevas van a confiar más en usted que en mí.'",
+          "text": "Valentina le explica con esa voz directiva que no deja espacio a malentendidos: el taller va a abrir un segundo grupo los jueves por la tarde, para personas nuevas del barrio. Necesita una instructora auxiliar. 'Usted tiene algo que yo no tengo, doña Tatiana: sabe lo que es aprender esto de grande. Las nuevas van a confiar más en usted que en mí.' El salón vacío hace que la voz de Valentina resuene.",
           "options": [
             {
               "option_id": "c13-s02-o1",
               "option_text": "Aceptar con emoción y gratitud",
-              "consequence": "Tatiana se lleva la mano al pecho. Dice que sí, que lo va a hacer bien, que ya sabe lo que necesitan las nuevas porque ella fue una de ellas.",
+              "consequence": "Tatiana se lleva la mano al pecho. Dice que sí, que lo va a hacer bien, que ya sabe lo que necesitan las nuevas porque ella fue una de ellas. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c13-s03",
               "gds_mapping": [
@@ -5758,7 +5758,7 @@
             {
               "option_id": "c13-s02-o2",
               "option_text": "Pedir tiempo para pensarlo",
-              "consequence": "Tatiana dice que lo piensa esta semana. Valentina asiente y le da su nàºmero. Tatiana sale con la propuesta en la cabeza.",
+              "consequence": "Tatiana dice que lo piensa esta semana. Valentina asiente y le da su número. Tatiana sale con la propuesta en la cabeza y el olor a horno apagado pegado en el delantal.",
               "next_chapter_id": null,
               "next_scene_id": "c13-s03",
               "gds_mapping": [
@@ -5774,7 +5774,7 @@
             {
               "option_id": "c13-s02-o3",
               "option_text": "Decir que no está capacitada para eso",
-              "consequence": "Tatiana dice que ella no sabe lo suficiente, que se va a equivocar, que hay personas más preparadas. Valentina escucha sin interrumpirla.",
+              "consequence": "Tatiana dice que ella no sabe lo suficiente, que se va a equivocar, que hay personas más preparadas. Valentina escucha sin interrumpirla. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c13-s03",
               "gds_mapping": [
@@ -5808,7 +5808,7 @@
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 3,
-          "text": "Tatiana llama a Yolanda esa noche y le cuenta lo de la propuesta. Yolanda escucha en silencio y luego dice: 'Tatiana, eso era para usted. Yo lo vi desde el primer día.' Hay algo que tiembla un poco en la voz de Tatiana al responder.",
+          "text": "Tatiana llama a Yolanda esa noche desde el sillón del apartamento. Fuera el barrio de Aranjuez ya está callado. Yolanda escucha en silencio mientras Tatiana le cuenta la propuesta de Valentina. Luego dice con su voz rápida y cálida: 'Tatiana, eso era para usted. Yo lo vi desde el primer día.' Hay algo que tiembla un poco en la voz de Tatiana cuando intenta responder.",
           "options": [
             {
               "option_id": "c13-s03-o1",
@@ -5845,7 +5845,7 @@
             {
               "option_id": "c13-s03-o3",
               "option_text": "Decirle que seguro Valentina se equivocó con ella",
-              "consequence": "Tatiana dice que Valentina no la conoce bien, que en el fondo sigue siendo una principiante. Yolanda queda callada un momento antes de hablar.",
+              "consequence": "Tatiana dice que Valentina no la conoce bien, que en el fondo sigue siendo una principiante. Yolanda queda callada un momento antes de hablar. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c13-s04",
               "gds_mapping": [
@@ -5879,7 +5879,7 @@
           "hero_stage": "8_the_road_back",
           "type": "playable",
           "order": 4,
-          "text": "Al día siguiente Tatiana tiene el teléfono de Valentina en la pantalla. Es miércoles. El taller nuevo empieza en tres semanas. Tatiana tiene que responder hoy o mañana.",
+          "text": "Al día siguiente Tatiana está sentada en la cocina del apartamento de Aranjuez con el número de Valentina en la pantalla del celular. El café se enfría en la taza. Es miércoles. El taller nuevo empieza en tres semanas y Valentina dijo hoy o mañana para la respuesta. El celular pesa más de lo que debería.",
           "options": [
             {
               "option_id": "c13-s04-o1",
@@ -5957,7 +5957,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Domingo a las ocho de la mañana. Por la ventana del apartamento entran el sol de Medellín y el ruido del barrio Aranjuez despertando. Tatiana tiene el delantal puesto desde las siete. El cuaderno de la abuela Carmenza está abierto sobre el mesón.",
+          "text": "Domingo a las ocho de la mañana en el apartamento de Aranjuez. Por la ventana entran el sol limpio de Medellín y el ruido del barrio despertando: perros, radios, alguien en el andén barriendo. Tatiana tiene el delantal puesto desde las siete y las manos ya enharinadas. El cuaderno de la abuela Carmenza está abierto sobre el mesón, manchado y esperando.",
           "options": [
             {
               "option_id": "c14-s01-o1",
@@ -5978,7 +5978,7 @@
             {
               "option_id": "c14-s01-o2",
               "option_text": "Preparar la masa con calma y concentración",
-              "consequence": "Tatiana trabaja despacio, sin prisa. Mide el quesillo a palma como aprendió, comprueba la temperatura del horno con la mano.",
+              "consequence": "Tatiana trabaja despacio, sin prisa. Mide el quesillo a palma como aprendió, comprueba la temperatura del horno con la mano. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c14-s02",
               "gds_mapping": [
@@ -6028,7 +6028,7 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 2,
-          "text": "A las diez y media timbre. Yolanda llega primera con una bolsa de pandeyuca de la panadería del barrio. Detrás sube Doña Esperanza con un termo de café. Las dos entran al apartamento con el olor a almojábana recién horneada.",
+          "text": "A las diez y media suena el timbre del apartamento. Yolanda llega primera con una bolsa de pandeyuca de la panadería de Aranjuez, todavía tibio. Detrás sube Doña Esperanza con un termo de café negro que huele a canela. Las dos entran sin que Tatiana tenga que decir nada: el olor a almojábana recién horneada las lleva directo a la cocina.",
           "options": [
             {
               "option_id": "c14-s02-o1",
@@ -6065,7 +6065,7 @@
             {
               "option_id": "c14-s02-o3",
               "option_text": "Recibirlas bien pero sentir que interrumpen",
-              "consequence": "Tatiana abre con una sonrisa pero por dentro siente que el momento que tenía sola en la cocina se rompió. Las hace pasar a la sala mientras termina.",
+              "consequence": "Tatiana abre con una sonrisa pero por dentro siente que el momento que tenía sola en la cocina se rompió. Las hace pasar a la sala mientras termina. El toque cálido de la masa se queda en sus manos. El zumbido constante del horno sella una decisión que ya no tiene marcha atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c14-s03",
               "gds_mapping": [
@@ -6099,7 +6099,7 @@
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 3,
-          "text": "La mesa del comedor tiene almojábanas recién salidas del horno, el pandeyuca de Yolanda y el café de Doña Esperanza. Hay sol por la ventana del comedor. Las tres están sentadas. Tatiana tiene el cuaderno de la abuela Carmenza sobre la silla de al lado.",
+          "text": "La mesa del comedor del apartamento tiene almojábanas recién salidas del horno, el pandeyuca de Yolanda y el café negro de Doña Esperanza humeando en tres tazas. El sol entra por la ventana del comedor y cae sobre el mantel limpio. Las tres están sentadas. Tatiana tiene el cuaderno manchado de la abuela Carmenza sobre la silla vacía de al lado, como si fuera una invitada más.",
           "options": [
             {
               "option_id": "c14-s03-o1",
@@ -6170,7 +6170,7 @@
           "hero_stage": "8_the_road_back",
           "type": "playable",
           "order": 4,
-          "text": "Doña Esperanza pregunta por el nuevo taller del jueves. Tatiana les cuenta que Valentina la invitó a ser instructora auxiliar. Las dos la miran. Yolanda ya lo sabía pero Doña Esperanza no. Hay algo distinto en el modo en que Doña Esperanza la mira ahora.",
+          "text": "Doña Esperanza, con la taza en la mano, pregunta por el nuevo taller del jueves. Tatiana les cuenta que Valentina la invitó a ser instructora auxiliar del segundo grupo. Las dos la miran. Yolanda ya lo sabía pero Doña Esperanza no: la mira con una atención diferente, como si acabara de ver algo que ya estaba ahí desde el principio.",
           "options": [
             {
               "option_id": "c14-s04-o1",
@@ -6237,11 +6237,11 @@
         },
         {
           "scene_id": "c14-s05",
-          "title": "El àºltimo pan del domingo",
+          "title": "El último pan del domingo",
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 5,
-          "text": "El tercer lote sale del horno al mediodía. Las almojábanas quedan perfectas: color parejo, corteza fina, el olor que llenó toda la cocina. Doña Esperanza toma la àºltima del plato y dice en voz baja: 'Estas sí son las de antes.' Afuera el sol de Medellín sigue igual de limpio.",
+          "text": "El tercer lote sale del horno al mediodía. Las almojábanas quedan perfectas: color parejo, corteza fina, el olor que llenó toda la cocina. Doña Esperanza toma la última del plato y dice en voz baja: 'Estas sí son las de antes.' Afuera el sol de Medellín sigue igual de limpio.",
           "options": [
             {
               "option_id": "c14-s05-o1",
@@ -6274,8 +6274,8 @@
             },
             {
               "option_id": "c14-s05-o2",
-              "option_text": "Sonreír y servirse la àºltima que quedó",
-              "consequence": "Tatiana toma la almojábana que sobra y la muerde despacio. No dice nada más. Las tres miran el plato vacío y se ríen.",
+              "option_text": "Servirse la última almojábana en silencio",
+              "consequence": "Tatiana toma la almojábana que sobra y la muerde despacio. No dice nada más. Las tres miran el plato vacío y se ríen, y el café de Doña Esperanza humea todavía entre las tazas.",
               "next_chapter_id": null,
               "next_scene_id": "c14-s06",
               "gds_mapping": [

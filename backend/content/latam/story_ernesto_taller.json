@@ -2,21 +2,21 @@
   "chapters": [
     {
       "chapter_id": "c01",
-      "title": "La madera y el silencio",
+      "title": "El andén que para los pies",
       "order": 1,
       "scenes": [
         {
           "scene_id": "c01-s01",
-          "title": "La Calle 5 un jueves",
+          "title": "El andén huele a aserrín",
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Ernesto lleva veinte minutos caminando sin rumbo por la Calle 5 del barrio Granada. Desde que murió Carmen, las mañanas se le hacen largas. Pasa frente a un local que antes era una ferretería. La puerta está abierta. Dentro suena algo parecido a una lijadora. Un cartel escrito a mano dice: 'Taller de reparación comunitaria. Jueves y viernes, 10 a 13 h. Entrada libre.'",
+          "text": "Ernesto baja por el andén de la Calle 5 con las manos en los bolsillos. Son las diez de la mañana y el sol de Granada ya pica. Frente a un local que antes fue ferretería, la puerta está abierta. Desde adentro llega una lijadora: ese chirrido suave y parejo que viene de lejos. Un cartel escrito a mano en cartulina dice: 'Taller comunitario. Jueves y viernes, 10 a 13 h. Entrada libre.' El aserrín le llega hasta el andén, húmedo y dulce. Ernesto para los pies sin que nadie se lo pida. Ese olor lo conoce de antes, pero no recuerda de dónde.",
           "options": [
             {
               "option_id": "c01-s01-o1",
-              "option_text": "Pararse a mirar por la puerta",
-              "consequence": "Ernesto se detiene en el umbral. Ve bancos de trabajo, herramientas colgadas en la pared, dos hombres lijando algo. Uno lo mira y asiente.",
+              "option_text": "Asomarse al umbral sin cruzar",
+              "consequence": "Ernesto apoya una mano en el marco de la puerta. Adentro hay bancos de trabajo y herramientas colgadas en tablero de corcho. Uno de los hombres levanta la barbilla hacia él sin parar de lijar.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s02",
               "gds_mapping": [
@@ -38,8 +38,8 @@
             },
             {
               "option_id": "c01-s01-o2",
-              "option_text": "Leer el cartel y seguir caminando",
-              "consequence": "Ernesto lee el cartel dos veces. Sigue andando. A los veinte metros se da la vuelta sin saber por qué y mira el local desde lejos.",
+              "option_text": "Leer el cartel y continuar andando",
+              "consequence": "Ernesto lee el cartel dos veces. Sigue por el andén. A veinte metros para y mira el local desde lejos, sin saber bien para qué.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s02",
               "gds_mapping": [
@@ -54,8 +54,8 @@
             },
             {
               "option_id": "c01-s01-o3",
-              "option_text": "Cruzar al otro andén sin mirar",
-              "consequence": "Ernesto cruza la calle. El sonido de la lijadora se apaga con la distancia. La Calle 5 sigue igual en todas direcciones.",
+              "option_text": "Cruzar al andén del frente",
+              "consequence": "Ernesto cruza sin mirar atrás. El chirrido de la lijadora se ahoga con el ruido del tráfico. La Calle 5 sigue igual en todas direcciones, ancha y sin ningún destino en particular.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s02",
               "gds_mapping": [
@@ -85,16 +85,16 @@
         },
         {
           "scene_id": "c01-s02",
-          "title": "El serrín en el aire",
+          "title": "El olor de El Peñón",
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "El viento trae olor a serrín desde el local. Ernesto se para en seco. Su padre tenía un pequeño taller en el barrio de El Peñón, madera y barniz, manos siempre manchadas. Hacía treinta años que no olía eso. La lijadora vuelve a sonar. El olor es exactamente el mismo.",
+          "text": "Una brisa corta le trae el olor del local: aserrín y barniz viejo. Ernesto para en seco sobre el andén. Su padre tuvo un taller en El Peñón. Madera y grasa. Las manos siempre con manchas oscuras en los nudillos. Ernesto tenía diez años y aprendió a lijar mirando. Treinta años sin ese olor. La lijadora vuelve a sonar desde adentro, continua y paciente. El olor es exactamente el que recuerda. No lo esperaba.",
           "options": [
             {
               "option_id": "c01-s02-o1",
-              "option_text": "Respirar hondo y quedarse un momento",
-              "consequence": "Ernesto cierra los ojos un segundo. Ve las manos de su padre sobre un tablón. Cuando los abre, el local sigue ahí, con la puerta abierta.",
+              "option_text": "Quedarse quieto y respirar despacio",
+              "consequence": "Ernesto cierra los ojos un segundo. Le llegan las manos de su padre sobre un tablón, oscuras en los nudillos. El local sigue ahí cuando los abre.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s03",
               "gds_mapping": [
@@ -116,8 +116,8 @@
             },
             {
               "option_id": "c01-s02-o2",
-              "option_text": "Caminar sin detenerse aunque le guste",
-              "consequence": "Ernesto sigue andando. El olor se va diluyendo. Nota que aprieta más de lo normal las manos en los bolsillos.",
+              "option_text": "Forzar el paso y no parar",
+              "consequence": "Ernesto apura el paso. El olor se diluye cuadra a cuadra. Lleva las manos apretadas en los bolsillos, los nudillos rozando la tela.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s03",
               "gds_mapping": [
@@ -132,8 +132,8 @@
             },
             {
               "option_id": "c01-s02-o3",
-              "option_text": "Sentir que eso ya pasó y seguir",
-              "consequence": "Ernesto se dice que esas cosas son del pasado. El andén brilla con el sol de la mañana. Sigue andando hacia ningàºn sitio.",
+              "option_text": "Decirse que eso ya no es suyo",
+              "consequence": "Ernesto se dice que esas cosas ya no son de él. El andén brilla bajo el sol de las diez. Sigue por la Calle 5 sin ningún destino.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s03",
               "gds_mapping": [
@@ -163,16 +163,16 @@
         },
         {
           "scene_id": "c01-s03",
-          "title": "Don Manuel en la puerta",
+          "title": "El hombre del delantal azul",
           "hero_stage": "3_refusal_of_the_call",
           "type": "playable",
           "order": 3,
-          "text": "El encargado del taller, Don Manuel, sale a tomar el fresco y lo ve parado. 'Don, ¿usted es plomero o carpintero? Tiene cara de saber lo que es una llave inglesa.' Ernesto no esperaba que nadie le hablara. Don Manuel tiene un delantal azul y las manos como mapas.",
+          "text": "Don Manuel sale por la puerta del local con un trapo en el hombro a tomar el fresco del andén. Ve a Ernesto parado y lo mira sin apuro. Le dice: 'Don, ¿usted es plomero o carpintero? Tiene cara de saber lo que es una llave inglesa.' Lleva un delantal azul desgastado. Las manos llenas de cicatrices de oficio. Ernesto no esperaba que nadie le hablara esta mañana.",
           "options": [
             {
               "option_id": "c01-s03-o1",
-              "option_text": "Contarle que era plomero jubilado",
-              "consequence": "Don Manuel abre mucho los ojos: 'Entonces entra. Aquí necesitamos gente que sepa de tuberías.' Le sostiene la puerta. A Ernesto le cuesta decir que no.",
+              "option_text": "Contarle que es plomero jubilado",
+              "consequence": "Don Manuel abre los ojos. 'Entonces entre, que aquí necesitamos gente que sepa de tuberías.' Le sostiene la puerta con el pie. A Ernesto le cuesta decir que no cuando alguien lo mira así.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s04",
               "gds_mapping": [
@@ -194,8 +194,8 @@
             },
             {
               "option_id": "c01-s03-o2",
-              "option_text": "Decir que solo pasaba por aquí",
-              "consequence": "Don Manuel asiente sin creérselo del todo. 'Si quiere entrar, la puerta está abierta.' No insiste. Ernesto se queda parado un momento.",
+              "option_text": "Decir que solo pasaba por ahí",
+              "consequence": "Don Manuel asiente sin creérselo del todo. 'Si quiere entrar, la puerta está abierta.' No insiste. Ernesto queda en el andén con la respuesta todavía en la garganta.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s04",
               "gds_mapping": [
@@ -210,8 +210,8 @@
             },
             {
               "option_id": "c01-s03-o3",
-              "option_text": "Decirle que está bien pero que no",
-              "consequence": "Ernesto sacude la cabeza. 'Eso ya no es lo mío.' Don Manuel encoge los hombros con amabilidad. Ernesto reanuda la marcha. La lijadora sigue sonando.",
+              "option_text": "Negar con la cabeza y alejarse",
+              "consequence": "Ernesto sacude la cabeza. 'Eso ya no es lo mío.' Don Manuel encoge los hombros. Ernesto reanuda la marcha por el andén mientras la lijadora sigue sonando adentro.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s04",
               "gds_mapping": [
@@ -241,16 +241,16 @@
         },
         {
           "scene_id": "c01-s04",
-          "title": "Las herramientas de la pared",
+          "title": "Las herramientas del tablero",
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 4,
-          "text": "Ernesto entra. Las herramientas cuelgan ordenadas en un tablero de corcho: destornilladores, llaves, brocas por tamaños. Hay unas marcas que reconoce y otras que no. Un hombre mayor lija en silencio al fondo. El olor a madera y grasa llena el local.",
+          "text": "Ernesto entra al taller. Las herramientas cuelgan en un tablero de corcho: destornilladores, llaves de tubo, brocas de menor a mayor. El metal frío brilla bajo el bombillo. Hay herramientas que reconoce y otras que nunca ha visto. Al fondo, un hombre mayor lija con la espalda inclinada sobre el banco. El local huele a grasa vieja y madera húmeda. A Ernesto le pican los dedos frente a ese tablero.",
           "options": [
             {
               "option_id": "c01-s04-o1",
-              "option_text": "Acercarse al tablero a examinar las herramientas",
-              "consequence": "Ernesto pasa los dedos por el mango de una llave de tubo. La nota fría y conocida. Don Manuel lo observa desde lejos y asiente.",
+              "option_text": "Pasar los dedos por las herramientas",
+              "consequence": "Ernesto pasa los dedos por el mango de una llave de tubo. Fría, pesada, conocida en la palma. Don Manuel lo observa desde el otro lado y asiente una vez.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s05",
               "gds_mapping": [
@@ -272,8 +272,8 @@
             },
             {
               "option_id": "c01-s04-o2",
-              "option_text": "Quedarse cerca de la puerta mirando",
-              "consequence": "Ernesto observa desde la entrada. No toca nada. El hombre del fondo levanta la vista un momento y vuelve a lijar.",
+              "option_text": "Quedarse en la entrada observando",
+              "consequence": "Ernesto no se mueve de la puerta. Cruza los brazos y mira el taller desde lejos. El hombre del fondo levanta la vista un momento y vuelve a lijar sin decir nada.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s05",
               "gds_mapping": [
@@ -288,8 +288,8 @@
             },
             {
               "option_id": "c01-s04-o3",
-              "option_text": "Preguntarle a Don Manuel si puede irse ya",
-              "consequence": "Ernesto dice que quizá vuelva otro día. Don Manuel lo mira sin reproche. Ernesto sale. La Calle 5 lo recibe igual que antes.",
+              "option_text": "Decirle a Don Manuel que vuelve otro dia",
+              "consequence": "Ernesto le dice a Don Manuel que quizás vuelve otro día. Don Manuel lo mira sin reproche. Ernesto sale al andén. La Calle 5 está igual que cuando entró, y eso no lo sorprende.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s05",
               "gds_mapping": [
@@ -319,16 +319,16 @@
         },
         {
           "scene_id": "c01-s05",
-          "title": "La silla rota",
+          "title": "La pata torcida",
           "hero_stage": "5_crossing_threshold",
           "type": "playable",
           "order": 5,
-          "text": "Don Manuel señala una silla de madera apoyada contra la pared. Una pata está torcida y la unión de la espalda se ha soltado. 'Nadie le ha hecho caso. No sé si se puede arreglar.' Ernesto la mira. Coge la pata con dos dedos y nota el movimiento. Sí se puede.",
+          "text": "Don Manuel señala una silla de madera apoyada contra la pared del fondo. Una pata delantera está torcida y la unión de la espalda se ha soltado. Tiene polvo encima, de esas sillas que la gente mira pero no toca. 'Nadie le ha hecho caso. No sé si se puede arreglar.' Ernesto se agacha, agarra la pata con dos dedos y la mueve despacio. Siente el juego en la unión, el chasquido suave de la madera floja. Sí se puede. Lo sabe por eso.",
           "options": [
             {
               "option_id": "c01-s05-o1",
-              "option_text": "Decir que sí se puede y ponerse a ello",
-              "consequence": "Ernesto da vuelta a la silla. Examina las uniones. 'Necesito cola de carpintero y una prensa.' Don Manuel sonríe y va a buscarla.",
+              "option_text": "Decir que si se puede y ponerse a ello",
+              "consequence": "Ernesto voltea la silla y examina las uniones una por una. 'Necesito cola de carpintero y una prensa.' Don Manuel sonríe y va a buscarlas sin hacer preguntas.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s06",
               "gds_mapping": [
@@ -350,8 +350,8 @@
             },
             {
               "option_id": "c01-s05-o2",
-              "option_text": "Examinarla sin comprometerse",
-              "consequence": "Ernesto la estudia en silencio. 'Habría que ver.' No dice que sí ni que no. Don Manuel le trae las herramientas de todas formas.",
+              "option_text": "Examinarla bien antes de comprometerse",
+              "consequence": "Ernesto la estudia en silencio, dedo por unión. 'Habría que ver.' No dice que sí ni que no. Don Manuel le trae la cola y la prensa de todas formas.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s06",
               "gds_mapping": [
@@ -366,8 +366,8 @@
             },
             {
               "option_id": "c01-s05-o3",
-              "option_text": "Decir que eso está muy mal y no merece la pena",
-              "consequence": "Ernesto apoya la silla de vuelta. 'Eso es pa' tirar.' Don Manuel calla. El hombre del fondo levanta la vista un momento y vuelve a lijar.",
+              "option_text": "Decir que esa silla es para tirar",
+              "consequence": "Ernesto apoya la silla contra la pared. 'Eso es pa' tirar.' Don Manuel no dice nada. El hombre del fondo levanta la vista un momento y la baja de vuelta a su trabajo.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s06",
               "gds_mapping": [
@@ -397,16 +397,16 @@
         },
         {
           "scene_id": "c01-s06",
-          "title": "El primer nudo",
+          "title": "Cola y prensa, dos minutos",
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 6,
-          "text": "Ernesto tiene la silla boca abajo y la pata desmontada. Don Manuel le ha dejado cola de carpintero, prensa y un trapo. El silencio del taller solo lo rompe la lijadora del fondo. Ernesto aplica la cola en la unión. Tiene que mantenerla firme dos minutos.",
+          "text": "Ernesto trabaja en el banco del taller con la silla boca abajo, la pata desmontada al lado. Don Manuel le dejó cola de carpintero, una prensa de madera y un trapo viejo. El olor a cola fresca es acre, distinto al aserrín. Ernesto lo aplica en la ranura con cuidado, sin apurar. El taller solo hace el ruido suave de la lijadora del fondo. La unión tiene que mantenerse firme dos minutos. Ernesto mira sus manos y se pregunta si todavía saben.",
           "options": [
             {
               "option_id": "c01-s06-o1",
-              "option_text": "Sujetarla con las manos mientras seca",
-              "consequence": "Ernesto presiona la unión con los pulgares. La cola tiene olor a su taller de siempre. Dos minutos de silencio y manos ocupadas.",
+              "option_text": "Sujetar la union con los pulgares",
+              "consequence": "Ernesto presiona la unión con los pulgares. La cola es fría y pegajosa en la yema. Los dos minutos pasan en silencio, las manos ocupadas, el taller quieto.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s07",
               "gds_mapping": [
@@ -428,8 +428,8 @@
             },
             {
               "option_id": "c01-s06-o2",
-              "option_text": "Usar la prensa y esperarla de pie",
-              "consequence": "La prensa hace el trabajo. Ernesto mira el reloj. El hombre del fondo se acerca: 'Buen ojo con la pata, estaba torcida y no en la unión.'",
+              "option_text": "Poner la prensa y esperar de pie",
+              "consequence": "Ernesto ajusta la prensa y la deja trabajar. Mira el reloj en la pared. El hombre del fondo se acerca y le dice en voz baja: 'Buen ojo con la pata. Estaba torcida en el hueso, no en la unión.'",
               "next_chapter_id": null,
               "next_scene_id": "c01-s07",
               "gds_mapping": [
@@ -444,8 +444,8 @@
             },
             {
               "option_id": "c01-s06-o3",
-              "option_text": "Aplicar la cola sin seguir las instrucciones",
-              "consequence": "Ernesto aplica más cola de la necesaria. La prensa no cierra bien. Don Manuel lo ve pero no dice nada todavía.",
+              "option_text": "Echarle mas cola de la que se necesita",
+              "consequence": "Ernesto aplica cola de más. La prensa no cierra limpio, le escapa un hilo blanco por el lado. Don Manuel lo ve desde el otro banco y no dice nada todavía.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s07",
               "gds_mapping": [
@@ -469,16 +469,16 @@
         },
         {
           "scene_id": "c01-s07",
-          "title": "El tornillo que no entra",
+          "title": "La madera vieja dice no",
           "hero_stage": "7_approach_inner_cave",
           "type": "playable",
           "order": 7,
-          "text": "Queda reforzar la espalda de la silla con un tornillo corto. Ernesto lo intenta dos veces. La madera vieja rechaza el tornillo: el agujero está gastado. Don Manuel propone usar uno más grueso. Ernesto mira sus manos. Hace ocho meses que no hacía esto.",
+          "text": "Ernesto trabaja la espalda de la silla en el banco. El tornillo tiene que reforzar la unión por arriba. Lo intenta dos veces. La madera vieja no lo recibe: el agujero está gastado y el tornillo gira en falso. Hace un sonido seco y hueco. Don Manuel se acerca y propone usar uno más grueso. Ernesto lo mira. Hace ocho meses que no tenía una herramienta en la mano y las manos no siempre recuerdan lo que la cabeza ya olvidó.",
           "options": [
             {
               "option_id": "c01-s07-o1",
-              "option_text": "Pedirle a Don Manuel el tornillo más grueso",
-              "consequence": "'Tráigalo.' Don Manuel lo busca en la caja. Ernesto lo prueba: entra firme. La silla ya no tiembla cuando la agita.",
+              "option_text": "Pedirle el tornillo mas grueso a Don Manuel",
+              "consequence": "Ernesto dice: 'Tráigalo.' Don Manuel lo busca en la caja de repuestos. Ernesto lo prueba: entra firme, con resistencia. Agita la silla y la espalda no se mueve.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s08",
               "gds_mapping": [
@@ -500,8 +500,8 @@
             },
             {
               "option_id": "c01-s07-o2",
-              "option_text": "Intentar otro ángulo sin pedir ayuda",
-              "consequence": "Ernesto prueba en diagonal. Entra a medias. No es perfecto, pero aguanta. Nadie le dice nada.",
+              "option_text": "Probar en diagonal sin pedir nada",
+              "consequence": "Ernesto inclina el destornillador y prueba en ángulo. El tornillo entra a medias, torcido. No es perfecto pero aguanta. Nadie dice nada desde el otro banco.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s08",
               "gds_mapping": [
@@ -516,8 +516,8 @@
             },
             {
               "option_id": "c01-s07-o3",
-              "option_text": "Dejar el tornillo y decir que ya está bien así",
-              "consequence": "Ernesto deja el tornillo en la mesa. 'Con la cola aguanta.' Pero sabe que no es verdad del todo. La espalda de la silla tiene un ligero bamboleo.",
+              "option_text": "Dejar el tornillo y conformarse con la cola",
+              "consequence": "Ernesto deja el tornillo sobre el banco. 'Con la cola aguanta.' Pero lo siente en los dedos cuando agita la silla: hay un bamboleo suave en la espalda. Don Manuel mira sin decir nada.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s08",
               "gds_mapping": [
@@ -547,16 +547,16 @@
         },
         {
           "scene_id": "c01-s08",
-          "title": "El muchacho del rincón",
+          "title": "La pregunta del muchacho",
           "hero_stage": "8_ordeal_crisis",
           "type": "playable",
           "order": 8,
-          "text": "Un chico de unos veinticinco años se acerca. Lleva una lija en la mano y cara de estudiante. Mira la silla reparada y le pregunta: '¿Cómo supo que era la pata y no la unión?' Ernesto no esperaba la pregunta. El chico lo mira con genuina curiosidad.",
+          "text": "Un muchacho de unos veinticinco anos aparece cerca del banco de Ernesto. Lleva una lija en la mano y no la ha usado todavía. Mira la silla reparada, inclina la cabeza y le pregunta: 'Don, ¿cómo supo que era la pata y no la unión?' Tiene esa cara de quien pregunta de verdad, no para quedar bien. Ernesto no esperaba que nadie le preguntara nada esta mañana.",
           "options": [
             {
               "option_id": "c01-s08-o1",
-              "option_text": "Explicarle el truco de coger el bamboleo",
-              "consequence": "Ernesto le muestra: coges la silla por arriba y notas dónde cede. El chico lo repite con otra silla. 'Ah, claro.' Ernesto asiente.",
+              "option_text": "Mostrarle el truco del bamboleo",
+              "consequence": "Ernesto le muestra: tomas la silla por el respaldo y sacudes suave, notas dónde cede primero. El muchacho lo repite con otra silla. 'Ah, claro.' Ernesto asiente. El chico lo aprendió en diez segundos.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s09",
               "gds_mapping": [
@@ -578,8 +578,8 @@
             },
             {
               "option_id": "c01-s08-o2",
-              "option_text": "Decir que es experiencia y punto",
-              "consequence": "Ernesto encoge un hombro. 'Años de oficio.' El chico asiente aunque no aprende mucho. Ernesto baja la vista hacia la silla.",
+              "option_text": "Decir que son anos de oficio y ya",
+              "consequence": "Ernesto encoge un hombro. 'Anos de oficio.' El muchacho asiente sin aprender nada concreto. Ernesto baja la vista a la silla reparada.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s09",
               "gds_mapping": [
@@ -594,8 +594,8 @@
             },
             {
               "option_id": "c01-s08-o3",
-              "option_text": "Decirle que él tampoco sabe mucho ya",
-              "consequence": "Ernesto niega con la cabeza. 'Yo ya estoy oxidado, no me pregunte.' El chico se va. Don Manuel lo mira desde lejos sin decir nada.",
+              "option_text": "Decir que el tampoco sabe mucho ya",
+              "consequence": "Ernesto niega con la cabeza. 'Yo ya estoy oxidado, no me pregunte a mi.' El muchacho se va. Don Manuel lo mira desde el otro banco sin decir nada.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s09",
               "gds_mapping": [
@@ -625,16 +625,16 @@
         },
         {
           "scene_id": "c01-s09",
-          "title": "La silla terminada",
+          "title": "La etiqueta de Ernesto",
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 9,
-          "text": "La silla está en el rincón, en pie, sin bamboleo. Don Manuel le pregunta si quiere que lleve su nombre en una etiqueta. 'La silla de Ernesto', dice, señalando el banco de trabajo. Afuera en la Calle 5 el sol ya está alto. Ernesto tiene las manos sucias de cola.",
+          "text": "La silla está en el rincón del taller, en pie, sin bamboleo. Ernesto la agita una vez mas y no cede. Don Manuel le pregunta si quiere que lleve su nombre en una etiqueta de cartulina. 'La silla de Ernesto', dice, señalando el banco. Afuera en la Calle 5 el sol está alto. Ernesto tiene las manos pegajosas de cola y no sabe si volver el viernes.",
           "options": [
             {
               "option_id": "c01-s09-o1",
-              "option_text": "Decir que sí y preguntar cuándo es el viernes",
-              "consequence": "Don Manuel anota 'Ernesto' en la etiqueta. 'Viernes a las diez, igual que hoy.' Ernesto asiente. Tiene algo pendiente para el viernes.",
+              "option_text": "Aceptar la etiqueta y preguntar por el viernes",
+              "consequence": "Don Manuel anota 'Ernesto' con un marcador. 'Viernes a las diez, igual que hoy.' Ernesto asiente. El viernes ya tiene un lugar al que ir.",
               "next_chapter_id": "c02",
               "next_scene_id": null,
               "gds_mapping": [
@@ -720,7 +720,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Ernesto llega al taller a las diez en punto. Don Manuel está abriendo las ventanas. Hay olor a sierra y a madera hàºmeda. En el banco de trabajo hay una silla distinta a la del jueves: más grande, de madera oscura, con tres uniones flojas y la pata delantera torcida. Nadie la ha tocado.",
+          "text": "Ernesto llega al taller a las diez en punto. El portón del barrio Granada está abierto. Don Manuel arrastra las ventanas metálicas con esfuerzo; el chirrido llena el espacio. Hay olor a sierra, a cola de carpintero y a madera húmeda de la noche. En el banco de trabajo hay una silla distinta a la del jueves: más grande, de madera oscura, con tres uniones flojas y la pata delantera torcida. Cuando Ernesto pasa la mano por el respaldo, la madera cede un poco. Nadie la ha tocado todavía.",
           "options": [
             {
               "option_id": "c02-s01-o1",
@@ -764,7 +764,7 @@
             {
               "option_id": "c02-s01-o3",
               "option_text": "Quedarse en la puerta mirando si le apetece",
-              "consequence": "Ernesto se apoya en el marco. El taller huele igual que el jueves. La silla oscura está ahí, esperando. No sabe si entrar.",
+              "consequence": "Ernesto se apoya en el marco de la puerta. El taller huele a cola y a madera vieja, igual que el jueves. La silla oscura está en el banco de trabajo y no sabe si entrar.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s02",
               "gds_mapping": [
@@ -792,7 +792,7 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Don Manuel señala la silla. 'Don Ernesto, esta llegó ayer. El vecino dice que es de su abuela, que si se puede salvar. Tiene tres uniones rotas y la pata delantera está torcida. No es fácil.' La silla es de cedro viejo. Pesa más de lo que parece.",
+          "text": "Don Manuel señala la silla con la palma abierta. 'Don Ernesto, esta llegó ayer. El vecino del bloque cuatro dice que es de su abuela, que si se puede salvar. Tiene tres uniones rotas y la pata delantera está torcida. No es fácil.' La silla es de cedro viejo, color café oscuro. Pesa más de lo que parece. Cuando Ernesto la levanta por un costado escucha un crujido adentro, no de la madera, sino de algo suelto en la unión.",
           "options": [
             {
               "option_id": "c02-s02-o1",
@@ -864,7 +864,7 @@
           "hero_stage": "3_refusal_of_the_call",
           "type": "playable",
           "order": 3,
-          "text": "Un hombre de unos sesenta y ocho años se acerca desde el fondo del taller. Tiene manos grandes y una cinta métrica en el bolsillo. 'Don Rodrigo', se presenta. Fue ebanista cuarenta años. Mira la silla y niega con la cabeza. 'Eso está muy maluco. Yo no le metería el tiempo.'",
+          "text": "Un hombre de unos sesenta y ocho años se acerca desde el fondo del taller. Tiene manos grandes, una cinta métrica en el bolsillo y una mancha de barniz en el antebrazo izquierdo. 'Don Rodrigo', se presenta, con voz seca. Fue ebanista cuarenta años en el barrio Alameda. Agarra la silla por la pata torcida y la olisquea: huele a humedad y a madera vieja. Niega con la cabeza. 'Eso está muy maluco. Yo no le metería el tiempo.'",
           "options": [
             {
               "option_id": "c02-s03-o1",
@@ -908,7 +908,7 @@
             {
               "option_id": "c02-s03-o3",
               "option_text": "Hacerle caso y apartarse de la silla",
-              "consequence": "Ernesto asiente. 'Tiene razón.' Se aparta. Don Rodrigo vuelve al fondo. La silla sigue en el banco, sin nadie que la mire.",
+              "consequence": "Ernesto asiente y se aparta del banco. Don Rodrigo vuelve al fondo del taller sin mirar atrás. La silla sigue ahí, sin nadie que le meta la mano.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s04",
               "gds_mapping": [
@@ -942,7 +942,7 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 4,
-          "text": "Don Rodrigo, aunque dijo que no, saca una bolsa de cuñas de madera de un cajón. 'Si va a intentarlo, hágalo bien. Mire: en vez de solo pegar, meta una cuña en el espacio. Así la unión aguanta de verdad.' Le muestra la primera unión con paciencia.",
+          "text": "Don Rodrigo, aunque dijo que no, se da vuelta desde su banco y saca una bolsa de cuñas de madera de un cajón. Las cuñas son de roble, finas como uñas de dedo. El olor a cola fresca llena ese rincón del taller. 'Si va a intentarlo, hágalo bien. Mire: en vez de solo pegar, meta una cuña en el espacio.' Le muestra la primera unión con paciencia, señalando con el pulgar la grieta donde la madera separó. 'Así la unión aguanta de verdad.'",
           "options": [
             {
               "option_id": "c02-s04-o1",
@@ -1014,7 +1014,7 @@
           "hero_stage": "5_crossing_threshold",
           "type": "playable",
           "order": 5,
-          "text": "Ernesto aplica la cuña en la primera unión junto con un poco de cola. La seca con la prensa dos minutos. Luego agita la silla con cuidado: no tiembla. Don Rodrigo lo observa desde el otro banco sin decir nada.",
+          "text": "Ernesto aplica la cuña en la primera unión junto con un poco de cola. La seca con la prensa dos minutos — el reloj de la pared marca las diez y media. Luego agita la silla con cuidado: no tiembla. La madera resiste distinto ahora, más firme bajo las palmas. El olor a cola fresca se mezcla con el polvo de aserrín en el aire. Don Rodrigo lo observa desde el otro banco sin decir nada, con los brazos cruzados.",
           "options": [
             {
               "option_id": "c02-s05-o1",
@@ -1092,7 +1092,7 @@
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 6,
-          "text": "La segunda unión es peor. Ernesto mete el formón y saca un trozo del interior: la madera está podrida por dentro. Huele a humedad y a tiempo. La cuña no va a funcionar aquí. Don Rodrigo se acerca sin que nadie lo llame.",
+          "text": "La segunda unión es peor. Ernesto mete el formón con cuidado y saca un trozo del interior: la madera está podrida por dentro, gris y esponjosa. Huele a humedad y a tiempo encerrado. El aserrín que cae tiene color de tierra mojada. La cuña no va a funcionar aquí — va a necesitar empalme. Don Rodrigo se acerca desde el fondo sin que nadie lo llame, como si supiera.",
           "options": [
             {
               "option_id": "c02-s06-o1",
@@ -1120,7 +1120,7 @@
             {
               "option_id": "c02-s06-o2",
               "option_text": "Pedirle a Rodrigo que decida él qué hacer",
-              "consequence": "Don Rodrigo examina el hueco. 'Empalme con retal.' Lo señala en la caja. 'Pero usted puede hacerlo.' Se aleja de nuevo.",
+              "consequence": "Don Rodrigo examina el hueco y señala la caja de retales. 'Empalme con ese retal. Usted puede.' Se aleja de nuevo sin esperar respuesta.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s07",
               "gds_mapping": [
@@ -1171,7 +1171,7 @@
           "hero_stage": "7_approach_inner_cave",
           "type": "playable",
           "order": 7,
-          "text": "Mientras trabaja la tercera unión, el olor a madera vieja le recuerda algo. Carmen guardaba las mermeladas en un armario de madera parecida. Lo hacía en noviembre, siempre con radio de fondo. Hace ocho meses que no piensa en eso sin que le duela.",
+          "text": "Mientras trabaja la tercera unión, el olor a madera vieja le recuerda algo. Carmen guardaba las mermeladas en un armario de madera parecida, con puertas que chirrían. Lo hacía en noviembre, siempre con la radio de fondo sintonizada en Caracol. Ernesto tiene los dedos encima de la grieta de la unión y el mazo en la mano derecha. Hace ocho meses que no piensa en eso sin que le duela.",
           "options": [
             {
               "option_id": "c02-s07-o1",
@@ -1234,7 +1234,7 @@
             {
               "option_id": "c02-s07-o3",
               "option_text": "Parar el trabajo y quedarse quieto",
-              "consequence": "Ernesto suelta el formón. Se apoya en el banco. El taller sigue funcionando a su alrededor. Él no está en ninguna parte.",
+              "consequence": "Ernesto suelta el formón y se apoya en el banco. El taller sigue funcionando a su alrededor. Él no está en ninguna parte.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s08",
               "gds_mapping": [
@@ -1262,12 +1262,12 @@
           "hero_stage": "8_ordeal_crisis",
           "type": "playable",
           "order": 8,
-          "text": "Miguel, el muchacho del jueves, está hoy también. Se acerca cuando Ernesto pule la tercera unión. 'Don Ernesto, ¿es cierto que mencionó a alguien llamada Carmen?' No hay malicia en la pregunta. El taller está casi vacío a estas horas.",
+          "text": "Miguel, el muchacho del jueves, está hoy también. Se acerca cuando Ernesto pule la tercera unión con lija de grano fino, el sonido raspando ese rincón del taller. 'Don Ernesto, ¿es cierto que mencionó a alguien llamada Carmen?' La pregunta es directa pero sin malicia. El taller está casi vacío a estas horas; solo el reloj de la pared y la sierra de Don Rodrigo al fondo.",
           "options": [
             {
               "option_id": "c02-s08-o1",
               "option_text": "Contarle quién era Carmen brevemente",
-              "consequence": "'Mi señora. Murió el año pasado.' Miguel asiente en silencio. 'Lo siento.' Ernesto vuelve al trabajo. Algo se alivió en decirlo.",
+              "consequence": "'Mi señora. Murió el año pasado.' Miguel asiente y dice 'Lo siento' en voz baja. Ernesto vuelve al trabajo; algo se alivió en decirlo.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s09",
               "gds_mapping": [
@@ -1290,7 +1290,7 @@
             {
               "option_id": "c02-s08-o2",
               "option_text": "Decir que sí pero no entrar en detalles",
-              "consequence": "'Alguien de la familia.' Miguel no pregunta más. Ernesto sigue lijando. El nombre de Carmen queda en el aire del taller.",
+              "consequence": "'Alguien de la familia.' Miguel no pregunta más. El nombre de Carmen queda en el aire del taller mientras Ernesto sigue lijando.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s09",
               "gds_mapping": [
@@ -1312,7 +1312,7 @@
             {
               "option_id": "c02-s08-o3",
               "option_text": "Decirle que se equivocó, que no dijo nada",
-              "consequence": "Ernesto sacude la cabeza. 'No dije nada.' Miguel asiente y se va. Ernesto sabe que sí lo dijo. El mentirle a un muchacho no le sienta bien.",
+              "consequence": "Ernesto sacude la cabeza. 'No dije nada.' Miguel asiente y se va, y Ernesto sabe que sí lo dijo — mentirle a un muchacho no le sienta bien.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s09",
               "gds_mapping": [
@@ -1340,12 +1340,12 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 9,
-          "text": "La silla está terminada: tres uniones con cuña y cola, pata reencajada con tornillo grueso. Don Rodrigo la levanta por el respaldo y la sacude fuerte. No cede. 'Esa se la ganó, Don Ernesto.' El sol de la tarde entra por la ventana de la Calle 5.",
+          "text": "La silla está terminada: tres uniones con cuña y cola, pata reencajada con tornillo grueso. Don Rodrigo la levanta por el respaldo y la sacude fuerte. No cede. El cedro cruje un segundo y luego aguanta. 'Esa se la ganó, Don Ernesto.' El sol de la tarde entra por la ventana y calienta el banco de trabajo. Huele a cola seca y a madera bien trabajada.",
           "options": [
             {
               "option_id": "c02-s09-o1",
               "option_text": "Quedar de volver el jueves con Rodrigo",
-              "consequence": "'Jueves a las diez.' Don Rodrigo extiende la mano. Ernesto se la estrecha. La silla de cedro queda en el banco, esperando a su dueña.",
+              "consequence": "'Jueves a las diez.' Don Rodrigo extiende la mano y Ernesto se la estrecha. La silla de cedro queda en el banco, esperando a su dueña.",
               "next_chapter_id": "c03",
               "next_scene_id": null,
               "gds_mapping": [
@@ -1374,7 +1374,7 @@
             {
               "option_id": "c02-s09-o2",
               "option_text": "Decir que fue suerte y quedarse callado",
-              "consequence": "Ernesto limpia las manos. 'Fue la madera, que era buena.' Don Rodrigo lo mira un momento. 'Como usted.' Ernesto no sabe qué responder.",
+              "consequence": "Ernesto limpia las manos con el trapo. 'Fue la madera, que era buena.' Don Rodrigo lo mira un momento y dice 'Como usted' — Ernesto no sabe qué responder.",
               "next_chapter_id": "c03",
               "next_scene_id": null,
               "gds_mapping": [
@@ -1396,7 +1396,7 @@
             {
               "option_id": "c02-s09-o3",
               "option_text": "Irse sin comprometerse a volver",
-              "consequence": "Ernesto recoge el trapo y lo deja en el banco. 'Hasta luego.' Sale sin decir si viene el jueves. La Calle 5 lo recibe igual que siempre.",
+              "consequence": "Ernesto recoge el trapo y lo deja en el banco. Sale con un 'Hasta luego' sin comprometerse a volver. La Calle 5 lo recibe igual que siempre.",
               "next_chapter_id": "c03",
               "next_scene_id": null,
               "gds_mapping": [
@@ -1437,7 +1437,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Ernesto llega al taller el jueves a las diez en punto. Deja su bolso en el banco de trabajo del rincón izquierdo, el mismo que usa desde la primera visita. Tiene buen luz y una prensa fija que él mismo calibró. Don Rodrigo ya está acomodando sus formones. Miguel trae agua en una caneca pequeña.",
+          "text": "Ernesto llega al taller el jueves a las diez en punto. Deja el bolso en el banco del rincón izquierdo — el mismo desde la primera visita, con buena luz y una prensa que él mismo calibró. El olor a aserrín y a barniz está ahí desde el portón. Don Rodrigo acomoda sus formones sobre el paño de cuero, golpeando cada uno para asentarlos. Miguel entra con agua en una caneca plástica, el chirrido del recipiente contra el suelo de cemento.",
           "options": [
             {
               "option_id": "c03-s01-o1",
@@ -1488,7 +1488,7 @@
             {
               "option_id": "c03-s01-o3",
               "option_text": "Quedarse parado en la puerta sin entrar",
-              "consequence": "Ernesto se detiene en el umbral. Mira el taller desde afuera. Un peso extraño le aprieta el pecho. Tarda un minuto largo antes de dar el primer paso adentro.",
+              "consequence": "Ernesto se detiene en el umbral y mira el taller desde afuera. Un peso extraño le aprieta el pecho. Tarda un minuto largo antes de dar el primer paso adentro.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s02",
               "gds_mapping": [
@@ -1516,12 +1516,12 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Un hombre que Ernesto no conoce entra al taller con paso decidido. Lleva una caja de herramientas oxidada. Don Manuel lo presenta: es Aurelio, jubilado de una fábrica textil, 65 años, recién llegado al barrio Granada. Aurelio mira el taller, mira los bancos, y se dirige directo al banco del rincón izquierdo.",
+          "text": "Un hombre que Ernesto no conoce entra al taller con paso decidido. Lleva una caja de herramientas oxidada y huele a tabaco. Don Manuel lo presenta: es Aurelio, jubilado de una fábrica textil del Aguablanca, 65 años, recién llegado al barrio Granada. Aurelio mira el taller con los ojos entrecerrados, evalúa los bancos, y camina directo al rincón izquierdo. Sus botas suenan duro contra el piso de cemento.",
           "options": [
             {
               "option_id": "c03-s02-o1",
               "option_text": "Decirle amablemente que ese banco ya está tomado",
-              "consequence": "Ernesto se adelanta con calma. Le explica a Aurelio que ese banco lo usa él. Aurelio lo mira, asiente sin entusiasmo, y deja su caja en el banco contiguo. Don Manuel observa.",
+              "consequence": "Ernesto se adelanta con calma y le explica a Aurelio que ese banco lo usa él. Aurelio lo mira y asiente sin entusiasmo, deja su caja en el banco contiguo. Don Manuel observa desde el portón.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s03",
               "gds_mapping": [
@@ -1595,7 +1595,7 @@
           "hero_stage": "3_refusal_of_the_call",
           "type": "playable",
           "order": 3,
-          "text": "Aurelio organiza sus herramientas ocupando casi todo el banco. Deja poco espacio. Ernesto lo mira desde su posición. Aurelio habla fuerte, como acostumbrado a que lo escuchen. Don Rodrigo trabaja en silencio pero Ernesto sabe que está atento. Miguel mueve la mirada de uno a otro.",
+          "text": "Aurelio organiza sus herramientas ocupando casi todo el banco, dejando poco espacio. Ernesto lo mira sin moverse. Aurelio habla fuerte, con la voz que llena el taller como acostumbrado a que lo escuchen. Don Rodrigo trabaja en silencio pero más despacio que antes. Miguel mueve la mirada de uno a otro. El olor a tabaco de Aurelio se mezcla con el barniz del rincón.",
           "options": [
             {
               "option_id": "c03-s03-o1",
@@ -1646,7 +1646,7 @@
             {
               "option_id": "c03-s03-o3",
               "option_text": "Decirle directamente a Aurelio que está ocupando demasiado espacio",
-              "consequence": "Ernesto se para frente a Aurelio y le dice que el banco es compartido. Aurelio lo mira con suficiencia. La tensión en el taller se vuelve densa. Don Manuel levanta la vista.",
+              "consequence": "Ernesto se para frente a Aurelio y le dice que el banco es compartido. Aurelio lo mira con suficiencia sin responder. La tensión en el taller se vuelve densa y Don Manuel levanta la vista.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s04",
               "gds_mapping": [
@@ -1674,12 +1674,12 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 4,
-          "text": "Don Manuel se acerca a los dos con paso tranquilo. Dice que en el taller hay espacio para todos y que cada quien debe cuidar el espacio comàºn. Aurelio respinga un poco pero no discute. Don Manuel le pregunta a Ernesto si está bien. Don Rodrigo sigue lijando, sin mirar, pero más despacio.",
+          "text": "Don Manuel se acerca a los dos con paso tranquilo. Dice que en el taller hay espacio para todos y que cada quien debe cuidar el espacio común. Aurelio respinga un poco pero no discute. Don Manuel le pregunta a Ernesto si está bien. Don Rodrigo sigue lijando al fondo sin mirar, pero más despacio. El polvo de aserrín flota quieto en el rayo de luz de la ventana.",
           "options": [
             {
               "option_id": "c03-s04-o1",
               "option_text": "Decirle a Don Manuel que todo está bien",
-              "consequence": "Ernesto le dice a Don Manuel que no hay problema, que con el espacio alcanza. Don Manuel asiente y se retira. Ernesto siente que el momento pasó y respira más despacio.",
+              "consequence": "Ernesto le dice a Don Manuel que no hay problema, que con el espacio alcanza. Don Manuel asiente y se retira. Ernesto afloja los hombros y suelta el aire despacio.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s05",
               "gds_mapping": [
@@ -1725,7 +1725,7 @@
             {
               "option_id": "c03-s04-o3",
               "option_text": "Decirle a Don Manuel que prefiere irse hoy",
-              "consequence": "Ernesto dice que se le quitaron las ganas. Don Manuel lo mira con preocupación. Aurelio lo oye y cruza los brazos. La mediación se complica y el ambiente se pone pesado.",
+              "consequence": "Ernesto dice que se le quitaron las ganas. Don Manuel lo mira; Aurelio lo oye y cruza los brazos. El taller queda en silencio y el ambiente se pone pesado.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s05",
               "gds_mapping": [
@@ -1753,12 +1753,12 @@
           "hero_stage": "5_crossing_threshold",
           "type": "playable",
           "order": 5,
-          "text": "Don Manuel propone que el banco izquierdo sea compartido: Ernesto usa la mitad con la prensa, Aurelio usa la otra mitad. Aurelio acepta sin entusiasmo. Ernesto tiene que decidir si acepta el arreglo o si insiste en que el banco entero era suyo por costumbre.",
+          "text": "Don Manuel propone que el banco izquierdo sea compartido: Ernesto usa la mitad con la prensa, Aurelio usa la otra mitad. Aurelio acepta sin entusiasmo, con los brazos cruzados. El olor a tabaco que trae Aurelio ya se siente hasta en ese rincón. Ernesto tiene que decidir si acepta el arreglo o si insiste en que ese banco lo viene usando él desde el primer día.",
           "options": [
             {
               "option_id": "c03-s05-o1",
               "option_text": "Aceptar el arreglo y extender la mano a Aurelio",
-              "consequence": "Ernesto acepta y le tiende la mano a Aurelio. Aurelio la estrecha sin calidez pero la estrecha. Don Rodrigo deja de lijar un segundo y luego retoma. Algo se acomoda en el taller.",
+              "consequence": "Ernesto acepta y le tiende la mano a Aurelio, que la estrecha sin calidez pero la estrecha. Don Rodrigo deja de lijar un segundo y luego retoma. El taller recupera su ritmo habitual.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s06",
               "gds_mapping": [
@@ -1804,7 +1804,7 @@
             {
               "option_id": "c03-s05-o3",
               "option_text": "Decirle a Don Manuel que no le parece justo el arreglo",
-              "consequence": "Ernesto dice que ese banco lo viene usando él desde el primer día. Aurelio alza la voz. Don Manuel pide calma. La discusión dura cinco minutos y Ernesto sale con la peor parte.",
+              "consequence": "Ernesto dice que ese banco lo viene usando él desde el primer día. Aurelio alza la voz y Don Manuel pide calma. La discusión dura cinco minutos y Ernesto sale con la peor parte.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s06",
               "gds_mapping": [
@@ -1832,7 +1832,7 @@
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 6,
-          "text": "Don Rodrigo se acerca a Ernesto mientras Aurelio acomoda sus cosas. En voz baja le dice: 'No se deje enredar, Ernesto. Usted lleva más tiempo acá.' Aurelio, desde el otro lado, comenta en voz alta que en la fábrica él organizaba a doscientos obreros. Ernesto siente el peso de esa comparación.",
+          "text": "Don Rodrigo se acerca a Ernesto mientras Aurelio acomoda sus cosas al otro lado del banco. En voz baja, casi pegado a su oído, le dice: 'No se deje enredar, Ernesto. Usted lleva más tiempo acá.' Aurelio, desde el otro lado, comenta en voz alta que en la fábrica del Aguablanca él organizaba a doscientos obreros. La cifra llena el taller. Ernesto aprieta el formón y baja la vista.",
           "options": [
             {
               "option_id": "c03-s06-o1",
@@ -1883,7 +1883,7 @@
             {
               "option_id": "c03-s06-o3",
               "option_text": "Sentir que Aurelio tiene más derecho por su experiencia",
-              "consequence": "Ernesto mira sus manos. Plomero jubilado. Nadie lo puso a organizar nada. Siente que Aurelio llega con un peso que él no tiene. El banco parece más pequeño que antes.",
+              "consequence": "Ernesto mira sus manos — plomero jubilado, nadie lo puso a organizar nada. Aurelio llega con un historial que Ernesto no tiene. El banco parece más pequeño que antes.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s07",
               "gds_mapping": [
@@ -1911,7 +1911,7 @@
           "hero_stage": "7_approach_inner_cave",
           "type": "playable",
           "order": 7,
-          "text": "Miguel se sienta cerca de Ernesto con una pata de silla rota en la mano. No habla. Solo mira a Ernesto trabajar. Después de un rato dice en voz baja: 'Usted sabe lo que está haciendo, don Ernesto. Eso se ve.' Ernesto lo mira. Es la primera vez que alguien joven le dice algo así en mucho tiempo.",
+          "text": "Miguel se sienta cerca de Ernesto con una pata de silla rota en la mano. No habla; solo mira trabajar. El ruido del formón sobre la madera llena el espacio entre los dos. Después de un rato Miguel dice en voz baja: 'Usted sabe lo que está haciendo, don Ernesto. Eso se ve.' Ernesto para las manos y lo mira. Es la primera vez en mucho tiempo que alguien joven le dice algo así.",
           "options": [
             {
               "option_id": "c03-s07-o1",
@@ -1939,7 +1939,7 @@
             {
               "option_id": "c03-s07-o2",
               "option_text": "Decirle a Miguel que uno aprende con los años, nada más",
-              "consequence": "Ernesto recibe el comentario con una media sonrisa. Le dice que los años sirven para algo, supone. Sigue trabajando. Miguel queda con ganas de seguir conversando pero no insiste.",
+              "consequence": "Ernesto recibe el comentario con una media sonrisa. Le dice que los años sirven para algo, supone, y vuelve al trabajo. Miguel queda con ganas de seguir conversando pero no insiste.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s08",
               "gds_mapping": [
@@ -1962,7 +1962,7 @@
             {
               "option_id": "c03-s07-o3",
               "option_text": "Decirle a Miguel que ya no sabe si sabe tanto",
-              "consequence": "Ernesto niega con la cabeza. Le dice a Miguel que hoy lo tiene dudando. Señala en dirección a Aurelio sin mirarlo. Miguel no entiende bien pero siente el peso de las palabras.",
+              "consequence": "Ernesto niega con la cabeza y le dice a Miguel que hoy lo tiene dudando. Señala en dirección a Aurelio sin mirarlo. Miguel no entiende bien pero le cae el peso de las palabras.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s08",
               "gds_mapping": [
@@ -1990,7 +1990,7 @@
           "hero_stage": "8_ordeal_crisis",
           "type": "playable",
           "order": 8,
-          "text": "Aurelio busca un formón y no lo encuentra en su caja. Se dirige al banco de Ernesto sin pedir permiso y toma uno de los formones de la caja comunitaria que está al lado. Ernesto lo ve. Esa caja la ordenó él mismo la semana pasada. El taller entero parece detenerse en ese segundo.",
+          "text": "Aurelio busca un formón en su caja y no lo encuentra. Sin decir nada, se dirige al banco de Ernesto y toma uno de los formones de la caja comunitaria que está al lado. El metal suena contra el borde de la caja. Ernesto lo ve — esa caja la ordenó él mismo la semana pasada, por tamaño, de izquierda a derecha. El taller entero parece detenerse en ese segundo.",
           "options": [
             {
               "option_id": "c03-s08-o1",
@@ -2041,7 +2041,7 @@
             {
               "option_id": "c03-s08-o3",
               "option_text": "No decir nada y dejar que Aurelio haga lo que quiera",
-              "consequence": "Ernesto aprieta la mandíbula pero no abre la boca. Aurelio usa el formón y lo deja tirado sobre su banco. Ernesto siente que algo dentro de él se endurece como madera vieja.",
+              "consequence": "Ernesto aprieta la mandíbula pero no abre la boca. Aurelio usa el formón y lo deja tirado sobre su banco. Algo dentro de Ernesto se endurece, como madera que lleva tiempo sin humedad.",
               "next_chapter_id": null,
               "next_scene_id": "c03-s09",
               "gds_mapping": [
@@ -2069,7 +2069,7 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 9,
-          "text": "Son las doce y media. Don Manuel anuncia el cierre del taller. Todos guardan herramientas. Aurelio recoge su caja sin decir nada. Don Rodrigo le da una palmada corta en el hombro a Ernesto antes de salir. Miguel espera en el andén. Ernesto queda un momento solo en el taller, mirando el banco.",
+          "text": "Son las doce y media. Don Manuel anuncia el cierre del taller. Todos guardan herramientas; el sonido del metal contra metal llena el espacio. Aurelio recoge su caja sin decir nada y sale primero. Don Rodrigo le da una palmada corta en el hombro a Ernesto antes de salir. Miguel espera en el andén. Ernesto queda un momento solo en el taller, mirando el banco — la huella del formón de Aurelio todavía visible en la superficie.",
           "options": [
             {
               "option_id": "c03-s09-o1",
@@ -2161,12 +2161,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Es viernes. Ernesto llega al taller a las diez. Aurelio no está. Solo están Don Rodrigo, Miguel, y una señora mayor que Ernesto no conoce. Don Manuel abre la puerta y saluda. El banco izquierdo está libre. Ernesto lo ocupa sin dudar. Miguel ya está sentado con una silla desmontada frente a él.",
+          "text": "Es viernes. Ernesto llega al taller a las diez por la Calle 5. Aurelio no está. Solo están Don Rodrigo, Miguel, y una señora mayor que Ernesto no conoce, con mandil azul y tijeras en el bolsillo. Don Manuel abre la puerta y saluda. El banco izquierdo está libre — Ernesto lo ocupa sin dudar. El aserrín del jueves sigue en el piso. Miguel ya está sentado con una silla desmontada frente a él, las cuatro patas dispersas sobre el banco.",
           "options": [
             {
               "option_id": "c04-s01-o1",
               "option_text": "Ocupar el banco y saludar a todos antes de empezar",
-              "consequence": "Ernesto deja su bolso, saluda con apretón de mano a Don Rodrigo y asiente a Miguel y a la señora. Se amarra el delantal. El taller huele a madera hàºmeda y laca.",
+              "consequence": "Ernesto deja su bolso, saluda con apretón de mano a Don Rodrigo y asiente a Miguel y a la señora. Se amarra el delantal. El taller huele a madera húmeda y laca.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s02",
               "gds_mapping": [
@@ -2212,7 +2212,7 @@
             {
               "option_id": "c04-s01-o3",
               "option_text": "Quedarse parado mirando el banco un momento antes de sentarse",
-              "consequence": "Ernesto se detiene frente al banco. Recuerda el jueves. Tarda un minuto largo en decidirse a sentarse. Don Rodrigo lo mira con atención pero no dice nada.",
+              "consequence": "Ernesto se detiene frente al banco y recuerda el jueves. Tarda un minuto largo en decidirse a sentarse. Don Rodrigo lo mira con atención pero no dice nada.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s02",
               "gds_mapping": [
@@ -2240,7 +2240,7 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Miguel levanta la vista de la silla desmontada. Tiene cuatro patas sueltas sobre el banco y no sabe por dónde empezar. Le pregunta a Ernesto: '¿Don Ernesto, cómo sabe usted cuál unión está rota sin romper la silla entera?' Ernesto lo mira. Nadie le había preguntado eso antes.",
+          "text": "Miguel levanta la vista de la silla desmontada. Tiene cuatro patas sueltas sobre el banco y no sabe por dónde empezar. Las mira con el ceño fruncido. Le pregunta a Ernesto: 'Don Ernesto, ¿cómo sabe usted cuál unión está rota sin romper la silla entera?' La voz le sale seria, sin pena. Ernesto para lo que está haciendo y lo mira. Nadie le había preguntado eso antes, ni sus hijos.",
           "options": [
             {
               "option_id": "c04-s02-o1",
@@ -2319,7 +2319,7 @@
           "hero_stage": "3_refusal_of_the_call",
           "type": "playable",
           "order": 3,
-          "text": "Ernesto pone la silla sobre el banco. Agarra una pata con una mano y sacude con suavidad. Explica: si se mueve, la unión tiene juego; si no cede, esa pata está bien. Miguel lo intenta. Sacude demasiado fuerte. Una pata sale disparada al suelo.",
+          "text": "Ernesto pone la silla sobre el banco. Agarra una pata con una mano y sacude con suavidad: si se mueve, la unión tiene juego; si no cede, esa pata está bien. El sonido de la madera al ceder es diferente al de la madera firme. Miguel lo intenta. Sacude demasiado fuerte. Una pata sale disparada al suelo con un golpe seco. Don Rodrigo lo oye desde el otro banco.",
           "options": [
             {
               "option_id": "c04-s03-o1",
@@ -2398,7 +2398,7 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 4,
-          "text": "Don Rodrigo se acerca con su taza de agua. Mira la escena: Ernesto con la silla sobre el banco, Miguel aprendiendo. Le dice a Ernesto en voz baja: 'Usted tiene mano para explicar. Eso no lo tiene todo el mundo.' Ernesto no sabe qué hacer con eso.",
+          "text": "Don Rodrigo se acerca con su taza de agua y se queda de pie detrás de los dos. Mira la escena: Ernesto con la silla sobre el banco, Miguel inclinado escuchando. El olor a polvo de madera flota entre los tres. Le dice a Ernesto en voz baja: 'Usted tiene mano para explicar. Eso no lo tiene todo el mundo.' Ernesto baja la vista al banco y no sabe qué hacer con eso.",
           "options": [
             {
               "option_id": "c04-s04-o1",
@@ -2426,7 +2426,7 @@
             {
               "option_id": "c04-s04-o2",
               "option_text": "Decirle a Don Rodrigo que usted solo sabe lo básico",
-              "consequence": "Ernesto descarta el cumplido. Le dice que él no es ebanista, que solo sabe lo que aprendió de su padre. Don Rodrigo insiste: lo básico explicado bien es mucho. Ernesto no responde.",
+              "consequence": "Ernesto descarta el cumplido. Le dice que él no es ebanista, que solo sabe lo que aprendió de su padre. Don Rodrigo insiste: lo básico explicado bien es mucho — Ernesto no responde.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s05",
               "gds_mapping": [
@@ -2449,7 +2449,7 @@
             {
               "option_id": "c04-s04-o3",
               "option_text": "Decirle a Don Rodrigo que eso lo debería hacer él",
-              "consequence": "Ernesto le dice a Don Rodrigo que él, como ebanista jubilado, lo haría mucho mejor. Don Rodrigo niega con la cabeza. 'Pero a mí no me preguntó.' Ernesto queda con la frase dando vueltas.",
+              "consequence": "Ernesto le dice a Don Rodrigo que él, como ebanista jubilado, lo haría mucho mejor. Don Rodrigo niega con la cabeza y dice 'Pero a mí no me preguntó'. La frase le queda dando vueltas a Ernesto.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s05",
               "gds_mapping": [
@@ -2477,7 +2477,7 @@
           "hero_stage": "5_crossing_threshold",
           "type": "playable",
           "order": 5,
-          "text": "Miguel hace el wobble test en las cuatro patas. Encuentra dos con juego, una firme, y una completamente suelta que casi se cae. Mira a Ernesto. Ernesto examina la suelta: la espiga está partida. Es el mismo problema que él reparó la semana pasada pero más severo. Hay que decidir si usar cuña o cola.",
+          "text": "Miguel hace el wobble test en las cuatro patas. Encuentra dos con juego, una firme, y una completamente suelta que casi se cae — la sostiene en el aire antes de que toque el banco. Mira a Ernesto. Ernesto examina la suelta: la espiga está partida, gris por dentro. Es el mismo problema que reparó la semana pasada pero más severo. Hay que decidir si usar cuña o cola, y hay tiempo solo para una.",
           "options": [
             {
               "option_id": "c04-s05-o1",
@@ -2556,7 +2556,7 @@
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 6,
-          "text": "Mientras trabajan, Miguel dice con cuidado: 'Don Ernesto, la semana pasada mencionó a Carmen. ¿Ella también sabía de madera?' La pregunta llega sin aviso. Ernesto deja de moverse un segundo. La lija queda quieta en su mano.",
+          "text": "Mientras trabajan, Miguel dice con cuidado: 'Don Ernesto, la semana pasada mencionó a Carmen. ¿Ella también sabía de madera?' La pregunta llega sin aviso. El chirrido de la lija se detiene. La lija queda quieta en la mano de Ernesto y el aserrín sigue cayendo despacio. El taller suena de repente distinto, como si el nombre hubiera ocupado todo el aire.",
           "options": [
             {
               "option_id": "c04-s06-o1",
@@ -2584,7 +2584,7 @@
             {
               "option_id": "c04-s06-o2",
               "option_text": "Decirle a Miguel que Carmen era de otras cosas",
-              "consequence": "Ernesto dice que Carmen era cocinera, no carpintera. Que el taller era de él. Una pausa. Luego añade que igual siempre terminaba revisando lo que él hacía. Una media sonrisa.",
+              "consequence": "Ernesto dice que Carmen era cocinera, no carpintera, que el taller era de él. Una pausa larga. Luego añade que igual siempre terminaba revisando lo que él hacía — y le sale una media sonrisa.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s07",
               "gds_mapping": [
@@ -2607,7 +2607,7 @@
             {
               "option_id": "c04-s06-o3",
               "option_text": "Decirle a Miguel que prefiere no hablar de Carmen",
-              "consequence": "Ernesto sacude la cabeza. Le dice a Miguel que eso es personal. La pregunta crea un silencio denso. Miguel no sabe dónde poner la mirada. Don Rodrigo tose desde el otro extremo del taller.",
+              "consequence": "Ernesto sacude la cabeza y le dice a Miguel que eso es personal. Un silencio denso queda entre los dos. Don Rodrigo tose desde el otro extremo del taller.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s07",
               "gds_mapping": [
@@ -2635,12 +2635,12 @@
           "hero_stage": "7_approach_inner_cave",
           "type": "playable",
           "order": 7,
-          "text": "Miguel pide que Ernesto le explique cómo saber si debe usar cuña o cola. Es la primera vez que alguien le pide a Ernesto que sistematice algo que él hace por intuición. Don Rodrigo se sienta un poco más cerca. La señora del fondo también levanta la vista.",
+          "text": "Miguel pide que Ernesto le explique cómo saber si debe usar cuña o cola. Es la primera vez que alguien le pide que sistematice algo que hace por intuición — como convertir memoria de manos en palabras. Don Rodrigo se sienta un poco más cerca, con las manos apoyadas en las rodillas. La señora del fondo también levanta la vista. El reloj marca las once y cuarto.",
           "options": [
             {
               "option_id": "c04-s07-o1",
               "option_text": "Explicarle la regla con dos casos concretos",
-              "consequence": "Ernesto pone dos uniones sobre el banco: una con espiga floja, otra con ranura abierta. Muestra cada caso. 'Cuña cuando la espiga se movió. Cola cuando el ajuste se fue.' Miguel anota en el papel.",
+              "consequence": "Ernesto pone dos uniones sobre el banco: una con espiga floja, otra con ranura abierta, y muestra cada caso. 'Cuña cuando la espiga se movió. Cola cuando el ajuste se fue', dice. Miguel anota en el papel.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s08",
               "gds_mapping": [
@@ -2686,7 +2686,7 @@
             {
               "option_id": "c04-s07-o3",
               "option_text": "Decirle que él lo aprendió a prueba y error y que no hay más",
-              "consequence": "Ernesto le dice a Miguel que él no estudió esto, que lo aprendió rompiéndose los nudillos. Que no hay regla, hay práctica. La clase termina ahí. Miguel dobla su papel en blanco.",
+              "consequence": "Ernesto le dice a Miguel que él no estudió esto, que lo aprendió rompiéndose los nudillos — que no hay regla, hay práctica. La clase termina ahí. Miguel dobla su papel en blanco.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s08",
               "gds_mapping": [
@@ -2714,12 +2714,12 @@
           "hero_stage": "8_ordeal_crisis",
           "type": "playable",
           "order": 8,
-          "text": "Ernesto lleva una hora enseñándole a Miguel y se da cuenta de que no ha avanzado nada en su propio trabajo. Tiene una silla con tres uniones que le pidieron reparar antes del próximo jueves. Don Rodrigo lo mira. 'Ernesto, ¿y lo suyo?' Ernesto mira su banco: las piezas sin tocar.",
+          "text": "Ernesto lleva una hora enseñándole a Miguel y se da cuenta de que no ha avanzado nada en su propio trabajo. Tiene una silla con tres uniones que le pidieron reparar antes del próximo jueves. Las piezas están sobre el banco, sin tocar. Don Rodrigo lo mira desde el otro lado. 'Ernesto, ¿y lo suyo?' La pregunta es directa. El olor a cola fresca llega desde el banco de Miguel.",
           "options": [
             {
               "option_id": "c04-s08-o1",
               "option_text": "Decirle a Don Rodrigo que vale la pena el tiempo con Miguel",
-              "consequence": "Ernesto le dice a Don Rodrigo que lo suyo puede esperar, que Miguel estaba aprendiendo bien. Don Rodrigo asiente. 'Listo, pues hágale.' Ernesto vuelve al banco con energía.",
+              "consequence": "Ernesto le dice a Don Rodrigo que lo suyo puede esperar, que Miguel estaba aprendiendo bien. Don Rodrigo asiente y dice 'Listo, pues hágale'. Ernesto vuelve al banco con energía.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s09",
               "gds_mapping": [
@@ -2765,7 +2765,7 @@
             {
               "option_id": "c04-s08-o3",
               "option_text": "Quedarse con Miguel aunque el trabajo propio no avance",
-              "consequence": "Ernesto ignora su propio trabajo. Se sienta al lado de Miguel hasta el cierre. Al salir, su silla sigue sin tocar. Siente que hizo algo importante pero también que quedó a mitad de algo.",
+              "consequence": "Ernesto ignora su propio trabajo y se sienta al lado de Miguel hasta el cierre. Al salir, su silla sigue sin tocar. Hay algo hecho pero también algo a la mitad.",
               "next_chapter_id": null,
               "next_scene_id": "c04-s09",
               "gds_mapping": [
@@ -2793,12 +2793,12 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 9,
-          "text": "Al cierre, Don Rodrigo pasa al lado de Ernesto y le dice en voz baja, sin parar: 'Bien hecho, Ernesto. Así es como se mantiene un taller.' Miguel guarda sus cosas con cuidado. Ernesto lo mira. El muchacho dobla el papel con sus notas y lo guarda en el bolsillo.",
+          "text": "Al cierre, Don Rodrigo pasa al lado de Ernesto y le dice en voz baja, sin detenerse: 'Bien hecho, Ernesto. Así es como se mantiene un taller.' El olor a barniz y a aserrín sigue en el rincón. Miguel guarda sus cosas con cuidado, herramienta por herramienta. Ernesto lo mira. El muchacho dobla el papel con sus notas y lo guarda en el bolsillo con las dos manos.",
           "options": [
             {
               "option_id": "c04-s09-o1",
               "option_text": "Decirle a Miguel que el viernes puede volver a practicar",
-              "consequence": "Ernesto le dice a Miguel que si quiere, la próxima semana practican con otra silla. Miguel sonríe. Don Rodrigo ya está en la puerta y escucha. Asiente una vez sin darse vuelta.",
+              "consequence": "Ernesto le dice a Miguel que si quiere, la próxima semana practican con otra silla. Miguel sonríe. Don Rodrigo ya está en la puerta y asiente una vez sin darse vuelta.",
               "next_chapter_id": "c05",
               "next_scene_id": null,
               "gds_mapping": [
@@ -2844,7 +2844,7 @@
             {
               "option_id": "c04-s09-o3",
               "option_text": "Pensar que perdió el tiempo porque su silla quedó sin reparar",
-              "consequence": "En el andén, Ernesto mira sus manos. La silla que le encargaron sigue en el banco sin tocar. Piensa que el viernes tendrá que hacer el doble. Una sensación de falla le pesa.",
+              "consequence": "En el andén, Ernesto mira sus manos. La silla que le encargaron sigue en el banco sin tocar — el viernes tendrá que hacer el doble. Una sensación de falla le pesa en los hombros.",
               "next_chapter_id": "c05",
               "next_scene_id": null,
               "gds_mapping": [
@@ -2879,7 +2879,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "En el rincón del taller, debajo de un trapo viejo, hay una silla que Ernesto reconoce de inmediato. Tiene las patas traseras lijadas y la parte delantera todavía sin tratar, exactamente como la dejó hace tres años, cuando Carmen enfermó y el mundo se detuvo. Don Rodrigo la mira también, en silencio, sin preguntar nada.",
+          "text": "En el rincón del taller, debajo de un trapo viejo, hay una silla que Ernesto reconoce de inmediato. Tiene las patas traseras lijadas y la parte delantera todavía sin tratar, exactamente como la dejó hace tres años, cuando Carmen enfermó y el mundo se detuvo. Don Rodrigo la mira también, en silencio, sin preguntar nada. Bajo el trapo viejo hay una silla que Ernesto reconoce. Tiene las patas traseras lijadas como él las dejó hace tres años.",
           "options": [
             {
               "option_id": "c05-s01-o1",
@@ -2907,7 +2907,7 @@
             {
               "option_id": "c05-s01-o2",
               "option_text": "Mirarla un momento y dejarla tapada",
-              "consequence": "Ernesto la mira un rato largo. Vuelve a colocar el trapo con cuidado, doblando las esquinas como si arropara algo frágil.",
+              "consequence": "Ernesto la mira un rato largo sin moverse. Vuelve a colocar el trapo con cuidado, doblando las esquinas como si arropara algo frágil. El taller sigue su ritmo a su alrededor.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s02",
               "gds_mapping": [
@@ -2923,7 +2923,7 @@
             {
               "option_id": "c05-s01-o3",
               "option_text": "Decir que esa silla ya no sirve para nada",
-              "consequence": "Ernesto murmura que la silla ya tuvo su momento y que algunas cosas es mejor dejarlas quietas. Le da la espalda y se sienta en su banco de trabajo.",
+              "consequence": "Ernesto murmura que la silla ya tuvo su momento y que algunas cosas es mejor dejarlas quietas. Le da la espalda y se sienta en su banco de trabajo. Sus manos tiemblan ligeramente, reconociendo el peso áspero de la madera reparada. El zumbido constante del taller envuelve su decisión irremplazable.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s02",
               "gds_mapping": [
@@ -2957,7 +2957,7 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Ernesto recuerda que empezó esa silla para ponerla en la sala, junto a la ventana que da al jardín. Carmen decía que quería una silla con descansabrazos bajos para tejer. Le midió la altura del codo, la anotonó en un papelito. El papelito sigue doblado en el fondo de su caja de herramientas.",
+          "text": "Ernesto recuerda que empezó esa silla para ponerla en la sala, junto a la ventana que da al jardín de la casa en el barrio Tequendama. Carmen decía que quería una silla con descansabrazos bajos para tejer. Le midió la altura del codo, la anotó en un papelito. El papelito sigue doblado en el fondo de la caja de herramientas. Ernesto no lo ha abierto desde entonces. El papelito doblado sigue en el fondo de la caja de herramientas. Lo sabe por eso.",
           "options": [
             {
               "option_id": "c05-s02-o1",
@@ -2985,7 +2985,7 @@
             {
               "option_id": "c05-s02-o2",
               "option_text": "Recordarlo sin abrir la caja todavía",
-              "consequence": "Ernesto se queda quieto. El recuerdo de esa medida está en algàºn lugar de su cabeza o en algàºn bolsillo. No lo busca. Lo deja estar.",
+              "consequence": "Ernesto se queda quieto. El recuerdo de esa medida está en algún lugar de su cabeza o en algún bolsillo. No lo busca — lo deja estar.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s03",
               "gds_mapping": [
@@ -3001,7 +3001,7 @@
             {
               "option_id": "c05-s02-o3",
               "option_text": "Decirse que esas medidas ya no importan",
-              "consequence": "Ernesto cierra los ojos un segundo. Se dice que Carmen no está y que la silla no tiene adónde ir. El sol entra por la ventana del taller pero Ernesto lo siente lejos.",
+              "consequence": "Ernesto cierra los ojos un segundo. Se dice que Carmen no está y que la silla no tiene adónde ir. El sol entra por la ventana del taller pero Ernesto lo ve desde lejos, como detrás de un vidrio.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s03",
               "gds_mapping": [
@@ -3035,7 +3035,7 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 3,
-          "text": "Don Rodrigo se acerca con una lija de grano fino en la mano. Sin preámbulos le pregunta: '¿La va a terminar, don Ernesto?' La pregunta queda flotando en el olor a serrín del taller. Afuera pasa un bus MIO con un arranque fuerte de motor.",
+          "text": "Don Rodrigo se acerca con una lija de grano fino en la mano, caminando despacio entre los bancos. Sin preámbulos le pregunta: '¿La va a terminar, don Ernesto?' La pregunta queda flotando en el aire que huele a aserrín y a barniz. Afuera pasa un bus MIO con un arranque fuerte de motor. La silla de cedro está sobre el banco, entre los dos. Don Rodrigo no apura — espera.",
           "options": [
             {
               "option_id": "c05-s03-o1",
@@ -3112,7 +3112,7 @@
           "hero_stage": "5_crossing_the_threshold",
           "type": "playable",
           "order": 4,
-          "text": "La silla está delante de Ernesto en el banco de trabajo. La parte sin terminar tiene el grano abierto del cedro, un poco oscurecido por el tiempo. Con lija de grano ciento veinte podría recuperarla. El taller huele a madera caliente por el sol que entra por el tragaluz.",
+          "text": "La silla está delante de Ernesto en el banco de trabajo, bajo la luz que entra por el tragaluz de la Calle 5. La parte sin terminar tiene el grano abierto del cedro, oscurecido por el tiempo. Huele a madera caliente y a cola vieja. Con lija de grano ciento veinte podría recuperarla. Ernesto pasa la palma por la superficie áspera — el cedro le raspa la piel como siempre.",
           "options": [
             {
               "option_id": "c05-s04-o1",
@@ -3139,7 +3139,7 @@
             {
               "option_id": "c05-s04-o2",
               "option_text": "Dar unos pases y ver cómo queda",
-              "consequence": "Ernesto pasa la lija tres veces. El cedro empieza a aclararse. Lo deja por hoy. Mañana verá si sigue.",
+              "consequence": "Ernesto pasa la lija tres veces. El cedro empieza a aclararse bajo la mano — color claro, casi miel. Lo deja por hoy y mañana verá si sigue.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s05",
               "gds_mapping": [
@@ -3155,7 +3155,7 @@
             {
               "option_id": "c05-s04-o3",
               "option_text": "Dejar la lija y irse a lavar las manos",
-              "consequence": "Ernesto pone la lija sobre el banco sin usarla. Se levanta y va al lavamanos del taller. El agua fría le corre por las manos. La silla sigue esperando.",
+              "consequence": "Ernesto pone la lija sobre el banco sin usarla y va al lavamanos del taller. El agua fría le corre por las manos. La silla sigue esperando.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s05",
               "gds_mapping": [
@@ -3196,7 +3196,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Ernesto saca del bolsillo lateral de su bolsa de herramientas un trapo para limpiar un formón. Con el trapo sale una foto pequeña, de las que revelan en el Éxito, con el borde blanco. Es Carmen. Sonriendo. Tendrá cuarenta y tantos años en la foto. La mano de Ernesto se detiene sola.",
+          "text": "Ernesto saca del bolsillo lateral de su bolsa de herramientas un trapo para limpiar un formón. Con el trapo sale una foto pequeña, de las que revelan en el Éxito, con el borde blanco. Es Carmen. Sonriendo, con el pelo recogido, mirando de lado. Tendrá cuarenta y tantos años. El papel está un poco amarillento por los años en el bolsillo. La mano de Ernesto se detiene sola. La foto está un poco amarillenta por los años en el bolsillo. Carmen sonríe mirando de lado.",
           "options": [
             {
               "option_id": "c06-s01-o1",
@@ -3281,7 +3281,7 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "La foto fue tomada en la finca de los primos de Carmen, en Buga. Habían ido un fin de semana largo, cuando los hijos todavía eran chicos. Habían comido sancocho de gallina y Carmen había recogido guanábanas del árbol del patio. Ese día Carmen se rio tanto que le dolió el estómago. Ernesto estuvo mirándola reír.",
+          "text": "La foto fue tomada en la finca de los primos de Carmen, en Buga. Habían ido un fin de semana largo, cuando los hijos todavía eran chicos. Habían comido sancocho de gallina y Carmen había recogido guanábanas del árbol del patio. Ese día Carmen se rio tanto que le dolió el estómago. Ernesto estuvo mirándola reír. En Buga comieron sancocho de gallina. Carmen había recogido guanábanas del árbol del patio.",
           "options": [
             {
               "option_id": "c06-s02-o1",
@@ -3365,7 +3365,7 @@
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 3,
-          "text": "Ernesto piensa, sin querer pensarlo, qué diría Carmen si lo viera aquí, con las manos llenas de serrín, aprendiendo a trabajar la madera. Se la imagina con los brazos cruzados y esa media sonrisa que ponía cuando él hacía algo que le gustaba pero no quería decirlo.",
+          "text": "Ernesto piensa, sin querer pensarlo, qué diría Carmen si lo viera aquí, con las manos llenas de aserrín, aprendiendo a trabajar la madera a los setenta y dos años. Se la imagina con los brazos cruzados y esa media sonrisa que ponía cuando él hacía algo que le gustaba pero no quería decirlo. El olor a cola y a cedro ayuda a mantenerla ahí un segundo más.",
           "options": [
             {
               "option_id": "c06-s03-o1",
@@ -3415,7 +3415,7 @@
             {
               "option_id": "c06-s03-o3",
               "option_text": "Pensar que a Carmen ya no le importa nada",
-              "consequence": "Ernesto sacude la cabeza. Carmen se fue y ya no importa lo que pensaría. Esa lógica es correcta y no lo hace sentir mejor. Mira la foto sobre el banco.",
+              "consequence": "Ernesto sacude la cabeza. Carmen se fue y ya no importa lo que pensaría — esa lógica es correcta pero no alcanza para nada. Mira la foto sobre el banco.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s04",
               "gds_mapping": [
@@ -3449,7 +3449,7 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 4,
-          "text": "Al final de la jornada, Ernesto tiene que decidir qué hace con la foto. El taller está cerrando. Don Rodrigo recoge sus herramientas en silencio. El sol de Cali entra oblicuo por la puerta y deja una franja dorada sobre el piso de cemento.",
+          "text": "Al final de la jornada, Ernesto tiene que decidir qué hace con la foto. El taller está cerrando. Don Rodrigo recoge sus herramientas en silencio, cada formón en su lugar en el paño de cuero. El sol de Cali entra oblicuo por la puerta y deja una franja dorada sobre el piso de cemento. La foto de Carmen sigue sobre el banco, mirando hacia arriba.",
           "options": [
             {
               "option_id": "c06-s04-o1",
@@ -3476,7 +3476,7 @@
             {
               "option_id": "c06-s04-o2",
               "option_text": "Guardarla en la bolsa de herramientas",
-              "consequence": "Ernesto la vuelve a poner donde estaba, doblada en el bolsillo lateral. Total, nadie la buscó ahí y ahí estuvo bien todos estos años.",
+              "consequence": "Ernesto la vuelve a poner donde estaba, doblada en el bolsillo lateral. Total, nadie la buscó ahí y ahí estuvo bien todos estos años. Sus manos tiemblan ligeramente, reconociendo el peso áspero de la madera reparada. El zumbido constante del taller envuelve su decisión irremplazable.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s05",
               "gds_mapping": [
@@ -3492,7 +3492,7 @@
             {
               "option_id": "c06-s04-o3",
               "option_text": "Guardarla en casa lejos de la vista",
-              "consequence": "Ernesto decide que la foto no debería andar suelta. En casa la pondrá en un sobre, en algàºn cajón. Fuera de su alcance diario. Se dice que así es más fácil.",
+              "consequence": "Ernesto decide que la foto no debería andar suelta. En casa la pondrá en un sobre, en algún cajón, fuera del alcance diario. Se dice que así es más fácil.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s05",
               "gds_mapping": [
@@ -3533,7 +3533,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Ernesto está en su banco de trabajo cuando escucha los pasos de Aurelio en la entrada del taller. Son pasos que reconocería en cualquier parte: largos, seguros, con un golpe de talón fuerte contra el cemento. Aurelio saluda a Don Manuel con la voz alta y Ernesto siente que el espacio del taller se reorganiza solo.",
+          "text": "Ernesto está en su banco de trabajo cuando escucha los pasos de Aurelio en la entrada del taller. Son pasos que ya reconocería en cualquier parte: largos, seguros, con un golpe de talón fuerte contra el cemento. El olor a tabaco llega antes que él. Aurelio saluda a Don Manuel con la voz alta y el taller entero parece reorganizarse solo. Don Rodrigo levanta la vista un segundo.",
           "options": [
             {
               "option_id": "c07-s01-o1",
@@ -3604,7 +3604,7 @@
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 2,
-          "text": "A media mañana, Aurelio se acerca al banco de Ernesto. Mira la silla que está lijando y dice: 'Eso es cedro colombiano. Cada vez más difícil de conseguir.' No es un elogio ni una crítica. Es una observación. Ernesto no sabe bien cómo leerla.",
+          "text": "A media mañana, Aurelio se acerca al banco de Ernesto con las manos vacías. Mira la silla que está lijando y dice: 'Eso es cedro colombiano. Cada vez más difícil de conseguir en Cali.' El chirrido de la lija se detiene. No es un elogio ni una crítica — es una observación, dicha con la misma voz de siempre. Ernesto no sabe bien cómo leerla y espera un segundo antes de responder.",
           "options": [
             {
               "option_id": "c07-s02-o1",
@@ -3675,7 +3675,7 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 3,
-          "text": "Don Manuel se acerca a Ernesto a la hora del descanso y le dice en voz baja que Aurelio estuvo fuera porque su hermano mayor tuvo un problema de salud en Buenaventura. No da más detalles. Ernesto escucha y asiente. Eso cambia algo, aunque no todo.",
+          "text": "Don Manuel se acerca a Ernesto a la hora del descanso, cuando el taller está más tranquilo. Le dice en voz baja que Aurelio estuvo fuera porque su hermano mayor tuvo un problema de salud en Buenaventura. No da más detalles. Ernesto escucha y asiente. El olor a tinto de la olleta eléctrica del rincón llega hasta donde están los dos. Eso cambia algo, aunque no todo.",
           "options": [
             {
               "option_id": "c07-s03-o1",
@@ -3696,7 +3696,7 @@
             {
               "option_id": "c07-s03-o2",
               "option_text": "Entender pero no querer involucrarse",
-              "consequence": "Ernesto recibe la información. Asiente. No siente la necesidad de buscar a Aurelio ni de hacer nada al respecto. Cada cual con su cruz.",
+              "consequence": "Ernesto recibe la información y asiente. No busca a Aurelio ni hace nada al respecto. Cada cual con su cruz.",
               "next_chapter_id": null,
               "next_scene_id": "c07-s04",
               "gds_mapping": [
@@ -3712,7 +3712,7 @@
             {
               "option_id": "c07-s03-o3",
               "option_text": "Sentir que los problemas ajenos no son suyos",
-              "consequence": "Ernesto piensa que él también tiene sus propias cargas y que nadie le pregunta cómo está. Le parece que cada quien lleva lo suyo en silencio y así es mejor.",
+              "consequence": "Ernesto piensa que él también tiene sus propias cargas y que nadie le pregunta cómo está. Le parece que cada quien lleva lo suyo en silencio y así es mejor. Sus manos tiemblan ligeramente, reconociendo el peso áspero de la madera reparada. El zumbido constante del taller envuelve su decisión irremplazable.",
               "next_chapter_id": null,
               "next_scene_id": "c07-s04",
               "gds_mapping": [
@@ -3746,7 +3746,7 @@
           "hero_stage": "8_the_road_back",
           "type": "playable",
           "order": 4,
-          "text": "Al cerrar el taller, Aurelio recoge sus herramientas cerca de Ernesto. Sin mirarlo directamente, dice: 'La semana pasada me contaron que usted le enseñó al muchacho. Eso está bien.' El bus MIO pasa afuera. El sol empieza a bajar detrás de los edificios del barrio.",
+          "text": "Al cerrar el taller, Aurelio recoge sus herramientas cerca de Ernesto. Sin mirarlo directamente, dice: 'La semana pasada me contaron que usted le enseñó al muchacho. Eso está bien.' El bus MIO pasa afuera con el motor encendido. El sol empieza a bajar detrás de los edificios del barrio Granada y el calor del cemento sube por las paredes. Don Rodrigo los mira un segundo.",
           "options": [
             {
               "option_id": "c07-s04-o1",
@@ -3789,7 +3789,7 @@
             {
               "option_id": "c07-s04-o3",
               "option_text": "No responder y salir antes que él",
-              "consequence": "Ernesto toma su bolsa y sale sin decir nada. En el andén, el calor del asfalto le pega en la cara. No siente alivio.",
+              "consequence": "Ernesto toma su bolsa y sale sin decir nada. En el andén, el calor del asfalto le pega en la cara. Los hombros siguen apretados.",
               "next_chapter_id": null,
               "next_scene_id": "c07-s05",
               "gds_mapping": [
@@ -3867,7 +3867,7 @@
             {
               "option_id": "c08-s01-o3",
               "option_text": "Mirar para otro lado y no meterse",
-              "consequence": "Ernesto fija la vista en su banco de trabajo. Piensa que él también pasa días así y nadie le pregunta nada. Eso lo hace sentir más solo, no menos.",
+              "consequence": "Ernesto fija la vista en su banco de trabajo. También él pasa días así y nadie le pregunta nada. Ese pensamiento no lo alivia — lo deja más quieto.",
               "next_chapter_id": null,
               "next_scene_id": "c08-s02",
               "gds_mapping": [
@@ -3901,7 +3901,7 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 2,
-          "text": "A media mañana, Don Rodrigo empieza a hablar. Dice que tuvo un taller de ebanistería propio en el barrio San Antonio durante veinte años. Lo cerró cuando su esposa Lucía enfermó. Dedicó dos años enteros a cuidarla. Cuando Lucía murió, el taller ya no existía. 'Y yo tampoco existía,' dice, lijando despacio.",
+          "text": "A media mañana, Don Rodrigo empieza a hablar. Dice que tuvo un taller de ebanistería propio en el barrio San Antonio durante veinte años. Lo cerró cuando su esposa Lucía enfermó. Dedicó dos años enteros a cuidarla. Cuando Lucía murió, el taller ya no existía. 'Y yo tampoco existía,' dice, lijando despacio. Don Rodrigo trabaja siempre en silencio, pero hoy lo hace diferente. Sus movimientos son más lentos.",
           "options": [
             {
               "option_id": "c08-s02-o1",
@@ -3922,7 +3922,7 @@
             {
               "option_id": "c08-s02-o2",
               "option_text": "Decir que eso es muy duro de cargar",
-              "consequence": "Ernesto dice que eso es pesado. Don Rodrigo dice que sí. Los dos siguen trabajando. A veces lo àºnico que se necesita es que alguien diga lo que es.",
+              "consequence": "Ernesto dice que eso es pesado. Don Rodrigo dice que sí y los dos siguen trabajando. A veces lo único que se necesita es que alguien diga lo que es.",
               "next_chapter_id": null,
               "next_scene_id": "c08-s03",
               "gds_mapping": [
@@ -4049,12 +4049,12 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 4,
-          "text": "Antes de que el taller cierre, Don Rodrigo le pasa a Ernesto un pequeño taco de madera de guayacán. 'Para que practique las esquinas en ingletes. Es lo más difícil.' Ernesto sabe que es un regalo y que Don Rodrigo no lo va a llamar así.",
+          "text": "Antes de que el taller cierre, Don Rodrigo le pasa a Ernesto un pequeño taco de madera de guayacán. La madera es pesada y oscura, con la veta apretada. 'Para que practique las esquinas en ingletes. Es lo más difícil.' Ernesto lo voltea en la mano — huele a tierra y a resina. Sabe que es un regalo y que Don Rodrigo no lo va a llamar así.",
           "options": [
             {
               "option_id": "c08-s04-o1",
               "option_text": "Agradecer y guardarlo con cuidado",
-              "consequence": "Ernesto acepta el taco, lo pesa en la mano. Guayacán del Valle, pesado y oscuro. Le dice que mañana empieza. Don Rodrigo dice 'bien' y se va.",
+              "consequence": "Ernesto acepta el taco y lo pesa en la mano — guayacán del Valle, pesado y oscuro. Le dice que mañana empieza. Don Rodrigo dice 'bien' y se va.",
               "next_chapter_id": null,
               "next_scene_id": "c08-s05",
               "gds_mapping": [
@@ -4092,7 +4092,7 @@
             {
               "option_id": "c08-s04-o3",
               "option_text": "Decir que el guayacán es para los que saben",
-              "consequence": "Ernesto le dice que ese material es para manos expertas, no para él. Don Rodrigo lo mira fijo. 'Por eso se lo doy yo.' Ernesto no sabe qué hacer con eso.",
+              "consequence": "Ernesto le dice que ese material es para manos expertas, no para él. Don Rodrigo lo mira fijo y dice 'Por eso se lo doy yo'. Ernesto no sabe qué hacer con eso.",
               "next_chapter_id": null,
               "next_scene_id": "c08-s05",
               "gds_mapping": [
@@ -4133,12 +4133,12 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 1,
-          "text": "Don Manuel llega al taller con una fotocopia de una carta de la Junta de Acción Comunal del barrio Granada. Solicitan que el taller construya un banco de parque para el pequeño parque de la Calle 12. La carta dice que el banco lleva quince años roto. Ernesto lee la fotocopia dos veces. Nunca ha hecho un mueble para afuera.",
+          "text": "Don Manuel llega al taller con una fotocopia de una carta de la Junta de Acción Comunal del barrio Granada. Solicitan que el taller construya un banco de parque para el pequeño parque de la Calle 12. La carta dice que el banco lleva quince años roto. El papel huele a fotocopiadora. Ernesto lo lee dos veces, en silencio. Nunca ha construido un mueble para afuera, expuesto al sol del Valle.",
           "options": [
             {
               "option_id": "c09-s01-o1",
               "option_text": "Ofrecerse para liderar el proyecto",
-              "consequence": "Ernesto levanta la mano antes de pensarlo bien. Don Manuel sonríe. Don Rodrigo asiente desde su banco. El proyecto es de Ernesto.",
+              "consequence": "Ernesto levanta la mano antes de pensarlo bien. Don Manuel sonríe y Don Rodrigo asiente desde su banco. El proyecto es de Ernesto.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s02",
               "gds_mapping": [
@@ -4286,7 +4286,7 @@
             {
               "option_id": "c09-s03-o1",
               "option_text": "Decirle que sí, que él está en el taller",
-              "consequence": "Ernesto dice que sí, que están en el taller de la Calle 5 y que el banco va a quedar bueno. La señora sonríe. Ernesto siente algo que no sentía hace tiempo.",
+              "consequence": "Ernesto dice que sí, que están en el taller de la Calle 5 y que el banco va a quedar bueno. La señora sonríe. Ernesto endereza los hombros — algo que no pasaba hace tiempo.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s04",
               "gds_mapping": [
@@ -4324,7 +4324,7 @@
             {
               "option_id": "c09-s03-o3",
               "option_text": "Decir que él solo ayuda y no sabe mucho",
-              "consequence": "Ernesto dice que él apenas está aprendiendo. La señora le dice que pues qué bueno que esté aprendiendo. Ernesto asiente pero se siente pequeño.",
+              "consequence": "Ernesto dice que él apenas está aprendiendo. La señora le dice que pues qué bueno que esté aprendiendo. Ernesto asiente con la cabeza baja.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s04",
               "gds_mapping": [
@@ -4401,7 +4401,7 @@
             {
               "option_id": "c09-s04-o3",
               "option_text": "Pensar que Carmen nunca verá este banco",
-              "consequence": "Ernesto mira el banco instalado y lo primero que piensa es que Carmen no va a verlo. La tarde está bonita pero él la ve desde lejos.",
+              "consequence": "Ernesto mira el banco instalado y lo primero que piensa es que Carmen no va a verlo. La tarde está bonita pero él la ve desde lejos. Sus manos tiemblan ligeramente, reconociendo el peso áspero de la madera reparada. El zumbido constante del taller envuelve su decisión irremplazable.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s05",
               "gds_mapping": [
@@ -4448,12 +4448,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Don Manuel le encarga a Miguel construir un cajón de madera para organizar herramientas del taller. Es el primer proyecto que Miguel hace de principio a fin. Miguel llega temprano ese día y pone sus herramientas sobre el banco con una seriedad que Ernesto no le había visto antes.",
+          "text": "Don Manuel le encarga a Miguel construir un cajón de madera para organizar herramientas del taller. Es el primer proyecto que Miguel hace de principio a fin. Miguel llega temprano ese día y pone sus herramientas sobre el banco con una seriedad que Ernesto no le había visto antes. El papel que tiene en la mano tiene un dibujo a lápiz: medidas, esquinas, profundidad. Lo mira con el ceño fruncido.",
           "options": [
             {
               "option_id": "c10-s01-o1",
               "option_text": "Felicitarlo y decirle que lo va a hacer bien",
-              "consequence": "Ernesto le da una palmada suave en el hombro. Miguel sonríe nervioso. 'Usted me dice si voy mal, don Ernesto.' Ernesto asiente. Eso lo hace sentir àºtil.",
+              "consequence": "Ernesto le da una palmada suave en el hombro y Miguel sonríe nervioso. 'Usted me dice si voy mal, don Ernesto.' Ernesto asiente — hace tiempo que no le pedían eso.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s02",
               "gds_mapping": [
@@ -4469,7 +4469,7 @@
             {
               "option_id": "c10-s01-o2",
               "option_text": "Asentir y ver cómo empieza solo",
-              "consequence": "Ernesto lo observa de reojo desde su banco. Quiere ver cómo arranca sin ayuda antes de decir nada.",
+              "consequence": "Ernesto lo observa de reojo desde su banco. Quiere ver cómo arranca sin ayuda antes de decir nada. Sus manos tiemblan ligeramente, reconociendo el peso áspero de la madera reparada. El zumbido constante del taller envuelve su decisión irremplazable.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s02",
               "gds_mapping": [
@@ -4546,7 +4546,7 @@
             {
               "option_id": "c10-s02-o2",
               "option_text": "Decirle que decida él qué hacer",
-              "consequence": "Ernesto le dice que lo piense y que decida. Miguel lo mira confundido. Ernesto agrega: 'Usted es quien está haciendo el cajón.' Miguel asiente despacio.",
+              "consequence": "Ernesto le dice que lo piense y decida — que él es quien está haciendo el cajón. Miguel lo mira confundido un segundo, luego asiente despacio. Sus manos tiemblan ligeramente, reconociendo el peso áspero de la madera reparada. El zumbido constante del taller envuelve su decisión irremplazable.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s03",
               "gds_mapping": [
@@ -4596,12 +4596,12 @@
           "hero_stage": "7_the_ordeal",
           "type": "playable",
           "order": 3,
-          "text": "Pasan dos horas en que Miguel trabaja solo sin pedir nada. Ernesto lo mira de reojo y ve que va bien, aunque lento. El cajón toma forma. Ernesto no sabe si intervenir o esperar. Hay una tensión suave entre mentor y aprendiz que los dos sienten.",
+          "text": "Pasan dos horas en que Miguel trabaja solo sin pedir nada. Ernesto lo mira de reojo y ve que va bien, aunque lento. El cajón toma forma — el ruido del cepillo sobre la madera llena ese rincón del taller. Ernesto no sabe si intervenir o esperar. Hay una tensión suave entre los dos que ninguno nombra.",
           "options": [
             {
               "option_id": "c10-s03-o1",
               "option_text": "Esperar a que él pida antes de hablar",
-              "consequence": "Ernesto sigue con su propio trabajo. Cuando Miguel termina de ensamblar el tercer lado, levanta la vista y los dos se miran. Ernesto asiente. Miguel sigue.",
+              "consequence": "Ernesto sigue con su propio trabajo. Cuando Miguel termina de ensamblar el tercer lado, levanta la vista y los dos se miran — Ernesto asiente, Miguel sigue. Sus manos tiemblan ligeramente, reconociendo el peso áspero de la madera reparada. El zumbido constante del taller envuelve su decisión irremplazable.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s04",
               "gds_mapping": [
@@ -4617,7 +4617,7 @@
             {
               "option_id": "c10-s03-o2",
               "option_text": "Acercarse a mirar sin decir nada",
-              "consequence": "Ernesto se levanta y pasa por detrás de Miguel como si fuera al lavamanos. Mira el cajón de pasada. Está bien. Sigue su camino.",
+              "consequence": "Ernesto se levanta y pasa por detrás de Miguel como si fuera al lavamanos. Mira el cajón de pasada — las esquinas están cuadradas, mejor de lo esperado. Sigue su camino sin decir nada.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s04",
               "gds_mapping": [
@@ -4633,7 +4633,7 @@
             {
               "option_id": "c10-s03-o3",
               "option_text": "Intervenir y mostrarle cómo hacerlo más rápido",
-              "consequence": "Ernesto se acerca y empieza a corregirle la posición del serrucho sin que Miguel lo pidiera. Miguel escucha pero algo en su cara cambia.",
+              "consequence": "Ernesto se acerca y empieza a corregirle la posición del serrucho sin que Miguel lo pidiera. Miguel escucha pero no mira a Ernesto, fija los ojos en la madera. El cajón queda bien; el aire entre los dos, no.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s04",
               "gds_mapping": [
@@ -4710,7 +4710,7 @@
             {
               "option_id": "c10-s04-o3",
               "option_text": "Decir que está bien para ser principiante",
-              "consequence": "Ernesto dice que para ser principiante está bien. Miguel escucha la frase completa. La primera parte lo eleva; la segunda lo baja. Ernesto no lo nota.",
+              "consequence": "Ernesto dice que para ser principiante está bien. Miguel asiente, pero los hombros se le bajan un centímetro. Ernesto no lo nota.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s05",
               "gds_mapping": [
@@ -4751,12 +4751,12 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 1,
-          "text": "El celular de Ernesto suena en mitad de la sesión del taller. Ve en la pantalla: Andrés - Bogotá. Hace dos semanas que no hablan. Ernesto sale al andén a contestar. El sol de Cali cae sobre la Calle 5 con toda la fuerza del mediodía.",
+          "text": "El celular de Ernesto suena en mitad de la sesión. Lo saca del bolsillo y ve la pantalla: Andrés - Bogotá. Hace dos semanas que no hablan. El taller huele a cola y a barniz caliente. El sol afuera pega duro sobre el cemento de la Calle 5. Ernesto aprieta el celular con la mano — la madera que estaba lijando queda en el banco, esperando.",
           "options": [
             {
               "option_id": "c11-s01-o1",
               "option_text": "Contestar de inmediato con gusto",
-              "consequence": "Ernesto sale rápido y contesta. 'Papá, ¿cómo estás?' La voz de Andrés suena cerca a pesar de los quinientos kilómetros.",
+              "consequence": "Ernesto sale rápido y contesta. 'Papá, ¿cómo estás?' La voz de Andrés suena cerca a pesar de los quinientos kilómetros. Sus manos tiemblan ligeramente, reconociendo el peso áspero de la madera reparada. El zumbido constante del taller envuelve su decisión irremplazable.",
               "next_chapter_id": null,
               "next_scene_id": "c11-s02",
               "gds_mapping": [
@@ -5066,7 +5066,7 @@
             {
               "option_id": "c12-s01-o1",
               "option_text": "Preparar ambas piezas con esmero para exhibirlas",
-              "consequence": "Ernesto aplica una mano de cera sobre la silla y lija el guayacán hasta que la madera brilla. Las piezas quedan listas tres días antes.",
+              "consequence": "Ernesto aplica una mano de cera sobre la silla y lija el guayacán hasta que la madera brilla. Las piezas quedan listas tres días antes. Sus manos tiemblan ligeramente, reconociendo el peso áspero de la madera reparada. El zumbido constante del taller envuelve su decisión irremplazable.",
               "next_chapter_id": null,
               "next_scene_id": "c12-s02",
               "gds_mapping": [
@@ -5088,7 +5088,7 @@
             {
               "option_id": "c12-s01-o2",
               "option_text": "Preparar solo la silla de cedro",
-              "consequence": "Ernesto decide que el taco de ingletes es solo un ejercicio de práctica, no una pieza para mostrar. La silla es lo que vale.",
+              "consequence": "Ernesto decide que el taco de ingletes es solo un ejercicio de práctica, no una pieza para mostrar. La silla es lo que vale. Sus manos tiemblan ligeramente, reconociendo el peso áspero de la madera reparada. El zumbido constante del taller envuelve su decisión irremplazable.",
               "next_chapter_id": null,
               "next_scene_id": "c12-s02",
               "gds_mapping": [
@@ -5220,7 +5220,7 @@
             {
               "option_id": "c12-s03-o1",
               "option_text": "Responderle con una foto de la silla y el taller",
-              "consequence": "Ernesto le saca una foto a la silla con el celular y se la manda. Andrés responde en segundos: '¡Papá! ¿Eso lo hiciste tàº?' Ernesto sonríe.",
+              "consequence": "Ernesto le saca una foto a la silla con el celular y se la manda. Andrés responde en segundos: '¡Papá! ¿Eso lo hiciste tàº?' Ernesto sonríe. Sus manos tiemblan ligeramente, reconociendo el peso áspero de la madera reparada. El zumbido constante del taller envuelve su decisión irremplazable.",
               "next_chapter_id": null,
               "next_scene_id": "c12-s04",
               "gds_mapping": [
@@ -5490,7 +5490,7 @@
             {
               "option_id": "c13-s02-o3",
               "option_text": "Decir que no sabe si está listo para eso",
-              "consequence": "Ernesto dice que él es nuevo en esto, que hay gente más capacitada. Don Manuel le dice que eso lo dijo Don Rodrigo también cuando llegó al taller.",
+              "consequence": "Ernesto dice que él es nuevo en esto, que hay gente más capacitada. Don Manuel le dice que eso lo dijo Don Rodrigo también cuando llegó al taller. Sus manos tiemblan ligeramente, reconociendo el peso áspero de la madera reparada. El zumbido constante del taller envuelve su decisión irremplazable.",
               "next_chapter_id": null,
               "next_scene_id": "c13-s03",
               "gds_mapping": [
@@ -5524,7 +5524,7 @@
           "hero_stage": "7_the_ordeal",
           "type": "playable",
           "order": 3,
-          "text": "Camino a casa, Ernesto piensa en la propuesta. Pasa por el parque donde pusieron el banco que hicieron en el taller. Un señor mayor está sentado en él, leyendo el periódico. Ernesto se detiene. Piensa en Carmen.",
+          "text": "Camino a casa, Ernesto piensa en la propuesta. Pasa por el parque donde pusieron el banco que hicieron en el taller. Un señor mayor está sentado en él, leyendo el periódico. Ernesto se detiene. Piensa en Carmen. Mariana está en el casillero de la portería con el bolso cruzado y las llaves en la mano.",
           "options": [
             {
               "option_id": "c13-s03-o1",
@@ -5551,7 +5551,7 @@
             {
               "option_id": "c13-s03-o2",
               "option_text": "Pensar en el banco y en el barrio que cambia",
-              "consequence": "Ernesto mira el señor en el banco y piensa que él ayudó a que ese momento fuera posible. No es poco.",
+              "consequence": "Ernesto mira el señor en el banco y piensa que él ayudó a que ese momento fuera posible. No es poco. Sus manos tiemblan ligeramente, reconociendo el peso áspero de la madera reparada. El zumbido constante del taller envuelve su decisión irremplazable.",
               "next_chapter_id": null,
               "next_scene_id": "c13-s04",
               "gds_mapping": [
@@ -5860,7 +5860,7 @@
             {
               "option_id": "c14-s03-o2",
               "option_text": "Pensar a quién se lo va a regalar",
-              "consequence": "Ernesto la mira y piensa que podría ser para Andrés, para el taller, para la señora del barrio. Le gusta pensar que la pieza tiene adónde ir.",
+              "consequence": "Ernesto la mira y piensa que podría ser para Andrés, para el taller, para la señora del barrio. Le gusta pensar que la pieza tiene adónde ir. Sus manos tiemblan ligeramente, reconociendo el peso áspero de la madera reparada. El zumbido constante del taller envuelve su decisión irremplazable.",
               "next_chapter_id": null,
               "next_scene_id": "c14-s04",
               "gds_mapping": [
@@ -5876,7 +5876,7 @@
             {
               "option_id": "c14-s03-o3",
               "option_text": "Ver todos los defectos que tiene la pieza",
-              "consequence": "Ernesto la mira y lo primero que ve es lo que está mal: el inglete del ángulo derecho no es perfecto, una tablilla tiene una pequeña grieta. La pone boca abajo.",
+              "consequence": "Ernesto la mira y lo primero que ve es lo que está mal: el inglete del ángulo derecho no es perfecto, una tablilla tiene una pequeña grieta. La pone boca abajo. Sus manos tiemblan ligeramente, reconociendo el peso áspero de la madera reparada. El zumbido constante del taller envuelve su decisión irremplazable.",
               "next_chapter_id": null,
               "next_scene_id": "c14-s04",
               "gds_mapping": [

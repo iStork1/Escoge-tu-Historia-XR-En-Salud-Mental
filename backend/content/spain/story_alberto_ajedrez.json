@@ -15,8 +15,8 @@
           "options": [
             {
               "option_id": "c01-s01-o1",
-              "option_text": "Caminar hacia el Parque Nacional",
-              "consequence": "Alberto toma la avenida. Los puestos de empanadas están abriendo. El parque se ve verde desde la esquina. Sus pies deciden antes que él.",
+              "option_text": "Caminar hacia el Parque del Retiro",
+              "consequence": "Alberto toma la avenida. Los bares de tapas están abriendo sus puertas. El parque se ve verde desde la esquina. Sus pies deciden antes que él.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s02",
               "gds_mapping": [
@@ -96,7 +96,7 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Bajo un árbol grande en el Parque Nacional hay una mesa de concreto con un tablero de ajedrez pintado. Cuatro hombres juegan dos partidas. Uno lleva chaleco de cuadros. Otro tiene un termo de café. Se escucha el golpe de las piezas y alguna risa baja. Alberto se detiene a distancia.",
+          "text": "Bajo un árbol grande en el Parque del Retiro hay una mesa de mármol con un tablero de ajedrez pintado. Cuatro hombres juegan dos partidas. Uno lleva una chaqueta de punto. Otro tiene un termo con café. Se escucha el golpe de las piezas y alguna risa contenida. Alberto se detiene a distancia.",
           "options": [
             {
               "option_id": "c01-s02-o1",
@@ -1942,7 +1942,7 @@
           "hero_stage": "7_approach_inner_cave",
           "type": "playable",
           "order": 7,
-          "text": "Félix para a Toño a autobúscar cafés en el puesto de empanadas. La partida se pausa. Mora estira las piernas y comenta: «Usted siempre fue muy metódico en la empresa, contador. Eso se le nota en el juego». Alberto no sabe si es un elogio o una observación.",
+          "text": "Félix le pide a Toño que busque cafés en el bar más próximo. La partida se pausa. Mora estira las piernas y comenta: «Usted siempre fue muy metódico en la empresa, contador. Eso se le nota en el juego». Alberto no sabe si es un elogio o una observación.",
           "options": [
             {
               "option_id": "c03-s07-o1",
@@ -5723,7 +5723,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Es un martes de diciembre. Alberto sale a las nueve como siempre, con su tablero bajo el brazo y el libro del 87 en el bolso. La Calle Séptima huele a pandequeso de la panadería de la esquina. No hace tanto frío como antes. O quizás él ya lo nota menos.",
+          "text": "Es un martes de diciembre. Alberto sale a las nueve como siempre, con su tablero bajo el brazo y el libro del 87 en el bolso. La Calle de Alcalá huele a horneados de la panadería de la esquina. No hace tanto frío como antes. O quizás él ya lo nota menos.",
           "options": [
             {
               "option_id": "c14-s01-o1",
@@ -5781,7 +5781,7 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "El Parque Nacional está diferente en diciembre: hay más gente, más niños corriendo entre los jacarandas, y los tableros de ajedrez ya no están solos. Sergio ya llegó. Félix también. Toño está contando un chiste que nadie terminará de escuchar porque Sergio ya se está riendo.",
+          "text": "El Parque del Retiro está diferente en diciembre: hay más gente, más niños corriendo entre los plátanos, y los tableros de ajedrez ya no están solos. Sergio ya llegó. Félix también. Toño está contando un chiste que nadie terminará de escuchar porque Sergio ya se está riendo.",
           "options": [
             {
               "option_id": "c14-s02-o1",

@@ -7,16 +7,16 @@
       "scenes": [
         {
           "scene_id": "c01-s01",
-          "title": "El casillero de siempre",
+          "title": "Sobre verde entre facturas",
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Mariana baja las escaleras como cada mañana, con el bolso cruzado y las llaves en la mano. La portería huele a cloro reciente. En el casillero, entre una factura y un volante de domicilios, hay un sobre verde con el sello de la Alcaldía Mayor. 'Proyecto Huerto Comunitario del Barrio', dice. Mariana lo sostiene un momento bajo la luz pálida de la entrada.",
+          "text": "Mariana está en el casillero de la portería con el bolso cruzado y las llaves en la mano. Cloro en el piso, azulejo frío bajo los zapatos. Entre una factura de servicios y un volante de domicilios hay un sobre verde con el sello de la Alcaldía Mayor. 'Proyecto Huerto Comunitario del Barrio Bello Horizonte', dice en letras pequeñas. Mariana lo sostiene bajo la luz pálida del casillero. El papel tiene el peso exacto de una pregunta sin hacer.",
           "options": [
             {
               "option_id": "c01-s01-o1",
-              "option_text": "Leer el folleto ahí mismo",
-              "consequence": "Mariana se apoya en el casillero y lee cada línea. Algo le cosquillea en el pecho, una sensación que no reconoce del todo.",
+              "option_text": "Abrir el sobre ahí en la portería",
+              "consequence": "Mariana se apoya en el casillero y lee cada línea dos veces. Los dedos sostienen el papel sin arrugarlo. Afuera, el bus del SITP pasa sin detenerse.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s02",
               "gds_mapping": [
@@ -37,8 +37,8 @@
             },
             {
               "option_id": "c01-s01-o2",
-              "option_text": "Guardarlo en el bolso para luego",
-              "consequence": "Mariana mete el sobre en el bolso sin abrirlo. Sube de nuevo. El sobre cruje levemente con cada paso.",
+              "option_text": "Metérselo al bolso sin abrirlo",
+              "consequence": "Mariana dobla el sobre y lo empuja entre el monedero y las llaves. Sube las escaleras despacio. El papel cruje con cada escalón.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s02",
               "gds_mapping": [
@@ -60,8 +60,8 @@
             },
             {
               "option_id": "c01-s01-o3",
-              "option_text": "Tirarlo a la caneca sin abrirlo",
-              "consequence": "El sobre cae sobre el volante descartado. Mariana sube sin mirar atrás. La portería vuelve a estar en silencio.",
+              "option_text": "Echarlo a la caneca sin leerlo",
+              "consequence": "El sobre cae encima del volante de domicilios. Mariana sube sin mirar atrás. La caneca tapa el verde del sobre con un golpe suave.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s02",
               "gds_mapping": [
@@ -91,16 +91,16 @@
         },
         {
           "scene_id": "c01-s02",
-          "title": "Maribel en el corredor",
+          "title": "Maribel y su perro insistente",
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "En el corredor del tercer piso, Maribel sale con su perro. Sesenta y cuatro años, voz de radio y siempre con prisa. 'Mariana, ¿viste lo del huerto? Yo voy el miércoles. ¿Te apuntas?' El perro olisquea los zapatos de Mariana. Maribel espera, con la correa enredada en la muñeca.",
+          "text": "Mariana llega al corredor del tercer piso y encuentra la puerta del 302 abierta de par en par. Maribel sale con el perro ya jalando la correa. Sesenta y cuatro años, voz de radio, siempre con prisa. '¿Viste lo del huerto, Mariana? Yo voy el miércoles. ¿Te apuntas?' El perro mete el hocico en el bolso de Mariana. Maribel espera con la correa enrollada en la muñeca y una ceja levantada.",
           "options": [
             {
               "option_id": "c01-s02-o1",
-              "option_text": "Decirle que sí con ganas",
-              "consequence": "Maribel da un golpe en el aire con el puño. 'Perfecto, quedamos en la portería a las diez.' Mariana siente que acaba de comprometerse con algo real.",
+              "option_text": "Aceptar y quedar para el miércoles",
+              "consequence": "Maribel da un golpe en el aire con el puño. 'Perfecto, a las diez en la portería.' Los dedos de Mariana aprietan la correa del bolso. El perro ladra una vez.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s03",
               "gds_mapping": [
@@ -122,8 +122,8 @@
             },
             {
               "option_id": "c01-s02-o2",
-              "option_text": "Decir que lo pensará",
-              "consequence": "Maribel asiente, sin insistir. El perro tira de la correa. 'Tàº misma, pero el sitio es bonito.' Se marchan escaleras abajo.",
+              "option_text": "Decir que a ver, que lo piensa",
+              "consequence": "Maribel asiente sin insistir. El perro tira de la correa hacia las escaleras. 'Usted misma, pero el lugar es bonito', dice Maribel. El ascensor se cierra.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s03",
               "gds_mapping": [
@@ -138,8 +138,8 @@
             },
             {
               "option_id": "c01-s02-o3",
-              "option_text": "Excusarse diciendo que tiene cosas",
-              "consequence": "Maribel no pregunta qué cosas. El ascensor se cierra. Mariana se queda sola en el corredor, mirando la puerta de su apartamento.",
+              "option_text": "Excusarse y decir que tiene pendientes",
+              "consequence": "Mariana menciona unos encargos sin nombrarlos. Maribel no pregunta cuáles. El perro ya baja por las escaleras. Mariana se queda frente a la puerta de su apartamento.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s03",
               "gds_mapping": [
@@ -169,16 +169,16 @@
         },
         {
           "scene_id": "c01-s03",
-          "title": "Excusas de martes",
+          "title": "La bombilla que parpadea sola",
           "hero_stage": "3_refusal_of_the_call",
           "type": "playable",
           "order": 3,
-          "text": "El martes por la noche, Mariana prepara la lista del mercado en la mesa de la cocina. La bombilla parpadea una vez. El miércoles se acerca y ella todavía no ha decidido. Anota 'lentejas' y se detiene. El bolígrafo tamborilea en el mantel.",
+          "text": "Mariana está sentada en la mesa de la cocina con el cuaderno de listas abierto. La bombilla parpadea una vez y se queda quieta. Anota 'lentejas'. Anota 'aceite de cocina'. El bolígrafo se detiene solo. Mañana es miércoles y el huerto abre a las nueve. Ella todavía no sabe qué va a hacer. La nevera zumba. Afuera el barrio ya está en silencio.",
           "options": [
             {
               "option_id": "c01-s03-o1",
-              "option_text": "Preparar la ropa para ir mañana",
-              "consequence": "Mariana saca la chaqueta beige del armario y la cuelga en la silla. Algo tan pequeño, pero siente que ya no puede echarse atrás.",
+              "option_text": "Sacar la chaqueta y colgarla en la silla",
+              "consequence": "Mariana abre el armario y cuelga la chaqueta beige en el espaldar de la silla del comedor. Los dedos la alisan una vez. Algo tan pequeño no debería pesar tanto.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s04",
               "gds_mapping": [
@@ -200,8 +200,8 @@
             },
             {
               "option_id": "c01-s03-o2",
-              "option_text": "Seguir con la lista y ya verá",
-              "consequence": "Mariana termina la lista: lentejas, aceite, pan. Apaga la luz. La decisión queda suspendida como el parpadeo de la bombilla.",
+              "option_text": "Terminar la lista y dejar para ver",
+              "consequence": "Mariana completa la lista: lentejas, aceite, pan de molde. Cierra el cuaderno. Apaga la luz de la cocina. La decisión queda flotando en el oscuro.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s04",
               "gds_mapping": [
@@ -216,8 +216,8 @@
             },
             {
               "option_id": "c01-s03-o3",
-              "option_text": "Decidir que mejor otro día",
-              "consequence": "Mariana tacha mentalmente el miércoles. Se dice que quizá la semana que viene. La cocina queda en silencio, igual que siempre.",
+              "option_text": "Convencerse de que otro día irá",
+              "consequence": "Mariana cierra el cuaderno sin terminar la lista. La semana que viene, se dice. La cocina queda en silencio. La bombilla no vuelve a parpadear.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s04",
               "gds_mapping": [
@@ -247,16 +247,16 @@
         },
         {
           "scene_id": "c01-s04",
-          "title": "El bus de las diez",
+          "title": "La señora de la tula de fique",
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 4,
-          "text": "El miércoles Mariana está en el paradero. El aire está fresco, como siempre en Bogotá. A su lado, una señora con sandalias y una tula de fique le pregunta si va al huerto. 'Primera vez', le dice la señora. 'Yo llevo tres semanas y ya tengo mis matas de tomate.' Sonríe con todos los dientes.",
+          "text": "Mariana espera el bus SITP en el paradero de la Calle 68. El aire de Bogotá en la mañana pica un poco en los cachetes. A su lado hay una señora con sandalias de tiras y una tula grande de fique. 'Usted también va al huerto, ¿verdad?' La señora no espera respuesta. 'Yo llevo tres semanas y ya tengo cuatro matas de tomate.' Sonríe con todos los dientes. La tula huele a tierra húmeda.",
           "options": [
             {
               "option_id": "c01-s04-o1",
-              "option_text": "Preguntarle cómo es el ambiente",
-              "consequence": "La señora habla sin parar hasta que llega el bus. Mariana escucha y asiente, y sin darse cuenta ya está sonriendo también.",
+              "option_text": "Preguntarle cómo es la gente del huerto",
+              "consequence": "La señora habla sin pausas hasta que llega el bus. Mariana escucha con el bolso en el regazo. En algún momento, sin proponérselo, ya estaba asintiendo.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s05",
               "gds_mapping": [
@@ -277,8 +277,8 @@
             },
             {
               "option_id": "c01-s04-o2",
-              "option_text": "Responder cortés y mirar al frente",
-              "consequence": "Mariana contesta con amabilidad pero no sigue el hilo. El bus llega. Se sientan separadas. El trayecto pasa en silencio.",
+              "option_text": "Contestar cortés y mirar hacia el paradero",
+              "consequence": "Mariana responde con una sonrisa corta y gira la vista hacia la calle. El bus llega. Se sientan en puestos separados. El trayecto pasa mirando por la ventana.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s05",
               "gds_mapping": [
@@ -293,8 +293,8 @@
             },
             {
               "option_id": "c01-s04-o3",
-              "option_text": "Callarse y esperar el bus sola",
-              "consequence": "Mariana no responde más allá de un gesto. La señora se gira hacia otro lado. El frío del paradero se nota más en los hombros.",
+              "option_text": "Mirar al frente sin contestar nada",
+              "consequence": "Mariana no responde. La señora de la tula vuelve los ojos hacia la calle. El viento del paradero cuela por el cuello del saco. Los hombros de Mariana suben solos.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s05",
               "gds_mapping": [
@@ -318,16 +318,16 @@
         },
         {
           "scene_id": "c01-s05",
-          "title": "La puerta del lote",
+          "title": "La reja verde del lote",
           "hero_stage": "5_crossing_threshold",
           "type": "playable",
           "order": 5,
-          "text": "El lote tiene una reja metálica pintada de verde. Dentro se escuchan voces y el ruido sordo de un azadón contra la tierra. Maribel ya está dentro y la saluda con la mano. La señora de la tula empuja la reja sin dudar. Mariana se queda un segundo en el umbral.",
+          "text": "Mariana está parada frente a la reja metálica del lote, pintada de verde desvaído. Adentro se escuchan voces y el golpe sordo de un azadón contra la tierra. Maribel ya está dentro y la saluda con la mano abierta. La señora de la tula empuja la reja sin pensarlo y entra. La reja queda entreabierta. Mariana tiene una mano en el hierro frío. El andén detrás de ella está vacío.",
           "options": [
             {
               "option_id": "c01-s05-o1",
-              "option_text": "Entrar directamente junto a Maribel",
-              "consequence": "La reja chirría levemente al abrirse. La tierra hàºmeda huele a después de la lluvia. Maribel le pone una mano en el hombro.",
+              "option_text": "Empujar la reja y caminar hacia Maribel",
+              "consequence": "La reja chirría al abrirse de par en par. La tierra húmeda huele a después de lluvia. Maribel le pone una mano en el hombro sin decir nada.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s06",
               "gds_mapping": [
@@ -349,8 +349,8 @@
             },
             {
               "option_id": "c01-s05-o2",
-              "option_text": "Entrar despacio mirando alrededor",
-              "consequence": "Mariana cruza la reja con cuidado. Ve surcos de tierra, materas improvisadas con latas, y gente de su edad con guantes de jardín.",
+              "option_text": "Cruzar despacio mirando todo el lote",
+              "consequence": "Mariana entra con pasos cortos. Ve surcos de tierra oscura, materas hechas con latas de leche, personas de su edad con guantes verdes de jardín. La reja se cierra sola detrás de ella.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s06",
               "gds_mapping": [
@@ -365,8 +365,8 @@
             },
             {
               "option_id": "c01-s05-o3",
-              "option_text": "Quedarse fuera y decir que espera",
-              "consequence": "Mariana dice que va a esperar un momento. La reja se cierra. Ella se queda en el andén, con el ruido del huerto al otro lado.",
+              "option_text": "Quedarse en el andén y decir que espera",
+              "consequence": "Mariana suelta la reja y da un paso atrás. 'Espero un momentico', dice. La reja se cierra con un clic. El ruido del azadón llega desde adentro, amortiguado.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s06",
               "gds_mapping": [
@@ -396,16 +396,16 @@
         },
         {
           "scene_id": "c01-s06",
-          "title": "Paco y el azadón",
+          "title": "Paco, la estaquilla roja",
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 6,
-          "text": "Paco, el coordinador, tiene manos grandes y una gorra de visera. Le explica que cada persona tiene una parcela de metro y medio. 'La tuya está aquí', dice, señalando un rectángulo de tierra oscura con una estaquilla roja. Le ofrece un azadón. Mariana lo recoge sin saber muy bien cómo agarrarlo.",
+          "text": "Paco, el coordinador, tiene manos grandes y una gorra de visera desteñida. Camina rápido entre los surcos explicando sin parar. Cada persona tiene su parcela de metro y medio. 'La suya es esta', dice, señalando un rectángulo de tierra con una estaquilla roja en la esquina. Le pone un azadón en la mano. El mango está pulido de tanto uso. Mariana lo sostiene sin saber bien por dónde agarrarlo.",
           "options": [
             {
               "option_id": "c01-s06-o1",
-              "option_text": "Pedir que le enseñe la técnica",
-              "consequence": "Paco le muestra el movimiento del brazo, lento y firme. 'Así, sin forzar.' Mariana repite. La tierra cede con un sonido seco.",
+              "option_text": "Pedirle a Paco que le muestre cómo",
+              "consequence": "Paco hace el movimiento despacio: brazo firme, muñeca suelta. 'Así, sin forzar la espalda.' Mariana repite. La tierra cede con un golpe seco y satisfactorio.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s07",
               "gds_mapping": [
@@ -427,8 +427,8 @@
             },
             {
               "option_id": "c01-s06-o2",
-              "option_text": "Intentarlo sola observando a los demás",
-              "consequence": "Mariana mira cómo trabaja la señora de la tula y lo imita. El azadón raspa más que muerde. Va despacio, pero va.",
+              "option_text": "Intentarlo sola copiando a los demás",
+              "consequence": "Mariana observa cómo trabaja la señora de la tula y repite el gesto. El azadón raspa más que muerde la tierra. Va lento, pero va.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s07",
               "gds_mapping": [
@@ -443,8 +443,8 @@
             },
             {
               "option_id": "c01-s06-o3",
-              "option_text": "Dejar el azadón diciendo que no puede",
-              "consequence": "Mariana apoya el azadón en la estaquilla. 'No estoy acostumbrada a esto', dice. Paco asiente pero no insiste. Ella mira sus manos.",
+              "option_text": "Apoyar el azadón y decir que no puede",
+              "consequence": "Mariana recuesta el azadón en la estaquilla roja. 'No estoy acostumbrada a esto', dice en voz baja. Paco asiente y se va hacia otra parcela. Ella mira sus manos abiertas.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s07",
               "gds_mapping": [
@@ -474,16 +474,16 @@
         },
         {
           "scene_id": "c01-s07",
-          "title": "La parcela vacía",
+          "title": "Catálogo de semillas en la estaquilla",
           "hero_stage": "7_approach_inner_cave",
           "type": "playable",
           "order": 7,
-          "text": "Mariana está sola frente a su parcela. La tierra está seca en la superficie pero oscura debajo. Paco le ha dicho que puede plantar lo que quiera. Un catálogo de semillas está apoyado en la estaquilla. Mariana lo hojea. Hay tomates, lechugas, cilantro. También hay un apartado de flores.",
+          "text": "Mariana está sola frente a su parcela. La tierra está reseca en la superficie pero oscura y húmeda debajo, donde el azadón la abrió. Paco dejó un catálogo de semillas apoyado en la estaquilla roja. Mariana lo hojea con los guantes puestos. Hay tomates, lechugas, cilantro, perejil. Hay también un apartado de flores al final, con fotos pequeñas de caléndulas y begonias. El catálogo huele a fotocopia. Hay demasiadas opciones y la parcela espera.",
           "options": [
             {
               "option_id": "c01-s07-o1",
-              "option_text": "Elegir algo que le guste comer",
-              "consequence": "Mariana señala las lechugas. 'Siempre tuve una en el balcón de mi madre.' La decisión tiene un sabor conocido y reconfortante.",
+              "option_text": "Señalar las lechugas sin pensarlo más",
+              "consequence": "Mariana pone el dedo en la foto de las lechugas. 'Mi mamá siempre tuvo una en el balcón', dice sin que nadie le pregunte. El catálogo queda abierto en esa página.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s08",
               "gds_mapping": [
@@ -505,8 +505,8 @@
             },
             {
               "option_id": "c01-s07-o2",
-              "option_text": "Preguntar qué crece mejor aquí",
-              "consequence": "La señora de la tula se acerca con opinión propia: 'El cilantro no falla.' Mariana anota con el bolígrafo que siempre lleva encima.",
+              "option_text": "Preguntarle a alguien qué crece bien",
+              "consequence": "La señora de la tula ya tiene opinión: 'El cilantro aquí no falla, yo le digo.' Mariana saca el bolígrafo del bolsillo y anota en la contraportada del catálogo. Las yemas de sus dedos rozan el borde de su ropa con firmeza. El eco del momento envuelve su decisión, de la que no hay vuelta atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s08",
               "gds_mapping": [
@@ -521,8 +521,8 @@
             },
             {
               "option_id": "c01-s07-o3",
-              "option_text": "Cerrar el catálogo sin decidir",
-              "consequence": "Mariana cierra el catálogo. La parcela sigue vacía. Se dice que ya lo pensará en casa, pero algo en ella sabe que no lo pensará.",
+              "option_text": "Cerrar el catálogo y dejarlo en la estaquilla",
+              "consequence": "Mariana cierra el catálogo y lo apoya de nuevo en la estaquilla roja. La parcela sigue igual de vacía. Lo pensará en casa, se dice. Pero la tierra no espera.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s08",
               "gds_mapping": [
@@ -552,16 +552,16 @@
         },
         {
           "scene_id": "c01-s08",
-          "title": "El momento incómodo",
+          "title": "El vecino del comentario feo",
           "hero_stage": "8_ordeal_crisis",
           "type": "playable",
           "order": 8,
-          "text": "Un hombre mayor de otra parcela la mira trabajar y comenta en voz alta: 'Esta señora no ha cogido un azadón en su vida, se nota.' Algunos no reaccionan. La señora de la tula frunce el ceño. Mariana siente el calor en la cara. El azadón pesa de pronto el doble.",
+          "text": "Mariana está trabajando la tierra cuando un hombre de la parcela del lado la mira y dice en voz alta, sin bajarla: 'Esta señora no ha cogido un azadón en su vida, se nota.' Dos personas siguen con lo suyo. La señora de la tula frunce el ceño. Mariana no levanta la vista del suelo pero siente el calor subiendo por el cuello. El azadón le pesa en las manos el doble que hace un momento.",
           "options": [
             {
               "option_id": "c01-s08-o1",
-              "option_text": "Responder con calma y seguir",
-              "consequence": "'Es mi primer día', dice Mariana sin alzar la voz. Sigue moviendo el azadón. El hombre no vuelve a hablar. La tierra cede poco a poco.",
+              "option_text": "Contestarle en calma y seguir trabajando",
+              "consequence": "Mariana dice 'Es mi primer día' sin alzar la voz. Vuelve al azadón sin mirarlo. El hombre no repite el comentario. La tierra sigue cediendo, poco a poco.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s09",
               "gds_mapping": [
@@ -583,8 +583,8 @@
             },
             {
               "option_id": "c01-s08-o2",
-              "option_text": "Ignorarlo y concentrarse en la tierra",
-              "consequence": "Mariana clava la mirada en la parcela. Los hombros le duelen pero no para. El comentario se queda flotando, sin desaparecer del todo.",
+              "option_text": "Ignorarlo y fijar los ojos en la parcela",
+              "consequence": "Mariana baja la mirada a la tierra y no la vuelve a levantar. Los hombros le duelen pero no suelta el azadón. El comentario se queda flotando entre los surcos.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s09",
               "gds_mapping": [
@@ -599,8 +599,8 @@
             },
             {
               "option_id": "c01-s08-o3",
-              "option_text": "Dejar el azadón y apartarse",
-              "consequence": "Mariana apoya la herramienta y se aleja un poco. Las manos le tiemblan ligeramente. Mira el suelo. La vergà¼enza pesa más que el cansancio.",
+              "option_text": "Soltar el azadón y alejarse del surco",
+              "consequence": "Mariana apoya el azadón y da dos pasos hacia el borde del lote. Las manos le tiemblan apenas. Mira los zapatos. El suelo de tierra absorbe el ruido de todo.",
               "next_chapter_id": null,
               "next_scene_id": "c01-s09",
               "gds_mapping": [
@@ -630,16 +630,16 @@
         },
         {
           "scene_id": "c01-s09",
-          "title": "Al anochecer",
+          "title": "El sobre de albahaca en casa",
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 9,
-          "text": "Mariana está en casa. Las manos le huelen a tierra aunque se las ha lavado dos veces. En la mesa hay una semilla que Paco le regaló al salir: un sobre pequeño con una etiqueta escrita a mano. 'Albahaca', dice. La bombilla ya no parpadea. Afuera empieza a oscurecer.",
+          "text": "Mariana está en la cocina del apartamento. Las manos le huelen a tierra aunque se las lavó dos veces con jabón. Sobre la mesa hay un sobre pequeño que Paco le puso en la palma al salir del lote: etiqueta escrita a mano, letra inclinada. 'Albahaca', dice. La bombilla ya no parpadea. Por la ventana, el barrio se va poniendo oscuro. El sobre cabe en una mano entera. Mariana no lo ha abierto todavía.",
           "options": [
             {
               "option_id": "c01-s09-o1",
-              "option_text": "Buscar una matera para plantarla hoy",
-              "consequence": "Mariana encuentra una matera vieja en el balcón. La llena de tierra del jardín y entierra la semilla con dos dedos. Algo ha empezado.",
+              "option_text": "Buscar una matera y plantarla esta noche",
+              "consequence": "Mariana encuentra una matera plástica en el balcón, llena de tierra reseca. La afloja con los dedos y entierra la semilla con dos nudillos. Las manos vuelven a oler a tierra.",
               "next_chapter_id": "c02",
               "next_scene_id": null,
               "gds_mapping": [
@@ -667,8 +667,8 @@
             },
             {
               "option_id": "c01-s09-o2",
-              "option_text": "Dejar el sobre en la repisa y ver qué pasa",
-              "consequence": "Mariana pone el sobre junto al salero. Lo mirará mañana. No es un no, pero tampoco es un sí todavía.",
+              "option_text": "Dejar el sobre junto al salero por ahora",
+              "consequence": "Mariana apoya el sobre contra el salero. Mañana lo mira con más calma, se dice. El sobre queda inclinado, la letra de Paco mirando hacia arriba.",
               "next_chapter_id": "c02",
               "next_scene_id": null,
               "gds_mapping": [
@@ -683,8 +683,8 @@
             },
             {
               "option_id": "c01-s09-o3",
-              "option_text": "Tirarlo y decidir no volver",
-              "consequence": "El sobre cae en la caneca. Mariana apaga la luz de la cocina. Mañana será otro miércoles igual. El olor a tierra se irá solo.",
+              "option_text": "Echarlo a la caneca y no volver más",
+              "consequence": "Mariana deja caer el sobre en la caneca de la cocina. Apaga la luz. Mañana es jueves, igual que todos los jueves. El olor a tierra en las manos se irá con el tiempo.",
               "next_chapter_id": "c02",
               "next_scene_id": null,
               "gds_mapping": [
@@ -721,16 +721,16 @@
       "scenes": [
         {
           "scene_id": "c02-s01",
-          "title": "El miércoles de nuevo",
+          "title": "Chaqueta lista desde el lunes",
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Mariana lleva la chaqueta beige lista desde el lunes. El miércoles amaneció nublado, como siempre en Bogotá. El sobre de albahaca sigue en la repisa junto al salero. Son las nueve y cuarto. Si no sale ahora, el bus del barrio ya no pasa.",
+          "text": "Mariana está en la cocina del apartamento con la chaqueta beige ya puesta. La dejó lista desde el lunes. El miércoles amaneció nublado, como casi siempre en Bogotá. El sobre de albahaca sigue apoyado contra el salero. Son las nueve y cuarto de la mañana. Si no baja ahora, el bus SITP del barrio no espera más.",
           "options": [
             {
               "option_id": "c02-s01-o1",
-              "option_text": "Salir de una vez sin revisar más",
-              "consequence": "Mariana agarra el bolso, cierra la puerta y baja. En el corredor el frío huele a tierra mojada. Esta vez sabe adónde va.",
+              "option_text": "Agarrar el bolso y bajar de una vez",
+              "consequence": "Mariana toma el bolso de la silla, cierra la puerta con llave y baja las escaleras. El corredor huele a humedad y cloro. Esta vez ya sabe adónde va.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s02",
               "gds_mapping": [
@@ -752,8 +752,8 @@
             },
             {
               "option_id": "c02-s01-o2",
-              "option_text": "Esperar a que escampe un poco",
-              "consequence": "Mariana mira por la ventana. Las nubes no pasan. Espera diez minutos. Cuando sale, el paradero está lleno.",
+              "option_text": "Asomarse a la ventana y esperar a ver",
+              "consequence": "Mariana mira el cielo desde la cocina. Las nubes no se mueven. Espera diez minutos. Cuando baja, el paradero ya está lleno de gente.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s02",
               "gds_mapping": [
@@ -768,8 +768,8 @@
             },
             {
               "option_id": "c02-s01-o3",
-              "option_text": "Quedarse porque el día está muy gris",
-              "consequence": "Mariana apoya la chaqueta en la silla. El miércoles sigue igual afuera. El sobre de albahaca la mira desde la repisa.",
+              "option_text": "Quitarse la chaqueta, el día está muy gris",
+              "consequence": "Mariana se quita la chaqueta y la cuelga de nuevo en la silla. El cielo de Bogotá sigue igual de cerrado. El sobre de albahaca sigue apoyado en el salero.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s02",
               "gds_mapping": [
@@ -799,16 +799,16 @@
         },
         {
           "scene_id": "c02-s02",
-          "title": "Rosita en el paradero",
+          "title": "Rosita y el brote de lechuga",
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "En el paradero de la carrera, Rosita ya está esperando con su tula de fique. La saluda antes de que Mariana llegue del todo. Trae un brote de lechuga envuelto en periódico. 'Mire, ya le salió una hojita a la mía.' Rosita tiene energía de mañanera.",
+          "text": "Mariana llega al paradero de la carrera y Rosita ya está ahí, parada con la tula de fique en el hombro. La saluda desde lejos agitando la mano. Trae un brote de lechuga envuelto en periódico bajo el brazo. 'Mire, Mariana, ya le salió una hojita a la mía', dice mostrándolo. El brote tiembla con el viento del andén. Rosita tiene la energía de quien lleva una semana esperando ese momento.",
           "options": [
             {
               "option_id": "c02-s02-o1",
-              "option_text": "Contarle que ella también sembró una semilla en casa",
-              "consequence": "'¿Cuál sembró?' Mariana saca el sobre de albahaca del bolsillo. Rosita lo mira con los ojos abiertos. 'Esa llega rápido, espérese.'",
+              "option_text": "Contarle que ella también sembró en casa",
+              "consequence": "'¿Cuál sembró, Mariana?' Mariana saca el sobre de albahaca del bolsillo. Rosita lo mira con los ojos bien abiertos. 'Esa planta sale rápido, espérese y verá.'",
               "next_chapter_id": null,
               "next_scene_id": "c02-s03",
               "gds_mapping": [
@@ -830,8 +830,8 @@
             },
             {
               "option_id": "c02-s02-o2",
-              "option_text": "Preguntar por el brote sin hablar del propio",
-              "consequence": "Mariana mira el brote de cerca. 'Qué bien le fue.' No menciona la semilla de su balcón. El bus llega antes de que diga más.",
+              "option_text": "Preguntar por el brote sin mencionar el suyo",
+              "consequence": "Mariana mira el brote de cerca. 'Qué bien le fue.' No menciona la albahaca del balcón. El bus SITP dobla la esquina antes de que pueda decir algo más.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s03",
               "gds_mapping": [
@@ -846,8 +846,8 @@
             },
             {
               "option_id": "c02-s02-o3",
-              "option_text": "Decirle que no sabe si sirve para esto",
-              "consequence": "'No sé si se me da a mí.' Rosita la mira sin entender bien. El bus ya está doblando la esquina.",
+              "option_text": "Decirle que no sabe si sirve para el huerto",
+              "consequence": "Mariana dice 'No sé si esto se me da a mí.' Rosita la mira un momento sin responder. El bus ya está doblando la esquina del paradero.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s03",
               "gds_mapping": [
@@ -871,16 +871,16 @@
         },
         {
           "scene_id": "c02-s03",
-          "title": "La tierra compactada",
+          "title": "Tierra dura sin lluvia",
           "hero_stage": "3_refusal_of_the_call",
           "type": "playable",
           "order": 3,
-          "text": "Paco les explica que la semana sin lluvia dejó la tierra muy dura. 'Hay que aflojarla antes de sembrar, si no las semillas no pasan.' Señala el azadón apoyado en la estaquilla roja de la parcela de Mariana. Dos personas ya empezaron.",
+          "text": "Paco está en el centro del lote con los brazos cruzados cuando llegan. La semana sin lluvia dejó la tierra como ladrillo. 'Hay que aflojarla toda antes de sembrar, si no las semillas no pasan.' Señala el azadón apoyado en la estaquilla roja de la parcela de Mariana. La tierra parece más dura que la semana pasada. Dos personas del lado ya empezaron. El sonido del azadón rebota.",
           "options": [
             {
               "option_id": "c02-s03-o1",
-              "option_text": "Agarrar el azadón y empezar de una",
-              "consequence": "Mariana levanta el azadón antes de que Paco termine la frase. La tierra es más dura que la semana pasada, pero cede.",
+              "option_text": "Agarrar el azadón y arrancar sin esperar",
+              "consequence": "Mariana levanta el azadón antes de que Paco termine la frase. La tierra rechina bajo el metal pero cede. Paco asiente desde el otro lado del surco.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s04",
               "gds_mapping": [
@@ -902,8 +902,8 @@
             },
             {
               "option_id": "c02-s03-o2",
-              "option_text": "Preguntar a Paco cuánto hay que aflojar",
-              "consequence": "Paco le muestra el ancho: metro y medio de surcos. No es poco. Mariana coge el azadón despacio, calculando.",
+              "option_text": "Preguntarle a Paco cuánto toca aflojar",
+              "consequence": "Paco le señala el ancho con la bota: metro y medio de surcos. No es poco. Mariana toma el azadón despacio y lo pesa en la mano antes de bajar el primer golpe.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s04",
               "gds_mapping": [
@@ -918,8 +918,8 @@
             },
             {
               "option_id": "c02-s03-o3",
-              "option_text": "Decir que hoy solo puede mirar",
-              "consequence": "'Hoy no traje fuerzas para eso.' Paco asiente. Mariana se sienta en el banco de madera del borde. El azadón sigue apoyado en la estaquilla.",
+              "option_text": "Decir que hoy prefiere solo observar",
+              "consequence": "Mariana dice 'Hoy no traje fuerzas para eso.' Paco asiente sin preguntar más. Ella se sienta en el banco de madera del borde del lote. El azadón no se mueve de la estaquilla.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s04",
               "gds_mapping": [
@@ -949,16 +949,16 @@
         },
         {
           "scene_id": "c02-s04",
-          "title": "Cómo se hace el surco",
+          "title": "Rosita enseña el movimiento justo",
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 4,
-          "text": "Rosita, que lleva tres semanas en el huerto, le muestra cómo usar el azadón al sesgo. 'Así no se cansa el hombro.' La tierra oscura de Bogotá huele a lluvia de anoche. Paco los observa desde lejos. Mariana coge el azadón e intenta el movimiento.",
+          "text": "Rosita se para al lado de la parcela de Mariana y le muestra el movimiento: azadón al sesgo, muñeca suelta, cuerpo hacia adelante. 'Así no se cansa el hombro, Mariana.' La tierra oscura de Bogotá huele a lluvia de la madrugada. Paco observa desde el otro extremo del lote con los brazos cruzados. Mariana toma el azadón y lo apunta hacia la tierra.",
           "options": [
             {
               "option_id": "c02-s04-o1",
-              "option_text": "Repetir el movimiento hasta que salga bien",
-              "consequence": "Cuatro intentos. El quinto surco queda recto. Rosita aplaude bajito. La tierra cede con un sonido seco que le gusta.",
+              "option_text": "Repetir el golpe hasta que el surco salga recto",
+              "consequence": "Cuatro intentos con el brazo torcido. El quinto surco queda derecho. Rosita aplaude con las palmas abiertas. La tierra suena distinto cuando cede bien.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s05",
               "gds_mapping": [
@@ -980,8 +980,8 @@
             },
             {
               "option_id": "c02-s04-o2",
-              "option_text": "Intentarlo una vez y esperar que Rosita haga el resto",
-              "consequence": "Mariana hace un surco y se detiene. Rosita no pregunta por qué. Sigue ella. Los dos surcos juntos llenan media parcela.",
+              "option_text": "Hacer un surco y dejar que Rosita siga",
+              "consequence": "Mariana traza un surco y pone el azadón en el suelo. Rosita no pregunta por qué para. Coge la herramienta y sigue. Los dos surcos juntos llenan la mitad de la parcela.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s05",
               "gds_mapping": [
@@ -996,8 +996,8 @@
             },
             {
               "option_id": "c02-s04-o3",
-              "option_text": "Dejarlo porque se le cansa el brazo rápido",
-              "consequence": "Mariana apoya el azadón. 'No aguanto mucho.' Rosita le dice que está bien. La parcela queda a medio aflojar.",
+              "option_text": "Soltar el azadón porque el brazo no aguanta",
+              "consequence": "Mariana apoya la herramienta en el surco. 'No aguanto mucho con esto.' Rosita dice que está bien. La parcela queda a medio aflojar, tierra dura a un lado y tierra suelta al otro.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s05",
               "gds_mapping": [
@@ -1027,16 +1027,16 @@
         },
         {
           "scene_id": "c02-s05",
-          "title": "La semilla en la palma",
+          "title": "Cinco semillas en la mano",
           "hero_stage": "5_crossing_threshold",
           "type": "playable",
           "order": 5,
-          "text": "Paco le pone en la mano cinco semillas de cilantro. Son casi invisibles. El surco ya está listo, hàºmedo y oscuro. Solo falta soltarlas. Rosita ya sembró las suyas y las está tapando con cuidado, como si fueran algo frágil.",
+          "text": "Paco le pone en la palma cinco semillas de cilantro. Son tan pequeñas que casi no se ven. El surco ya está listo: húmedo, oscuro, abierto. Solo falta soltarlas. Rosita ya sembró las suyas y las tapa con dos dedos, despacio, como si fueran de vidrio. Mariana cierra el puño un momento. La tierra del surco espera.",
           "options": [
             {
               "option_id": "c02-s05-o1",
-              "option_text": "Soltarlas una por una con cuidado",
-              "consequence": "Mariana cuenta en voz baja: una, dos, tres, cuatro, cinco. Las tapa con dos dedos. El surco queda cerrado. Algo está sembrado.",
+              "option_text": "Soltarlas de una en una con cuidado",
+              "consequence": "Mariana cuenta en voz baja: una, dos, tres, cuatro, cinco. Las cubre con dos dedos. La tierra cierra el surco sin dejar huella. Algo ya está sembrado.",
               "next_chapter_id": null,
               "next_scene_id": "c02-s06",
               "gds_mapping": [
@@ -2984,7 +2984,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Mariana está arrodillada junto a su lote, revisando si hay algàºn brote de lechuga, cuando el teléfono vibra en el bolsillo. Ve la foto de Lucía en la pantalla. Su hija llama un jueves, que no es el día usual. Mariana se limpia la mano en el delantal antes de contestar.",
+          "text": "Mariana está arrodillada junto a su lote, revisando si hay algàºn brote de lechuga, cuando el teléfono vibra en el bolsillo. Ve la foto de Lucía en la pantalla. Su hija llama un jueves, que no es el día usual. Mariana se limpia la mano en el delantal antes de contestar. La carta dice: 'Proyecto Huerto Comunitario del Barrio Bello Horizonte'. Mariana la lee bajo la luz pálida del casillero.",
           "options": [
             {
               "option_id": "c05-s01-o1",
@@ -3584,7 +3584,7 @@
             {
               "option_id": "c05-s08-o1",
               "option_text": "Mandarle una foto del brote de albahaca con un mensaje corto",
-              "consequence": "Mariana toma la foto y escribe: 'Mija, mira cómo va la albahaca.' Lucía responde en diez minutos con un corazón y un '¡Qué bonita, mamá!' Mariana se duerme un poco más liviana.",
+              "consequence": "Mariana toma la foto y escribe: 'Mija, mira cómo va la albahaca.' Lucía responde en diez minutos con un corazón y un '¡Qué bonita, mamá!' Mariana se duerme un poco más liviana. Las yemas de sus dedos rozan el borde de su ropa con firmeza. El eco del momento envuelve su decisión, de la que no hay vuelta atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c05-s09",
               "gds_mapping": [
@@ -3756,12 +3756,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Mariana despierta con el sonido de la lluvia golpeando el vidrio. La niebla cubre los cerros y el apartamento huele a humedad y café recién colado. Por la ventana ve las ramas del árbol del andén inclinadas por el viento. Recuerda que el jueves es su día en el huerto.",
+          "text": "Mariana despierta con el sonido de la lluvia golpeando el vidrio. La niebla cubre los cerros y el apartamento huele a humedad y café recién colado. Por la ventana ve las ramas del árbol del andén inclinadas por el viento. El suelo del balcón tiene charcos pequeños. Recuerda que el jueves es su día en el huerto. La ropa de trabajo está doblada en la silla desde anoche, esperando.",
           "options": [
             {
               "option_id": "c06-s01-o1",
-              "option_text": "Preparar el impermeable y los botas",
-              "consequence": "Mariana busca en el armario el chubasquero verde que no ha usado en años. Lo encuentra detrás de dos sacos y lo sacude con energía.",
+              "option_text": "Buscar el impermeable y las botas",
+              "consequence": "Mariana abre el armario y saca el chubasquero verde que no ha usado en años. Lo encuentra detrás de dos sacos y lo sacude con energía. El polvo cae en espiral bajo la luz del cuarto.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s02",
               "gds_mapping": [
@@ -3783,8 +3783,8 @@
             },
             {
               "option_id": "c06-s01-o2",
-              "option_text": "Esperar a ver si escampa un poco",
-              "consequence": "Mariana se sienta en el sofá con el tinto y mira el reloj cada diez minutos. La lluvia no para.",
+              "option_text": "Sentarse a esperar que escampe",
+              "consequence": "Mariana se sienta en el sofá con el tinto y mira el reloj cada diez minutos. La lluvia no para. La taza se enfría entre sus manos sin que ella lo note.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s02",
               "gds_mapping": [
@@ -3799,8 +3799,8 @@
             },
             {
               "option_id": "c06-s01-o3",
-              "option_text": "Decidir quedarse en casa hoy",
-              "consequence": "Mariana apaga la estufa y se sienta de nuevo. Con este aguacero, nadie va a ir. ¿Para qué exponerse?",
+              "option_text": "Quedarse en el apartamento sin ir",
+              "consequence": "Mariana apaga la estufa y se sienta de nuevo. Con este aguacero, nadie va a ir. La lluvia repica en el vidrio y el tinto se queda sin tocar sobre el mesón.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s02",
               "gds_mapping": [
@@ -3834,12 +3834,12 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Cuando Mariana llega al huerto, el panorama es peor de lo esperado. El viento volcó la malla que protegía las lechugas y el lote de Rosita quedó cubierto de tierra arrastrada por el agua. Paco camina entre los surcos revisando el daño con una libreta mojada en la mano. Dos vecinos más llegaron con palas.",
+          "text": "Cuando Mariana llega al huerto, el panorama es peor de lo esperado. El viento volcó la malla que protegía las lechugas y el lote de Rosita quedó cubierto de tierra arrastrada por el agua. Hay olor a barro mojado y a raíz expuesta. Paco camina entre los surcos revisando el daño con una libreta mojada en la mano. Dos vecinos más llegaron con palas. El portón de entrada sigue abierto de par en par, golpeando contra el poste con el viento.",
           "options": [
             {
               "option_id": "c06-s02-o1",
-              "option_text": "Arremangarse y empezar a limpiar",
-              "consequence": "Mariana coge una pala y empieza a retirar el barro del surco más dañado. Paco le sonríe desde el otro extremo.",
+              "option_text": "Coger una pala y ponerse a limpiar",
+              "consequence": "Mariana coge una pala y empieza a retirar el barro del surco más dañado. Paco le sonríe desde el otro extremo. El filo de la pala entra en la tierra con un sonido sordo y húmedo.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s03",
               "gds_mapping": [
@@ -3860,8 +3860,8 @@
             },
             {
               "option_id": "c06-s02-o2",
-              "option_text": "Preguntar a Paco qué se puede hacer",
-              "consequence": "Paco le explica que primero hay que despejar los canales y luego replantear. Mariana escucha y asiente, lista para ayudar.",
+              "option_text": "Preguntarle a Paco por dónde empezar",
+              "consequence": "Paco le explica que primero hay que despejar los canales y luego replantear. Mariana escucha y asiente, lista para ayudar. El agua sucia todavía corre entre las piedras del borde del lote.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s03",
               "gds_mapping": [
@@ -3911,7 +3911,7 @@
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 3,
-          "text": "Don Hernando llega con las manos en los bolsillos y recorre el huerto con los ojos entrecerrados. 'Esto siempre pasa', dice en voz alta, sin dirigirse a nadie en particular. 'Los cerros de Bogotá no perdonan. Uno debería haber escogido un lote más protegido.' Nadie responde. Paco sigue con la libreta.",
+          "text": "Don Hernando llega con las manos en los bolsillos y recorre el huerto con los ojos entrecerrados. Tiene puesto el mismo saco gris de siempre. 'Esto siempre pasa', dice en voz alta, sin dirigirse a nadie en particular. 'Los cerros de Bogotá no perdonan. Uno debería haber escogido un lote más protegido.' Nadie responde. Paco sigue con la libreta. Mariana aprieta el mango de la pala y no levanta la vista.",
           "options": [
             {
               "option_id": "c06-s03-o1",
@@ -3937,8 +3937,8 @@
             },
             {
               "option_id": "c06-s03-o2",
-              "option_text": "Ignorarlo y seguir trabajando",
-              "consequence": "Mariana mete la pala en el barro y no dice nada. Paco le guiña el ojo desde el otro surco.",
+              "option_text": "Ignorarlo y seguir palando barro",
+              "consequence": "Mariana mete la pala en el barro y no dice nada. Paco le guiña el ojo desde el otro surco. Don Hernando resopla y se aleja hacia la salida sin ayudar.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s04",
               "gds_mapping": [
@@ -3953,8 +3953,8 @@
             },
             {
               "option_id": "c06-s03-o3",
-              "option_text": "Pensar que Don Hernando tiene razón",
-              "consequence": "Mariana baja la pala despacio. Tal vez el viejo tenía razón desde el principio. Tal vez este proyecto no era para ella.",
+              "option_text": "Bajar la pala y darle la razón",
+              "consequence": "Mariana apoya la pala en el suelo y no dice nada. Tal vez el viejo tenía razón desde el principio. El barro sigue pegado a sus botas, pesado.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s04",
               "gds_mapping": [
@@ -4014,8 +4014,8 @@
             },
             {
               "option_id": "c06-s04-o2",
-              "option_text": "Agradecer y despedirse temprano",
-              "consequence": "Mariana toma el primer bus SITP de vuelta al apartamento. En el trayecto mira sus manos embarradas y sonríe un poco.",
+              "option_text": "Agradecer y tomar el primer bus",
+              "consequence": "Mariana toma el primer bus SITP de vuelta al apartamento. En el trayecto mira sus manos embarradas y sonríe un poco. La ventana del bus tiene vaho y los cerros ya no se ven.",
               "next_chapter_id": null,
               "next_scene_id": "c06-s05",
               "gds_mapping": [
@@ -4072,12 +4072,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Mariana llega al huerto el lunes y nota que la tablilla con su nombre en el lote 7 ya no está. En su lugar hay una nueva con el nombre 'Alberto Suárez' escrito con marcador negro. El surco que ella preparó con tanto trabajo tiene encima una capa de tierra nueva y unas semillas de rábano recién sembradas.",
+          "text": "Mariana llega al huerto el lunes y nota que la tablilla con su nombre en el lote 7 ya no está. En su lugar hay una nueva con el nombre 'Alberto Suárez' escrito con marcador negro. El surco que ella preparó con tanto trabajo tiene encima una capa de tierra nueva y unas semillas de rábano recién sembradas. Huele a tierra recién movida. Mariana se queda de pie frente al lote, el bolso colgando del brazo.",
           "options": [
             {
               "option_id": "c07-s01-o1",
-              "option_text": "Buscar a Paco para preguntar qué pasó",
-              "consequence": "Mariana cruza el huerto con paso firme. Necesita entender antes de reaccionar.",
+              "option_text": "Cruzar el huerto y buscar a Paco",
+              "consequence": "Mariana cruza el huerto con paso firme, entre surcos y mangueras enrolladas. Necesita entender antes de reaccionar. Sus pasos suenan rápidos sobre el andén de ladrillo.",
               "next_chapter_id": null,
               "next_scene_id": "c07-s02",
               "gds_mapping": [
@@ -4092,8 +4092,8 @@
             },
             {
               "option_id": "c07-s01-o2",
-              "option_text": "Mirar el lote sin saber qué hacer",
-              "consequence": "Mariana se queda parada frente al lote ajeno. Los minutos pasan. Siente un nudo en el estómago.",
+              "option_text": "Quedarse parada frente al lote ajeno",
+              "consequence": "Mariana no se mueve del andén. Los minutos pasan y nadie la mira. La tablilla nueva brilla con el marcador negro todavía fresco.",
               "next_chapter_id": null,
               "next_scene_id": "c07-s02",
               "gds_mapping": [
@@ -4115,8 +4115,8 @@
             },
             {
               "option_id": "c07-s01-o3",
-              "option_text": "Dar vuelta y volver al apartamento",
-              "consequence": "Mariana recoge su bolso del andén y camina de regreso sin hablar con nadie. Si la quitaron, la quitaron. Para qué pelear.",
+              "option_text": "Recoger el bolso y volver sin hablar",
+              "consequence": "Mariana recoge su bolso y sale por el portón sin mirar a nadie. Camina sola hasta el paradero con el sol en la cara. El bus del SITP tarda y ella no se sienta en el andén.",
               "next_chapter_id": null,
               "next_scene_id": "c07-s02",
               "gds_mapping": [
@@ -4150,12 +4150,12 @@
           "hero_stage": "3_refusal_of_the_call",
           "type": "playable",
           "order": 2,
-          "text": "Paco explica que hubo un malentendido con la lista de asignaciones y que Don Hernando insistió en reasignar el lote 7 a su compadre Alberto durante la reunión del sábado, una reunión que nadie le avisó a Mariana. Paco tiene la cara de quien sabe que cometió un error.",
+          "text": "Paco explica que hubo un malentendido con la lista de asignaciones. Don Hernando insistió en reasignar el lote 7 a su compadre Alberto durante la reunión del sábado, una reunión que nadie le avisó a Mariana. Paco tiene la cara de quien sabe que cometió un error. Habla despacio, con los ojos fijos en la libreta. Afuera, los pájaros siguen en el nogal como si nada.",
           "options": [
             {
               "option_id": "c07-s02-o1",
-              "option_text": "Pedir que se corrija el error formalmente",
-              "consequence": "Mariana le dice a Paco que ese lote es suyo y que espera que la situación se resuelva esta semana. Habla en voz baja pero sin retroceder.",
+              "option_text": "Exigir que corrijan el error esta semana",
+              "consequence": "Mariana le dice a Paco que ese lote es suyo y que espera que la situación se resuelva esta semana. Habla en voz baja pero sin retroceder. Paco asiente y anota algo en la libreta mojada.",
               "next_chapter_id": null,
               "next_scene_id": "c07-s03",
               "gds_mapping": [
@@ -4192,8 +4192,8 @@
             },
             {
               "option_id": "c07-s02-o3",
-              "option_text": "Decir que da igual, que ella se va",
-              "consequence": "Mariana siente que no tiene energía para esto. Le dice a Paco que se quede con el lote, que a ella no le importa, y se da vuelta.",
+              "option_text": "Decirle a Paco que se quede con el lote",
+              "consequence": "Mariana le dice a Paco que se quede con el lote, que a ella no le importa, y se da vuelta. Camina hacia el portón sin mirar atrás. Sus pasos suenan huecos sobre el ladrillo seco.",
               "next_chapter_id": null,
               "next_scene_id": "c07-s03",
               "gds_mapping": [
@@ -4227,7 +4227,7 @@
           "hero_stage": "7_the_ordeal",
           "type": "playable",
           "order": 3,
-          "text": "Don Hernando aparece en el momento menos oportuno con Alberto Suárez al lado. 'A usted nadie la llamó al sábado porque ese lote ya era del señor Alberto', dice con una sonrisa que no llega a los ojos. Los demás participantes se detienen a mirar sin decir nada.",
+          "text": "Don Hernando aparece en el huerto con Alberto Suárez al lado. Trae las manos en los bolsillos y una sonrisa que no llega a los ojos. 'A usted nadie la llamó al sábado porque ese lote ya era del señor Alberto', dice en voz alta. Los demás participantes se detienen a mirar sin decir nada. El silencio huele a tierra mojada y a algo que está a punto de romperse.",
           "options": [
             {
               "option_id": "c07-s03-o1",
@@ -4253,8 +4253,8 @@
             },
             {
               "option_id": "c07-s03-o2",
-              "option_text": "Guardar silencio y esperar a Paco",
-              "consequence": "Mariana no responde. El silencio es incómodo, pero Mariana mantiene la mirada fija en el lote hasta que Paco llega.",
+              "option_text": "Callar y sostener la mirada hasta que llegue Paco",
+              "consequence": "Mariana no responde. Mantiene la mirada fija en el lote hasta que Paco llega. El sol de media mañana da en el ladrillo y calienta el silencio.",
               "next_chapter_id": null,
               "next_scene_id": "c07-s04",
               "gds_mapping": [
@@ -4269,8 +4269,8 @@
             },
             {
               "option_id": "c07-s03-o3",
-              "option_text": "Sentir vergà¼enza y querer desaparecer",
-              "consequence": "Mariana siente que la cara le arde. El pàºblico, el conflicto, la voz de Don Hernando. Desearía no haber venido nunca.",
+              "option_text": "Bajar la vista y querer desaparecer",
+              "consequence": "Mariana baja la vista. La cara le arde. Desearía no haber venido nunca — el huerto, el lote, la gente mirando.",
               "next_chapter_id": null,
               "next_scene_id": "c07-s04",
               "gds_mapping": [
@@ -4308,8 +4308,8 @@
           "options": [
             {
               "option_id": "c07-s04-o1",
-              "option_text": "Agradecer a Paco y ofrecerse a ayudar a Alberto",
-              "consequence": "Mariana le muestra a Alberto los límites del lote 12. El gesto le sale natural y eso la sorprende un poco.",
+              "option_text": "Agradecer a Paco y mostrarle el lote a Alberto",
+              "consequence": "Mariana le muestra a Alberto los límites del lote 12 con el dedo. El gesto le sale natural y eso la sorprende. Alberto asiente y le dice gracias con la voz seria.",
               "next_chapter_id": null,
               "next_scene_id": "c07-s05",
               "gds_mapping": [
@@ -4331,7 +4331,7 @@
             {
               "option_id": "c07-s04-o2",
               "option_text": "Volver al lote y seguir trabajando",
-              "consequence": "Mariana vuelve al lote 7 y recoge la tablilla con su nombre. La clava de nuevo con energía. El barro está hàºmedo y huele bien.",
+              "consequence": "Mariana vuelve al lote 7 y recoge la tablilla con su nombre. La clava de nuevo con energía. El barro está húmedo y huele a tierra recién trabajada.",
               "next_chapter_id": null,
               "next_scene_id": "c07-s05",
               "gds_mapping": [
@@ -4388,12 +4388,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Mariana llega al huerto el miércoles y nota que el puesto de Rosita está vacío. La tula de fique cuelga de la reja, olvidada. Nadie ha tocado sus matas de cilantro. Paco llega por el portón cargando una bolsa de abono y le dice, sin rodeos, que Rosita se cayó el martes en el andén de su casa y está en la Clínica del Country.",
+          "text": "Mariana llega al huerto el miércoles y nota que el puesto de Rosita está vacío. La tula de fique cuelga de la reja, olvidada. Nadie ha tocado sus matas de cilantro. Paco llega por el portón cargando una bolsa de abono y le dice, sin rodeos, que Rosita se cayó el martes en el andén de su casa y está en la Clínica del Country. El primer brote de tomate es tan pequeño que casi no se ve. Pero está ahí.",
           "options": [
             {
               "option_id": "c08-s01-o1",
-              "option_text": "Preguntar si es grave y qué se puede hacer",
-              "consequence": "Paco dice que fue la cadera y que estará hospitalizada unos días. Mariana siente que necesita hacer algo concreto.",
+              "option_text": "Preguntarle a Paco si es grave",
+              "consequence": "Paco dice que fue la cadera y que estará hospitalizada unos días. Mariana escucha y asiente. La tula de Rosita sigue colgada en la reja, quieta.",
               "next_chapter_id": null,
               "next_scene_id": "c08-s02",
               "gds_mapping": [
@@ -4408,8 +4408,8 @@
             },
             {
               "option_id": "c08-s01-o2",
-              "option_text": "Suspirar y seguir con las plantas",
-              "consequence": "Mariana escucha la noticia y mira las matas de Rosita. 'Qué pena', dice en voz baja, y empieza a regar sus lechugas.",
+              "option_text": "Suspirar y seguir regando las lechugas",
+              "consequence": "Mariana escucha la noticia y mira las matas de Rosita. 'Qué pena', dice en voz baja, y empieza a regar sus lechugas. El agua golpea la tierra con un sonido suave y continuo.",
               "next_chapter_id": null,
               "next_scene_id": "c08-s02",
               "gds_mapping": [
@@ -4424,8 +4424,8 @@
             },
             {
               "option_id": "c08-s01-o3",
-              "option_text": "Sentir que eso le puede pasar a uno",
-              "consequence": "Mariana imagina la cadera, el hospital, el corredor frío. Se le viene encima una angustia que no esperaba. Deja la regadera en el suelo.",
+              "option_text": "Pensar que eso le podría pasar a ella",
+              "consequence": "Mariana imagina la cadera, el hospital, el corredor frío. Algo se le aprieta en el pecho sin que lo llame. Deja la regadera en el suelo y no la recoge en un rato.",
               "next_chapter_id": null,
               "next_scene_id": "c08-s02",
               "gds_mapping": [
@@ -4463,8 +4463,8 @@
           "options": [
             {
               "option_id": "c08-s02-o1",
-              "option_text": "Ir al hospital esa misma tarde",
-              "consequence": "Mariana recoge la tula de Rosita junto con la suya y sale para la clínica. En el bus piensa qué va a decirle.",
+              "option_text": "Salir para la clínica esa misma tarde",
+              "consequence": "Mariana recoge la tula de Rosita junto con la suya y sale para la clínica. En el bus piensa qué va a decirle. El bus huele a plástico caliente y el camino se hace largo.",
               "next_chapter_id": null,
               "next_scene_id": "c08-s03",
               "gds_mapping": [
@@ -4501,8 +4501,8 @@
             },
             {
               "option_id": "c08-s02-o3",
-              "option_text": "Decidir que no es su lugar ir",
-              "consequence": "Mariana cuelga la tula de nuevo en la reja. No es familia. No quiere estorbar. Se va a casa pensando en Rosita todo el camino.",
+              "option_text": "Colgar la tula y no ir al hospital",
+              "consequence": "Mariana cuelga la tula de nuevo en la reja. No es familia, no quiere estorbar. Se va a casa pensando en Rosita todo el camino, y la cara le pesa.",
               "next_chapter_id": null,
               "next_scene_id": "c08-s03",
               "gds_mapping": [
@@ -4562,8 +4562,8 @@
             },
             {
               "option_id": "c08-s03-o2",
-              "option_text": "Preguntar cómo está y qué necesita",
-              "consequence": "Rosita dice que solo necesita compañía. Mariana se queda cuarenta minutos y hablan del cilantro, del lote y de los chismes del huerto.",
+              "option_text": "Preguntarle qué necesita y quedarse",
+              "consequence": "Rosita dice que solo necesita compañía. Mariana se queda cuarenta minutos y hablan del cilantro, del lote y de los chismes del huerto. La tarde entra por la ventana de la habitación y los hace reír.",
               "next_chapter_id": null,
               "next_scene_id": "c08-s04",
               "gds_mapping": [
@@ -4578,8 +4578,8 @@
             },
             {
               "option_id": "c08-s03-o3",
-              "option_text": "Quedarse en la puerta sin entrar de verdad",
-              "consequence": "Mariana saluda desde el umbral y sale en diez minutos. No sabe qué decir. El hospital la oprime. En el bus de vuelta se siente culpable.",
+              "option_text": "Saludar desde la puerta y salir pronto",
+              "consequence": "Mariana saluda desde el umbral y sale en diez minutos. El olor a desinfectante del pasillo la sigue hasta el ascensor. En el bus de vuelta no deja de mirar por la ventana.",
               "next_chapter_id": null,
               "next_scene_id": "c08-s04",
               "gds_mapping": [
@@ -4639,8 +4639,8 @@
             },
             {
               "option_id": "c08-s04-o2",
-              "option_text": "Aceptar aunque no está segura de poder",
-              "consequence": "Mariana dice que sí, aunque le preocupa no hacerlo bien. Sale pensando en las instrucciones de riego.",
+              "option_text": "Aceptar aunque le da miedo hacerlo mal",
+              "consequence": "Mariana dice que sí, aunque le preocupa no hacerlo bien. Sale pensando en las instrucciones de riego. En el andén, el sol le da en la cara y ella no lo nota.",
               "next_chapter_id": null,
               "next_scene_id": "c08-s05",
               "gds_mapping": [
@@ -4701,8 +4701,8 @@
           "options": [
             {
               "option_id": "c09-s01-o1",
-              "option_text": "Aceptar sin pensarlo demasiado",
-              "consequence": "Mariana dice que sí antes de que el miedo llegue. Paco anota su nombre en la libreta con una sonrisa.",
+              "option_text": "Decir que sí antes de pensarlo dos veces",
+              "consequence": "Mariana dice que sí antes de que el miedo llegue. Paco anota su nombre en la libreta con una sonrisa. El cilantro de Rosita se mueve con la brisa de la mañana.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s02",
               "gds_mapping": [
@@ -4768,12 +4768,12 @@
           "hero_stage": "3_refusal_of_the_call",
           "type": "playable",
           "order": 2,
-          "text": "Esa noche, Mariana no puede dormir. La calle seis está en silencio y las luces del cerro titilan en la niebla. Piensa en el grupo de seis personas que no la conocen, en si sabrá explicar cómo se siembra, en si la van a tomar en serio. Da vueltas en la cama.",
+          "text": "Esa noche, Mariana no puede dormir. La calle seis está en silencio y las luces del cerro titilan en la niebla. Piensa en el grupo de seis personas que no la conocen, en si sabrá explicar cómo se siembra, en si la van a tomar en serio. Da vueltas en la cama. Los vecinos empiezan a traer sus propias plantas. El huerto crece cada semana.",
           "options": [
             {
               "option_id": "c09-s02-o1",
-              "option_text": "Escribir ideas para el primer encuentro",
-              "consequence": "Mariana enciende la lámpara y saca el cuaderno de la mesita. Para cuando amanece tiene tres páginas de notas.",
+              "option_text": "Encender la lámpara y escribir ideas",
+              "consequence": "Mariana saca el cuaderno de la mesita y empieza a escribir. Para cuando amanece tiene tres páginas de notas. El lápiz raspa el papel y afuera empieza a cantar un pájaro.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s03",
               "gds_mapping": [
@@ -4795,8 +4795,8 @@
             },
             {
               "option_id": "c09-s02-o2",
-              "option_text": "Intentar dormir y dejar de pensar",
-              "consequence": "Mariana cierra los ojos y cuenta el tráfico lejano de la séptima. Tarde, muy tarde, se duerme.",
+              "option_text": "Cerrar los ojos y forzarse a dormir",
+              "consequence": "Mariana cierra los ojos y cuenta el tráfico lejano de la séptima. Las sábanas están frías de tanto dar vueltas. Tarde, muy tarde, el cuarto queda en silencio.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s03",
               "gds_mapping": [
@@ -4818,8 +4818,8 @@
             },
             {
               "option_id": "c09-s02-o3",
-              "option_text": "Decidir que mañana le dirá que no a Paco",
-              "consequence": "Mariana resuelve declinarlo. Se siente aliviada un segundo y luego le viene una tristeza que no esperaba.",
+              "option_text": "Resolver que mañana le dice que no a Paco",
+              "consequence": "Mariana apaga la lámpara y se cubre hasta el cuello. El cuerpo le pesa menos, pero solo un momento. La calle seis sigue en silencio y el cuaderno queda cerrado sobre la mesita.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s03",
               "gds_mapping": [
@@ -4857,8 +4857,8 @@
           "options": [
             {
               "option_id": "c09-s03-o1",
-              "option_text": "Contar que ya aceptó el encargo",
-              "consequence": "Lucía celebra con un '¡qué bueno!' que Mariana puede escuchar sonreír. Cuelgan al rato pero el calor de la llamada dura.",
+              "option_text": "Contarle que ya aceptó el encargo de Paco",
+              "consequence": "Lucía celebra con un '¡Qué bueno, mamá!' que Mariana puede escuchar sonreír. Cuelgan al rato. El apartamento sigue igual de quieto, pero el teléfono en la mano pesa menos.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s04",
               "gds_mapping": [
@@ -4930,7 +4930,7 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 4,
-          "text": "El sábado, seis personas mayores llegan al huerto con ropa de trabajo y cara de no saber muy bien qué esperan. Paco los presenta y señala a Mariana. Ella tiene el cuaderno en la mano y las botas puestas. El grupo la mira.",
+          "text": "El sábado, seis personas mayores llegan al lote 7 con ropa de trabajo y cara de no saber muy bien qué esperan. Huele a tierra húmeda y a cilantro. Paco los presenta y señala a Mariana. Ella tiene el cuaderno en la mano y las botas puestas, los cordones todavía sin atar del todo. El grupo la mira en silencio.",
           "options": [
             {
               "option_id": "c09-s04-o1",
@@ -4972,8 +4972,8 @@
             },
             {
               "option_id": "c09-s04-o3",
-              "option_text": "Bloquearse y no saber qué decir",
-              "consequence": "Mariana abre el cuaderno y las palabras no salen. Paco salva el momento, pero ella siente que los defraudó. El grupo sigue mirándola.",
+              "option_text": "Abrir el cuaderno y quedarse sin palabras",
+              "consequence": "Mariana abre el cuaderno y las palabras no salen. Paco toma la palabra y ella baja la vista al surco. El grupo espera un momento más y luego empieza a mirar las plantas.",
               "next_chapter_id": null,
               "next_scene_id": "c09-s05",
               "gds_mapping": [
@@ -5014,12 +5014,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "La Feria del Barrio ocupa tres cuadras del parque central y huele a maíz tostado y perros de baño. El huerto comunitario tiene un stand con una mesa de madera cubierta de lechugas, cilantro y rábanos. Paco colgó un pendón verde y puso sillas plásticas al lado. Mariana ayudó a cargar las canastas en el bus SITP de la mañana.",
+          "text": "La Feria del Barrio ocupa tres cuadras del parque central y huele a maíz tostado y perros de baño. El huerto comunitario tiene un stand con una mesa de madera cubierta de lechugas, cilantro y rábanos. Paco colgó un pendón verde y puso sillas plásticas al lado. Mariana ayudó a cargar las canastas en el bus SITP de la mañana. Mariana planta sola por primera vez. Sus manos saben dónde va cada semilla.",
           "options": [
             {
               "option_id": "c10-s01-o1",
-              "option_text": "Ponerse al frente a atender a la gente",
-              "consequence": "Mariana se coloca detrás de la mesa y responde preguntas sobre el cilantro y la lechuga. Se sorprende de cuánto sabe.",
+              "option_text": "Pararse detrás de la mesa a atender",
+              "consequence": "Mariana se coloca detrás de la mesa y responde preguntas sobre el cilantro y la lechuga. Le sale sola la explicación, sin necesitar el cuaderno. Una señora mayor le pide que repita cuándo sembrar y ella lo repite sin dudar.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s02",
               "gds_mapping": [
@@ -5040,8 +5040,8 @@
             },
             {
               "option_id": "c10-s01-o2",
-              "option_text": "Ayudar en lo que digan pero sin liderar",
-              "consequence": "Mariana acomoda canastas y llena los vasos de agua. Nadie la nota mucho, pero ella siente que contribuye.",
+              "option_text": "Acomodar canastas sin ponerse al frente",
+              "consequence": "Mariana acomoda las canastas y llena los vasos de agua. El ruido de la feria llega mezclado con olor a maíz tostado. Nadie le pregunta nada y ella tampoco busca que le pregunten.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s02",
               "gds_mapping": [
@@ -5057,7 +5057,7 @@
             {
               "option_id": "c10-s01-o3",
               "option_text": "Quedarse sentada al fondo del stand",
-              "consequence": "El ruido de la feria la agobia. Mariana se sienta en la àºltima silla, lejos del bullicio, y espera a que pase la tarde.",
+              "consequence": "Mariana se sienta en la última silla, lejos del bullicio. El ruido de la feria — altavoces, niños, vendedores — le golpea el pecho como algo sólido. Espera a que pase la tarde sin hablar con nadie.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s02",
               "gds_mapping": [
@@ -5091,7 +5091,7 @@
           "hero_stage": "6_tests_allies_enemies",
           "type": "playable",
           "order": 2,
-          "text": "Una señora de unos cincuenta años se para frente al stand y dice, con voz de quien da órdenes: 'Estos rábanos están pequeños. En la feria de Usaquén los traen mucho más grandes.' Don Hernando, que está detrás, murmura algo al vecino. Paco mira a Mariana de reojo.",
+          "text": "Al mediodía, una señora de unos cincuenta años se para frente al stand con las manos en la cartera. La voz le sale con el tono de quien da órdenes: 'Estos rábanos están pequeños. En la feria de Usaquén los traen mucho más grandes.' Hay olor a perros asados del puesto de al lado. Don Hernando, que está detrás, murmura algo al vecino y los dos se ríen bajito. Paco mira a Mariana de reojo, esperando.",
           "options": [
             {
               "option_id": "c10-s02-o1",
@@ -5111,8 +5111,8 @@
             },
             {
               "option_id": "c10-s02-o2",
-              "option_text": "Dejar que Paco responda",
-              "consequence": "Paco explica con paciencia. Mariana acomoda los manojos en la canasta y evita el contacto visual con la señora.",
+              "option_text": "Dejar que Paco responda por el grupo",
+              "consequence": "Paco explica con paciencia mientras Mariana acomoda los manojos en la canasta. La señora escucha con la boca apretada. Al final agarra dos manojos sin decir nada más.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s03",
               "gds_mapping": [
@@ -5127,8 +5127,8 @@
             },
             {
               "option_id": "c10-s02-o3",
-              "option_text": "Sentir que tiene razón, que el trabajo no vale",
-              "consequence": "Mariana mira los rábanos y piensa que la señora tiene razón. Meses de trabajo para esto. Le da pena haber venido.",
+              "option_text": "Mirar los rábanos y darle la razón a la señora",
+              "consequence": "Mariana mira los rábanos. Son pequeños, es verdad. Recoge los manojos en la canasta sin decir nada y el pendón verde le queda encima como una tapa.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s03",
               "gds_mapping": [
@@ -5162,12 +5162,12 @@
           "hero_stage": "5_crossing_the_threshold",
           "type": "playable",
           "order": 3,
-          "text": "Maribel aparece con el perro y una corona de flores de papel que le compraron a un niño. Abraza a Mariana delante de todos y dice: '¡Mire cómo está esto! ¿Esta es su lechuga?' El perro olisquea los rábanos. La gente del stand se ríe.",
+          "text": "Maribel aparece entre el gentío con el perro atado al brazo y una corona de flores de papel en la cabeza. Abraza a Mariana delante de todos y huele a crema de manos y a sol. 'Mire cómo está esto, Mariana. ¿Esta es su lechuga?' El perro olisquea los rábanos y mueve la cola. La gente del stand se ríe. Don Hernando no.",
           "options": [
             {
               "option_id": "c10-s03-o1",
-              "option_text": "Reírse y posar para la foto de Maribel",
-              "consequence": "Maribel saca el celular y toma tres fotos. Mariana posa con la canasta de lechuga. Algo se relaja en su pecho.",
+              "option_text": "Reírse y posar con la canasta de lechuga",
+              "consequence": "Maribel saca el celular y toma tres fotos. Mariana posa con la canasta y el sol le da de frente. El perro se mete en el cuadro y las dos se ríen más.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s04",
               "gds_mapping": [
@@ -5188,8 +5188,8 @@
             },
             {
               "option_id": "c10-s03-o2",
-              "option_text": "Sonreír pero no querer la foto",
-              "consequence": "Mariana ríe pero mueve la mano para que no la fotografíen. Maribel insiste un segundo y desiste.",
+              "option_text": "Sonreír pero apartar la mano de la cámara",
+              "consequence": "Mariana ríe pero mueve la mano para que no la fotografíen. Maribel insiste un segundo y desiste. La corona de papel le queda torcida en la cabeza y nadie se la endereza.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s04",
               "gds_mapping": [
@@ -5204,7 +5204,7 @@
             },
             {
               "option_id": "c10-s03-o3",
-              "option_text": "Sentirse abrumada y salir a caminar",
+              "option_text": "Salir del stand a caminar sin avisar",
               "consequence": "El ruido, la foto, el perro. Mariana necesita aire. Sale del stand y camina dos cuadras sola hasta que el pecho se le afloja.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s04",
@@ -5239,7 +5239,7 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 4,
-          "text": "Al final del día, la mesa quedó casi vacía. Vendieron la mitad de la lechuga y regalaron el resto a los àºltimos visitantes. Paco suma en la libreta y anuncia que fue un éxito. Los del grupo aplauden. El sol empieza a bajar detrás de los cerros y el parque se llena de voces de niños.",
+          "text": "Al final del día, la mesa quedó casi vacía. Vendieron la mitad de la lechuga y regalaron el resto a los últimos visitantes. Paco suma en la libreta y anuncia que fue un éxito. Hay olor a pasto pisado y a frituras frías. Los del grupo aplauden. El sol empieza a bajar detrás de los cerros y el parque se llena de voces de niños que corren.",
           "options": [
             {
               "option_id": "c10-s04-o1",
@@ -5265,8 +5265,8 @@
             },
             {
               "option_id": "c10-s04-o2",
-              "option_text": "Irse antes de que acaben de recoger",
-              "consequence": "Mariana carga su canasta vacía y se despide con un gesto. Llega a casa mientras todavía hay luz.",
+              "option_text": "Cargar la canasta vacía y despedirse pronto",
+              "consequence": "Mariana carga su canasta vacía y se despide con un gesto de la mano. En el bus SITP, el asiento de plástico está caliente del sol de la tarde. Llega al apartamento mientras todavía hay luz en los cerros.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s05",
               "gds_mapping": [
@@ -5281,8 +5281,8 @@
             },
             {
               "option_id": "c10-s04-o3",
-              "option_text": "Pensar que todo fue demasiado agotador",
-              "consequence": "Mariana se sienta en el andén a esperar el bus. Las piernas le pesan y la cabeza también. No era lo que imaginaba.",
+              "option_text": "Sentarse en el andén a esperar el bus sola",
+              "consequence": "Mariana se sienta en el andén con la canasta vacía en las rodillas. Las piernas le pesan y el ruido de la feria todavía le zumba en los oídos. El bus del SITP no llega.",
               "next_chapter_id": null,
               "next_scene_id": "c10-s05",
               "gds_mapping": [
@@ -5323,12 +5323,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Mariana limpió el apartamento tres veces desde que Lucía avisó que venía. Cambió las sábanas de la habitación de huéspedes, compró bocadillo y queso y puso flores del mercado en la mesa. Cuando escucha las maletas en las escaleras, el corazón le da un salto que no esperaba.",
+          "text": "Mariana limpió el apartamento tres veces desde que Lucía avisó que venía. Cambió las sábanas de la habitación de huéspedes, compró bocadillo y queso, y puso flores del mercado en la mesa de la sala. El apartamento huele a pino y a flores recién cortadas. Cuando escucha las maletas raspar las escaleras, el corazón le da un salto que no esperaba. Hace seis meses que Lucía no viene a Bogotá. El mensaje de su hija dice: 'Papá quisiera volver a la casa'. Mariana deja el teléfono en el banco de tierra.",
           "options": [
             {
               "option_id": "c11-s01-o1",
-              "option_text": "Bajar a recibir a Lucía a la portería",
-              "consequence": "Madre e hija se abrazan en la portería mientras el portero finge no mirar. Lucía huele a perfume de Cali y a viaje.",
+              "option_text": "Bajar corriendo a recibir a Lucía",
+              "consequence": "Madre e hija se abrazan en la portería mientras el portero finge no mirar. Lucía huele a perfume de Cali y a viaje largo. Las maletas quedan tiradas en el piso de granito y a ninguna le importa.",
               "next_chapter_id": null,
               "next_scene_id": "c11-s02",
               "gds_mapping": [
@@ -5343,8 +5343,8 @@
             },
             {
               "option_id": "c11-s01-o2",
-              "option_text": "Esperar a Lucía en la puerta del apartamento",
-              "consequence": "Lucía sube con las maletas y las dos se abrazan en el umbral. Mariana nota que Lucía la mira de arriba a abajo.",
+              "option_text": "Esperarla parada en la puerta del apartamento",
+              "consequence": "Lucía sube con las maletas y las dos se abrazan en el umbral. Mariana nota que Lucía la mira de arriba a abajo, despacio, como si estuviera revisando algo que no dice. Las yemas de sus dedos rozan el borde de su ropa con firmeza. El eco del momento envuelve su decisión, de la que no hay vuelta atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c11-s02",
               "gds_mapping": [
@@ -5394,12 +5394,12 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Sobre el sancocho, Lucía dice lo que lleva semanas pensando: 'Mamá, me tiene preocupada que viva sola. ¿Ha pensado en venirse a Cali un tiempo?' El vapor del caldo sube entre las dos. Mariana siente que la habitación se encogió.",
+          "text": "Sobre el sancocho, Lucía dice lo que lleva semanas pensando: 'Mamá, me tiene preocupada que viva sola. ¿Ha pensado en venirse a Cali un tiempo?' El vapor del caldo sube entre las dos y el olor a cilantro llena el comedor. Mariana sujeta la cuchara sin comer. La pregunta queda flotando sobre la mesa como si tuviera peso propio.",
           "options": [
             {
               "option_id": "c11-s02-o1",
-              "option_text": "Explicarle del huerto y lo que ha cambiado",
-              "consequence": "Mariana le habla del lote, de Rosita, de Paco y de los seis del grupo nuevo. Lucía escucha con los ojos más abiertos de lo usual.",
+              "option_text": "Contarle del lote, de Rosita y del grupo nuevo",
+              "consequence": "Mariana le habla del lote 7, de Rosita en la clínica, de Paco y los seis del grupo nuevo. Lucía deja la cuchara en el plato y escucha con los ojos más abiertos de lo usual. El sancocho se enfría entre las dos sin que ninguna lo note.",
               "next_chapter_id": null,
               "next_scene_id": "c11-s03",
               "gds_mapping": [
@@ -5471,12 +5471,12 @@
           "hero_stage": "5_crossing_the_threshold",
           "type": "playable",
           "order": 3,
-          "text": "Al día siguiente, Mariana lleva a Lucía al huerto. Lucía va con abrigo de lana porque el frío de Bogotá la sorprendió. Rosita, que ya está en casa recuperándose, mandó un mensaje por Paco para que saludaran a Mariana de su parte. Paco les muestra el lote 7 con evidente orgullo.",
+          "text": "Al día siguiente, Mariana lleva a Lucía al huerto del barrio Bello Horizonte. Lucía va con abrigo de lana porque el frío bogotano la tomó por sorpresa. El lote huele a tierra húmeda y a cilantro. Rosita, que ya está en casa recuperándose, mandó un mensaje por Paco para que saludaran a Mariana de su parte. Paco les muestra el lote 7 con evidente orgullo, la libreta apretada bajo el brazo.",
           "options": [
             {
               "option_id": "c11-s03-o1",
-              "option_text": "Mostrar el lote con emoción genuina",
-              "consequence": "Mariana explica cada planta como si fuera un cuadro. Lucía la escucha y al final le dice: 'Mamá, esto es suyo.' Algo se acomoda.",
+              "option_text": "Explicarle cada planta del lote a Lucía",
+              "consequence": "Mariana explica cada planta como si fuera un cuadro y señala con el dedo los surcos que hizo ella. Lucía la escucha y al final le dice: 'Mamá, esto es suyo.' La voz de Lucía suena distinta cuando lo dice.",
               "next_chapter_id": null,
               "next_scene_id": "c11-s04",
               "gds_mapping": [
@@ -5513,8 +5513,8 @@
             },
             {
               "option_id": "c11-s03-o3",
-              "option_text": "Sentir vergà¼enza de que Lucía vea el lote pequeño",
-              "consequence": "Mariana ve el lote con los ojos de Lucía: barro, tablilla de madera, lechugas modistas. Siente que tendría que haber algo más grande.",
+              "option_text": "Quedarse callada viendo el lote con ojos de Lucía",
+              "consequence": "Mariana ve el lote desde atrás: barro, tablilla de madera, lechugas modestas. Las manos le pesan a los lados sin saber dónde ponerlas. Paco sigue hablando y ella no escucha.",
               "next_chapter_id": null,
               "next_scene_id": "c11-s04",
               "gds_mapping": [
@@ -5548,7 +5548,7 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 4,
-          "text": "El domingo por la tarde, Lucía recoge las maletas. En la puerta dice: 'La quiero mucho, mamá. Y me alegra verla así.' El bus intermunicipal sale a las seis. Mariana la ve bajar las escaleras con la maleta rodante.",
+          "text": "El domingo por la tarde, Lucía recoge las maletas en la habitación de huéspedes. Las sábanas aún huelen a su crema de manos. En la puerta del apartamento dice: 'La quiero mucho, mamá. Y me alegra verla así.' El bus intermunicipal sale a las seis. Mariana la ve bajar las escaleras con la maleta rodante dando golpes en cada escalón.",
           "options": [
             {
               "option_id": "c11-s04-o1",
@@ -5590,8 +5590,8 @@
             },
             {
               "option_id": "c11-s04-o3",
-              "option_text": "Sentir que la soledad vuelve de inmediato",
-              "consequence": "El portón suena abajo. Mariana se queda parada en la sala. El apartamento se siente más vacío que antes de que llegara Lucía.",
+              "option_text": "Quedarse parada en la sala cuando cierra el portón",
+              "consequence": "El portón suena abajo, un golpe seco de metal. Mariana no se mueve del centro de la sala. Las flores del mercado siguen en la mesa, pero el olor del perfume de Lucía ya empieza a irse.",
               "next_chapter_id": null,
               "next_scene_id": "c11-s05",
               "gds_mapping": [
@@ -5658,8 +5658,8 @@
             },
             {
               "option_id": "c12-s01-o2",
-              "option_text": "Escuchar desde lejos sin opinar",
-              "consequence": "Mariana se queda en su lote y escucha la presentación sin acercarse. Riega las lechugas con cuidado.",
+              "option_text": "Quedarse en el lote regando sin acercarse",
+              "consequence": "Mariana se queda en su lote y escucha la presentación sin acercarse. Riega las lechugas con cuidado, vuelta por vuelta. El agua golpea la tierra y el grupo de Camilo habla sin ella.",
               "next_chapter_id": null,
               "next_scene_id": "c12-s02",
               "gds_mapping": [
@@ -5674,8 +5674,8 @@
             },
             {
               "option_id": "c12-s01-o3",
-              "option_text": "Pensar que eso no es cosa suya",
-              "consequence": "Mariana vuelve al trabajo sin mirar el boceto. El arte es para los jóvenes. Ella tiene sus matas.",
+              "option_text": "Volver al trabajo sin mirar el boceto",
+              "consequence": "Mariana da la espalda al grupo y clava la azada en el surco. El arte es para los jóvenes. Sus matas de cilantro necesitan riego y eso es lo que hay que hacer.",
               "next_chapter_id": null,
               "next_scene_id": "c12-s02",
               "gds_mapping": [
@@ -5709,7 +5709,7 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "Camilo pide que cada persona del huerto proponga una planta que quiera ver en el mural. 'El mural es de ustedes', dice, 'yo solo pongo los colores.' Don Hernando propone espinaca. Alguien dice tomate cherry. Camilo anota todo. Mira a Mariana.",
+          "text": "Camilo pide que cada persona del huerto proponga una planta que quiera ver en el mural. La carpeta de bocetos está abierta sobre la mesa y huele a pintura y a papel grueso. 'El mural es de ustedes', dice, 'yo solo pongo los colores.' Don Hernando propone espinaca. Alguien dice tomate cherry. Camilo anota todo con un lápiz grueso. Luego levanta la vista y mira a Mariana.",
           "options": [
             {
               "option_id": "c12-s02-o1",
@@ -5786,7 +5786,7 @@
           "hero_stage": "5_crossing_the_threshold",
           "type": "playable",
           "order": 3,
-          "text": "El siguiente fin de semana, Camilo empieza a pintar. Trae escalera y pinturas en tarros de vidrio. Algunos del grupo se quedan a ver y a ayudar con las partes bajas. Camilo les ofrece rodillos. La pared de ladrillo se va cubriendo de verde y tierra y azul bogotano.",
+          "text": "El siguiente fin de semana, Camilo empieza a pintar en la pared de ladrillo del huerto. Trae una escalera y pinturas en tarros de vidrio que huelen a químico y a mar. Algunos del grupo se quedan a ver y a ayudar con las partes bajas. Camilo les ofrece rodillos. La pared se va cubriendo de verde y tierra y azul bogotano, despacio, trazo por trazo.",
           "options": [
             {
               "option_id": "c12-s03-o1",
@@ -5806,8 +5806,8 @@
             },
             {
               "option_id": "c12-s03-o2",
-              "option_text": "Quedarse mirando cómo trabajan los demás",
-              "consequence": "Mariana observa desde la silla plástica. Le gusta ver cómo el mural toma forma aunque ella no participe.",
+              "option_text": "Sentarse en la silla a ver cómo trabajan",
+              "consequence": "Mariana observa desde la silla plástica, con las manos en el regazo. El rodillo raspa el ladrillo con un sonido áspero y continuo. El mural toma forma sin ella, pero con su cilantro adentro.",
               "next_chapter_id": null,
               "next_scene_id": "c12-s04",
               "gds_mapping": [
@@ -5857,7 +5857,7 @@
           "hero_stage": "9_reward_resolution",
           "type": "playable",
           "order": 4,
-          "text": "El mural termina el domingo. Entre la lechuga y la espinaca, Camilo pintó una mata de cilantro de color verde intenso con una etiqueta pequeña que dice 'de Rosita'. Nadie lo esperaba. El grupo se queda en silencio mirando la pared.",
+          "text": "El mural termina el domingo. Entre la lechuga y la espinaca, Camilo pintó una mata de cilantro de color verde intenso con una etiqueta pequeña que dice 'de Rosita'. Nadie lo esperaba. El grupo se queda en silencio mirando la pared. El olor a pintura fresca se mezcla con el de la tierra del huerto y los pájaros en el nogal no paran.",
           "options": [
             {
               "option_id": "c12-s04-o1",
@@ -5899,8 +5899,8 @@
             },
             {
               "option_id": "c12-s04-o3",
-              "option_text": "No sentir nada especial ante el mural",
-              "consequence": "Mariana mira la pared. Es bonita, sí. Pero ella no pintó nada. No hizo nada que valga recordar ahí.",
+              "option_text": "Mirar el mural y darse vuelta sin más",
+              "consequence": "Mariana mira la pared un momento. Es bonita, sí. Recoge su bolso y se va antes de que el grupo empiece a sacar fotos.",
               "next_chapter_id": null,
               "next_scene_id": "c12-s05",
               "gds_mapping": [
@@ -5983,8 +5983,8 @@
             },
             {
               "option_id": "c13-s01-o3",
-              "option_text": "Ver a don Aurelio y sentir su propia soledad",
-              "consequence": "Mariana mira al viejo con el abrigo y los bolsillos llenos de nada y siente que la tristeza la golpea desde adentro. Lo que ve en él es demasiado familiar.",
+              "option_text": "Mirar a don Aurelio sin moverse del lote",
+              "consequence": "Mariana lo mira con el abrigo y los bolsillos llenos de nada. Clava la azada en el surco más despacio. Algo en esa figura parada en la puerta le aprieta el pecho sin que lo llame.",
               "next_chapter_id": null,
               "next_scene_id": "c13-s02",
               "gds_mapping": [
@@ -6018,7 +6018,7 @@
           "hero_stage": "4_meeting_the_mentor",
           "type": "playable",
           "order": 2,
-          "text": "Paco le asigna a don Aurelio el lote 11, al lado del de Mariana. El viejo mira la tierra como si fuera un examen. 'No sé por dónde empezar', dice en voz baja. Tiene las manos limpias y los zapatos de domingo.",
+          "text": "Paco le asigna a don Aurelio el lote 11, justo al lado del de Mariana. El viejo mira la tierra húmeda como si fuera un examen que no estudió. 'No sé por dónde empezar', dice en voz baja, casi a la tierra misma. Tiene las manos limpias, los zapatos de domingo y el abrigo abotonado hasta arriba. El huerto suena a palas y a pájaros.",
           "options": [
             {
               "option_id": "c13-s02-o1",
@@ -6044,8 +6044,8 @@
             },
             {
               "option_id": "c13-s02-o2",
-              "option_text": "Decirle que Paco le puede explicar",
-              "consequence": "Mariana señala hacia Paco y sigue con su propio surco. No quiere meterse en lo de los demás.",
+              "option_text": "Señalarle a Paco con la mano y seguir",
+              "consequence": "Mariana señala hacia Paco y clava la pala en su propio surco. Don Aurelio la mira un momento más antes de ir. La tierra recién removida huele a humedad y a algo sin nombre.",
               "next_chapter_id": null,
               "next_scene_id": "c13-s03",
               "gds_mapping": [
@@ -6060,8 +6060,8 @@
             },
             {
               "option_id": "c13-s02-o3",
-              "option_text": "Pensar que ella no es quién para enseñar",
-              "consequence": "Mariana clava la pala en su surco. ¿Quién es ella para enseñar? Apenas sabe lo que sabe. Don Aurelio sigue parado sin saber qué hacer.",
+              "option_text": "Clavarle la pala al surco propio y no decir nada",
+              "consequence": "Mariana clava la pala en su surco y agacha la cabeza. ¿Quién es ella para enseñar, si apenas sabe lo que sabe? Don Aurelio sigue parado en el borde del lote 11, con los zapatos de domingo sucios ya. Las yemas de sus dedos rozan el borde de su ropa con firmeza. El eco del momento envuelve su decisión, de la que no hay vuelta atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c13-s03",
               "gds_mapping": [
@@ -6176,8 +6176,8 @@
           "options": [
             {
               "option_id": "c13-s04-o1",
-              "option_text": "Sentirse bien de haber ayudado a alguien",
-              "consequence": "Mariana recoge los guantes con calma. No fue un día grande, pero fue un día que valió la pena.",
+              "option_text": "Recoger los guantes y irse sin prisa",
+              "consequence": "Mariana recoge los guantes con calma y los sacude contra el muslo. No fue un día grande. El sol está bajo sobre los cerros y el huerto huele a tierra trabajada.",
               "next_chapter_id": null,
               "next_scene_id": "c13-s05",
               "gds_mapping": [
@@ -6198,8 +6198,8 @@
             },
             {
               "option_id": "c13-s04-o2",
-              "option_text": "Esperar no tener que lidiar con más historias tristes",
-              "consequence": "Mariana se va pensando que el huerto está bien, pero que ella no es terapeuta. Hay límites.",
+              "option_text": "Irse pensando que no es terapeuta de nadie",
+              "consequence": "Mariana se va con el bolso apretado al costado. El huerto está bien, pero ella no puede cargar con cada historia. El bus del SITP llega y sube sin mirar atrás.",
               "next_chapter_id": null,
               "next_scene_id": "c13-s05",
               "gds_mapping": [
@@ -6214,8 +6214,8 @@
             },
             {
               "option_id": "c13-s04-o3",
-              "option_text": "Pensar que don Aurelio está peor que ella",
-              "consequence": "Mariana camina al paradero comparando. Don Aurelio lleva cuatro meses. Ella lleva más. ¿Sigue peor que él sin saberlo?",
+              "option_text": "Caminar al paradero comparando los dos casos",
+              "consequence": "Mariana camina al paradero con los guantes en el bolso. Don Aurelio lleva cuatro meses. Ella lleva más. El bus tarda y la pregunta no se va.",
               "next_chapter_id": null,
               "next_scene_id": "c13-s05",
               "gds_mapping": [
@@ -6256,12 +6256,12 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Paco anunció la semana anterior que el sábado era el día. Mariana no durmió muy bien, pero se despertó antes del despertador. El apartamento huele a café y el sol de Bogotá entra de costado por la ventana de la cocina. Hoy cose lo que sembró.",
+          "text": "Paco anunció la semana anterior que el sábado era el día de la primera cosecha. Mariana no durmió muy bien, pero se despertó antes del despertador. El apartamento huele a café recién colado y el sol de Bogotá entra de costado por la ventana de la cocina, tibio y amarillo. Los guantes de jardín están en la mesa desde anoche. Hoy cosecha lo que sembró.",
           "options": [
             {
               "option_id": "c14-s01-o1",
               "option_text": "Llegar de las primeras al huerto",
-              "consequence": "Mariana llega cuando el portón aàºn está con candado. Espera en el andén con su bolso y los guantes colgando del bolsillo.",
+              "consequence": "Mariana llega cuando el portón aún está con candado. Espera en el andén con el bolso cruzado y los guantes colgando del bolsillo. El barrio Bello Horizonte huele a pan de la panadería de la esquina.",
               "next_chapter_id": null,
               "next_scene_id": "c14-s02",
               "gds_mapping": [
@@ -6276,8 +6276,8 @@
             },
             {
               "option_id": "c14-s01-o2",
-              "option_text": "Llegar a la hora acordada sin apresurarse",
-              "consequence": "Mariana llega puntual. Ya hay cuatro personas en el huerto. El día comienza.",
+              "option_text": "Llegar puntual sin apresurarse",
+              "consequence": "Mariana llega a la hora acordada. Ya hay cuatro personas en el huerto y el ruido de palas llena el aire. El sol está arriba y la lechuga del lote 7 brilla con el rocío.",
               "next_chapter_id": null,
               "next_scene_id": "c14-s02",
               "gds_mapping": [
@@ -6327,7 +6327,7 @@
           "hero_stage": "5_crossing_the_threshold",
           "type": "playable",
           "order": 2,
-          "text": "Mariana se arrodilla en el lote 7 con los guantes y empieza a cortar las lechugas con la cuchilla pequeña que Rosita le regaló. La primera lechuga sale limpia y verde, con raíz y todo. Pesa más de lo que esperaba. El olor a tierra hàºmeda y planta fresca llena el espacio entre sus manos.",
+          "text": "Mariana se arrodilla en el lote 7 con los guantes y empieza a cortar las lechugas con la cuchilla pequeña que Rosita le regaló. La primera lechuga sale limpia y verde, con raíz y todo. Pesa más de lo que esperaba. El olor a tierra húmeda y planta fresca llena el espacio entre sus manos. La cuchilla hace un sonido seco y limpio con cada corte.",
           "options": [
             {
               "option_id": "c14-s02-o1",
@@ -6353,8 +6353,8 @@
             },
             {
               "option_id": "c14-s02-o2",
-              "option_text": "Cortar rápido y pasar a la siguiente",
-              "consequence": "Mariana trabaja en silencio y con eficiencia. En media hora tiene seis lechugas en la canasta.",
+              "option_text": "Cortar rápido y pasar a la siguiente mata",
+              "consequence": "Mariana trabaja en silencio y con eficiencia. En media hora tiene seis lechugas en la canasta y la cuchilla manchada de savia verde. El sol sube y el lote huele a planta recién cortada.",
               "next_chapter_id": null,
               "next_scene_id": "c14-s03",
               "gds_mapping": [
@@ -6369,8 +6369,8 @@
             },
             {
               "option_id": "c14-s02-o3",
-              "option_text": "Sentir que la lechuga no compensa el esfuerzo",
-              "consequence": "Mariana corta la lechuga y la pone en la canasta. Tanto tiempo para esto. No sabe si siente algo.",
+              "option_text": "Cortar la lechuga y ponerla en la canasta sin más",
+              "consequence": "Mariana corta la lechuga y la pone en la canasta. Tanto tiempo para esto. La lechuga es verde y perfecta y a ella le pesa la mano de todos modos.",
               "next_chapter_id": null,
               "next_scene_id": "c14-s03",
               "gds_mapping": [
@@ -6446,8 +6446,8 @@
             },
             {
               "option_id": "c14-s03-o3",
-              "option_text": "Sentir que el reencuentro no es para tanto",
-              "consequence": "Mariana ve a Rosita llegar y sigue cortando. Hay trabajo que terminar. La emoción de los demás le parece exagerada.",
+              "option_text": "Seguir cortando mientras los demás celebran",
+              "consequence": "Mariana ve a Rosita llegar y clava la cuchilla en la siguiente mata. Hay trabajo que terminar. Los aplausos del grupo llegan desde el otro extremo del huerto, amortiguados por la distancia.",
               "next_chapter_id": null,
               "next_scene_id": "c14-s04",
               "gds_mapping": [
@@ -6513,8 +6513,8 @@
             },
             {
               "option_id": "c14-s04-o2",
-              "option_text": "Irse a casa tranquila con la bolsa de lechugas",
-              "consequence": "Mariana toma el bus SITP con la bolsa en el regazo. Cuando llega al apartamento, pone las lechugas en la nevera con cuidado, como si guardara algo valioso.",
+              "option_text": "Tomar el bus SITP con la bolsa en el regazo",
+              "consequence": "Mariana toma el bus SITP con la bolsa en el regazo. Las lechugas pesan poco pero las sostiene con las dos manos. Cuando llega al apartamento, las pone en la nevera con cuidado, como si guardara algo que podría romperse.",
               "next_chapter_id": null,
               "next_scene_id": "c14-s05",
               "gds_mapping": [

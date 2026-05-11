@@ -13,7 +13,10 @@
       "Bash(Get-ChildItem *)",
       "Bash(powershell *)",
       "Bash(dir \"C:\\\\Users\\\\Sebastian\\\\Desktop\\\\Escoge-tu-Historia-XR-En-Salud-Mental\\\\backend\\\\content\" /B /S)",
-      "Bash(findstr /i \".json\")"
+      "Bash(findstr /i \".json\")",
+      "Bash(findstr -i \".gitignore\\\\|.env\\\\|railway\\\\|docker\\\\|render\\\\|fly\")",
+      "Bash(Select-Object FullName)",
+      "Bash(sort -t= -k1)"
     ]
   }
 }

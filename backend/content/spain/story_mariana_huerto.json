@@ -11,7 +11,7 @@
           "hero_stage": "1_ordinary_world",
           "type": "playable",
           "order": 1,
-          "text": "Mariana baja las escaleras como cada mañana, con el bolso cruzado y las llaves en la mano. La portería huele a cloro reciente. En el casillero, entre una factura y un volante de envíos a domicilio, hay un sobre verde con el sello de la Alcaldía Mayor. 'Proyecto Huerto Comunitario del Barrio', dice. Mariana lo sostiene un momento bajo la luz pálida de la entrada.",
+          "text": "Mariana baja las escaleras como cada mañana, con el bolso cruzado y las llaves en la mano. La portería huele a cloro reciente. En el buzón, entre una factura y un folleto de ofertas, hay un sobre verde con el sello del Ayuntamiento. 'Proyecto Huerto Comunitario del Barrio', dice. Mariana lo sostiene un momento bajo la luz pálida de la entrada.",
           "options": [
             {
               "option_id": "c01-s01-o1",
@@ -95,7 +95,7 @@
           "hero_stage": "2_call_to_adventure",
           "type": "playable",
           "order": 2,
-          "text": "En el corredor del tercer piso, Maribel sale con su perro. Sesenta y cuatro años, voz de radio y siempre con prisa. 'Mariana, ¿viste lo del huerto? Yo voy el miércoles. ¿Te apuntas?' El perro olisquea los zapatos de Mariana. Maribel espera, con la correa enredada en la muñeca.",
+          "text": "En el pasillo del tercer piso, Maribel sale con su perro. Sesenta y cuatro años, voz de radio y siempre con prisa. 'Mariana, ¿viste lo del huerto? Yo voy el miércoles. ¿Te apuntas?' El perro olfatea los zapatos de Mariana. Maribel espera, con la correa enredada en la muñeca.",
           "options": [
             {
               "option_id": "c01-s02-o1",
