@@ -1,0 +1,141 @@
+VALIDATION REPORT — Phase 1: JSON Integrity
+Generated: 2026-05-12T00:22:44.727Z
+Stories directory: C:\Users\Sebastian\Desktop\Escoge-tu-Historia-XR-En-Salud-Mental\backend\content\latam
+======================================================================
+
+Story: story_alberto_ajedrez
+--------------------------------------------------
+STATUS: ✓ VALID
+INFO (30):
+  [INFO] c05-s05-o1: next_scene_id="c05-s06" is intentional chapter/story endpoint
+  [INFO] c05-s05-o2: next_scene_id="c05-s06" is intentional chapter/story endpoint
+  [INFO] c05-s05-o3: next_scene_id="c05-s06" is intentional chapter/story endpoint
+  [INFO] c06-s04-o1: next_scene_id="c06-s05" is intentional chapter/story endpoint
+  [INFO] c06-s04-o2: next_scene_id="c06-s05" is intentional chapter/story endpoint
+  [INFO] c06-s04-o3: next_scene_id="c06-s05" is intentional chapter/story endpoint
+  [INFO] c07-s04-o1: next_scene_id="c07-s05" is intentional chapter/story endpoint
+  [INFO] c07-s04-o2: next_scene_id="c07-s05" is intentional chapter/story endpoint
+  [INFO] c07-s04-o3: next_scene_id="c07-s05" is intentional chapter/story endpoint
+  [INFO] c08-s04-o1: next_scene_id="c08-s05" is intentional chapter/story endpoint
+  [INFO] c08-s04-o2: next_scene_id="c08-s05" is intentional chapter/story endpoint
+  [INFO] c08-s04-o3: next_scene_id="c08-s05" is intentional chapter/story endpoint
+  [INFO] c09-s04-o1: next_scene_id="c09-s05" is intentional chapter/story endpoint
+  [INFO] c09-s04-o2: next_scene_id="c09-s05" is intentional chapter/story endpoint
+  [INFO] c09-s04-o3: next_scene_id="c09-s05" is intentional chapter/story endpoint
+  [INFO] c10-s04-o1: next_scene_id="c10-s05" is intentional chapter/story endpoint
+  [INFO] c10-s04-o2: next_scene_id="c10-s05" is intentional chapter/story endpoint
+  [INFO] c10-s04-o3: next_scene_id="c10-s05" is intentional chapter/story endpoint
+  [INFO] c11-s04-o1: next_scene_id="c11-s05" is intentional chapter/story endpoint
+  [INFO] c11-s04-o2: next_scene_id="c11-s05" is intentional chapter/story endpoint
+  [INFO] c11-s04-o3: next_scene_id="c11-s05" is intentional chapter/story endpoint
+  [INFO] c12-s04-o1: next_scene_id="c12-s05" is intentional chapter/story endpoint
+  [INFO] c12-s04-o2: next_scene_id="c12-s05" is intentional chapter/story endpoint
+  [INFO] c12-s04-o3: next_scene_id="c12-s05" is intentional chapter/story endpoint
+  [INFO] c13-s04-o1: next_scene_id="c13-s05" is intentional chapter/story endpoint
+  [INFO] c13-s04-o2: next_scene_id="c13-s05" is intentional chapter/story endpoint
+  [INFO] c13-s04-o3: next_scene_id="c13-s05" is intentional chapter/story endpoint
+  [INFO] c14-s04-o1: next_scene_id="c14-s05" is intentional chapter/story endpoint
+  [INFO] c14-s04-o2: next_scene_id="c14-s05" is intentional chapter/story endpoint
+  [INFO] c14-s04-o3: next_scene_id="c14-s05" is intentional chapter/story endpoint
+
+Story: story_ernesto_taller
+--------------------------------------------------
+STATUS: ✓ VALID
+INFO (30):
+  [INFO] c05-s04-o1: next_scene_id="c05-s05" is intentional chapter/story endpoint
+  [INFO] c05-s04-o2: next_scene_id="c05-s05" is intentional chapter/story endpoint
+  [INFO] c05-s04-o3: next_scene_id="c05-s05" is intentional chapter/story endpoint
+  [INFO] c06-s04-o1: next_scene_id="c06-s05" is intentional chapter/story endpoint
+  [INFO] c06-s04-o2: next_scene_id="c06-s05" is intentional chapter/story endpoint
+  [INFO] c06-s04-o3: next_scene_id="c06-s05" is intentional chapter/story endpoint
+  [INFO] c07-s04-o1: next_scene_id="c07-s05" is intentional chapter/story endpoint
+  [INFO] c07-s04-o2: next_scene_id="c07-s05" is intentional chapter/story endpoint
+  [INFO] c07-s04-o3: next_scene_id="c07-s05" is intentional chapter/story endpoint
+  [INFO] c08-s04-o1: next_scene_id="c08-s05" is intentional chapter/story endpoint
+  [INFO] c08-s04-o2: next_scene_id="c08-s05" is intentional chapter/story endpoint
+  [INFO] c08-s04-o3: next_scene_id="c08-s05" is intentional chapter/story endpoint
+  [INFO] c09-s04-o1: next_scene_id="c09-s05" is intentional chapter/story endpoint
+  [INFO] c09-s04-o2: next_scene_id="c09-s05" is intentional chapter/story endpoint
+  [INFO] c09-s04-o3: next_scene_id="c09-s05" is intentional chapter/story endpoint
+  [INFO] c10-s04-o1: next_scene_id="c10-s05" is intentional chapter/story endpoint
+  [INFO] c10-s04-o2: next_scene_id="c10-s05" is intentional chapter/story endpoint
+  [INFO] c10-s04-o3: next_scene_id="c10-s05" is intentional chapter/story endpoint
+  [INFO] c11-s04-o1: next_scene_id="c11-s05" is intentional chapter/story endpoint
+  [INFO] c11-s04-o2: next_scene_id="c11-s05" is intentional chapter/story endpoint
+  [INFO] c11-s04-o3: next_scene_id="c11-s05" is intentional chapter/story endpoint
+  [INFO] c12-s04-o1: next_scene_id="c12-s05" is intentional chapter/story endpoint
+  [INFO] c12-s04-o2: next_scene_id="c12-s05" is intentional chapter/story endpoint
+  [INFO] c12-s04-o3: next_scene_id="c12-s05" is intentional chapter/story endpoint
+  [INFO] c13-s04-o1: next_scene_id="c13-s05" is intentional chapter/story endpoint
+  [INFO] c13-s04-o2: next_scene_id="c13-s05" is intentional chapter/story endpoint
+  [INFO] c13-s04-o3: next_scene_id="c13-s05" is intentional chapter/story endpoint
+  [INFO] c14-s04-o1: next_scene_id="c14-s05" is intentional chapter/story endpoint
+  [INFO] c14-s04-o2: next_scene_id="c14-s05" is intentional chapter/story endpoint
+  [INFO] c14-s04-o3: next_scene_id="c14-s05" is intentional chapter/story endpoint
+
+Story: story_mariana_huerto
+--------------------------------------------------
+STATUS: ✓ VALID
+INFO (27):
+  [INFO] c06-s04-o1: next_scene_id="c06-s05" is intentional chapter/story endpoint
+  [INFO] c06-s04-o2: next_scene_id="c06-s05" is intentional chapter/story endpoint
+  [INFO] c06-s04-o3: next_scene_id="c06-s05" is intentional chapter/story endpoint
+  [INFO] c07-s04-o1: next_scene_id="c07-s05" is intentional chapter/story endpoint
+  [INFO] c07-s04-o2: next_scene_id="c07-s05" is intentional chapter/story endpoint
+  [INFO] c07-s04-o3: next_scene_id="c07-s05" is intentional chapter/story endpoint
+  [INFO] c08-s04-o1: next_scene_id="c08-s05" is intentional chapter/story endpoint
+  [INFO] c08-s04-o2: next_scene_id="c08-s05" is intentional chapter/story endpoint
+  [INFO] c08-s04-o3: next_scene_id="c08-s05" is intentional chapter/story endpoint
+  [INFO] c09-s04-o1: next_scene_id="c09-s05" is intentional chapter/story endpoint
+  [INFO] c09-s04-o2: next_scene_id="c09-s05" is intentional chapter/story endpoint
+  [INFO] c09-s04-o3: next_scene_id="c09-s05" is intentional chapter/story endpoint
+  [INFO] c10-s04-o1: next_scene_id="c10-s05" is intentional chapter/story endpoint
+  [INFO] c10-s04-o2: next_scene_id="c10-s05" is intentional chapter/story endpoint
+  [INFO] c10-s04-o3: next_scene_id="c10-s05" is intentional chapter/story endpoint
+  [INFO] c11-s04-o1: next_scene_id="c11-s05" is intentional chapter/story endpoint
+  [INFO] c11-s04-o2: next_scene_id="c11-s05" is intentional chapter/story endpoint
+  [INFO] c11-s04-o3: next_scene_id="c11-s05" is intentional chapter/story endpoint
+  [INFO] c12-s04-o1: next_scene_id="c12-s05" is intentional chapter/story endpoint
+  [INFO] c12-s04-o2: next_scene_id="c12-s05" is intentional chapter/story endpoint
+  [INFO] c12-s04-o3: next_scene_id="c12-s05" is intentional chapter/story endpoint
+  [INFO] c13-s04-o1: next_scene_id="c13-s05" is intentional chapter/story endpoint
+  [INFO] c13-s04-o2: next_scene_id="c13-s05" is intentional chapter/story endpoint
+  [INFO] c13-s04-o3: next_scene_id="c13-s05" is intentional chapter/story endpoint
+  [INFO] c14-s04-o1: next_scene_id="c14-s05" is intentional chapter/story endpoint
+  [INFO] c14-s04-o2: next_scene_id="c14-s05" is intentional chapter/story endpoint
+  [INFO] c14-s04-o3: next_scene_id="c14-s05" is intentional chapter/story endpoint
+
+Story: story_tatiana_taller
+--------------------------------------------------
+STATUS: ✓ VALID
+INFO (27):
+  [INFO] c06-s04-o1: next_scene_id="c06-s05" is intentional chapter/story endpoint
+  [INFO] c06-s04-o2: next_scene_id="c06-s05" is intentional chapter/story endpoint
+  [INFO] c06-s04-o3: next_scene_id="c06-s05" is intentional chapter/story endpoint
+  [INFO] c07-s05-o1: next_scene_id="c07-s06" is intentional chapter/story endpoint
+  [INFO] c07-s05-o2: next_scene_id="c07-s06" is intentional chapter/story endpoint
+  [INFO] c07-s05-o3: next_scene_id="c07-s06" is intentional chapter/story endpoint
+  [INFO] c08-s04-o1: next_scene_id="c08-s05" is intentional chapter/story endpoint
+  [INFO] c08-s04-o2: next_scene_id="c08-s05" is intentional chapter/story endpoint
+  [INFO] c08-s04-o3: next_scene_id="c08-s05" is intentional chapter/story endpoint
+  [INFO] c09-s04-o1: next_scene_id="c09-s05" is intentional chapter/story endpoint
+  [INFO] c09-s04-o2: next_scene_id="c09-s05" is intentional chapter/story endpoint
+  [INFO] c09-s04-o3: next_scene_id="c09-s05" is intentional chapter/story endpoint
+  [INFO] c10-s04-o1: next_scene_id="c10-s05" is intentional chapter/story endpoint
+  [INFO] c10-s04-o2: next_scene_id="c10-s05" is intentional chapter/story endpoint
+  [INFO] c10-s04-o3: next_scene_id="c10-s05" is intentional chapter/story endpoint
+  [INFO] c11-s04-o1: next_scene_id="c11-s05" is intentional chapter/story endpoint
+  [INFO] c11-s04-o2: next_scene_id="c11-s05" is intentional chapter/story endpoint
+  [INFO] c11-s04-o3: next_scene_id="c11-s05" is intentional chapter/story endpoint
+  [INFO] c12-s04-o1: next_scene_id="c12-s05" is intentional chapter/story endpoint
+  [INFO] c12-s04-o2: next_scene_id="c12-s05" is intentional chapter/story endpoint
+  [INFO] c12-s04-o3: next_scene_id="c12-s05" is intentional chapter/story endpoint
+  [INFO] c13-s04-o1: next_scene_id="c13-s05" is intentional chapter/story endpoint
+  [INFO] c13-s04-o2: next_scene_id="c13-s05" is intentional chapter/story endpoint
+  [INFO] c13-s04-o3: next_scene_id="c13-s05" is intentional chapter/story endpoint
+  [INFO] c14-s05-o1: next_scene_id="c14-s06" is intentional chapter/story endpoint
+  [INFO] c14-s05-o2: next_scene_id="c14-s06" is intentional chapter/story endpoint
+  [INFO] c14-s05-o3: next_scene_id="c14-s06" is intentional chapter/story endpoint
+
+======================================================================
+RESULT: All files valid — proceed to Phase 2

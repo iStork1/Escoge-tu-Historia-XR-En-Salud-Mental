@@ -16,7 +16,8 @@
       "Bash(findstr /i \".json\")",
       "Bash(findstr -i \".gitignore\\\\|.env\\\\|railway\\\\|docker\\\\|render\\\\|fly\")",
       "Bash(Select-Object FullName)",
-      "Bash(sort -t= -k1)"
+      "Bash(sort -t= -k1)",
+      "PowerShell(New-Item *)"
     ]
   }
 }

@@ -1,0 +1,291 @@
+{
+  "generated": "2026-05-12T00:55:33.472Z",
+  "phase": "Phase 2: Consequence Audit",
+  "rule": "sentences in [2, 4]",
+  "summary": {
+    "story_alberto_ajedrez": {
+      "total_options": 231,
+      "violations": 5,
+      "pass_rate": "97.8%"
+    },
+    "story_ernesto_taller": {
+      "total_options": 228,
+      "violations": 5,
+      "pass_rate": "97.8%"
+    },
+    "story_mariana_huerto": {
+      "total_options": 243,
+      "violations": 10,
+      "pass_rate": "95.9%"
+    },
+    "story_tatiana_taller": {
+      "total_options": 249,
+      "violations": 12,
+      "pass_rate": "95.2%"
+    }
+  },
+  "violations": [
+    {
+      "story": "story_alberto_ajedrez",
+      "chapter_id": "c03",
+      "scene_id": "c03-s08",
+      "option_id": "c03-s08-o1",
+      "sentence_count": 6,
+      "consequence_preview": "Alberto mueve el rey con calma. La posición se complica pero no se pierde. Mora asiente. «Correcto». El juego sigue abie..."
+    },
+    {
+      "story": "story_alberto_ajedrez",
+      "chapter_id": "c04",
+      "scene_id": "c04-s04",
+      "option_id": "c04-s04-o1",
+      "sentence_count": 5,
+      "consequence_preview": "Alberto le muestra la primera jugada de la Siciliana. Elena pregunta por qué. Él explica. Llevan quince minutos hablando..."
+    },
+    {
+      "story": "story_alberto_ajedrez",
+      "chapter_id": "c04",
+      "scene_id": "c04-s09",
+      "option_id": "c04-s09-o3",
+      "sentence_count": 5,
+      "consequence_preview": "Alberto juega en silencio. Nadie comenta la apertura directamente. La partida avanza. La semana de estudio queda sin nom..."
+    },
+    {
+      "story": "story_alberto_ajedrez",
+      "chapter_id": "c13",
+      "scene_id": "c13-s02",
+      "option_id": "c13-s02-o2",
+      "sentence_count": 5,
+      "consequence_preview": "Alberto dice que bien, y saca el libro un momento. Lo abre. Busca algo. Lo cierra. Le hace un gesto a Don Jairo para que..."
+    },
+    {
+      "story": "story_alberto_ajedrez",
+      "chapter_id": "c13",
+      "scene_id": "c13-s03",
+      "option_id": "c13-s03-o1",
+      "sentence_count": 7,
+      "consequence_preview": "Alberto sostiene el sacrificio. Don Jairo busca la respuesta. La encuentra en el movimiento treinta y uno. Tablas â€” em..."
+    },
+    {
+      "story": "story_ernesto_taller",
+      "chapter_id": "c04",
+      "scene_id": "c04-s03",
+      "option_id": "c04-s03-o2",
+      "sentence_count": 5,
+      "consequence_preview": "Ernesto recoge la pata sin decir nada. La reencaja, agarra otra, y hace la demostración de nuevo. Más lento. Miguel lo i..."
+    },
+    {
+      "story": "story_ernesto_taller",
+      "chapter_id": "c04",
+      "scene_id": "c04-s09",
+      "option_id": "c04-s09-o2",
+      "sentence_count": 6,
+      "consequence_preview": "Ernesto recoge su bolso. No dice más. Sale al andén. El sol de mediodía calienta la Calle 5. Camina despacio. Hay algo e..."
+    },
+    {
+      "story": "story_ernesto_taller",
+      "chapter_id": "c12",
+      "scene_id": "c12-s03",
+      "option_id": "c12-s03-o3",
+      "sentence_count": 6,
+      "consequence_preview": "Ernesto pone el celular en el bolsillo. Ya habrá tiempo. La exposición termina al mediodía. Después. La tarde. El mensaj..."
+    },
+    {
+      "story": "story_ernesto_taller",
+      "chapter_id": "c13",
+      "scene_id": "c13-s04",
+      "option_id": "c13-s04-o3",
+      "sentence_count": 5,
+      "consequence_preview": "Ernesto decide que no. Que él no es profesor de nada. Que es mejor quedarse donde está. La sala sigue callada. La butaca..."
+    },
+    {
+      "story": "story_ernesto_taller",
+      "chapter_id": "c14",
+      "scene_id": "c14-s03",
+      "option_id": "c14-s03-o1",
+      "sentence_count": 5,
+      "consequence_preview": "Ernesto la pone sobre el banco y la mira. No es perfecta. Las tablillas tienen un leve ángulo. Pero es suya. Completamen..."
+    },
+    {
+      "story": "story_mariana_huerto",
+      "chapter_id": "c02",
+      "scene_id": "c02-s07",
+      "option_id": "c02-s07-o3",
+      "sentence_count": 5,
+      "consequence_preview": "Las gotas son gordas y rápidas. Mariana no se mueve. Paco la mira desde el tejado. Rosita viene a buscarla. 'Mariana, ve..."
+    },
+    {
+      "story": "story_mariana_huerto",
+      "chapter_id": "c03",
+      "scene_id": "c03-s07",
+      "option_id": "c03-s07-o3",
+      "sentence_count": 5,
+      "consequence_preview": "Mariana guarda las bolsitas en el bolso. 'La tierra todavía no está lista.' Rosita la mira, pero no discute. Mariana rec..."
+    },
+    {
+      "story": "story_mariana_huerto",
+      "chapter_id": "c04",
+      "scene_id": "c04-s03",
+      "option_id": "c04-s03-o2",
+      "sentence_count": 5,
+      "consequence_preview": "Rosita planta tres semillas mientras Mariana mira. 'Así, sin apretar.' Mariana observa cada detalle. Después lo hace sol..."
+    },
+    {
+      "story": "story_mariana_huerto",
+      "chapter_id": "c04",
+      "scene_id": "c04-s04",
+      "option_id": "c04-s04-o1",
+      "sentence_count": 5,
+      "consequence_preview": "Mariana lo mira de frente. '¿Y cómo se mejora, don Hernando?' Él se sorprende. Explica a regañadientes algo sobre arena ..."
+    },
+    {
+      "story": "story_mariana_huerto",
+      "chapter_id": "c04",
+      "scene_id": "c04-s06",
+      "option_id": "c04-s06-o1",
+      "sentence_count": 5,
+      "consequence_preview": "Mariana trabaja despacio pero sin parar. Cuando termina la fila, mira el lote y cuenta: dieciséis semillas. Ella sola. R..."
+    },
+    {
+      "story": "story_mariana_huerto",
+      "chapter_id": "c04",
+      "scene_id": "c04-s08",
+      "option_id": "c04-s08-o1",
+      "sentence_count": 5,
+      "consequence_preview": "El cilantro de Mariana queda en tres montoncitos en lugar de esparcido. Se ríen juntas. 'Quedó en racimos', dice Rosita...."
+    },
+    {
+      "story": "story_mariana_huerto",
+      "chapter_id": "c04",
+      "scene_id": "c04-s09",
+      "option_id": "c04-s09-o2",
+      "sentence_count": 5,
+      "consequence_preview": "Las dos riegan juntas. Rosita le cuenta de sus nietos. Mariana escucha y añade algo de Lucía. El agua cae pareja. La tar..."
+    },
+    {
+      "story": "story_mariana_huerto",
+      "chapter_id": "c05",
+      "scene_id": "c05-s01",
+      "option_id": "c05-s01-o3",
+      "sentence_count": 5,
+      "consequence_preview": "Mariana mira el teléfono sonar. Dos timbres, tres. 'Sí, ya voy.' Contesta al cuarto. 'Hola.' La voz le sale plana. El lo..."
+    },
+    {
+      "story": "story_mariana_huerto",
+      "chapter_id": "c05",
+      "scene_id": "c05-s08",
+      "option_id": "c05-s08-o3",
+      "sentence_count": 5,
+      "consequence_preview": "Mariana deja el teléfono boca abajo. Apaga la luz. En la oscuridad, el silencio del apartamento es más completo que de c..."
+    },
+    {
+      "story": "story_mariana_huerto",
+      "chapter_id": "c05",
+      "scene_id": "c05-s09",
+      "option_id": "c05-s09-o3",
+      "sentence_count": 5,
+      "consequence_preview": "Mariana deja el mensaje sin contestar. Se hace el tinto y lo toma viendo el noticiero. No va al huerto. No le escribe a ..."
+    },
+    {
+      "story": "story_tatiana_taller",
+      "chapter_id": "c01",
+      "scene_id": "c01-s03",
+      "option_id": "c01-s03-o3",
+      "sentence_count": 5,
+      "consequence_preview": "Tatiana se sienta al lado del celular con las manos sobre las piernas. Pasan diez minutos. La pantalla no se enciende. E..."
+    },
+    {
+      "story": "story_tatiana_taller",
+      "chapter_id": "c02",
+      "scene_id": "c02-s09",
+      "option_id": "c02-s09-o2",
+      "sentence_count": 5,
+      "consequence_preview": "Tatiana desenvuelve la almojábana en la puerta del edificio. Está tibia y suave. La come de pie, mirando la calle de Ara..."
+    },
+    {
+      "story": "story_tatiana_taller",
+      "chapter_id": "c03",
+      "scene_id": "c03-s05",
+      "option_id": "c03-s05-o1",
+      "sentence_count": 5,
+      "consequence_preview": "Tatiana moja el dedo en agua y lo deja caer sobre el aceite caliente. Chisporrotea fuerte y el vapor le sube a la cara. ..."
+    },
+    {
+      "story": "story_tatiana_taller",
+      "chapter_id": "c03",
+      "scene_id": "c03-s08",
+      "option_id": "c03-s08-o3",
+      "sentence_count": 1,
+      "consequence_preview": "Tatiana baja la mirada: 'No creo que estén bien. Los míos son los peores del grupo.' Doña Esperanza la contradice pero T..."
+    },
+    {
+      "story": "story_tatiana_taller",
+      "chapter_id": "c04",
+      "scene_id": "c04-s05",
+      "option_id": "c04-s05-o1",
+      "sentence_count": 1,
+      "consequence_preview": "Tatiana dice que la versión original es más ligera, pero que la de Doña Carmen tiene más sabor. 'Las dos sirven para cos..."
+    },
+    {
+      "story": "story_tatiana_taller",
+      "chapter_id": "c04",
+      "scene_id": "c04-s09",
+      "option_id": "c04-s09-o2",
+      "sentence_count": 5,
+      "consequence_preview": "Tatiana toma la almojábana y la come sin hablar. Carmen tampoco habla. El gesto quedó hecho. Yolanda sonríe desde el otr..."
+    },
+    {
+      "story": "story_tatiana_taller",
+      "chapter_id": "c05",
+      "scene_id": "c05-s02",
+      "option_id": "c05-s02-o1",
+      "sentence_count": 1,
+      "consequence_preview": "'Rodrigo, metí al taller de panadería de la Casa Comunal. Llevo dos meses, he aprendido almojábanas, buñuelos, pandeyuca..."
+    },
+    {
+      "story": "story_tatiana_taller",
+      "chapter_id": "c05",
+      "scene_id": "c05-s03",
+      "option_id": "c05-s03-o1",
+      "sentence_count": 1,
+      "consequence_preview": "'Venga, Rodrigo, que yo le tengo almojábana hecha el día que llegue.' Rodrigo se ríe: 'A ver, mamá, a ver.' Tatiana envu..."
+    },
+    {
+      "story": "story_tatiana_taller",
+      "chapter_id": "c09",
+      "scene_id": "c09-s04",
+      "option_id": "c09-s04-o1",
+      "sentence_count": 1,
+      "consequence_preview": "Tatiana saca el celular y le escribe: 'Llegué bien. El jueves la espero.' Yolanda contesta en menos de un minuto con un ..."
+    },
+    {
+      "story": "story_tatiana_taller",
+      "chapter_id": "c11",
+      "scene_id": "c11-s02",
+      "option_id": "c11-s02-o1",
+      "sentence_count": 1,
+      "consequence_preview": "Tatiana pone sus manos sobre las de Paula desde atrás y le dice: 'Siente cómo responde. Tiene que quedar suave como lóbu..."
+    },
+    {
+      "story": "story_tatiana_taller",
+      "chapter_id": "c13",
+      "scene_id": "c13-s04",
+      "option_id": "c13-s04-o2",
+      "sentence_count": 1,
+      "consequence_preview": "Tatiana escribe: 'Valentina, acepto. Gracias por confiar.' Valentina contesta con tres corazones y le dice que el vierne..."
+    },
+    {
+      "story": "story_tatiana_taller",
+      "chapter_id": "c14",
+      "scene_id": "c14-s04",
+      "option_id": "c14-s04-o1",
+      "sentence_count": 1,
+      "consequence_preview": "Tatiana cuenta desde el festival de Manrique, la propuesta de Valentina, la llamada con Yolanda. Doña Esperanza la escuc..."
+    }
+  ],
+  "totals": {
+    "total_options_audited": 951,
+    "total_violations": 32,
+    "overall_pass_rate": "96.6%",
+    "result": "VIOLATIONS FOUND — review before proceeding"
+  }
+}

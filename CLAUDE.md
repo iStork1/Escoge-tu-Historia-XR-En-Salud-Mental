@@ -14,7 +14,7 @@ Este archivo contiene el índice de memorias persistentes (estado del proyecto, 
 
 ## Qué es este proyecto
 
-Experiencia narrativa interactiva por voz (Amazon Alexa, español) diseñada para adultos mayores (60+). La protagonista es **Rosa**, una viuda que recibe una invitación al jardín comunitario de su barrio. Las decisiones del usuario parecen elecciones narrativas pero mapean simultáneamente a ítems del **GDS-15** (Geriatric Depression Scale) y el **PHQ-9** (Patient Health Questionnaire), permitiendo detección temprana de señales de riesgo de salud mental sin que el usuario perciba una evaluación clínica.
+Experiencia narrativa interactiva por voz (Amazon Alexa, español) diseñada para adultos mayores (60+). El usuario elige entre **4 protagonistas** (Alberto, Ernesto, Mariana, Tatiana) en historias ambientadas en Bogotá, Cali y Medellín. Las decisiones narrativas mapean simultáneamente a ítems del **GDS-15** (Geriatric Depression Scale) y el **PHQ-9** (Patient Health Questionnaire), permitiendo detección temprana de señales de riesgo de salud mental sin que el usuario perciba una evaluación clínica.
 
 **Objetivo dual:**
 1. Experiencia de entretenimiento inmersiva con técnicas de prosodía SSML y personalidades de personajes
@@ -27,10 +27,10 @@ Experiencia narrativa interactiva por voz (Amazon Alexa, español) diseñada par
 | Capa | Tecnología |
 |------|-----------|
 | Voz | Amazon Alexa Skill (es-ES, es-MX) |
-| Backend | Node.js + Express (`backend/src/index.js`, 7,386 líneas) |
+| Backend | Node.js + Express (`backend/src/index.js`, 7,651 líneas) |
 | Base de datos | PostgreSQL vía Supabase (15+ tablas, triggers automáticos) |
 | LLM | OpenRouter (Qwen3-Next-80B) → Cohere → Groq → Mock (fallback chain) |
-| Contenido | `backend/content/chapters.json` (407KB, Capítulo 1 completo) |
+| Contenido | `backend/content/latam/` — 4 historias × 14 capítulos (~2.5MB total) |
 | Puerto | 7070 (local), ngrok para Alexa Developer Console |
 
 ---
@@ -42,25 +42,38 @@ Experiencia narrativa interactiva por voz (Amazon Alexa, español) diseñada par
 ├── alexa/models/es-ES.json       — Interaction model (intents: StartChapter, ChooseOption, Standard)
 ├── backend/
 │   ├── src/
-│   │   ├── index.js              — Servidor principal, TODOS los endpoints
+│   │   ├── index.js              — Servidor principal, TODOS los endpoints (7,651 líneas)
 │   │   ├── p0-helpers.js         — Verificación Alexa, validación telemetría, SLA
 │   │   ├── ssml-helpers.js       — Prosodía, voces de personajes, tensión narrativa
 │   │   ├── llm-client.js         — Abstracción multi-proveedor LLM
 │   │   ├── llm-providers.js      — Registro de proveedores
 │   │   └── prompts.js            — Templates de prompts (48KB)
 │   ├── content/
-│   │   ├── chapters.json         — Capítulo 1: ~20 escenas, ~60 decisiones
+│   │   ├── latam/                — 4 historias LATAM activas (fuente de verdad)
+│   │   │   ├── story_alberto_ajedrez.json   — Alberto, 67, Bogotá, ~597KB
+│   │   │   ├── story_ernesto_taller.json    — Ernesto, 72, Cali, ~600KB
+│   │   │   ├── story_mariana_huerto.json    — Mariana, 70, Bogotá, ~657KB
+│   │   │   └── story_tatiana_taller.json    — Tatiana, 68, Medellín, ~633KB
+│   │   ├── spain/                — Variantes España (no activas)
+│   │   ├── primeras versiones/   — Backups originales (no usar)
 │   │   └── validation/           — Dataset de validación psicométrica
 │   ├── tests/
 │   │   ├── p0-regression.test.js — Tests de regresión core
 │   │   └── p1-operational.test.js — Tests operacionales
-│   └── scripts/                  — Utilidades de sync, consultas debug
+│   └── scripts/
+│       ├── validate_json.js          — Fase 1: integridad JSON
+│       ├── audit_consequences.js     — Fase 2: regla 2-4 oraciones por consecuencia
+│       ├── audit_mappings.js         — Fase 3: rangos y thresholds clínicos
+│       ├── generate_validation_report.js — Consolidador → VALIDATION_REPORT.md
+│       ├── sync_chapters.js          — Sync contenido a Supabase
+│       └── output/                   — Artefactos de validación generados
 ├── database/
 │   ├── schema.sql                — Schema base (281 líneas)
 │   ├── migrations/001..011       — 11 migraciones en orden
 │   └── DEPLOYMENT_ORDER.md      — Secuencia segura de despliegue
 ├── Important decisions/          — ADRs (Architecture Decision Records)
 ├── ESTADO_TECNICO_ACTUAL.md     — Estado técnico actual detallado
+├── VALIDATION_REPORT.md         — Último reporte de validación 3 fases
 └── instructions/                 — Guías SSML e inmersión
 ```
 
@@ -173,7 +186,7 @@ MILD_WEIGHT_CAP=0.6
 
 ---
 
-## Estado actual del desarrollo (a 2026-05-04)
+## Estado actual del desarrollo (a 2026-05-11)
 
 ### Completado
 - Skill Alexa con verificación de firma
@@ -186,15 +199,18 @@ MILD_WEIGHT_CAP=0.6
 - Pipeline de validación psicométrica
 - Gestión del ciclo de vida de sesiones
 - Protocolo de reclutamiento y matriz de responsabilidades
+- **4 historias LATAM completas (c01–c14):** Alberto, Ernesto, Mariana, Tatiana (~2.5MB total, ~504 escenas, ~951 opciones)
+- **Multi-historia:** selección por voz (`story_select`), retomar/cambiar (`story_continue_or_new`), persistencia por pseudónimo
+- **Pipeline de validación 3 fases:** `validate_json.js` → `audit_consequences.js` → `audit_mappings.js` → `VALIDATION_REPORT.md`
+- **Último resultado de validación:** ⚠️ Ready to sync — Fase 1 ✅ · Fase 2 ⚠️ 32 warnings · Fase 3 ✅ (0 errores, 35 GDS-7 triggers, 0 PHQ9-item9)
 
 ### Parcialmente implementado
-- Capítulos 2-28: diseñados pero no JSONificados
 - Dashboard clínico: endpoints OK, falta testing real
 - Mappings dinámicos LLM (Prompt 2): requieren validación
 
 ### Pendiente
+- Despliegue del schema en Supabase (11 migraciones listas, validación ⚠️ aprobada)
 - Testing en dispositivo Alexa real (solo simulador hasta ahora)
-- Despliegue de schema en Supabase
 - CI/CD pipeline
 
 ---
@@ -207,6 +223,8 @@ MILD_WEIGHT_CAP=0.6
 - Tests en `backend/tests/`, correr con `npm test`
 - Sync de contenido a BD: `node backend/scripts/sync_chapters.js`
 - Pipeline psicométrico: `npm run psychometrics:run` (desde `backend/`)
+- Validación 3 fases: `node scripts/validate_json.js && node scripts/audit_consequences.js && node scripts/audit_mappings.js && node scripts/generate_validation_report.js` (desde `backend/`)
+- Fuente de verdad del contenido: `backend/content/latam/` — NO usar `backend/content/chapters.json` ni `spain/` para desarrollo activo
 
 ---
 
