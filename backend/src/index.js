@@ -2449,7 +2449,7 @@ async function handleAlexa(req, res) {
               // New user or completed all stories: go to story selection
               const sa = Object.assign({}, sessionAttrs, { stage: 'story_select', pseudonym, consent_given: true, locale: requestLocale });
               res.writeHead(200, {'Content-Type':'application/json'});
-              return res.end(JSON.stringify(alexaResponse(getStorySelectionSpeech(), sa, false, true, getStorySelectionSpeech())));
+              return res.end(JSON.stringify(alexaResponse(getStorySelectionSpeech(), sa, false, true, 'Di uno, dos, tres o cuatro.')));
             }
           } catch (err) {
             console.error('error creating session from consent', err);
@@ -2495,7 +2495,7 @@ async function handleAlexa(req, res) {
         }
         if (!selectedStoryId) {
           res.writeHead(200, {'Content-Type':'application/json'});
-          return res.end(JSON.stringify(alexaResponse('No entendí tu elección. ' + getStorySelectionSpeech(), sessionAttrs, false, true, getStorySelectionSpeech())));
+          return res.end(JSON.stringify(alexaResponse('No entendí tu elección. ' + getStorySelectionSpeech(), sessionAttrs, false, true, 'Di uno, dos, tres o cuatro.')));
         }
         try {
           const ssPseudonym = sessionAttrs.pseudonym;
@@ -2548,7 +2548,7 @@ async function handleAlexa(req, res) {
           const ssOpts = ssRawOpts.slice(0, 3).map((o, idx) => ({ option_id: o.option_id, option_text: o.option_text, index: idx + 1, next_chapter_id: o.next_chapter_id || null, next_scene_id: o.next_scene_id || null }));
           console.log('📖 built', ssOpts.length, 'options');
           
-          const ssTail = ssOpts.length === 1 ? 'Di opción uno para elegir.' : ssOpts.length === 2 ? 'Di opción uno u opción dos para elegir.' : 'Di opción uno, opción dos u opción tres para elegir.';
+          const ssTail = ssOpts.length === 1 ? 'Di uno para elegir.' : ssOpts.length === 2 ? 'Di uno o dos para elegir.' : 'Di uno, dos o tres para elegir.';
           
           console.log('📖 getting story meta...');
           const ssMeta = getStoryMeta(selectedStoryId);
@@ -2595,7 +2595,7 @@ async function handleAlexa(req, res) {
             }
             const scRawOpts = scFirstScene.options || [];
             const scOpts = scRawOpts.slice(0, 3).map((o, idx) => ({ option_id: o.option_id, option_text: o.option_text, index: idx + 1, next_chapter_id: o.next_chapter_id || null, next_scene_id: o.next_scene_id || null }));
-            const scTail = scOpts.length === 1 ? 'Di opción uno para elegir.' : scOpts.length === 2 ? 'Di opción uno u opción dos para elegir.' : 'Di opción uno, opción dos u opción tres para elegir.';
+            const scTail = scOpts.length === 1 ? 'Di uno para elegir.' : scOpts.length === 2 ? 'Di uno o dos para elegir.' : 'Di uno, dos o tres para elegir.';
             const scSpeech = buildAlexaSceneSpeech(scFirstScene.text, scOpts, scTail, MAX_ALEXA_TEXT_CHARS);
             const saSC = Object.assign({}, sessionAttrs, { stage: 'scene', session_id: scSessionId, pseudonym: scPseudonym, consent_given: true, chapter_id: scChapterId, story_id: scStoryId, locale: requestLocale, current_scene_id: scFirstScene.scene_id, current_options: scOpts });
             res.writeHead(200, {'Content-Type':'application/json'});
@@ -2609,7 +2609,7 @@ async function handleAlexa(req, res) {
         if (isNewStory) {
           const saNewStory = Object.assign({}, sessionAttrs, { stage: 'story_select' });
           res.writeHead(200, {'Content-Type':'application/json'});
-          return res.end(JSON.stringify(alexaResponse(getStorySelectionSpeech(), saNewStory, false, true, getStorySelectionSpeech())));
+          return res.end(JSON.stringify(alexaResponse(getStorySelectionSpeech(), saNewStory, false, true, 'Di uno, dos, tres o cuatro.')));
         }
         res.writeHead(200, {'Content-Type':'application/json'});
         return res.end(JSON.stringify(alexaResponse('Por favor di continuar para seguir tu historia, o nueva para elegir una diferente.', sessionAttrs, false, true, 'Di continuar o nueva.')));
@@ -2642,7 +2642,7 @@ async function handleAlexa(req, res) {
         }
 
         const sceneRepromptText = opts.length > 0
-          ? 'Elige una opción. Di opción uno, opción dos u opción tres.'
+          ? 'Di uno, dos o tres.'
           : noResponsePrompt;
         
         try { console.log('scene debug - inputTranscript:', inputTranscript || '(none)'); } catch (e) {}
@@ -2699,7 +2699,7 @@ async function handleAlexa(req, res) {
                       current_options: autoOpts
                     });
                     res.writeHead(200, {'Content-Type':'application/json'});
-                    const repromptAuto = autoOpts.length > 0 ? 'Elige una opción. Di opción uno, opción dos u opción tres.' : noResponsePrompt;
+                    const repromptAuto = autoOpts.length > 0 ? 'Di uno, dos o tres.' : noResponsePrompt;
                     return res.end(JSON.stringify(alexaResponse(autoSpeech, saAuto, false, true, repromptAuto)));
                   }
                 }
@@ -2817,7 +2817,7 @@ async function handleAlexa(req, res) {
               const chapterId = nextChapter ? nextChapter.chapter_id : sessionAttrs.chapter_id;
               const sa3 = Object.assign({}, sessionAttrs, { chapter_id: chapterId, stage: 'scene', current_scene_id: nextScene.scene_id, current_options: nextOpts, last_decision: chosenOpt.option_id });
               res.writeHead(200, {'Content-Type':'application/json'});
-              const reprompt = nextOpts.length > 0 ? 'Elige una opción. Di opción uno, opción dos u opción tres.' : noResponsePrompt;
+              const reprompt = nextOpts.length > 0 ? 'Di uno, dos o tres.' : noResponsePrompt;
               return res.end(JSON.stringify(alexaResponse(nextSpeech, sa3, false, true, reprompt)));
             } else {
               const finalSpeech = consequence || 'Continuamos...';
@@ -3135,7 +3135,7 @@ async function handleAlexa(req, res) {
                 last_decision: chosenOpt.option_id
               });
               res.writeHead(200, {'Content-Type':'application/json'});
-              const repromptNext = nextOpts.length > 0 ? 'Elige una opción. Di opción uno, opción dos u opción tres.' : noResponsePrompt;
+              const repromptNext = nextOpts.length > 0 ? 'Di uno, dos o tres.' : noResponsePrompt;
               return res.end(JSON.stringify(alexaResponse(nextSpeech, saNew, false, true, repromptNext)));
             }
 
